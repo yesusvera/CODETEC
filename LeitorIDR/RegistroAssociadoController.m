@@ -161,7 +161,7 @@
     //Cliente Associado
     urlRegistrarDisp = [urlRegistrarDisp stringByAppendingString:@"associado=s"];
     
-    //DADOS DO FORMULARIO
+    //DADOS DO FORMULARIO - JONATHAN
     urlRegistrarDisp = [urlRegistrarDisp stringByAppendingString:@"&registro="];
     urlRegistrarDisp = [urlRegistrarDisp stringByAppendingString: [connectionIbra urlEncodeUsingEncoding:self.txtRegistroNacional.text]];
     
