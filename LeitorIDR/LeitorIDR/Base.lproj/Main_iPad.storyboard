@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="-7124" y="-3715"/>
         </scene>
-        <!--View Controller-->
+        <!--Registro Associado Controller-->
         <scene sceneID="rnR-VE-zAN">
             <objects>
-                <viewController id="ywW-3f-Juo" sceneMemberID="viewController">
+                <viewController id="ywW-3f-Juo" customClass="RegistroAssociadoController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MBJ-bD-7sn"/>
                         <viewControllerLayoutGuide type="bottom" id="AcA-uz-Rqd"/>
@@ -146,7 +146,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Registrar Dispositivo"/>
                                 <connections>
-                                    <segue destination="fqi-OD-FJi" kind="push" id="20O-I2-hwF"/>
+                                    <action selector="registrarDispositivo:" destination="ywW-3f-Juo" eventType="touchUpInside" id="0Ib-uE-xRZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwC-g0-g32">
@@ -185,6 +185,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="SxA-pv-QsJ"/>
+                    <connections>
+                        <outlet property="lblDispositivo" destination="NwC-g0-g32" id="Lkh-IH-7hU"/>
+                        <outlet property="lblIP" destination="oyJ-P4-8ax" id="NPG-sg-jAU"/>
+                        <outlet property="lblMacAdress" destination="jmU-ug-iG7" id="oa7-7y-UIl"/>
+                        <outlet property="lblSerial" destination="WAO-VX-0At" id="l8g-5n-27Y"/>
+                        <outlet property="txtCPFCNPJ" destination="NwU-Wo-X0n" id="jcB-n0-gP9"/>
+                        <outlet property="txtRegistroNacional" destination="mFq-Pz-an6" id="D0q-fb-pe0"/>
+                        <outlet property="txtSenha" destination="1ld-5D-w1P" id="WmW-gL-pIi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LNi-pe-Jx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,7 +209,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tTh-Bq-hBI" userLabel="Visão Geral">
-                                <rect key="frame" x="0.0" y="86" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tTh-Bq-hBI" id="vd1-hb-UkU">
                                     <rect key="frame" x="0.0" y="0.0" width="701" height="43"/>
@@ -223,7 +232,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="cos-DP-e4w">
-                                <rect key="frame" x="0.0" y="130" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cos-DP-e4w" id="MSV-lj-rHR">
                                     <rect key="frame" x="0.0" y="0.0" width="701" height="43"/>
@@ -245,7 +254,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="U81-k8-v7y">
-                                <rect key="frame" x="0.0" y="174" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="110" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U81-k8-v7y" id="4ce-MG-f1p">
                                     <rect key="frame" x="0.0" y="0.0" width="701" height="43"/>
@@ -267,7 +276,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="1WO-eI-rxI">
-                                <rect key="frame" x="0.0" y="218" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="154" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1WO-eI-rxI" id="Ig0-RV-4WD">
                                     <rect key="frame" x="0.0" y="0.0" width="701" height="43"/>
