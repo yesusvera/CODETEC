@@ -8,12 +8,30 @@
 
 #import <UIKit/UIKit.h>
 #import "RegistrarLivroResponse.h"
+#import "ObterEstanteResponse.h"
 
 
-@interface EstantesController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
+@interface EstantesController : UIViewController<UITableViewDataSource,UITableViewDelegate,NSXMLParserDelegate>{
+    ObterEstanteResponse *obterEstanteResponse;
+    NSString *erro;
+    NSString *msgErro;
+    
+    NSMutableString *valorElementoAtual;
     NSArray *estantes;
 }
 
 @property (nonatomic, retain) RegistrarLivroResponse *registrarLivroResponse;
+@property (weak, nonatomic) IBOutlet UITextField *txtCodCliente;
+@property (weak, nonatomic) IBOutlet UITextField *txtDocumento;
+@property (weak, nonatomic) IBOutlet UITextField *txtSenha;
+@property (weak, nonatomic) IBOutlet UILabel *lblDispositivo;
+@property (weak, nonatomic) IBOutlet UILabel *lblMacAdress;
+@property (weak, nonatomic) IBOutlet UILabel *lblIP;
+@property (weak, nonatomic) IBOutlet UILabel *lblSerial;
+@property(nonatomic, retain) NSString *erro;
+@property(nonatomic, retain) NSString *msgErro;
+- (IBAction) obterEstante:(id)sender;
+-(void)obterEstante:(NSString *)_url indicadorCarregando:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicadorAtividade;
 
 @end

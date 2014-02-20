@@ -17,6 +17,9 @@
 
 -(void)registrarDispositivo:(NSString *)_url indicadorCarregando:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador;
 
+
+
+
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;
 
 @end

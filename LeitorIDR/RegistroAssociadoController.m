@@ -188,6 +188,7 @@
 
     
     [connectionIbra registrarDispositivo:urlRegistrarDisp indicadorCarregando:self.indicadorAtividade controller:self];
+    
 }
 
 //+ (BOOL)validateCPFWithNSString:(NSString *)cpf {

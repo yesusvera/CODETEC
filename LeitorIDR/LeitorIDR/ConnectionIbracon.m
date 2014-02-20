@@ -115,6 +115,7 @@
         if([registrarLivroResponse.erro isEqualToString:@"0"] & [[registrarLivroResponse.status lowercaseString] isEqualToString:@"ativado"]){
             EstantesController *estanteController = [[EstantesController alloc] init];
             [estanteController setRegistrarLivroResponse:registrarLivroResponse];
+            [estanteController obterEstante:self];
             [controlador.navigationController pushViewController:estanteController animated:YES];
             
         }
@@ -144,4 +145,6 @@
     
     [networkQueue addOperation:operation];
 }
+
+
 @end
