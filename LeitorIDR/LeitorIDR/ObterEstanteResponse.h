@@ -7,19 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ParaBaixarResponse.h"
-#import "BaixadosResponse.h"   
-#import "DeDireitoResponse.h"
 
 @interface ObterEstanteResponse : NSObject{
-    ParaBaixarResponse *paraBaixar;
-    BaixadosResponse *baixados;
-    DeDireitoResponse *deDireito;
+    NSMutableArray *listaDeLivrosParaBaixar;
+    NSMutableArray *listaDeLivrosBaixados;
+    NSMutableArray *listaDeLivrosDeDireito;
 }
-@property(nonatomic, retain) ParaBaixarResponse *paraBaixar;
-@property(nonatomic, retain) BaixadosResponse *baixados;
-@property(nonatomic, retain) DeDireitoResponse *deDireito;
+
 @property(nonatomic, retain) NSString *erro;
 @property(nonatomic, retain) NSString *msgErro;
+@property(nonatomic, retain) NSMutableArray *listaDeLivrosParaBaixar;
+@property(nonatomic, retain) NSMutableArray *listaDeLivrosBaixados;
+@property(nonatomic, retain) NSMutableArray *listaDeLivrosDeDireito;
 
 @end

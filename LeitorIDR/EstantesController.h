@@ -15,6 +15,9 @@
     ObterEstanteResponse *obterEstanteResponse;
     NSString *erro;
     NSString *msgErro;
+    BOOL *isParaBaixar;
+    BOOL *isBaixados;
+    BOOL *isDeDireito;
     
     NSMutableString *valorElementoAtual;
     NSArray *estantes;
@@ -28,6 +31,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblMacAdress;
 @property (weak, nonatomic) IBOutlet UILabel *lblIP;
 @property (weak, nonatomic) IBOutlet UILabel *lblSerial;
+@property BOOL *isParaBaixar;
+@property BOOL *isBaixados;
+@property BOOL *isDeDireito;
+
 @property(nonatomic, retain) NSString *erro;
 @property(nonatomic, retain) NSString *msgErro;
 - (IBAction) obterEstante:(id)sender;

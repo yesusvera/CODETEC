@@ -17,10 +17,7 @@
 		8268F68618B2FE81005DC0AF /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8268F67C18B2FE81005DC0AF /* AFURLResponseSerialization.m */; };
 		8268F68718B2FE81005DC0AF /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8268F67E18B2FE81005DC0AF /* AFURLSessionManager.m */; };
 		82F335A418B59B86001636EE /* ObterEstanteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A318B59B86001636EE /* ObterEstanteResponse.m */; };
-		82F335A718B5AEB3001636EE /* ParaBaixarResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A618B5AEB3001636EE /* ParaBaixarResponse.m */; };
 		82F335AA18B5AEFE001636EE /* LivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A918B5AEFE001636EE /* LivroResponse.m */; };
-		82F335AD18B5B685001636EE /* BaixadosResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335AC18B5B685001636EE /* BaixadosResponse.m */; };
-		82F335B018B5B69A001636EE /* DeDireitoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335AF18B5B69A001636EE /* DeDireitoResponse.m */; };
 		FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5A360B18657E29006C7FF3 /* RegistroAssociadoController.m */; };
 		FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */; };
 		FB5A361218657EA6006C7FF3 /* RegistroNaoAssociadoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5A361018657EA6006C7FF3 /* RegistroNaoAssociadoController.m */; };
@@ -83,14 +80,8 @@
 		8268F67E18B2FE81005DC0AF /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		82F335A218B59B86001636EE /* ObterEstanteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObterEstanteResponse.h; sourceTree = "<group>"; };
 		82F335A318B59B86001636EE /* ObterEstanteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObterEstanteResponse.m; sourceTree = "<group>"; };
-		82F335A518B5AEB3001636EE /* ParaBaixarResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParaBaixarResponse.h; sourceTree = "<group>"; };
-		82F335A618B5AEB3001636EE /* ParaBaixarResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParaBaixarResponse.m; sourceTree = "<group>"; };
 		82F335A818B5AEFE001636EE /* LivroResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivroResponse.h; sourceTree = "<group>"; };
 		82F335A918B5AEFE001636EE /* LivroResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivroResponse.m; sourceTree = "<group>"; };
-		82F335AB18B5B685001636EE /* BaixadosResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaixadosResponse.h; sourceTree = "<group>"; };
-		82F335AC18B5B685001636EE /* BaixadosResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaixadosResponse.m; sourceTree = "<group>"; };
-		82F335AE18B5B69A001636EE /* DeDireitoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeDireitoResponse.h; sourceTree = "<group>"; };
-		82F335AF18B5B69A001636EE /* DeDireitoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeDireitoResponse.m; sourceTree = "<group>"; };
 		B159C45D2D774BBF9E4125BD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FB5A360A18657E29006C7FF3 /* RegistroAssociadoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistroAssociadoController.h; path = ../RegistroAssociadoController.h; sourceTree = "<group>"; };
 		FB5A360B18657E29006C7FF3 /* RegistroAssociadoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistroAssociadoController.m; path = ../RegistroAssociadoController.m; sourceTree = "<group>"; };
@@ -293,14 +284,8 @@
 				FBDF8A6E1877CAC0000EC732 /* RegistrarLivroResponse.m */,
 				82F335A218B59B86001636EE /* ObterEstanteResponse.h */,
 				82F335A318B59B86001636EE /* ObterEstanteResponse.m */,
-				82F335A518B5AEB3001636EE /* ParaBaixarResponse.h */,
-				82F335A618B5AEB3001636EE /* ParaBaixarResponse.m */,
 				82F335A818B5AEFE001636EE /* LivroResponse.h */,
 				82F335A918B5AEFE001636EE /* LivroResponse.m */,
-				82F335AB18B5B685001636EE /* BaixadosResponse.h */,
-				82F335AC18B5B685001636EE /* BaixadosResponse.m */,
-				82F335AE18B5B69A001636EE /* DeDireitoResponse.h */,
-				82F335AF18B5B69A001636EE /* DeDireitoResponse.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -467,9 +452,6 @@
 				8268F68318B2FE81005DC0AF /* AFSecurityPolicy.m in Sources */,
 				FB5F0A8718615A800068D497 /* IdrViewController.m in Sources */,
 				8268F68018B2FE81005DC0AF /* AFHTTPRequestOperationManager.m in Sources */,
-				82F335AD18B5B685001636EE /* BaixadosResponse.m in Sources */,
-				82F335B018B5B69A001636EE /* DeDireitoResponse.m in Sources */,
-				82F335A718B5AEB3001636EE /* ParaBaixarResponse.m in Sources */,
 				FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */,
 				FB5F0A7E18615A800068D497 /* AppDelegate.m in Sources */,
 				FB62EE2018763779007661BF /* ConnectionIbracon.m in Sources */,

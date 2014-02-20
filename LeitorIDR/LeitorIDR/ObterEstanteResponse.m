@@ -9,5 +9,5 @@
 #import "ObterEstanteResponse.h"
 
 @implementation ObterEstanteResponse
-@synthesize paraBaixar, erro, msgErro,baixados,deDireito;
+@synthesize erro, msgErro, listaDeLivrosParaBaixar, listaDeLivrosBaixados, listaDeLivrosDeDireito;
 @end

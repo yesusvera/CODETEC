@@ -21,13 +21,15 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"response"]){
         obterEstanteResponse = [[ObterEstanteResponse alloc] init];
-    }else if ([elementName isEqualToString:@"parabaixar"]){
-        obterEstanteResponse.paraBaixar = [[ParaBaixarResponse alloc] init];
-        obterEstanteResponse.paraBaixar.listaDeLivrosParaBaixar = [[NSMutableArray alloc]init];
+    }else if ([elementName  isEqualToString:@"parabaixar"]){
+        _isParaBaixar:YES;
+        obterEstanteResponse.listaDeLivrosParaBaixar = [[NSMutableArray alloc]init];
     }else if ([elementName isEqualToString:@"baixados"]){
-        obterEstanteResponse.baixados = [[BaixadosResponse alloc] init];
+        _isBaixados:YES;
+        obterEstanteResponse.listaDeLivrosBaixados = [[NSMutableArray alloc]init];
     }else if ([elementName isEqualToString:@"dedireito"]){
-        obterEstanteResponse.deDireito = [[DeDireitoResponse alloc] init];
+        _isDeDireito:YES;
+        obterEstanteResponse.listaDeLivrosDeDireito = [[NSMutableArray alloc]init];
     }
 }
 
@@ -46,8 +48,12 @@
     
     if([elementName isEqualToString:@"response"]){
         return;
-    }else if([elementName isEqualToString:@"parabaixar"]){
-        
+    }else if([elementName isEqualToString:@"livro"] && _isParaBaixar){
+        //TODO Falta implementar para armazenar no Array de livros especifico
+    }else if([elementName isEqualToString:@"livro"] && _isBaixados){
+        //TODO Falta implementar para armazenar no Array de livros especifico
+    }else if([elementName isEqualToString:@"livro"] && _isDeDireito){
+        //TODO Falta implementar para armazenar no Array de livros especifico
     }else if([elementName isEqualToString:@"erro"]){
         [obterEstanteResponse setErro:valorElementoAtual];
     }else if([elementName isEqualToString:@"msgErro"]){
