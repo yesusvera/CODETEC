@@ -10,6 +10,7 @@
 #import "EstanteLivrosController.h"
 #import "ConnectionIbracon.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "ObterEstanteResponse.h"
 
 @interface EstantesController ()
 
@@ -17,24 +18,33 @@
 
 @implementation EstantesController
 @synthesize erro,msgErro;
+BOOL *isParaBaixar;
+bool *isBaixados;
+bool *isDeDireito;
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"response"]){
         obterEstanteResponse = [[ObterEstanteResponse alloc] init];
     }else if ([elementName  isEqualToString:@"parabaixar"]){
-        _isParaBaixar:YES;
+        isParaBaixar : YES;
         obterEstanteResponse.listaDeLivrosParaBaixar = [[NSMutableArray alloc]init];
+        isBaixados = NO;
+        isDeDireito = NO;
     }else if ([elementName isEqualToString:@"baixados"]){
-        _isBaixados:YES;
+        isBaixados : YES;
         obterEstanteResponse.listaDeLivrosBaixados = [[NSMutableArray alloc]init];
+        isDeDireito = NO;
+        isParaBaixar = NO;
     }else if ([elementName isEqualToString:@"dedireito"]){
-        _isDeDireito:YES;
+        isDeDireito:YES;
         obterEstanteResponse.listaDeLivrosDeDireito = [[NSMutableArray alloc]init];
+        isParaBaixar = NO;
+        isBaixados = NO;
     }
 }
 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    if(!valorElementoAtual)
+    if([valorElementoAtual isEqualToString:@"livro"])
     {
         valorElementoAtual = [[NSMutableString alloc]initWithString:string];
     }
@@ -48,12 +58,12 @@
     
     if([elementName isEqualToString:@"response"]){
         return;
-    }else if([elementName isEqualToString:@"livro"] && _isParaBaixar){
-        //TODO Falta implementar para armazenar no Array de livros especifico
-    }else if([elementName isEqualToString:@"livro"] && _isBaixados){
-        //TODO Falta implementar para armazenar no Array de livros especifico
-    }else if([elementName isEqualToString:@"livro"] && _isDeDireito){
-        //TODO Falta implementar para armazenar no Array de livros especifico
+    }else if([elementName isEqualToString:@"livro"] && isParaBaixar){
+        [obterEstanteResponse.listaDeLivrosParaBaixar addObject:valorElementoAtual];
+    }else if([elementName isEqualToString:@"livro"] && isBaixados){
+        [obterEstanteResponse.listaDeLivrosBaixados addObject:valorElementoAtual];
+    }else if([elementName isEqualToString:@"livro"] && isDeDireito){
+        [obterEstanteResponse.listaDeLivrosDeDireito addObject:valorElementoAtual];
     }else if([elementName isEqualToString:@"erro"]){
         [obterEstanteResponse setErro:valorElementoAtual];
     }else if([elementName isEqualToString:@"msgErro"]){
@@ -61,7 +71,7 @@
     }
     
     valorElementoAtual = nil;
-    
+    obterEstanteResponse = nil;
 }
 
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {
