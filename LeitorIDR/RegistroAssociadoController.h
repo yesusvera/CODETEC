@@ -18,5 +18,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblIP;
 @property (weak, nonatomic) IBOutlet UILabel *lblSerial;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicadorAtividade;
-- (IBAction) obterEstante:(id)sender;
 @end

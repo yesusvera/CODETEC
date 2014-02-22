@@ -154,16 +154,14 @@
 - (IBAction)registrarDispositivo:(id)sender {
     //    NSString *urlRegistrarDisp = @"http://www.ibracon.com.br/idr/ws/ws_registrar.php?endereco=GUARA&senha=1234&numero=23&serial=W892913L644&cidade=BRASILIA&ip=192.168.1.10&cliente=YESUS&dispositivo=MacBook-Pro-de-Yesus.local&macadress=00-26-08-E5-4F-01&registro=RN001&uf=DF&email=yesusvera%40gmail.com&cep=&documento=001&associado=n&telefone=111&bairro=GUARA+II&complemento=123";
     
-    // MAIS UM TESTES DE COMMIT - YESUS
     NSString *urlRegistrarDisp = @"http://www.ibracon.com.br/idr/ws/ws_registrar.php?";
-    //NSString *urlRegistrarDisp = @"http://www.ibracon.com.br/idr/ws/ws_estantes.php?";
 
     ConnectionIbracon *connectionIbra =[ConnectionIbracon alloc];
     
     //Cliente Associado
     urlRegistrarDisp = [urlRegistrarDisp stringByAppendingString:@"associado=s"];
     
-    //DADOS DO FORMULARIO - JONATHAN
+    //DADOS DO FORMULARIO
     urlRegistrarDisp = [urlRegistrarDisp stringByAppendingString:@"&registro="];
     urlRegistrarDisp = [urlRegistrarDisp stringByAppendingString: [connectionIbra urlEncodeUsingEncoding:self.txtRegistroNacional.text]];
     

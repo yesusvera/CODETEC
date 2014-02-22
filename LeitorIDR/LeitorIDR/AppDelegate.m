@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "PerguntaRegistroController.h"
 #import "AFNetworking.h"
+#import "EstantesController.h"
 
 @implementation AppDelegate
 

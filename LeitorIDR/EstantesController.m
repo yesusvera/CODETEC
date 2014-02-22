@@ -8,14 +8,7 @@
 
 #import "EstantesController.h"
 #import "EstanteLivrosController.h"
-#import "AFHTTPRequestOperationManager.h"
 #import "ObterEstanteIbracon.h"
-#include <ifaddrs.h>
-#include <arpa/inet.h>
-#include <sys/socket.h>
-#include <sys/sysctl.h>
-#include <net/if.h>
-#include <net/if_dl.h>
 
 @interface EstantesController ()
 
@@ -70,19 +63,15 @@
 
 
 - (IBAction) obterEstante:(id)sender {
-    //    NSString *urlRegistrarDisp = @"http://www.ibracon.com.br/idr/ws/ws_registrar.php?endereco=GUARA&senha=1234&numero=23&serial=W892913L644&cidade=BRASILIA&ip=192.168.1.10&cliente=YESUS&dispositivo=MacBook-Pro-de-Yesus.local&macadress=00-26-08-E5-4F-01&registro=RN001&uf=DF&email=yesusvera%40gmail.com&cep=&documento=001&associado=n&telefone=111&bairro=GUARA+II&complemento=123";
-    
-    // MAIS UM TESTES DE COMMIT - YESUS
     NSString *urlObterEstante = @"http://www.ibracon.com.br/idr/ws/ws_estantes.php?";
     
     ObterEstanteIbracon *obterEstanteIbracon = [[ObterEstanteIbracon alloc] init];
     
     
-    //Cliente Associado
+    //Cliente
     urlObterEstante = [urlObterEstante stringByAppendingString:@"cliente="];
     urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:@"1373"]];
-    
-    //DADOS DO FORMULARIO - JONATHAN
+
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&documento="];
     urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:@"338.804.908-48"]];
     
@@ -92,9 +81,7 @@
     
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&keyword="];
     //urlObterEstante = [urlObterEstante stringByAppendingString: [connectionIbra urlEncodeUsingEncoding:self.txtSenha.text]];
-    
-    
-    //DADOS DO DISPOSITIVO
+
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&senha="];
     urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:@"teste"]];
     
