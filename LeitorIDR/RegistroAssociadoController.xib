@@ -95,7 +95,7 @@
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                     <state key="normal" title="Registrar Dispositivo"/>
                     <connections>
-                        <action selector="registrarDispositivo:" destination="-1" eventType="touchUpInside" id="98z-74-7N6"/>
+                        <action selector="registrarDispositivo:" destination="-1" eventType="touchUpInside" id="0fW-iz-jSF"/>
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbB-Ag-y1M">

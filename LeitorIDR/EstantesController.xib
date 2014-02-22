@@ -20,7 +20,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="1x1-Re-Lqf"/>
-                        <outlet property="delegate" destination="-1" id="c5o-q4-58k"/>
+                        <outlet property="delegate" destination="-1" id="DIf-bE-j3N"/>
                     </connections>
                 </tableView>
             </subviews>

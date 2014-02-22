@@ -8,17 +8,18 @@
 
 #import "AppDelegate.h"
 #import "PerguntaRegistroController.h"
+#import "AFNetworking.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    
-//    PerguntaRegistroController *perguntaRegistroViewController = [[PerguntaRegistroController alloc] init];
-//    UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:perguntaRegistroViewController];
-//    self.window.rootViewController = navController;
-//    [self.window makeKeyAndVisible];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    PerguntaRegistroController *perguntaRegistroViewController = [[PerguntaRegistroController alloc] init];
+    UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:perguntaRegistroViewController];
+    self.window.rootViewController = navController;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

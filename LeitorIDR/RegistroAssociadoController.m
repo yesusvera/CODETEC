@@ -1,4 +1,4 @@
-//
+ //
 //  RegistroAssociadoController.m
 //  LeitorIDR
 //
@@ -14,6 +14,7 @@
 #include <sys/sysctl.h>
 #include <net/if.h>
 #include <net/if_dl.h>
+#import "EstantesController.h"
 
 @interface RegistroAssociadoController ()
 
@@ -155,8 +156,9 @@
     
     // MAIS UM TESTES DE COMMIT - YESUS
     NSString *urlRegistrarDisp = @"http://www.ibracon.com.br/idr/ws/ws_registrar.php?";
+    //NSString *urlRegistrarDisp = @"http://www.ibracon.com.br/idr/ws/ws_estantes.php?";
+
     ConnectionIbracon *connectionIbra =[ConnectionIbracon alloc];
-    
     
     //Cliente Associado
     urlRegistrarDisp = [urlRegistrarDisp stringByAppendingString:@"associado=s"];

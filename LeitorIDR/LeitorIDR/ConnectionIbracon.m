@@ -75,6 +75,7 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    NSLog(@"%@", operation);
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSLog(@"%@", respostaXML);
@@ -84,6 +85,7 @@
         
         //FAZENDO O PARSE XML
         NSData *respDataXML = [respostaXML dataUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"%@", respostaXML);
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
         [parser setDelegate:self];
         
@@ -115,7 +117,6 @@
         if([registrarLivroResponse.erro isEqualToString:@"0"] & [[registrarLivroResponse.status lowercaseString] isEqualToString:@"ativado"]){
             EstantesController *estanteController = [[EstantesController alloc] init];
             [estanteController setRegistrarLivroResponse:registrarLivroResponse];
-            [estanteController obterEstante:self];
             [controlador.navigationController pushViewController:estanteController animated:YES];
             
         }
