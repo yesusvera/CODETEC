@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */; };
 		82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */; };
 		82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F618B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m */; };
 		82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F818B8DD7A00EE7722 /* AFHTTPSessionManager.m */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EstanteIbracon.xml; path = ../../EstanteIbracon.xml; sourceTree = "<group>"; };
 		47E5FF1C835D4E76A8748C52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E038F318B8DD7A00EE7722 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				FBF1E1341869506E00671EE2 /* EstantesController.h */,
+				2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */,
 				FBF1E1351869506E00671EE2 /* EstantesController.m */,
 				FBF1E1361869506E00671EE2 /* EstantesController.xib */,
 				FBC727A918658EAD00F72A23 /* PerguntaRegistroController.h */,
@@ -390,6 +393,7 @@
 				FB5A361318657EA6006C7FF3 /* RegistroNaoAssociadoController.xib in Resources */,
 				FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */,
 				FBF1E1381869506E00671EE2 /* EstantesController.xib in Resources */,
+				2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */,
 				FB5F0A8418615A800068D497 /* Main_iPad.storyboard in Resources */,
 				FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */,
 				FB5F0A8118615A800068D497 /* Main_iPhone.storyboard in Resources */,

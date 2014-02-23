@@ -15,6 +15,9 @@
     NSMutableString *valorNoAtual;
     NSString *erro;
     NSString *msgErro;
+    BOOL *isParaBaixar ;
+    BOOL *isBaixados ;
+    BOOL *isDeDireito ;
 }
 
 @property(nonatomic, retain) NSString *erro;
