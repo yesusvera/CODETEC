@@ -187,7 +187,7 @@
     urlRegistrarDisp = [urlRegistrarDisp stringByAppendingString: [connectionIbra urlEncodeUsingEncoding:self.lblSerial.text]];
 
     
-    [connectionIbra registrarDispositivo:urlRegistrarDisp indicadorCarregando:self.indicadorAtividade controller:self];
+    [connectionIbra registrarDispositivo:urlRegistrarDisp indicadorCarregando:self.indicadorAtividade controller:self documento:self.txtCPFCNPJ.text senha:self.txtSenha.text];
     
 }
 

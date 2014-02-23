@@ -17,9 +17,9 @@
 
 @property (nonatomic, retain) RegistrarLivroResponse *registrarLivroResponse;
 @property (nonatomic, retain) ObterEstanteIbracon *obterEstanteResponse;
-@property (weak, nonatomic) IBOutlet UITextField *txtCodCliente;
-@property (weak, nonatomic) IBOutlet UITextField *txtDocumento;
-@property (weak, nonatomic) IBOutlet UITextField *txtSenha;
+@property (nonatomic, retain) NSString *txtCodCliente;
+@property (nonatomic, retain) NSString *txtDocumento;
+@property (nonatomic, retain) NSString *txtSenha;
 @property (weak, nonatomic) IBOutlet UILabel *lblDispositivo;
 @property (weak, nonatomic) IBOutlet UILabel *lblMacAdress;
 @property (weak, nonatomic) IBOutlet UILabel *lblIP;

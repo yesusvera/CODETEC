@@ -80,8 +80,8 @@ bool *isDeDireito;
 
 
 -(void)conectarObterEstante:(NSString *)_url{
-    //NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
-    //networkQueue.maxConcurrentOperationCount = 5;
+    NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
+    networkQueue.maxConcurrentOperationCount = 5;
     NSLog(@"%@", _url);
 
     NSURL *url = [NSURL URLWithString:_url];
@@ -157,8 +157,8 @@ bool *isDeDireito;
     //    indicadorAtividade.hidden = NO;
     //    [indicadorAtividade startAnimating];
     
-    [operation start];
-    //[networkQueue addOperation:operation];
+    //[operation start];
+    [networkQueue addOperation:operation];
 }
 
 

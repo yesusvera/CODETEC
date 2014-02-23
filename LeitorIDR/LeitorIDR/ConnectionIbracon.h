@@ -15,7 +15,7 @@
 }
 
 
--(void)registrarDispositivo:(NSString *)_url indicadorCarregando:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador;
+-(void)registrarDispositivo:(NSString *)_url indicadorCarregando:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador documento:(NSString *) documento senha:(NSString *) senha;
 
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;
 

@@ -65,7 +65,7 @@
 
 
 
--(void)registrarDispositivo:(NSString *)_url indicadorCarregando:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador{
+-(void)registrarDispositivo:(NSString *)_url indicadorCarregando:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador documento:(NSString *) documento senha:(NSString *) senha{
     NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
     networkQueue.maxConcurrentOperationCount = 5;
     
@@ -117,6 +117,8 @@
         if([registrarLivroResponse.erro isEqualToString:@"0"] & [[registrarLivroResponse.status lowercaseString] isEqualToString:@"ativado"]){
             EstantesController *estanteController = [[EstantesController alloc] init];
             [estanteController setRegistrarLivroResponse:registrarLivroResponse];
+            [estanteController setTxtDocumento : documento];
+            [estanteController setTxtSenha : senha];
             [controlador.navigationController pushViewController:estanteController animated:YES];
             
         }

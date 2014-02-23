@@ -70,20 +70,20 @@
     
     //Cliente
     urlObterEstante = [urlObterEstante stringByAppendingString:@"cliente="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:@"1373"]];
+    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarLivroResponse.codCliente]];
 
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&documento="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:@"338.804.908-48"]];
+    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.txtDocumento]];
     
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&dispositivo="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:@"54"]];
+    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarLivroResponse.codDispositivo]];
     
     
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&keyword="];
     //urlObterEstante = [urlObterEstante stringByAppendingString: [connectionIbra urlEncodeUsingEncoding:self.txtSenha.text]];
 
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&senha="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:@"teste"]];
+    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.txtSenha]];
     
     [obterEstanteIbracon conectarObterEstante:urlObterEstante];
 }
