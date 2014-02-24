@@ -9,18 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface LivroResponse : NSObject{
-    NSString *codigoLivro;
+    NSString *codigolivro;
     NSString *titulo;
     NSString *versao;
-    NSString *codigoLoja;
+    NSString *codigoloja;
     NSString *foto;
     NSString *arquivo;
 }
 
-@property(nonatomic, retain) NSString *codigoLivro;
+@property(nonatomic, retain) NSString *codigolivro;
 @property(nonatomic, retain) NSString *titulo;
 @property(nonatomic, retain) NSString *versao;
-@property(nonatomic, retain) NSString *codigoLoja;
+@property(nonatomic, retain) NSString *codigoloja;
 @property(nonatomic, retain) NSString *foto;
 @property(nonatomic, retain) NSString *arquivo;
 

@@ -7,24 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LivroResponse.h"
 
 @interface ObterEstanteIbracon : NSObject<NSXMLParserDelegate>{
     NSMutableArray *listaDeLivrosParaBaixar;
     NSMutableArray *listaDeLivrosBaixados;
     NSMutableArray *listaDeLivrosDeDireito;
+    BOOL *isParaBaixar;
+    BOOL *isBaixados;
+    BOOL *isDeDireito;
     NSMutableString *valorNoAtual;
+    LivroResponse *livro;
     NSString *erro;
     NSString *msgErro;
-    BOOL *isParaBaixar ;
-    BOOL *isBaixados ;
-    BOOL *isDeDireito ;
 }
-
-@property(nonatomic, retain) NSString *erro;
-@property(nonatomic, retain) NSString *msgErro;
-@property(nonatomic, retain) NSMutableArray *listaDeLivrosParaBaixar;
-@property(nonatomic, retain) NSMutableArray *listaDeLivrosBaixados;
-@property(nonatomic, retain) NSMutableArray *listaDeLivrosDeDireito;
 -(void)conectarObterEstante:(NSString *)_url;
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;
 

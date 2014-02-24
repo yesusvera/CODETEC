@@ -10,7 +10,7 @@
 #import "AFHTTPRequestOperationManager.h"
 
 @implementation ObterEstanteIbracon
-@synthesize erro, msgErro, listaDeLivrosParaBaixar, listaDeLivrosBaixados, listaDeLivrosDeDireito;
+//@synthesize listaDeLivrosParaBaixar, listaDeLivrosBaixados, listaDeLivrosDeDireito, isBaixados, isDeDireito, isParaBaixar;
 
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
@@ -18,50 +18,56 @@
         return;
     }
     if ([elementName  isEqualToString:@"parabaixar"]){
-        isParaBaixar : YES;
+        isParaBaixar = YES;
         listaDeLivrosParaBaixar = [[NSMutableArray alloc]init];
         isBaixados = NO;
         isDeDireito = NO;
     }else if ([elementName isEqualToString:@"baixados"]){
-        isBaixados : YES;
+        isBaixados = YES;
         listaDeLivrosBaixados = [[NSMutableArray alloc]init];
         isDeDireito = NO;
         isParaBaixar = NO;
     }else if ([elementName isEqualToString:@"dedireito"]){
-        isDeDireito:YES;
+        isDeDireito = YES;
         listaDeLivrosDeDireito = [[NSMutableArray alloc]init];
         isParaBaixar = NO;
         isBaixados = NO;
+    }else if ([elementName isEqualToString:@"livro"]){
+        livro = [[LivroResponse alloc]init];
     }
 }
 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    if([valorNoAtual isEqualToString:@"livro"])
+    
+    if(!valorNoAtual)
     {
         valorNoAtual = [[NSMutableString alloc]initWithString:string];
-    }
-    else
-    {
+
+    }else{
         [valorNoAtual appendString:string];
     }
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
     
-    if([elementName isEqualToString:@"response"]){
+    if([elementName isEqualToString:@"response"] || [elementName isEqualToString:@"baixados"] || [elementName isEqualToString:@"parabaixar"] || [elementName isEqualToString:@"dedireito"]){
         return;
     }
     if([elementName isEqualToString:@"livro"] && isParaBaixar){
-        [listaDeLivrosParaBaixar addObject:valorNoAtual];
+        [listaDeLivrosParaBaixar addObject:livro];
+        livro = nil;
     }else if([elementName isEqualToString:@"livro"] && isBaixados){
-        [listaDeLivrosBaixados addObject:valorNoAtual];
+        [listaDeLivrosBaixados addObject:livro];
+        livro = nil;
     }else if([elementName isEqualToString:@"livro"] && isDeDireito){
-        [listaDeLivrosDeDireito addObject:valorNoAtual];
+        [listaDeLivrosDeDireito addObject:livro];
+        livro = nil;
     }else if([elementName isEqualToString:@"erro"]){
         erro = valorNoAtual;
     }else if([elementName isEqualToString:@"msgErro"]){
         msgErro = valorNoAtual;
-    }
+    }else
+        [livro setValue:valorNoAtual forKey:elementName];
     
     valorNoAtual = nil;
 }
