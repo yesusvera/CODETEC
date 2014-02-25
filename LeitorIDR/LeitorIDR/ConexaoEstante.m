@@ -82,7 +82,7 @@ BOOL isDeDireito;
     }else if([elementName isEqualToString:@"msgErro"]){
         msgErro = valorNoAtual;
     }else
-        [livro setValue:valorNoAtual forKey:elementName];
+        [livro setValue:valorNoAtual.capitalizedString forKey:elementName];
     
     valorNoAtual = nil;
 }
@@ -136,7 +136,7 @@ BOOL isDeDireito;
         //indicadorAtividade.hidden = YES;
         
         //FAZENDO O PARSE XML
-        NSData *respDataXML = [respostaXML dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *respDataXML = [respostaXML dataUsingEncoding:NSISOLatin1StringEncoding];
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
         [parser setDelegate:self];
         
