@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RegistrarLivroResponse.h"
+#import "RegistrarLivroResposta.h"
+#import "EstanteResponse.h"
 
 
-@interface EstanteLivrosController : UIViewController
+@interface EstanteLivrosController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
+      EstanteResponse *estanteResponse;
+} 
 
 @property (weak, nonatomic) IBOutlet UILabel *nomeEstanteLabel;
 @property (nonatomic, retain) NSString *nomeEstante;
-@property (nonatomic, retain) RegistrarLivroResponse *registrarLivroResponse;
+@property (nonatomic, retain) RegistrarLivroResposta *registrarLivroResponse;
+@property (nonatomic, retain) EstanteResponse *estanteResponse;
+
 @end

@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RegistrarLivroResponse.h"
-#import "ObterEstanteIbracon.h"
+#import "RegistrarLivroResposta.h"
+#import "ConexaoEstante.h"
 
 
 @interface EstantesController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
     NSArray *estantes;
 }
 
-@property (nonatomic, retain) RegistrarLivroResponse *registrarLivroResponse;
-@property (nonatomic, retain) ObterEstanteIbracon *obterEstanteResponse;
+@property (nonatomic, retain) RegistrarLivroResposta *registrarLivroResponse;
+@property (nonatomic, retain) ConexaoEstante *conexaoEstante;
 @property (nonatomic, retain) NSString *txtCodCliente;
 @property (nonatomic, retain) NSString *txtDocumento;
 @property (nonatomic, retain) NSString *txtSenha;

@@ -7,7 +7,7 @@
 //
 
 #import "RegistroAssociadoController.h"
-#import "ConnectionIbracon.h"
+#import "ConexaoRegistrarDispositivo.h"
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
@@ -156,7 +156,7 @@
     
     NSString *urlRegistrarDisp = @"http://www.ibracon.com.br/idr/ws/ws_registrar.php?";
 
-    ConnectionIbracon *connectionIbra =[ConnectionIbracon alloc];
+    ConexaoRegistrarDispositivo *connectionIbra =[ConexaoRegistrarDispositivo alloc];
     
     //Cliente Associado
     urlRegistrarDisp = [urlRegistrarDisp stringByAppendingString:@"associado=s"];

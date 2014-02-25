@@ -6,32 +6,44 @@
 //  Copyright (c) 2014 Yesus Castillo Vera. All rights reserved.
 //
 
-#import "ObterEstanteIbracon.h"
+#import "ConexaoEstante.h"
 #import "AFHTTPRequestOperationManager.h"
 
-@implementation ObterEstanteIbracon
-@synthesize listaDeLivrosParaBaixar, listaDeLivrosBaixados, listaDeLivrosDeDireito;
+
+@implementation ConexaoEstante
+
+@synthesize estanteResponse;
 
 BOOL isBaixados;
 BOOL isParaBaixar;
 BOOL isDeDireito;
+
+
+-(id)init{
+    self = [super init];
+    if(self){
+        estanteResponse = [[EstanteResponse alloc]init];
+    }
+
+    return self;
+}
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"response"]){
         return;
     }
     if ([elementName  isEqualToString:@"baixados"]){
-        listaDeLivrosBaixados = [[NSMutableArray alloc]init];
+        estanteResponse.listaDeLivrosBaixados = [[NSMutableArray alloc]init];
         isBaixados = YES;
         isParaBaixar = NO;
         isDeDireito = NO;
     }else if ([elementName isEqualToString:@"parabaixar"]){
-        listaDeLivrosParaBaixar = [[NSMutableArray alloc]init];
+        estanteResponse.listaDeLivrosParaBaixar = [[NSMutableArray alloc]init];
         isParaBaixar = YES;
         isDeDireito = NO;
         isBaixados = NO;
     }else if ([elementName isEqualToString:@"dedireito"]){
-        listaDeLivrosDeDireito = [[NSMutableArray alloc]init];
+        estanteResponse.listaDeLivrosDeDireito = [[NSMutableArray alloc]init];
         isDeDireito = YES;
         isParaBaixar = NO;
         isBaixados = NO;
@@ -57,13 +69,13 @@ BOOL isDeDireito;
         return;
     }
     if([elementName isEqualToString:@"livro"] && isParaBaixar){
-        [listaDeLivrosParaBaixar addObject:livro];
+        [estanteResponse.listaDeLivrosParaBaixar addObject:livro];
         livro = nil;
     }else if([elementName isEqualToString:@"livro"] && isBaixados){
-        [listaDeLivrosBaixados addObject:livro];
+        [estanteResponse.listaDeLivrosBaixados addObject:livro];
         livro = nil;
     }else if([elementName isEqualToString:@"livro"] && isDeDireito){
-        [listaDeLivrosDeDireito addObject:livro];
+        [estanteResponse.listaDeLivrosDeDireito addObject:livro];
         livro = nil;
     }else if([elementName isEqualToString:@"erro"]){
         erro = valorNoAtual;
@@ -137,12 +149,12 @@ BOOL isDeDireito;
         
         
         //REDIRECIONANDO PARA AS ESTANTES
-        //        if([registrarLivroResponse.erro isEqualToString:@"0"] & [[registrarLivroResponse.status lowercaseString] isEqualToString:@"ativado"]){
-        //            EstantesController *estanteController = [[EstantesController alloc] init];
-        //            [estanteController setRegistrarLivroResponse:registrarLivroResponse];
-        //            [controlador.navigationController pushViewController:estanteController animated:YES];
-        //
-        //        }
+//                if([registrarLivroResponse.erro isEqualToString:@"0"] & [[registrarLivroResponse.status lowercaseString] isEqualToString:@"ativado"]){
+//                    EstantesController *estanteController = [[EstantesController alloc] init];
+//                    [estanteController setRegistrarLivroResponse:registrarLivroResponse];
+//                    [controlador.navigationController pushViewController:estanteController animated:YES];
+//        
+//                }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RegistrarLivroResponse.h"
+#import "RegistrarLivroResposta.h"
 
-@interface ConnectionIbracon : NSObject <NSXMLParserDelegate>{
-    RegistrarLivroResponse *registrarLivroResponse;
+@interface ConexaoRegistrarDispositivo : NSObject <NSXMLParserDelegate>{
+    RegistrarLivroResposta *registrarLivroResponse;
     NSMutableString *valorElementoAtual;
 }
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Yesus Castillo Vera. All rights reserved.
 //
 
-#import "RegistrarLivroResponse.h"
+#import "RegistrarLivroResposta.h"
 
-@implementation RegistrarLivroResponse
+@implementation RegistrarLivroResposta
 
 @synthesize codCliente,codDispositivo,status,appVersion,erro,msgErro;
 

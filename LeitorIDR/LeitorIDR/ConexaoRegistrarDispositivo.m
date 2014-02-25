@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Yesus Castillo Vera. All rights reserved.
 //
 
-#import "ConnectionIbracon.h"
+#import "ConexaoRegistrarDispositivo.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "EstantesController.h"
 
-@implementation ConnectionIbracon
+@implementation ConexaoRegistrarDispositivo
 
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"response"]){
-        registrarLivroResponse = [[RegistrarLivroResponse alloc] init];
+        registrarLivroResponse = [[RegistrarLivroResposta alloc] init];
     }
 }
 

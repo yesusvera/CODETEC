@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RegistrarLivroResponse : NSObject{
+@interface RegistrarLivroResposta : NSObject{
     NSString *codCliente;
     NSString *codDispositivo;
     NSString *status;

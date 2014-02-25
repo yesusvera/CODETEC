@@ -8,7 +8,7 @@
 
 #import "EstantesController.h"
 #import "EstanteLivrosController.h"
-#import "ObterEstanteIbracon.h"
+#import "ConexaoEstante.h"
 
 @interface EstantesController ()
 
@@ -30,6 +30,9 @@
     EstanteLivrosController *estanteLivros = [[EstanteLivrosController alloc]init];
     estanteLivros.nomeEstante = [estantes objectAtIndex:indexPath.row];
     [estanteLivros setRegistrarLivroResponse:self.registrarLivroResponse];
+    [estanteLivros setEstanteResponse:self.conexaoEstante.estanteResponse];
+    
+    
     [self.navigationController pushViewController:estanteLivros animated:YES];
 }
 
@@ -65,7 +68,7 @@
 - (IBAction) obterEstante:(id)sender {
     NSString *urlObterEstante = @"http://www.ibracon.com.br/idr/ws/ws_estantes.php?";
     
-    ObterEstanteIbracon *obterEstanteIbracon = [[ObterEstanteIbracon alloc] init];
+     _conexaoEstante = [[ConexaoEstante alloc] init];
     
     
     //Cliente
@@ -85,7 +88,9 @@
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&senha="];
     urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.txtSenha]];
     
-    [obterEstanteIbracon conectarObterEstante:urlObterEstante];
+    [_conexaoEstante conectarObterEstante:urlObterEstante];
+    
+    
 }
 
 
