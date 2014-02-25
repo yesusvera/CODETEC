@@ -113,15 +113,11 @@ BOOL isDeDireito;
     NSLog(@"%@", _url);
 
     NSURL *url = [NSURL URLWithString:_url];
-    //NSLog(@"%@", networkQueue);
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    NSLog(@"%@", request);
-    
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    NSLog(@"%@", operation);
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSISOLatin1StringEncoding];
         NSLog(@"%@", respostaXML);
         
         //[indicadorAtividade stopAnimating];
@@ -138,21 +134,6 @@ BOOL isDeDireito;
             NSLog(@"Ok Parse");
         }
         
-        
-//        NSString *mensagemAlerta;
-//        if(![erro isEqualToString:@"0"]){
-//            mensagemAlerta = [mensagemAlerta stringByAppendingString:msgErro];
-//        }
-        
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Registro "
-//                                                        message:mensagemAlerta
-//                                                       delegate:nil
-//                                              cancelButtonTitle:@"OK"
-//                                              otherButtonTitles:nil
-//                              
-//                              ];
-//        
-//        [alert show];
         
         
         //REDIRECIONANDO PARA AS ESTANTES
@@ -182,10 +163,9 @@ BOOL isDeDireito;
         
     }];
     
-    //    indicadorAtividade.hidden = NO;
-    //    [indicadorAtividade startAnimating];
+    //indicadorAtividade.hidden = NO;
+    //[indicadorAtividade startAnimating];
     
-    //[operation start];
     [networkQueue addOperation:operation];
 }
 
