@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<response>
+    <codCliente>1</codCliente>
+    <codDispositivo>1</codDispositivo>
+    <status>Ativado</status>
+    <appVersion>1.0</appVersion>
+    <erro>0</erro>
+    <msgErro>N/A</msgErro>
+</response>

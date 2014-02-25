@@ -10,26 +10,29 @@
 #import "AFHTTPRequestOperationManager.h"
 
 @implementation ObterEstanteIbracon
-//@synthesize listaDeLivrosParaBaixar, listaDeLivrosBaixados, listaDeLivrosDeDireito, isBaixados, isDeDireito, isParaBaixar;
+@synthesize listaDeLivrosParaBaixar, listaDeLivrosBaixados, listaDeLivrosDeDireito;
 
+BOOL isBaixados;
+BOOL isParaBaixar;
+BOOL isDeDireito;
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"response"]){
         return;
     }
-    if ([elementName  isEqualToString:@"parabaixar"]){
-        isParaBaixar = YES;
-        listaDeLivrosParaBaixar = [[NSMutableArray alloc]init];
-        isBaixados = NO;
-        isDeDireito = NO;
-    }else if ([elementName isEqualToString:@"baixados"]){
-        isBaixados = YES;
+    if ([elementName  isEqualToString:@"baixados"]){
         listaDeLivrosBaixados = [[NSMutableArray alloc]init];
-        isDeDireito = NO;
+        isBaixados = YES;
         isParaBaixar = NO;
+        isDeDireito = NO;
+    }else if ([elementName isEqualToString:@"parabaixar"]){
+        listaDeLivrosParaBaixar = [[NSMutableArray alloc]init];
+        isParaBaixar = YES;
+        isDeDireito = NO;
+        isBaixados = NO;
     }else if ([elementName isEqualToString:@"dedireito"]){
-        isDeDireito = YES;
         listaDeLivrosDeDireito = [[NSMutableArray alloc]init];
+        isDeDireito = YES;
         isParaBaixar = NO;
         isBaixados = NO;
     }else if ([elementName isEqualToString:@"livro"]){
@@ -103,7 +106,7 @@
     }
 
     
-    
+// DESCOMENTAR QUANDO USAR O WEBSERVICE
     
 //    NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
 //    networkQueue.maxConcurrentOperationCount = 5;

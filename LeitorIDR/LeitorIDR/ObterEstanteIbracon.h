@@ -13,9 +13,6 @@
     NSMutableArray *listaDeLivrosParaBaixar;
     NSMutableArray *listaDeLivrosBaixados;
     NSMutableArray *listaDeLivrosDeDireito;
-    BOOL *isParaBaixar;
-    BOOL *isBaixados;
-    BOOL *isDeDireito;
     NSMutableString *valorNoAtual;
     LivroResponse *livro;
     NSString *erro;
@@ -23,5 +20,8 @@
 }
 -(void)conectarObterEstante:(NSString *)_url;
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;
+@property (nonatomic, retain) NSMutableArray *listaDeLivrosParaBaixar;
+@property (nonatomic, retain) NSMutableArray *listaDeLivrosBaixados;
+@property (nonatomic, retain) NSMutableArray *listaDeLivrosDeDireito;
 
 @end
