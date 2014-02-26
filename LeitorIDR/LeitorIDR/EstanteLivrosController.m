@@ -8,6 +8,7 @@
 
 #import "EstanteLivrosController.h"
 #import "LivroResponse.h"
+#import "LivroDetalhesView.h"
 
 @interface EstanteLivrosController ()
 
@@ -83,9 +84,24 @@
 
 
 //implementando o DELEGATE
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//   
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    LivroResponse *livro;
+
+    if([_nomeEstante isEqualToString:@"Disponíveis"]){
+        livro = [estanteResponse.self.listaDeLivrosParaBaixar objectAtIndex:indexPath.row];
+    }else if([_nomeEstante isEqualToString:@"Direito de uso"]){
+         livro = [estanteResponse.self.listaDeLivrosDeDireito objectAtIndex:indexPath.row];
+    }else if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
+         livro = [estanteResponse.self.listaDeLivrosBaixados objectAtIndex:indexPath.row];
+    }else{
+        //textLabelCelula = @"";
+    }
+    
+    LivroDetalhesView *livroDetalhesView = [[LivroDetalhesView alloc]init];
+    livroDetalhesView.livroResponse = livro;
+    
+    [self.navigationController pushViewController:livroDetalhesView animated:YES];
+}
 
 
 @end

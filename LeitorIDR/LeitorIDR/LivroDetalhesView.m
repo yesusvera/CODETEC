@@ -29,8 +29,8 @@
 {
     [super viewDidLoad];
     
-    if(!livroResponse){
-        self.title = livroResponse.titulo;
+    if(livroResponse){
+        self.title = @"Detalhes";
         self.tituloLivro.text = livroResponse.titulo;
         downloadField.text = livroResponse.arquivo;
     }
