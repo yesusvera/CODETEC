@@ -1,31 +1,44 @@
 //
-//  ViewController.m
-//  ExemploDownload
+//  LivroDetalhesView.m
+//  LeitorIDR
 //
-//  Created by Yesus Castillo Vera on 29/12/13.
-//  Copyright (c) 2013 com.teste. All rights reserved.
+//  Created by Yesus Castillo Vera on 25/02/14.
+//  Copyright (c) 2014 Yesus Castillo Vera. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LivroDetalhesView.h"
 #import "AFHTTPRequestOperation.h"
 
-
-@interface ViewController ()
+@interface LivroDetalhesView ()
 
 @end
 
-@implementation ViewController
+@implementation LivroDetalhesView
+@synthesize livroResponse, tituloLivro;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    if(!livroResponse){
+        self.title = livroResponse.titulo;
+        self.tituloLivro.text = livroResponse.titulo;
+        downloadField.text = livroResponse.arquivo;
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)startDownload:(id)sender{
@@ -71,5 +84,6 @@
     
     [alert show];
 }
+
 
 @end
