@@ -28,8 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.nomeEstanteLabel.text = self.nomeEstante;
+    self.title = self.nomeEstante;
     // Do any additional setup after loading the view from its nib.
 }
 

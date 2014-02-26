@@ -82,7 +82,7 @@ BOOL isDeDireito;
     }else if([elementName isEqualToString:@"msgErro"]){
         msgErro = valorNoAtual;
     }else
-        [livro setValue:valorNoAtual.capitalizedString forKey:elementName];
+        [livro setValue:[[valorNoAtual stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:elementName];
     
     valorNoAtual = nil;
 }
