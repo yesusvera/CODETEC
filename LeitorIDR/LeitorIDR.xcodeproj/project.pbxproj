@@ -232,6 +232,13 @@
 			name = livros;
 			sourceTree = "<group>";
 		};
+		FB3A5C5618BD772200A0FEA8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
 		FB5F0A6118615A800068D497 = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +320,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				FB3A5C5618BD772200A0FEA8 /* util */,
 				FB3A5C5518BD63EE00A0FEA8 /* livros */,
 				299D7B4518BC35E800724BED /* registro */,
 				299D7B4418BC35B100724BED /* views */,
