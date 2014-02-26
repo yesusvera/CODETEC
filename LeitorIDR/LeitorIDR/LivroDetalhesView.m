@@ -29,6 +29,9 @@
 {
     [super viewDidLoad];
     
+    progressBar.hidden = YES;
+    loadingIndicator.hidden = YES;
+    
     if(livroResponse){
         self.title = @"Detalhes";
         self.fotoLivro.image = [[UIImage alloc] initWithData:
@@ -56,6 +59,9 @@
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
         [loadingIndicator stopAnimating];
+        loadingIndicator.hidden = YES;
+        
+        progressBar.hidden = YES;
         loadingIndicator.hidden = YES;
         
         [self showMessage:@"Download finalizado com sucesso!"];
