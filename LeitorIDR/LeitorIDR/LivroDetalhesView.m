@@ -29,10 +29,10 @@
 {
     [super viewDidLoad];
     
-    if(!livroResponse){
-        self.title = livroResponse.titulo;
+    if(livroResponse){
+        self.title = @"Detalhes";
         self.tituloLivro.text = livroResponse.titulo;
-        downloadField.text = livroResponse.arquivo;
+        downloadField.text = [self urlEncodeUsingEncoding:livroResponse.arquivo];
     }
 }
 
@@ -83,6 +83,16 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:@"OK" , nil];
     
     [alert show];
+}
+
+-(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {
+    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                                                                                    NULL,
+                                                                                                    (CFStringRef)unencodedString,
+                                                                                                    NULL,
+                                                                                                    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                                    kCFStringEncodingUTF8 ));
+    return encodedString;
 }
 
 
