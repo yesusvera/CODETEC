@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     self.title = self.nomeEstante;
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -62,21 +63,27 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"livro"];
-    NSString *textLabelCelula = @"Livro nao encontrado";
+    NSString *tituloLivro;
+    NSString *linkFotoLivro;
     
     if([_nomeEstante isEqualToString:@"Disponíveis"]){
         LivroResponse *livro = [estanteResponse.self.listaDeLivrosParaBaixar objectAtIndex:indexPath.row];
-        textLabelCelula = livro.titulo;
+        tituloLivro = livro.titulo;
+        linkFotoLivro = livro.foto;
     }else if([_nomeEstante isEqualToString:@"Direito de uso"]){
         LivroResponse *livro = [estanteResponse.self.listaDeLivrosDeDireito objectAtIndex:indexPath.row];
-        textLabelCelula = livro.titulo;
+        tituloLivro = livro.titulo;
+        linkFotoLivro = livro.foto;
     }else if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
         LivroResponse *livro = [estanteResponse.self.listaDeLivrosBaixados objectAtIndex:indexPath.row];
-        textLabelCelula = livro.titulo;
+        tituloLivro = livro.titulo;
+        linkFotoLivro = livro.foto;
     }else{
-        textLabelCelula = @"";
+        tituloLivro = @"";
+        linkFotoLivro = @"";
     }
-    cell.textLabel.text = textLabelCelula;
+    cell.textLabel.text = tituloLivro;
+    cell.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:linkFotoLivro]] ];
     
     return cell;
 
