@@ -32,7 +32,7 @@
     if(livroResponse){
         self.title = @"Detalhes";
         self.tituloLivro.text = livroResponse.titulo;
-        downloadField.text = [self urlEncodeUsingEncoding:livroResponse.arquivo];
+        downloadField.text = [livroResponse.arquivo stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     }
 }
 
