@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RegistroAssociadoController.m"
-            timestampString = "410555628.455459"
+            timestampString = "415071388.746416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "-registrarDispositivo:"
             landmarkType = "5">
          </BreakpointContent>

@@ -39,6 +39,7 @@
     self.indicadorAtividade.hidden = TRUE;
     
     //Inicializando UITextField
+    [self.txtCPFCNPJ setText:@"338.804.908-48"];
     [self.lblIP  setText: [self getIPAddress]];
     [self.lblMacAdress setText: [self getMacAddress]];
     [self.lblSerial setText: [[UIDevice currentDevice] description]];
