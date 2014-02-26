@@ -21,6 +21,8 @@
 		82E0390E18B8DD7A00EE7722 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E0390518B8DD7A00EE7722 /* AFURLSessionManager.m */; };
 		82F335A418B59B86001636EE /* ConexaoEstante.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A318B59B86001636EE /* ConexaoEstante.m */; };
 		82F335AA18B5AEFE001636EE /* LivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A918B5AEFE001636EE /* LivroResponse.m */; };
+		FB3A5C5318BD639400A0FEA8 /* LivroDetalhesView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */; };
+		FB3A5C5418BD639400A0FEA8 /* LivroDetalhesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3A5C5218BD639400A0FEA8 /* LivroDetalhesController.xib */; };
 		FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5A360B18657E29006C7FF3 /* RegistroAssociadoController.m */; };
 		FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */; };
 		FB5A361218657EA6006C7FF3 /* RegistroNaoAssociadoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5A361018657EA6006C7FF3 /* RegistroNaoAssociadoController.m */; };
@@ -90,6 +92,9 @@
 		82F335A818B5AEFE001636EE /* LivroResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivroResponse.h; sourceTree = "<group>"; };
 		82F335A918B5AEFE001636EE /* LivroResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivroResponse.m; sourceTree = "<group>"; };
 		B159C45D2D774BBF9E4125BD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		FB3A5C5018BD639400A0FEA8 /* LivroDetalhesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivroDetalhesView.h; sourceTree = "<group>"; };
+		FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivroDetalhesView.m; sourceTree = "<group>"; };
+		FB3A5C5218BD639400A0FEA8 /* LivroDetalhesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LivroDetalhesController.xib; sourceTree = "<group>"; };
 		FB5A360A18657E29006C7FF3 /* RegistroAssociadoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistroAssociadoController.h; path = ../RegistroAssociadoController.h; sourceTree = "<group>"; };
 		FB5A360B18657E29006C7FF3 /* RegistroAssociadoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistroAssociadoController.m; path = ../RegistroAssociadoController.m; sourceTree = "<group>"; };
 		FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegistroAssociadoController.xib; path = ../RegistroAssociadoController.xib; sourceTree = "<group>"; };
@@ -174,6 +179,7 @@
 				FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */,
 				FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */,
 				FBDF8A7A1878C0FD000EC732 /* EstanteLivrosController.xib */,
+				FB3A5C5218BD639400A0FEA8 /* LivroDetalhesController.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -215,6 +221,15 @@
 				82E0390518B8DD7A00EE7722 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		FB3A5C5518BD63EE00A0FEA8 /* livros */ = {
+			isa = PBXGroup;
+			children = (
+				FB3A5C5018BD639400A0FEA8 /* LivroDetalhesView.h */,
+				FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */,
+			);
+			name = livros;
 			sourceTree = "<group>";
 		};
 		FB5F0A6118615A800068D497 = {
@@ -298,6 +313,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				FB3A5C5518BD63EE00A0FEA8 /* livros */,
 				299D7B4518BC35E800724BED /* registro */,
 				299D7B4418BC35B100724BED /* views */,
 				299D7B4318BC35A300724BED /* estantes */,
@@ -429,6 +445,7 @@
 				2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */,
 				FB5F0A8418615A800068D497 /* Main_iPad.storyboard in Resources */,
 				FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */,
+				FB3A5C5418BD639400A0FEA8 /* LivroDetalhesController.xib in Resources */,
 				FB5F0A8118615A800068D497 /* Main_iPhone.storyboard in Resources */,
 				FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */,
 				FBF102251870AFB900B4A361 /* Media.xcassets in Resources */,
@@ -503,6 +520,7 @@
 				82E0390D18B8DD7A00EE7722 /* AFURLResponseSerialization.m in Sources */,
 				FBDF8A7B1878C0FD000EC732 /* EstanteLivrosController.m in Sources */,
 				FBDF8A6F1877CAC0000EC732 /* RegistrarLivroResposta.m in Sources */,
+				FB3A5C5318BD639400A0FEA8 /* LivroDetalhesView.m in Sources */,
 				82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */,
 				82F335A418B59B86001636EE /* ConexaoEstante.m in Sources */,
 				FB5A361218657EA6006C7FF3 /* RegistroNaoAssociadoController.m in Sources */,
