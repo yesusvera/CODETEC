@@ -61,8 +61,8 @@
         [loadingIndicator stopAnimating];
         loadingIndicator.hidden = YES;
         
-        progressBar.hidden = NO;
-        loadingIndicator.hidden = NO;
+        progressBar.hidden = YES;
+        loadingIndicator.hidden = YES;
         
         [self showMessage:@"Download finalizado com sucesso!"];
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
