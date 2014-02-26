@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LivroDetalhesView">
             <connections>
                 <outlet property="downloadField" destination="xPl-dx-QbZ" id="Y1X-Pd-uf3"/>
+                <outlet property="fotoLivro" destination="4Rr-Lu-LWP" id="vXs-Kc-7Yz"/>
                 <outlet property="loadingIndicator" destination="fOF-gj-Zoh" id="c0S-bQ-CL5"/>
                 <outlet property="progressBar" destination="Zv3-yD-u1n" id="Wc0-aF-x8c"/>
                 <outlet property="tituloLivro" destination="pwu-Zh-hwa" id="KrE-Bd-1Yq"/>
@@ -63,6 +64,10 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Rr-Lu-LWP">
+                    <rect key="frame" x="295" y="159" width="205" height="203"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

@@ -14,7 +14,7 @@
 @end
 
 @implementation LivroDetalhesView
-@synthesize livroResponse, tituloLivro;
+@synthesize livroResponse, tituloLivro,fotoLivro;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +31,8 @@
     
     if(livroResponse){
         self.title = @"Detalhes";
+        self.fotoLivro.image = [[UIImage alloc] initWithData:
+                                [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ];
         self.tituloLivro.text = livroResponse.titulo;
         downloadField.text = [livroResponse.arquivo stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     }

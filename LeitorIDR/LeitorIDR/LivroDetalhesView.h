@@ -15,8 +15,10 @@
     IBOutlet UIActivityIndicatorView *loadingIndicator;
     IBOutlet UILabel *tituloLivro;
     LivroResponse *livroResponse;
+    __weak IBOutlet UIImageView *fotoLivro;
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *fotoLivro;
 -(IBAction)startDownload:(id)sender;
 @property (nonatomic, retain) LivroResponse *livroResponse;
 @property (nonatomic, retain) UILabel *tituloLivro;
