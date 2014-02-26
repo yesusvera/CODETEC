@@ -84,7 +84,7 @@
     }
     cell.textLabel.text = tituloLivro;
     cell.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:linkFotoLivro]] ];
-     
+    
     return cell;
 
 }
