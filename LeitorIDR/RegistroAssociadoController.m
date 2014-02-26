@@ -34,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     self.title = @"Sou associado";
     
     self.indicadorAtividade.hidden = TRUE;
@@ -44,6 +46,7 @@
     [self.lblMacAdress setText: [self getMacAddress]];
     [self.lblSerial setText: [[UIDevice currentDevice] description]];
     [self.lblDispositivo setText: [[UIDevice currentDevice] localizedModel]];
+    
 }
 
 - (void)didReceiveMemoryWarning

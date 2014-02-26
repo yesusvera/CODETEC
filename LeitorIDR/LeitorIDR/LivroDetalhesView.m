@@ -34,7 +34,7 @@
         self.fotoLivro.image = [[UIImage alloc] initWithData:
                                 [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ];
         self.tituloLivro.text = livroResponse.titulo;
-        downloadField.text = [livroResponse.arquivo stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        livroResponse.arquivo = [livroResponse.arquivo stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     }
 }
 
@@ -44,7 +44,7 @@
 }
 
 -(void)startDownload:(id)sender{
-    NSURL *url = [NSURL URLWithString:downloadField.text];
+    NSURL *url = [NSURL URLWithString:livroResponse.arquivo];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSString *saveFilename = [self downloadSavePathFor:url.lastPathComponent];
     
