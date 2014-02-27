@@ -9,5 +9,5 @@
 #import "EstanteResponse.h"
 
 @implementation EstanteResponse
-@synthesize listaDeLivrosBaixados, listaDeLivrosDeDireito, listaDeLivrosParaBaixar;
+@synthesize listaDeLivrosBaixados, listaDeLivrosDeDireito, listaDeLivrosParaBaixar,listaDeLivros;
 @end

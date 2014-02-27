@@ -12,8 +12,10 @@
     NSMutableArray *listaDeLivrosParaBaixar;
     NSMutableArray *listaDeLivrosBaixados;
     NSMutableArray *listaDeLivrosDeDireito;
+    NSMutableArray *listaDeLivros;
 }
 @property (nonatomic, retain) NSMutableArray *listaDeLivrosParaBaixar;
 @property (nonatomic, retain) NSMutableArray *listaDeLivrosBaixados;
 @property (nonatomic, retain) NSMutableArray *listaDeLivrosDeDireito;
+@property (nonatomic, retain) NSMutableArray *listaDeLivros;
 @end

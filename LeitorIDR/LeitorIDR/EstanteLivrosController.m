@@ -68,19 +68,23 @@
     
     if([_nomeEstante isEqualToString:@"Disponíveis"]){
         LivroResponse *livro = [estanteResponse.self.listaDeLivrosParaBaixar objectAtIndex:indexPath.row];
+        [estanteResponse.listaDeLivros addObject:livro];
         tituloLivro = livro.titulo;
         linkFotoLivro = livro.foto;
     }else if([_nomeEstante isEqualToString:@"Direito de uso"]){
         LivroResponse *livro = [estanteResponse.self.listaDeLivrosDeDireito objectAtIndex:indexPath.row];
+        [estanteResponse.listaDeLivros addObject:livro];
         tituloLivro = livro.titulo;
         linkFotoLivro = livro.foto;
     }else if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
         LivroResponse *livro = [estanteResponse.self.listaDeLivrosBaixados objectAtIndex:indexPath.row];
+        [estanteResponse.listaDeLivros addObject:livro];
         tituloLivro = livro.titulo;
         linkFotoLivro = livro.foto;
     }else{
-        tituloLivro = @"";
-        linkFotoLivro = @"";
+        LivroResponse *livro = [estanteResponse.self.listaDeLivros objectAtIndex:indexPath.row];
+        tituloLivro = livro.titulo;
+        linkFotoLivro = livro.foto;
     }
     cell.textLabel.text = tituloLivro;
     cell.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:linkFotoLivro]] ];
@@ -101,7 +105,7 @@
     }else if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
          livro = [estanteResponse.self.listaDeLivrosBaixados objectAtIndex:indexPath.row];
     }else{
-        //textLabelCelula = @"";
+        livro =[estanteResponse.self.listaDeLivros objectAtIndex:indexPath.row];
     }
     
     LivroDetalhesView *livroDetalhesView = [[LivroDetalhesView alloc]init];
