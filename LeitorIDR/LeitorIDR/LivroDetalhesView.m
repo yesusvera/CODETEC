@@ -16,10 +16,10 @@
 @implementation LivroDetalhesView
 @synthesize livroResponse, tituloLivro,fotoLivro;
 
-/** These are for the implementation .m */
-
+// Função que abre o PDF pelo caminho especificado
 -(IBAction)actionOpenPlainDocument:(id)sender{
     /** Set document name */
+    //PDF local para teste
     NSString *documentName = @"IFRS2013_TESTE_EXTRACAO";
     
     /** Get temporary directory to save thumbnails */
