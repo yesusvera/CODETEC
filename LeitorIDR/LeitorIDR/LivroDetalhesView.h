@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "LivroResponse.h"
+#import <FastPdfKit/FastPdfKit.h>
+
+@class MFDocumentManager;
+
 
 @interface LivroDetalhesView : UIViewController{
     IBOutlet UITextField *downloadField;
@@ -22,5 +26,5 @@
 -(IBAction)startDownload:(id)sender;
 @property (nonatomic, retain) LivroResponse *livroResponse;
 @property (nonatomic, retain) UILabel *tituloLivro;
-
+-(IBAction)actionOpenPlainDocument:(id)sender;
 @end

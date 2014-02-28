@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2915311518C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2915311418C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf */; };
+		2915311B18C0231F009EBF14 /* FastPdfKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2915311718C0231F009EBF14 /* FastPdfKit.framework */; };
+		2915311C18C0231F009EBF14 /* FPKReaderBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2915311918C0231F009EBF14 /* FPKReaderBundle.bundle */; };
+		2915311D18C0231F009EBF14 /* Snippets.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2915311A18C0231F009EBF14 /* Snippets.txt */; };
 		2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */; };
 		298E504A18BC02FE00F1F838 /* Registrar.xml in Resources */ = {isa = PBXBuildFile; fileRef = 298E504918BC02FE00F1F838 /* Registrar.xml */; };
 		299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 299D7B4718BC36FC00724BED /* EstanteResponse.m */; };
@@ -63,6 +67,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2915311418C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = IFRS2013_TESTE_EXTRACAO.pdf; path = ../../../../../../../../Downloads/IFRS2013_TESTE_EXTRACAO.pdf; sourceTree = "<group>"; };
+		2915311718C0231F009EBF14 /* FastPdfKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FastPdfKit.framework; sourceTree = "<group>"; };
+		2915311918C0231F009EBF14 /* FPKReaderBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FPKReaderBundle.bundle; sourceTree = "<group>"; };
+		2915311A18C0231F009EBF14 /* Snippets.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snippets.txt; sourceTree = "<group>"; };
 		2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EstanteIbracon.xml; path = ../../EstanteIbracon.xml; sourceTree = "<group>"; };
 		298E504918BC02FE00F1F838 /* Registrar.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Registrar.xml; sourceTree = "<group>"; };
 		299D7B4618BC36FC00724BED /* EstanteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstanteResponse.h; sourceTree = "<group>"; };
@@ -141,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2915311B18C0231F009EBF14 /* FastPdfKit.framework in Frameworks */,
 				FB5F0A7018615A800068D497 /* CoreGraphics.framework in Frameworks */,
 				FB5F0A7218615A800068D497 /* UIKit.framework in Frameworks */,
 				FB5F0A6E18615A800068D497 /* Foundation.framework in Frameworks */,
@@ -160,6 +169,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2915311618C0231F009EBF14 /* FastPdfKit.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				2915311718C0231F009EBF14 /* FastPdfKit.framework */,
+				2915311818C0231F009EBF14 /* Resources */,
+			);
+			name = FastPdfKit.embeddedframework;
+			path = "../../../../../../mobfarm-FastPdfKit-feb4b79/FastPdfKit.embeddedframework";
+			sourceTree = "<group>";
+		};
+		2915311818C0231F009EBF14 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2915311918C0231F009EBF14 /* FPKReaderBundle.bundle */,
+				2915311A18C0231F009EBF14 /* Snippets.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		299D7B4318BC35A300724BED /* estantes */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +292,7 @@
 		FB5F0A6C18615A800068D497 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2915311618C0231F009EBF14 /* FastPdfKit.embeddedframework */,
 				FB5F0A6D18615A800068D497 /* Foundation.framework */,
 				FB5F0A6F18615A800068D497 /* CoreGraphics.framework */,
 				FB5F0A7118615A800068D497 /* UIKit.framework */,
@@ -320,6 +349,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				2915311418C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf */,
 				FB3A5C5618BD772200A0FEA8 /* util */,
 				FB3A5C5518BD63EE00A0FEA8 /* livros */,
 				299D7B4518BC35E800724BED /* registro */,
@@ -450,9 +480,12 @@
 				FB5A361318657EA6006C7FF3 /* RegistroNaoAssociadoController.xib in Resources */,
 				FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */,
 				FBF1E1381869506E00671EE2 /* EstantesController.xib in Resources */,
+				2915311518C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf in Resources */,
 				2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */,
 				FB5F0A8418615A800068D497 /* Main_iPad.storyboard in Resources */,
 				FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */,
+				2915311C18C0231F009EBF14 /* FPKReaderBundle.bundle in Resources */,
+				2915311D18C0231F009EBF14 /* Snippets.txt in Resources */,
 				FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */,
 				FB5F0A8118615A800068D497 /* Main_iPhone.storyboard in Resources */,
 				FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */,
@@ -671,6 +704,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/JJCS/Documents/mobfarm-FastPdfKit-feb4b79/FastPdfKit.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeitorIDR/LeitorIDR-Prefix.pch";
 				INFOPLIST_FILE = "LeitorIDR/LeitorIDR-Info.plist";
@@ -689,6 +726,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/JJCS/Documents/mobfarm-FastPdfKit-feb4b79/FastPdfKit.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeitorIDR/LeitorIDR-Prefix.pch";
 				INFOPLIST_FILE = "LeitorIDR/LeitorIDR-Info.plist";
