@@ -20,10 +20,12 @@
 -(IBAction)actionOpenPlainDocument:(NSString *)nomeArq{
     /** Set document name */
     //PDF local para teste
-    NSString *documentName = @"IFRS2013_TESTE_EXTRACAO";
+    //NSString *documentName = @"IFRS2013_TESTE_EXTRACAO";
+    
     //para arquivo IDR
-//    nomeArq = [[nomeArq stringByRemovingPercentEncoding].lastPathComponent stringByReplacingOccurrencesOfString:@".idr" withString:@""];
-    //NSString *documentName = nomeArq;
+   // nomeArq = [[nomeArq stringByRemovingPercentEncoding].lastPathComponent stringByReplacingOccurrencesOfString:@".pdf" withString:@""];
+    
+    NSString *documentName = nomeArq;
     
     /** Get temporary directory to save thumbnails */
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -34,6 +36,7 @@
     /** Get document from the App Bundle IDR*/
 //    NSURL *documentUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:documentName ofType:@".idr"]];
     
+    // Arquivo de teste
     NSURL *documentUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:documentName ofType:@".pdf"]];
     
     /** Instancing the documentManager */
@@ -104,6 +107,7 @@
         loadingIndicator.hidden = YES;
         
         [self showMessage:@"Download finalizado com sucesso!"];
+        
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
         [self showMessage:
          [NSString stringWithFormat:@"Error no download: %@", [error localizedDescription]]];
@@ -119,7 +123,7 @@
     
     [operation start];
     // teste abir livro apos download
-    [self actionOpenPlainDocument:livroResponse.arquivo];
+    [self actionOpenPlainDocument:saveFilename];
 }
 
 -(NSString *) downloadSavePathFor:(NSString *) filename{
@@ -132,6 +136,7 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso" message:message delegate:nil cancelButtonTitle:@"Cancelar" otherButtonTitles:@"OK" , nil];
     
     [alert show];
+    
 }
 
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {

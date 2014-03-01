@@ -7,7 +7,7 @@
             <versao>2013</versao>
             <codigoloja>2013002</codigoloja>
             <foto>http://www.ibracon.com.br/idr/fotos/ifrs2013.png</foto>
-            <arquivo>http://www.ibracon.com.br/idr/livros/Normas Internacionais de Relatorio Financeiro - 2013.idr</arquivo>
+            <arquivo>http://localhost/arquivos/Normas%20Internacionais%20de%20Relatorio%20Financeiro%20-%202013.pdf</arquivo>
         </livro>
     </baixados>
     <parabaixar>
@@ -17,7 +17,7 @@
             <versao>2013</versao>
             <codigoloja>2013002</codigoloja>
             <foto>http://www.ibracon.com.br/idr/fotos/ifrs2013.png</foto>
-            <arquivo>http://www.ibracon.com.br/idr/livros/Normas Internacionais de Relatorio Financeiro - 2013.idr</arquivo>
+            <arquivo>http://localhost/arquivos/Normas%20Internacionais%20de%20Relatorio%20Financeiro%20-%202013.pdf</arquivo>
         </livro>
     </parabaixar>
     <dedireito>
@@ -27,7 +27,7 @@
             <versao>2013</versao>
             <codigoloja>2013002</codigoloja>
             <foto>http://www.ibracon.com.br/idr/fotos/ifrs2013.png</foto>
-            <arquivo>http://www.ibracon.com.br/idr/livros/Normas Internacionais de Relatorio Financeiro - 2013.idr</arquivo>
+            <arquivo>http://localhost/arquivos/Normas%20Internacionais%20de%20Relatorio%20Financeiro%20-%202013.pdf</arquivo>
         </livro>
     </dedireito>
     <erro>0</erro>
