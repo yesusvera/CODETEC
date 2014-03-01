@@ -114,63 +114,63 @@ BOOL isDeDireito;
 
 -(void)conectarObterEstante:(NSString *)_url{
     
-//    NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"EstanteIbracon.xml"];
-//
-//    NSData *data = [[NSData alloc] initWithContentsOfFile:estante];
-//    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//    NSLog(@"%@", corpoXML);
-//    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-//    NSLog(@"%@", parser);
-//    [parser setDelegate:self];
-//    
-//    if(![parser parse]){
-//        NSLog(@"Erro ao realizar o parse");
-//    }else{
-//        NSLog(@"Ok Parse");
-//    }
+    NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"EstanteIbracon.xml"];
+
+    NSData *data = [[NSData alloc] initWithContentsOfFile:estante];
+    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", corpoXML);
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+    NSLog(@"%@", parser);
+    [parser setDelegate:self];
+    
+    if(![parser parse]){
+        NSLog(@"Erro ao realizar o parse");
+    }else{
+        NSLog(@"Ok Parse");
+    }
 
     
 // DESCOMENTAR QUANDO USAR O WEBSERVICE
-    
-    NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
-    networkQueue.maxConcurrentOperationCount = 5;
-
-    NSURL *url = [NSURL URLWithString:_url];
-    NSLog(@"%@", url);
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSISOLatin1StringEncoding];
-        NSLog(@"%@", respostaXML);
-        
-        //FAZENDO O PARSE XML
-        NSData *respDataXML = [respostaXML dataUsingEncoding:NSISOLatin1StringEncoding];
-        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
-        [parser setDelegate:self];
-        
-        if(![parser parse]){
-            NSLog(@"Erro ao realizar o parse");
-        }else{
-            NSLog(@"Ok Parse");
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
-        
-        UIAlertView *alertError = [
-                                   [UIAlertView alloc] initWithTitle:@"Erro"
-                                   message:error.description
-                                   delegate:nil
-                                   cancelButtonTitle:@"Visto"
-                                   otherButtonTitles:nil
-                                   ];
-        
-        [alertError show];
-        
-    }];
-    
-    [networkQueue addOperation:operation];
+//    
+//    NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
+//    networkQueue.maxConcurrentOperationCount = 5;
+//
+//    NSURL *url = [NSURL URLWithString:_url];
+//    NSLog(@"%@", url);
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSISOLatin1StringEncoding];
+//        NSLog(@"%@", respostaXML);
+//        
+//        //FAZENDO O PARSE XML
+//        NSData *respDataXML = [respostaXML dataUsingEncoding:NSISOLatin1StringEncoding];
+//        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
+//        [parser setDelegate:self];
+//        
+//        if(![parser parse]){
+//            NSLog(@"Erro ao realizar o parse");
+//        }else{
+//            NSLog(@"Ok Parse");
+//        }
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
+//        
+//        UIAlertView *alertError = [
+//                                   [UIAlertView alloc] initWithTitle:@"Erro"
+//                                   message:error.description
+//                                   delegate:nil
+//                                   cancelButtonTitle:@"Visto"
+//                                   otherButtonTitles:nil
+//                                   ];
+//        
+//        [alertError show];
+//        
+//    }];
+//    
+//    [networkQueue addOperation:operation];
 }
 
 

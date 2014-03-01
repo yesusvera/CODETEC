@@ -26,5 +26,5 @@
 -(IBAction)startDownload:(id)sender;
 @property (nonatomic, retain) LivroResponse *livroResponse;
 @property (nonatomic, retain) UILabel *tituloLivro;
--(IBAction)actionOpenPlainDocument:(id)sender;
+-(IBAction)actionOpenPlainDocument:(NSString *)nomeArq;
 @end

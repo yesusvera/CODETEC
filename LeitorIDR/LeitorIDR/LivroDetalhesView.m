@@ -17,10 +17,13 @@
 @synthesize livroResponse, tituloLivro,fotoLivro;
 
 // Função que abre o PDF pelo caminho especificado
--(IBAction)actionOpenPlainDocument:(id)sender{
+-(IBAction)actionOpenPlainDocument:(NSString *)nomeArq{
     /** Set document name */
     //PDF local para teste
     NSString *documentName = @"IFRS2013_TESTE_EXTRACAO";
+    //para arquivo IDR
+//    nomeArq = [[nomeArq stringByRemovingPercentEncoding].lastPathComponent stringByReplacingOccurrencesOfString:@".idr" withString:@""];
+    //NSString *documentName = nomeArq;
     
     /** Get temporary directory to save thumbnails */
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -28,8 +31,10 @@
     /** Set thumbnails path */
     NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
     
-    /** Get document from the App Bundle */
-    NSURL *documentUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:documentName ofType:@"pdf"]];
+    /** Get document from the App Bundle IDR*/
+//    NSURL *documentUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:documentName ofType:@".idr"]];
+    
+    NSURL *documentUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:documentName ofType:@".pdf"]];
     
     /** Instancing the documentManager */
 	MFDocumentManager *documentManager = [[MFDocumentManager alloc]initWithFileUrl:documentUrl];
@@ -113,6 +118,8 @@
     [loadingIndicator startAnimating];
     
     [operation start];
+    // teste abir livro apos download
+    [self actionOpenPlainDocument:livroResponse.arquivo];
 }
 
 -(NSString *) downloadSavePathFor:(NSString *) filename{
@@ -122,7 +129,7 @@
 }
 
 -(void) showMessage: (NSString *) message{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:@"OK" , nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso" message:message delegate:nil cancelButtonTitle:@"Cancelar" otherButtonTitles:@"OK" , nil];
     
     [alert show];
 }
