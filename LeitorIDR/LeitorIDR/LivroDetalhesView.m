@@ -19,12 +19,6 @@
 // Função que abre o PDF pelo caminho especificado
 -(IBAction)actionOpenPlainDocument:(NSString *)nomeArq{
     /** Set document name */
-    //PDF local para teste
-    //NSString *documentName = @"IFRS2013_TESTE_EXTRACAO";
-    
-    //para arquivo IDR
-   // nomeArq = [[nomeArq stringByRemovingPercentEncoding].lastPathComponent stringByReplacingOccurrencesOfString:@".pdf" withString:@""];
-    
     NSString *documentName = nomeArq;
     
     /** Get temporary directory to save thumbnails */
@@ -34,10 +28,7 @@
     NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
     
     /** Get document from the App Bundle IDR*/
-//    NSURL *documentUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:documentName ofType:@".idr"]];
-    
-    // Arquivo de teste
-    NSURL *documentUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:documentName ofType:@".pdf"]];
+    NSURL *documentUrl = [NSURL fileURLWithPath:thumbnailsPath isDirectory:NO];
     
     /** Instancing the documentManager */
 	MFDocumentManager *documentManager = [[MFDocumentManager alloc]initWithFileUrl:documentUrl];
@@ -53,9 +44,6 @@
     
 	/** Present the pdf on screen in a modal view */
     [self presentModalViewController:pdfViewController animated:YES];
-    
-    /** Release the pdf controller*/
-    //[pdfViewController release];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -108,6 +96,9 @@
         
         [self showMessage:@"Download finalizado com sucesso!"];
         
+        // teste abir livro apos download
+        [self actionOpenPlainDocument:[saveFilename.stringByDeletingPathExtension stringByAppendingString:@".pdf"]];
+        
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
         [self showMessage:
          [NSString stringWithFormat:@"Error no download: %@", [error localizedDescription]]];
@@ -122,12 +113,10 @@
     [loadingIndicator startAnimating];
     
     [operation start];
-    // teste abir livro apos download
-    [self actionOpenPlainDocument:saveFilename];
 }
 
 -(NSString *) downloadSavePathFor:(NSString *) filename{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     return [documentsPath stringByAppendingPathComponent:filename];
 }
