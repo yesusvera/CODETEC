@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LivroDetalhesView">
             <connections>
+                <outlet property="abrirPdf" destination="MTm-F9-mdJ" id="guk-qe-il1"/>
+                <outlet property="downPdf" destination="lOf-Qe-RfC" id="gsI-X8-vhy"/>
                 <outlet property="fotoLivro" destination="4Rr-Lu-LWP" id="vXs-Kc-7Yz"/>
                 <outlet property="loadingIndicator" destination="fOF-gj-Zoh" id="c0S-bQ-CL5"/>
                 <outlet property="progressBar" destination="Zv3-yD-u1n" id="Wc0-aF-x8c"/>
@@ -22,7 +24,7 @@
                     <rect key="frame" x="301" y="436" width="189" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Baixar Livro">
+                    <state key="normal" title="Baixar livro">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -48,13 +50,14 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTm-F9-mdJ">
-                    <rect key="frame" x="375" y="625" width="67" height="30"/>
+                    <rect key="frame" x="342" y="427" width="113" height="54"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Abrir PDF">
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="Abrir livro">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="actionOpenPlainDocument:" destination="-1" eventType="touchUpInside" id="DPP-d5-zZX"/>
+                        <action selector="actionOpenPlainDocument:" destination="-1" eventType="touchUpInside" id="4Dr-Ce-Qcl"/>
                     </connections>
                 </button>
             </subviews>

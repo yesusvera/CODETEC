@@ -17,9 +17,10 @@
 @synthesize livroResponse, tituloLivro,fotoLivro;
 
 // Função que abre o PDF pelo caminho especificado
--(IBAction)actionOpenPlainDocument:(NSString *)nomeArq{
+-(IBAction)actionOpenPlainDocument:(id)sender{
+    
     /** Set document name */
-    NSString *documentName = nomeArq;
+    NSString *documentName = livroResponse.arquivo.lastPathComponent;
     
     /** Get temporary directory to save thumbnails */
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -61,7 +62,7 @@
     
     progressBar.hidden = YES;
     loadingIndicator.hidden = YES;
-    
+    abrirPdf.hidden = YES;
     if(livroResponse){
         self.title = @"Detalhes";
         self.fotoLivro.image = [[UIImage alloc] initWithData:
@@ -76,12 +77,12 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)startDownload:(id)sender{
+-(IBAction)startDownload:(id)sender{
     NSURL *url = [NSURL URLWithString:livroResponse.arquivo];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSString *saveFilename = [self downloadSavePathFor:url.lastPathComponent];
     
-    NSLog(@"Salvando =o arquivo em %@", saveFilename);
+    NSLog(@"Salvando o arquivo em %@", saveFilename);
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
@@ -93,11 +94,11 @@
         
         progressBar.hidden = YES;
         loadingIndicator.hidden = YES;
+        downPdf.hidden = YES;
+        abrirPdf.hidden = NO;
         
         [self showMessage:@"Download finalizado com sucesso!"];
         
-        // teste abir livro apos download
-        [self actionOpenPlainDocument:[saveFilename.stringByDeletingPathExtension stringByAppendingString:@".pdf"]];
         
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
         [self showMessage:
@@ -110,6 +111,7 @@
     
     progressBar.hidden = NO;
     loadingIndicator.hidden = NO;
+    
     [loadingIndicator startAnimating];
     
     [operation start];

@@ -20,6 +20,8 @@
     IBOutlet UILabel *tituloLivro;
     LivroResponse *livroResponse;
     __weak IBOutlet UIImageView *fotoLivro;
+    IBOutlet UIButton *abrirPdf;
+    IBOutlet UIButton *downPdf;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *fotoLivro;
