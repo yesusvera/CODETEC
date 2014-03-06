@@ -78,14 +78,17 @@ BOOL isDeDireito;
         return;
     }
     if([elementName isEqualToString:@"livro"] && isParaBaixar){
+        livro.tipoLivro = @"parabaixar";
         [estanteResponse.listaDeLivrosParaBaixar  addObject:livro];
         [estanteResponse.listaDeLivros  addObject:livro];
         livro = nil;
     }else if([elementName isEqualToString:@"livro"] && isBaixados){
+        livro.tipoLivro = @"baixados";
         [estanteResponse.listaDeLivrosBaixados addObject:livro];
         [estanteResponse.listaDeLivros  addObject:livro];
         livro = nil;
     }else if([elementName isEqualToString:@"livro"] && isDeDireito){
+        livro.tipoLivro = @"dedireito";
         [estanteResponse.listaDeLivrosDeDireito addObject:livro];
         [estanteResponse.listaDeLivros  addObject:livro];
         livro = nil;
@@ -114,64 +117,117 @@ BOOL isDeDireito;
 
 -(void)conectarObterEstante:(NSString *)_url{
     
-    NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"EstanteIbracon.xml"];
-
-    NSData *data = [[NSData alloc] initWithContentsOfFile:estante];
-    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", corpoXML);
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-    NSLog(@"%@", parser);
-    [parser setDelegate:self];
-    
-    if(![parser parse]){
-        NSLog(@"Erro ao realizar o parse");
-    }else{
-        NSLog(@"Ok Parse");
-    }
+//    NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"EstanteIbracon.xml"];
+//
+//    NSData *data = [[NSData alloc] initWithContentsOfFile:estante];
+//    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSLog(@"%@", corpoXML);
+//    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+//    NSLog(@"%@", parser);
+//    [parser setDelegate:self];
+//    
+//    if(![parser parse]){
+//        NSLog(@"Erro ao realizar o parse");
+//    }else{
+//        NSLog(@"Ok Parse");
+//
+//    }
 
     
 // DESCOMENTAR QUANDO USAR O WEBSERVICE
-//    
-//    NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
-//    networkQueue.maxConcurrentOperationCount = 5;
-//
-//    NSURL *url = [NSURL URLWithString:_url];
-//    NSLog(@"%@", url);
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSISOLatin1StringEncoding];
-//        NSLog(@"%@", respostaXML);
-//        
-//        //FAZENDO O PARSE XML
-//        NSData *respDataXML = [respostaXML dataUsingEncoding:NSISOLatin1StringEncoding];
-//        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
-//        [parser setDelegate:self];
-//        
-//        if(![parser parse]){
-//            NSLog(@"Erro ao realizar o parse");
-//        }else{
-//            NSLog(@"Ok Parse");
-//        }
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
-//        
-//        UIAlertView *alertError = [
-//                                   [UIAlertView alloc] initWithTitle:@"Erro"
-//                                   message:error.description
-//                                   delegate:nil
-//                                   cancelButtonTitle:@"Visto"
-//                                   otherButtonTitles:nil
-//                                   ];
-//        
-//        [alertError show];
-//        
-//    }];
-//    
-//    [networkQueue addOperation:operation];
+    
+    NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
+    networkQueue.maxConcurrentOperationCount = 5;
+
+    NSURL *url = [NSURL URLWithString:_url];
+    NSLog(@"%@", url);
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSISOLatin1StringEncoding];
+        NSLog(@"%@", respostaXML);
+        
+        //FAZENDO O PARSE XML
+        NSData *respDataXML = [respostaXML dataUsingEncoding:NSISOLatin1StringEncoding];
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
+        [parser setDelegate:self];
+        
+        if(![parser parse]){
+            NSLog(@"Erro ao realizar o parse");
+        }else{
+            NSLog(@"Ok Parse");
+            //DOWNLOAD DO XML DE ESTANTES
+            NSURLRequest *requestXML = [NSURLRequest requestWithURL:url];
+            NSString *saveFilenameXML = [self downloadSavePathFor: [url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]];
+            
+            NSLog(@"Salvando o arquivo XML em %@", saveFilenameXML);
+            
+            AFHTTPRequestOperation *operationXML = [[AFHTTPRequestOperation alloc] initWithRequest:requestXML];
+            
+            operationXML.outputStream = [NSOutputStream outputStreamToFileAtPath:saveFilenameXML append:NO];
+            
+            [operationXML setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
+                
+                
+            } failure:^(AFHTTPRequestOperation *op, NSError *error) {
+                [self showMessage:
+                 [NSString stringWithFormat:@"Error no download do XML: %@", [error localizedDescription]]];
+            }];
+            
+            [operationXML start];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
+        
+        // BUSCA DO XML LOCAL
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]]];
+        
+        NSData *data = [[NSData alloc] initWithContentsOfFile:thumbnailsPath];
+        if (!data) {
+            UIAlertView *alertError = [
+                                       [UIAlertView alloc] initWithTitle:@"Biblioteca local vazia! Necessário conexão com a Internet."
+                                       message:error.description
+                                       delegate:nil
+                                       cancelButtonTitle:@"Visto"
+                                       otherButtonTitles:nil
+                                       ];
+            
+            [alertError show];
+
+        }
+        
+        NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding];
+        NSLog(@"%@", corpoXML);
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+        NSLog(@"%@", parser);
+        [parser setDelegate:self];
+        
+        if(![parser parse]){
+            NSLog(@"Erro ao realizar o parse");
+        }else{
+            NSLog(@"Ok Parse");
+        
+        }
+        
+        
+    }];
+    
+    [networkQueue addOperation:operation];
 }
 
+-(NSString *) downloadSavePathFor:(NSString *) filename{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    return [documentsPath stringByAppendingPathComponent:filename];
+}
+-(void) showMessage: (NSString *) message{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso" message:message delegate:nil cancelButtonTitle:@"Cancelar" otherButtonTitles:@"OK" , nil];
+    
+    [alert show];
+    
+}
 
 @end

@@ -16,10 +16,6 @@
     LivroResponse *livro;
     NSString *erro;
     NSString *msgErro;
-//    struct Livro{
-//        NSString *nomeEstante;
-//        LivroResponse *livro;
-//    };
 }
 -(void)conectarObterEstante:(NSString *)_url;
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;

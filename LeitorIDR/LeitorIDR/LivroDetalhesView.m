@@ -20,7 +20,8 @@
 -(IBAction)actionOpenPlainDocument:(id)sender{
     
     /** Set document name */
-    NSString *documentName = livroResponse.arquivo.lastPathComponent;
+    // RENOMEANDO TEMPORARIAMENTE DE .IDR PARA .PDF
+    NSString *documentName = [[livroResponse.arquivo.lastPathComponent stringByRemovingPercentEncoding] stringByReplacingOccurrencesOfString:@".idr" withString:@".pdf"];
     
     /** Get temporary directory to save thumbnails */
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -42,7 +43,6 @@
     
     /** Set document id for thumbnail generation */
     pdfViewController.documentId = documentName;
-    
 	/** Present the pdf on screen in a modal view */
     [self presentModalViewController:pdfViewController animated:YES];
 }
@@ -65,9 +65,22 @@
     abrirPdf.hidden = YES;
     if(livroResponse){
         self.title = @"Detalhes";
-        self.fotoLivro.image = [[UIImage alloc] initWithData:
-                                [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ];
-        self.tituloLivro.text = livroResponse.titulo;
+        if ([[UIImage alloc] initWithData:
+            [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ] && ![livroResponse.tipoLivro isEqualToString:@"baixados"]) {
+            self.fotoLivro.image = [[UIImage alloc] initWithData:
+                                    [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ];
+            self.tituloLivro.text = livroResponse.titulo;
+        }else if([livroResponse.tipoLivro isEqualToString:@"baixados"]){
+            self.fotoLivro.image = [[UIImage alloc] initWithData:
+                                   [[NSData alloc]initWithContentsOfFile: [self downloadSavePathFor:self.livroResponse.foto.lastPathComponent]]];
+            downPdf.hidden = YES;
+            abrirPdf.hidden = NO;
+            self.tituloLivro.text = livroResponse.titulo;
+        }else{
+            downPdf.hidden = YES;
+            abrirPdf.hidden = YES;
+            self.tituloLivro.text = @"";
+        }
         livroResponse.arquivo = [livroResponse.arquivo stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     }
 }
@@ -78,9 +91,9 @@
 }
 
 -(IBAction)startDownload:(id)sender{
-    NSURL *url = [NSURL URLWithString:livroResponse.arquivo];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSString *saveFilename = [self downloadSavePathFor:url.lastPathComponent];
+    NSURL *urlLivro = [NSURL URLWithString:livroResponse.arquivo];
+    NSURLRequest *request = [NSURLRequest requestWithURL:urlLivro];
+    NSString *saveFilename = [self downloadSavePathFor:urlLivro.lastPathComponent];
     
     NSLog(@"Salvando o arquivo em %@", saveFilename);
     
@@ -115,6 +128,30 @@
     [loadingIndicator startAnimating];
     
     [operation start];
+    
+    
+    
+    //DOWNLOAD DA FOTO DO LIVRO
+    NSURL *urlFoto = [NSURL URLWithString:livroResponse.foto];
+    NSURLRequest *requestFoto = [NSURLRequest requestWithURL:urlFoto];
+    NSString *saveFilenameFoto = [self downloadSavePathFor:urlFoto.lastPathComponent];
+    
+    NSLog(@"Salvando o arquivo em %@", saveFilenameFoto);
+    
+    AFHTTPRequestOperation *operationFoto = [[AFHTTPRequestOperation alloc] initWithRequest:requestFoto];
+    
+    operationFoto.outputStream = [NSOutputStream outputStreamToFileAtPath:saveFilenameFoto append:NO];
+    
+    [operationFoto setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
+        
+        
+    } failure:^(AFHTTPRequestOperation *op, NSError *error) {
+        [self showMessage:
+         [NSString stringWithFormat:@"Error no download da foto: %@", [error localizedDescription]]];
+    }];
+    
+    [operationFoto start];
+
 }
 
 -(NSString *) downloadSavePathFor:(NSString *) filename{

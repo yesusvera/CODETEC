@@ -87,8 +87,11 @@
         linkFotoLivro = livro.foto;
     }
     cell.textLabel.text = tituloLivro;
-    cell.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:linkFotoLivro]] ];
-    
+    if([UIImage imageWithData:[[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:linkFotoLivro]] ]){
+        cell.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:linkFotoLivro]] ];
+    }else{
+        cell.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfFile: [self downloadSavePathFor:linkFotoLivro.lastPathComponent] ]];
+    }
     return cell;
 
 }
@@ -112,6 +115,12 @@
     livroDetalhesView.livroResponse = livro;
     
     [self.navigationController pushViewController:livroDetalhesView animated:YES];
+}
+
+-(NSString *) downloadSavePathFor:(NSString *) filename{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    return [documentsPath stringByAppendingPathComponent:filename];
 }
 
 
