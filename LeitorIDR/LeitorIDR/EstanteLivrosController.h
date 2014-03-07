@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RegistrarLivroResposta.h"
+#import "RegistrarDispositivoResponse.h"
 #import "EstanteResponse.h"
 
 
@@ -17,7 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nomeEstanteLabel;
 @property (nonatomic, retain) NSString *nomeEstante;
-@property (nonatomic, retain) RegistrarLivroResposta *registrarLivroResponse;
+@property (nonatomic, retain) RegistrarDispositivoResponse *registrarDispositivoResponse;
 @property (nonatomic, retain) EstanteResponse *estanteResponse;
 
 @end

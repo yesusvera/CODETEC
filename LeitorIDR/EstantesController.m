@@ -8,7 +8,7 @@
 
 #import "EstantesController.h"
 #import "EstanteLivrosController.h"
-#import "ConexaoEstante.h"
+#import "ConexaoBuscarEstante.h"
 
 @interface EstantesController ()
 
@@ -29,8 +29,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     EstanteLivrosController *estanteLivros = [[EstanteLivrosController alloc]init];
     estanteLivros.nomeEstante = [estantes objectAtIndex:indexPath.row];
-    [estanteLivros setRegistrarLivroResponse:self.registrarLivroResponse];
-    [estanteLivros setEstanteResponse:self.conexaoEstante.estanteResponse];
+    [estanteLivros setRegistrarDispositivoResponse:self.registrarDispositivoResponse];
+    [estanteLivros setEstanteResponse:self.conexaoBuscarEstante.estanteResponse];
     
     
     [self.navigationController pushViewController:estanteLivros animated:YES];
@@ -68,27 +68,27 @@
 - (IBAction) obterEstante:(id)sender {
     NSString *urlObterEstante = @"http://www.ibracon.com.br/idr/ws/ws_estantes.php?";
     
-     _conexaoEstante = [[ConexaoEstante alloc] init];
+     _conexaoBuscarEstante = [[ConexaoBuscarEstante alloc] init];
     
     
     //Cliente
     urlObterEstante = [urlObterEstante stringByAppendingString:@"cliente="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarLivroResponse.codCliente]];
+    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarDispositivoResponse.codCliente]];
 
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&documento="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.txtDocumento]];
+    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarDispositivoResponse.dadosCliente.documento]];
     
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&dispositivo="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarLivroResponse.codDispositivo]];
+    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarDispositivoResponse.codDispositivo]];
     
     
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&keyword="];
-    //urlObterEstante = [urlObterEstante stringByAppendingString: [connectionIbra urlEncodeUsingEncoding:self.txtSenha.text]];
+    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarDispositivoResponse.dadosCliente.palavraChave]];
 
     urlObterEstante = [urlObterEstante stringByAppendingString:@"&senha="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.txtSenha]];
+    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarDispositivoResponse.dadosCliente.senha]];
     
-    [_conexaoEstante conectarObterEstante:urlObterEstante];
+    [_conexaoBuscarEstante conectarObterEstante:urlObterEstante];
     
     
 }

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LivroResponse.h"
+#import "RegistrarDispositivoResponse.h"
 #import <FastPdfKit/FastPdfKit.h>
 
 @class MFDocumentManager;
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *fotoLivro;
 -(IBAction)startDownload:(id)sender;
 @property (nonatomic, retain) LivroResponse *livroResponse;
+@property (nonatomic, retain) RegistrarDispositivoResponse *registroDispositivoResponse;
 @property (nonatomic, retain) UILabel *tituloLivro;
 -(IBAction)actionOpenPlainDocument:(NSString *)nomeArq;
 @end

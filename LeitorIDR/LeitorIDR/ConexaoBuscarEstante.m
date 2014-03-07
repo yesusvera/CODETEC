@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Yesus Castillo Vera. All rights reserved.
 //
 
-#import "ConexaoEstante.h"
+#import "ConexaoBuscarEstante.h"
 #import "AFHTTPRequestOperationManager.h"
 
 
-@implementation ConexaoEstante
+@implementation ConexaoBuscarEstante
 
 @synthesize estanteResponse;
 

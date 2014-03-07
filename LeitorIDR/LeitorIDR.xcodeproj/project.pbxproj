@@ -12,6 +12,10 @@
 		2915311C18C0231F009EBF14 /* FPKReaderBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2915311918C0231F009EBF14 /* FPKReaderBundle.bundle */; };
 		2915311D18C0231F009EBF14 /* Snippets.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2915311A18C0231F009EBF14 /* Snippets.txt */; };
 		2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */; };
+		2988CEB818C9612C005B84BE /* RegistrarLivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */; };
+		2988CEBB18C96A6F005B84BE /* ConexaoRegistrarLivro.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEBA18C96A6F005B84BE /* ConexaoRegistrarLivro.m */; };
+		2988CEBE18C96F45005B84BE /* DadosDispositivo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEBD18C96F45005B84BE /* DadosDispositivo.m */; };
+		2988CEC118C97128005B84BE /* DadosCliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEC018C97128005B84BE /* DadosCliente.m */; };
 		298E504A18BC02FE00F1F838 /* Registrar.xml in Resources */ = {isa = PBXBuildFile; fileRef = 298E504918BC02FE00F1F838 /* Registrar.xml */; };
 		299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 299D7B4718BC36FC00724BED /* EstanteResponse.m */; };
 		82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */; };
@@ -23,7 +27,7 @@
 		82E0390C18B8DD7A00EE7722 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E0390118B8DD7A00EE7722 /* AFURLRequestSerialization.m */; };
 		82E0390D18B8DD7A00EE7722 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E0390318B8DD7A00EE7722 /* AFURLResponseSerialization.m */; };
 		82E0390E18B8DD7A00EE7722 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E0390518B8DD7A00EE7722 /* AFURLSessionManager.m */; };
-		82F335A418B59B86001636EE /* ConexaoEstante.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A318B59B86001636EE /* ConexaoEstante.m */; };
+		82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A318B59B86001636EE /* ConexaoBuscarEstante.m */; };
 		82F335AA18B5AEFE001636EE /* LivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A918B5AEFE001636EE /* LivroResponse.m */; };
 		FB3A5C5318BD639400A0FEA8 /* LivroDetalhesView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */; };
 		FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3A5C5218BD639400A0FEA8 /* LivroDetalhesView.xib */; };
@@ -48,7 +52,7 @@
 		FB62EE2018763779007661BF /* ConexaoRegistrarDispositivo.m in Sources */ = {isa = PBXBuildFile; fileRef = FB62EE1F18763779007661BF /* ConexaoRegistrarDispositivo.m */; };
 		FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */; };
 		FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */; };
-		FBDF8A6F1877CAC0000EC732 /* RegistrarLivroResposta.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDF8A6E1877CAC0000EC732 /* RegistrarLivroResposta.m */; };
+		FBDF8A6F1877CAC0000EC732 /* RegistrarDispositivoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDF8A6E1877CAC0000EC732 /* RegistrarDispositivoResponse.m */; };
 		FBDF8A7B1878C0FD000EC732 /* EstanteLivrosController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDF8A791878C0FD000EC732 /* EstanteLivrosController.m */; };
 		FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDF8A7A1878C0FD000EC732 /* EstanteLivrosController.xib */; };
 		FBF102251870AFB900B4A361 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBF102241870AFB900B4A361 /* Media.xcassets */; };
@@ -72,6 +76,14 @@
 		2915311918C0231F009EBF14 /* FPKReaderBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FPKReaderBundle.bundle; sourceTree = "<group>"; };
 		2915311A18C0231F009EBF14 /* Snippets.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snippets.txt; sourceTree = "<group>"; };
 		2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EstanteIbracon.xml; path = ../../EstanteIbracon.xml; sourceTree = "<group>"; };
+		2988CEB618C9612C005B84BE /* RegistrarLivroResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrarLivroResponse.h; sourceTree = "<group>"; };
+		2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrarLivroResponse.m; sourceTree = "<group>"; };
+		2988CEB918C96A6F005B84BE /* ConexaoRegistrarLivro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConexaoRegistrarLivro.h; sourceTree = "<group>"; };
+		2988CEBA18C96A6F005B84BE /* ConexaoRegistrarLivro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConexaoRegistrarLivro.m; sourceTree = "<group>"; };
+		2988CEBC18C96F45005B84BE /* DadosDispositivo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DadosDispositivo.h; sourceTree = "<group>"; };
+		2988CEBD18C96F45005B84BE /* DadosDispositivo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DadosDispositivo.m; sourceTree = "<group>"; };
+		2988CEBF18C97128005B84BE /* DadosCliente.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DadosCliente.h; sourceTree = "<group>"; };
+		2988CEC018C97128005B84BE /* DadosCliente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DadosCliente.m; sourceTree = "<group>"; };
 		298E504918BC02FE00F1F838 /* Registrar.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Registrar.xml; sourceTree = "<group>"; };
 		299D7B4618BC36FC00724BED /* EstanteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstanteResponse.h; sourceTree = "<group>"; };
 		299D7B4718BC36FC00724BED /* EstanteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstanteResponse.m; sourceTree = "<group>"; };
@@ -95,8 +107,8 @@
 		82E0390318B8DD7A00EE7722 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		82E0390418B8DD7A00EE7722 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		82E0390518B8DD7A00EE7722 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		82F335A218B59B86001636EE /* ConexaoEstante.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConexaoEstante.h; sourceTree = "<group>"; };
-		82F335A318B59B86001636EE /* ConexaoEstante.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConexaoEstante.m; sourceTree = "<group>"; };
+		82F335A218B59B86001636EE /* ConexaoBuscarEstante.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConexaoBuscarEstante.h; sourceTree = "<group>"; };
+		82F335A318B59B86001636EE /* ConexaoBuscarEstante.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConexaoBuscarEstante.m; sourceTree = "<group>"; };
 		82F335A818B5AEFE001636EE /* LivroResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivroResponse.h; sourceTree = "<group>"; };
 		82F335A918B5AEFE001636EE /* LivroResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivroResponse.m; sourceTree = "<group>"; };
 		B159C45D2D774BBF9E4125BD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -133,8 +145,8 @@
 		FBC727A918658EAD00F72A23 /* PerguntaRegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerguntaRegistroController.h; path = ../PerguntaRegistroController.h; sourceTree = "<group>"; };
 		FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerguntaRegistroController.m; path = ../PerguntaRegistroController.m; sourceTree = "<group>"; };
 		FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PerguntaRegistroController.xib; path = ../PerguntaRegistroController.xib; sourceTree = "<group>"; };
-		FBDF8A6D1877CAC0000EC732 /* RegistrarLivroResposta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrarLivroResposta.h; sourceTree = "<group>"; };
-		FBDF8A6E1877CAC0000EC732 /* RegistrarLivroResposta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrarLivroResposta.m; sourceTree = "<group>"; };
+		FBDF8A6D1877CAC0000EC732 /* RegistrarDispositivoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrarDispositivoResponse.h; sourceTree = "<group>"; };
+		FBDF8A6E1877CAC0000EC732 /* RegistrarDispositivoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrarDispositivoResponse.m; sourceTree = "<group>"; };
 		FBDF8A781878C0FD000EC732 /* EstanteLivrosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstanteLivrosController.h; sourceTree = "<group>"; };
 		FBDF8A791878C0FD000EC732 /* EstanteLivrosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstanteLivrosController.m; sourceTree = "<group>"; };
 		FBDF8A7A1878C0FD000EC732 /* EstanteLivrosController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EstanteLivrosController.xib; sourceTree = "<group>"; };
@@ -365,12 +377,18 @@
 		FBDF8A701877CC5B000EC732 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				FBDF8A6D1877CAC0000EC732 /* RegistrarLivroResposta.h */,
-				FBDF8A6E1877CAC0000EC732 /* RegistrarLivroResposta.m */,
+				FBDF8A6D1877CAC0000EC732 /* RegistrarDispositivoResponse.h */,
+				FBDF8A6E1877CAC0000EC732 /* RegistrarDispositivoResponse.m */,
 				82F335A818B5AEFE001636EE /* LivroResponse.h */,
 				82F335A918B5AEFE001636EE /* LivroResponse.m */,
 				299D7B4618BC36FC00724BED /* EstanteResponse.h */,
 				299D7B4718BC36FC00724BED /* EstanteResponse.m */,
+				2988CEB618C9612C005B84BE /* RegistrarLivroResponse.h */,
+				2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */,
+				2988CEBC18C96F45005B84BE /* DadosDispositivo.h */,
+				2988CEBD18C96F45005B84BE /* DadosDispositivo.m */,
+				2988CEBF18C97128005B84BE /* DadosCliente.h */,
+				2988CEC018C97128005B84BE /* DadosCliente.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -387,10 +405,12 @@
 		FBDF8A721877E353000EC732 /* connection */ = {
 			isa = PBXGroup;
 			children = (
-				82F335A218B59B86001636EE /* ConexaoEstante.h */,
-				82F335A318B59B86001636EE /* ConexaoEstante.m */,
+				82F335A218B59B86001636EE /* ConexaoBuscarEstante.h */,
+				82F335A318B59B86001636EE /* ConexaoBuscarEstante.m */,
 				FB62EE1E18763779007661BF /* ConexaoRegistrarDispositivo.h */,
 				FB62EE1F18763779007661BF /* ConexaoRegistrarDispositivo.m */,
+				2988CEB918C96A6F005B84BE /* ConexaoRegistrarLivro.h */,
+				2988CEBA18C96A6F005B84BE /* ConexaoRegistrarLivro.m */,
 			);
 			name = connection;
 			sourceTree = "<group>";
@@ -543,6 +563,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */,
+				2988CEBE18C96F45005B84BE /* DadosDispositivo.m in Sources */,
+				2988CEB818C9612C005B84BE /* RegistrarLivroResponse.m in Sources */,
 				FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */,
 				FB5F0A8718615A800068D497 /* IdrViewController.m in Sources */,
 				82E0390E18B8DD7A00EE7722 /* AFURLSessionManager.m in Sources */,
@@ -555,16 +577,18 @@
 				82F335AA18B5AEFE001636EE /* LivroResponse.m in Sources */,
 				82E0390A18B8DD7A00EE7722 /* AFSecurityPolicy.m in Sources */,
 				FB5F0A7A18615A800068D497 /* main.m in Sources */,
+				2988CEC118C97128005B84BE /* DadosCliente.m in Sources */,
 				82E0390C18B8DD7A00EE7722 /* AFURLRequestSerialization.m in Sources */,
 				FBF1E1371869506E00671EE2 /* EstantesController.m in Sources */,
 				299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */,
 				82E0390D18B8DD7A00EE7722 /* AFURLResponseSerialization.m in Sources */,
 				FBDF8A7B1878C0FD000EC732 /* EstanteLivrosController.m in Sources */,
-				FBDF8A6F1877CAC0000EC732 /* RegistrarLivroResposta.m in Sources */,
+				FBDF8A6F1877CAC0000EC732 /* RegistrarDispositivoResponse.m in Sources */,
 				FB3A5C5318BD639400A0FEA8 /* LivroDetalhesView.m in Sources */,
 				82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */,
-				82F335A418B59B86001636EE /* ConexaoEstante.m in Sources */,
+				82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */,
 				FB5A361218657EA6006C7FF3 /* RegistroNaoAssociadoController.m in Sources */,
+				2988CEBB18C96A6F005B84BE /* ConexaoRegistrarLivro.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

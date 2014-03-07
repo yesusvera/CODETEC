@@ -10,7 +10,7 @@
 #import "LivroResponse.h"
 #import "EstanteResponse.h"
 
-@interface ConexaoEstante : NSObject<NSXMLParserDelegate>{
+@interface ConexaoBuscarEstante : NSObject<NSXMLParserDelegate>{
     EstanteResponse *estanteResponse;
     NSMutableString *valorNoAtual;
     LivroResponse *livro;

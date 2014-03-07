@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RegistrarLivroResposta.h"
+#import "RegistrarDispositivoResponse.h"
+#import "DadosCliente.h"
+#import "DadosDispositivo.h"
 
 @interface ConexaoRegistrarDispositivo : NSObject <NSXMLParserDelegate>{
-    RegistrarLivroResposta *registrarLivroResponse;
+    RegistrarDispositivoResponse *registrarDispositivoResponse;
     NSMutableString *valorElementoAtual;
 }
 
 
--(void)registrarDispositivo:(NSString *)_url indicadorCarregando:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador documento:(NSString *) documento senha:(NSString *) senha;
+-(void)registrarDispositivo:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador comDadosCliente:(DadosCliente *) dadosCliente comDadosDispositivo:(DadosDispositivo *) dadosDispositivo;
 
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;
 

@@ -8,6 +8,7 @@
 
 #import "LivroDetalhesView.h"
 #import "AFHTTPRequestOperation.h"
+#import "ConexaoRegistrarLivro.h"
 
 @interface LivroDetalhesView ()
 
@@ -15,6 +16,18 @@
 
 @implementation LivroDetalhesView
 @synthesize livroResponse, tituloLivro,fotoLivro;
+
+
+// METODO PARA ESCONDER A LOGO DO FASTPDFKIT, SO FUNCIONA COM LICENÇA PAGA.
+//- (void) viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    
+//    [self.view.subviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
+//        if ([view isKindOfClass:[UIImageView class]]) {
+//            view.hidden = YES;
+//        }
+//    }];
+//}
 
 // Função que abre o PDF pelo caminho especificado
 -(IBAction)actionOpenPlainDocument:(id)sender{
@@ -44,7 +57,8 @@
     /** Set document id for thumbnail generation */
     pdfViewController.documentId = documentName;
 	/** Present the pdf on screen in a modal view */
-    [self presentModalViewController:pdfViewController animated:YES];
+    
+    [self presentViewController:pdfViewController animated:YES completion:nil];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -71,8 +85,8 @@
                                     [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ];
             self.tituloLivro.text = livroResponse.titulo;
         }else if([livroResponse.tipoLivro isEqualToString:@"baixados"]){
-            self.fotoLivro.image = [[UIImage alloc] initWithData:
-                                   [[NSData alloc]initWithContentsOfFile: [self downloadSavePathFor:self.livroResponse.foto.lastPathComponent]]];
+            //[UIImage imageWithData:[[NSData alloc]initWithContentsOfFile: [self downloadSavePathFor:linkFotoLivro.lastPathComponent] ]];
+            self.fotoLivro.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfFile: [self downloadSavePathFor:self.livroResponse.foto.lastPathComponent]]];
             downPdf.hidden = YES;
             abrirPdf.hidden = NO;
             self.tituloLivro.text = livroResponse.titulo;
@@ -91,7 +105,19 @@
 }
 
 -(IBAction)startDownload:(id)sender{
-    NSURL *urlLivro = [NSURL URLWithString:livroResponse.arquivo];
+   
+    
+    [self downloadDoLivro:livroResponse.arquivo];
+    
+    [self downloadFotoDoLivro:livroResponse.foto];
+    
+    ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
+    [conexaoRegistrarLivro registrarLivroBaixado: self.registroDispositivoResponse comLivroResponse:livroResponse];
+}
+
+
+-(void) downloadDoLivro:(NSString *) urlLivroParaBaixar{
+    NSURL *urlLivro = [NSURL URLWithString:urlLivroParaBaixar];
     NSURLRequest *request = [NSURLRequest requestWithURL:urlLivro];
     NSString *saveFilename = [self downloadSavePathFor:urlLivro.lastPathComponent];
     
@@ -128,11 +154,12 @@
     [loadingIndicator startAnimating];
     
     [operation start];
-    
-    
-    
+}
+
+
+-(void) downloadFotoDoLivro:(NSString *) urlFotoLivro{
     //DOWNLOAD DA FOTO DO LIVRO
-    NSURL *urlFoto = [NSURL URLWithString:livroResponse.foto];
+    NSURL *urlFoto = [NSURL URLWithString:urlFotoLivro];
     NSURLRequest *requestFoto = [NSURLRequest requestWithURL:urlFoto];
     NSString *saveFilenameFoto = [self downloadSavePathFor:urlFoto.lastPathComponent];
     
@@ -151,7 +178,6 @@
     }];
     
     [operationFoto start];
-
 }
 
 -(NSString *) downloadSavePathFor:(NSString *) filename{

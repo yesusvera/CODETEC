@@ -113,6 +113,8 @@
     
     LivroDetalhesView *livroDetalhesView = [[LivroDetalhesView alloc]init];
     livroDetalhesView.livroResponse = livro;
+    livroDetalhesView.registroDispositivoResponse = self.registrarDispositivoResponse;
+    
     
     [self.navigationController pushViewController:livroDetalhesView animated:YES];
 }

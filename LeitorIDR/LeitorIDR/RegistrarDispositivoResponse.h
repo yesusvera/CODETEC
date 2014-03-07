@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DadosCliente.h"
 
-@interface RegistrarLivroResposta : NSObject{
+@interface RegistrarDispositivoResponse : NSObject{
     NSString *codCliente;
     NSString *codDispositivo;
     NSString *status;
@@ -23,5 +24,6 @@
 @property(nonatomic, retain) NSString *appVersion;
 @property(nonatomic, retain) NSString *erro;
 @property(nonatomic, retain) NSString *msgErro;
+@property(nonatomic, retain) DadosCliente *dadosCliente;
 
 @end

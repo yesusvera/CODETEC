@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="abrirPdf" destination="MTm-F9-mdJ" id="guk-qe-il1"/>
                 <outlet property="downPdf" destination="lOf-Qe-RfC" id="gsI-X8-vhy"/>
-                <outlet property="fotoLivro" destination="4Rr-Lu-LWP" id="vXs-Kc-7Yz"/>
+                <outlet property="fotoLivro" destination="4Rr-Lu-LWP" id="e47-8j-6Kf"/>
                 <outlet property="loadingIndicator" destination="fOF-gj-Zoh" id="c0S-bQ-CL5"/>
                 <outlet property="progressBar" destination="Zv3-yD-u1n" id="Wc0-aF-x8c"/>
                 <outlet property="tituloLivro" destination="pwu-Zh-hwa" id="KrE-Bd-1Yq"/>

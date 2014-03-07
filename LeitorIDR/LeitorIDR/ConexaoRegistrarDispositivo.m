@@ -9,13 +9,15 @@
 #import "ConexaoRegistrarDispositivo.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "EstantesController.h"
+#import "DadosCliente.h"
+#import "DadosDispositivo.h"
 
 @implementation ConexaoRegistrarDispositivo
 
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"response"]){
-        registrarLivroResponse = [[RegistrarLivroResposta alloc] init];
+        registrarDispositivoResponse = [[RegistrarDispositivoResponse alloc] init];
     }
 }
 
@@ -36,17 +38,17 @@
     if([elementName isEqualToString:@"response"]){
         return;
     } else if([elementName isEqualToString:@"codCliente"]){
-        [registrarLivroResponse setCodCliente:valorElementoAtual];
+        [registrarDispositivoResponse setCodCliente:valorElementoAtual];
     }else if([elementName isEqualToString:@"codDispositivo"]){
-        [registrarLivroResponse setCodDispositivo:valorElementoAtual];
+        [registrarDispositivoResponse setCodDispositivo:valorElementoAtual];
     }else if([elementName isEqualToString:@"status"]){
-        [registrarLivroResponse setStatus:valorElementoAtual];
+        [registrarDispositivoResponse setStatus:valorElementoAtual];
     }else if([elementName isEqualToString:@"appVersion"]){
-        [registrarLivroResponse setAppVersion:valorElementoAtual];
+        [registrarDispositivoResponse setAppVersion:valorElementoAtual];
     }else if([elementName isEqualToString:@"erro"]){
-        [registrarLivroResponse setErro:valorElementoAtual];
+        [registrarDispositivoResponse setErro:valorElementoAtual];
     }else if([elementName isEqualToString:@"msgErro"]){
-        [registrarLivroResponse setMsgErro:valorElementoAtual];
+        [registrarDispositivoResponse setMsgErro:valorElementoAtual];
     }
     
     valorElementoAtual = nil;
@@ -65,7 +67,7 @@
 
 
 
--(void)registrarDispositivo:(NSString *)_url indicadorCarregando:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador documento:(NSString *) documento senha:(NSString *) senha{
+-(void)registrarDispositivo:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador comDadosCliente:(DadosCliente *) dadosCliente comDadosDispositivo:(DadosDispositivo *) dadosDispositivo {
    
     //REGISTRO LOCAL
 //    NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"Registrar.xml"];
@@ -89,16 +91,17 @@
 //    [estanteController setTxtDocumento : documento];
 //    [estanteController setTxtSenha : senha];
 //    [controlador.navigationController pushViewController:estanteController animated:YES];
-    
+
     
  //REGISTRO ONLINE
     NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
     networkQueue.maxConcurrentOperationCount = 5;
     
-    NSLog(@"%@", _url);
-    
-    NSURL *url = [NSURL URLWithString:_url];
-    
+    NSString *urlParaRegistrarDispositivo = [self montarUrlParaRegistroDeDispositivo:dadosCliente comDadosDispositivo:dadosDispositivo];
+
+    NSURL *url = [NSURL URLWithString:urlParaRegistrarDispositivo];
+    NSLog(@"%@", urlParaRegistrarDispositivo);
+    NSLog(@"%@", url);
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     NSLog(@"%@", operation);
@@ -142,10 +145,10 @@
         }
         
         
-        NSString *mensagemAlerta = registrarLivroResponse.status;
-        if(![registrarLivroResponse.erro isEqualToString:@"0"]){
+        NSString *mensagemAlerta = registrarDispositivoResponse.status;
+        if(![registrarDispositivoResponse.erro isEqualToString:@"0"]){
             mensagemAlerta = [mensagemAlerta stringByAppendingString:@" - "];
-            mensagemAlerta = [mensagemAlerta stringByAppendingString:registrarLivroResponse.msgErro];
+            mensagemAlerta = [mensagemAlerta stringByAppendingString:registrarDispositivoResponse.msgErro];
         }
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Registro "
@@ -160,11 +163,10 @@
         
         
         //REDIRECIONANDO PARA AS ESTANTES
-        if([registrarLivroResponse.erro isEqualToString:@"0"] & [[registrarLivroResponse.status lowercaseString] isEqualToString:@"ativado"]){
+        if([registrarDispositivoResponse.erro isEqualToString:@"0"] & [[registrarDispositivoResponse.status lowercaseString] isEqualToString:@"ativado"]){
             EstantesController *estanteController = [[EstantesController alloc] init];
-            [estanteController setRegistrarLivroResponse:registrarLivroResponse];
-            [estanteController setTxtDocumento : documento];
-            [estanteController setTxtSenha : senha];
+            registrarDispositivoResponse.dadosCliente = dadosCliente;
+            [estanteController setRegistrarDispositivoResponse:registrarDispositivoResponse];
             [controlador.navigationController pushViewController:estanteController animated:YES];
             
         }
@@ -207,10 +209,10 @@
         }
 
         
-        NSString *mensagemAlerta = registrarLivroResponse.status;
-        if(![registrarLivroResponse.erro isEqualToString:@"0"]){
+        NSString *mensagemAlerta = registrarDispositivoResponse.status;
+        if(![registrarDispositivoResponse.erro isEqualToString:@"0"]){
             mensagemAlerta = [mensagemAlerta stringByAppendingString:@" - "];
-            mensagemAlerta = [mensagemAlerta stringByAppendingString:registrarLivroResponse.msgErro];
+            mensagemAlerta = [mensagemAlerta stringByAppendingString:registrarDispositivoResponse.msgErro];
         }
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Registro "
@@ -225,11 +227,10 @@
         
         
         //REDIRECIONANDO PARA AS ESTANTES
-        if([registrarLivroResponse.erro isEqualToString:@"0"] & [[registrarLivroResponse.status lowercaseString] isEqualToString:@"ativado"]){
+        if([registrarDispositivoResponse.erro isEqualToString:@"0"] & [[registrarDispositivoResponse.status lowercaseString] isEqualToString:@"ativado"]){
             EstantesController *estanteController = [[EstantesController alloc] init];
-            [estanteController setRegistrarLivroResponse:registrarLivroResponse];
-            [estanteController setTxtDocumento : documento];
-            [estanteController setTxtSenha : senha];
+            registrarDispositivoResponse.dadosCliente = dadosCliente;
+            [estanteController setRegistrarDispositivoResponse:registrarDispositivoResponse];
             [controlador.navigationController pushViewController:estanteController animated:YES];
             
         }
@@ -243,6 +244,29 @@
     [networkQueue addOperation:operation];
 }
 
+
+- (NSString *)montarUrlParaRegistroDeDispositivo:(DadosCliente *) dadosCliente comDadosDispositivo:(DadosDispositivo *) dadosDispositivo{
+    
+    NSString *urlRegistrarDisp = @"http://www.ibracon.com.br/idr/ws/ws_registrar.php?";
+    
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"associado="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosCliente.ehAssociado]];
+ 
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&registro="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosCliente.registroNacional]];
+    
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&documento="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosCliente.documento]];
+    
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&senha="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosCliente.senha]];
+
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&dispositivo="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosDispositivo.dispositivo]];
+    
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&ip="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosDispositivo.ip]];
+    
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&macadress="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosDispositivo.macAdress]];
+    
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&serial="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosDispositivo.serial]];
+    
+    return urlRegistrarDisp;
+}
 
 -(NSString *) downloadSavePathFor:(NSString *) filename{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
