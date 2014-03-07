@@ -9,6 +9,7 @@
 #import "LivroDetalhesView.h"
 #import "AFHTTPRequestOperation.h"
 #import "ConexaoRegistrarLivro.h"
+#import "ConexaoBuscarEstante.h"
 
 @interface LivroDetalhesView ()
 
@@ -113,6 +114,12 @@
     
     ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
     [conexaoRegistrarLivro registrarLivroBaixado: self.registroDispositivoResponse comLivroResponse:livroResponse];
+    
+    if([conexaoRegistrarLivro.registrarLivroResponse.erro isEqualToString:@"0"]){
+        ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
+        //Mudar para que a URL seja tratada dentro do conexao buscar estante
+        [conexaoBuscarEstante conectarObterEstante:@"url"];
+    }
 }
 
 

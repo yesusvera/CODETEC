@@ -16,5 +16,7 @@
      NSMutableString *valorElementoAtual;
 }
 
+@property (nonatomic, retain) RegistrarLivroResponse *registrarLivroResponse;
 -(void)registrarLivroBaixado:(RegistrarDispositivoResponse *) registrarLivroResponse comLivroResponse:(LivroResponse *) livroResponse;
+
 @end
