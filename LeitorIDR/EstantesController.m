@@ -32,7 +32,6 @@
     [estanteLivros setRegistrarDispositivoResponse:self.registrarDispositivoResponse];
     [estanteLivros setEstanteResponse:self.conexaoBuscarEstante.estanteResponse];
     
-    
     [self.navigationController pushViewController:estanteLivros animated:YES];
 }
 
@@ -54,7 +53,8 @@
     [super viewDidLoad];
 
     self.title= @"Estantes";
-    [self obterEstante:self];
+    _conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
+    [_conexaoBuscarEstante conectarObterEstante:self.registrarDispositivoResponse];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -64,34 +64,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction) obterEstante:(id)sender {
-    NSString *urlObterEstante = @"http://www.ibracon.com.br/idr/ws/ws_estantes.php?";
-    
-     _conexaoBuscarEstante = [[ConexaoBuscarEstante alloc] init];
-    
-    
-    //Cliente
-    urlObterEstante = [urlObterEstante stringByAppendingString:@"cliente="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarDispositivoResponse.codCliente]];
-
-    urlObterEstante = [urlObterEstante stringByAppendingString:@"&documento="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarDispositivoResponse.dadosCliente.documento]];
-    
-    urlObterEstante = [urlObterEstante stringByAppendingString:@"&dispositivo="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarDispositivoResponse.codDispositivo]];
-    
-    
-    urlObterEstante = [urlObterEstante stringByAppendingString:@"&keyword="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarDispositivoResponse.dadosCliente.palavraChave]];
-
-    urlObterEstante = [urlObterEstante stringByAppendingString:@"&senha="];
-    urlObterEstante = [urlObterEstante stringByAppendingString: [self urlEncodeUsingEncoding:self.registrarDispositivoResponse.dadosCliente.senha]];
-    
-    [_conexaoBuscarEstante conectarObterEstante:urlObterEstante];
-    
-    
-}
 
 
 

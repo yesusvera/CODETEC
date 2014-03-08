@@ -10,10 +10,20 @@
 #import "AFHTTPRequestOperationManager.h"
 
 @implementation ConexaoRegistrarLivro
+@synthesize registrarLivroResponse;
 
+//-(id)init{
+//    self = [super init];
+//    if(self){
+//        registrarLivroResponse = [[RegistrarLivroResponse alloc]init];
+//    }
+//    
+//    return self;
+//}
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"response"]){
+        //return;
         registrarLivroResponse = [[RegistrarLivroResponse alloc] init];
     }
 }
@@ -126,7 +136,6 @@
     
     return urlRegistrarLivro;
 }
-
 
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {
     NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(

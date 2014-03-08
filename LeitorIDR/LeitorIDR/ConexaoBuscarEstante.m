@@ -8,6 +8,7 @@
 
 #import "ConexaoBuscarEstante.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "RegistrarDispositivoResponse.h"
 
 
 @implementation ConexaoBuscarEstante
@@ -115,7 +116,7 @@ BOOL isDeDireito;
 
 
 
--(void)conectarObterEstante:(NSString *)_url{
+-(void)conectarObterEstante:(RegistrarDispositivoResponse *) registrarDispositivoResponse{
     
 //    NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"EstanteIbracon.xml"];
 //
@@ -139,7 +140,7 @@ BOOL isDeDireito;
     NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
     networkQueue.maxConcurrentOperationCount = 5;
 
-    NSURL *url = [NSURL URLWithString:_url];
+    NSURL *url = [NSURL URLWithString:[self montarUrlParaObterEstante:registrarDispositivoResponse]];
     NSLog(@"%@", url);
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -216,6 +217,44 @@ BOOL isDeDireito;
     }];
     
     [networkQueue addOperation:operation];
+}
+
+
+-(void)conectarObterEstanteLocal:(RegistrarDispositivoResponse *) registrarDispositivoResponse{
+    
+    NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"EstanteIbracon.xml"];
+
+    NSData *data = [[NSData alloc] initWithContentsOfFile:estante];
+    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", corpoXML);
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+    NSLog(@"%@", parser);
+    [parser setDelegate:self];
+
+    if(![parser parse]){
+        NSLog(@"Erro ao realizar o parse");
+    }else{
+        NSLog(@"Ok Parse");
+
+    }
+}
+
+
+- (NSString *) montarUrlParaObterEstante:(RegistrarDispositivoResponse *)registrarDispositivoResponse{
+    
+    NSString *urlObterEstante = @"http://www.ibracon.com.br/idr/ws/ws_estantes.php?";
+
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"cliente="] stringByAppendingString:[self urlEncodeUsingEncoding:registrarDispositivoResponse.codCliente]];
+    
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&documento="] stringByAppendingString:[self urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.documento]];
+    
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&dispositivo="] stringByAppendingString:[self urlEncodeUsingEncoding:registrarDispositivoResponse.codDispositivo]];
+    
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&keyword="] stringByAppendingString:[self urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.palavraChave]];
+    
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&senha="] stringByAppendingString:[self urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.senha]];
+    
+    return urlObterEstante;
 }
 
 -(NSString *) downloadSavePathFor:(NSString *) filename{

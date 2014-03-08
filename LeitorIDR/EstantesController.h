@@ -25,6 +25,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblIP;
 @property (weak, nonatomic) IBOutlet UILabel *lblSerial;
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;
-- (IBAction) obterEstante:(id)sender;
 
 @end

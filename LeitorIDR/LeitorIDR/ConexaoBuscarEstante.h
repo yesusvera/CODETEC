@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LivroResponse.h"
 #import "EstanteResponse.h"
+#import "RegistrarDispositivoResponse.h"
 
 @interface ConexaoBuscarEstante : NSObject<NSXMLParserDelegate>{
     EstanteResponse *estanteResponse;
@@ -17,9 +18,9 @@
     NSString *erro;
     NSString *msgErro;
 }
--(void)conectarObterEstante:(NSString *)_url;
+-(void)conectarObterEstante:(RegistrarDispositivoResponse *) registrarDispositivoResponse;
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;
--(id)init;
 @property (nonatomic, retain) EstanteResponse *estanteResponse;
+-(void)conectarObterEstanteLocal:(RegistrarDispositivoResponse *) registrarDispositivoResponse;
 
 @end

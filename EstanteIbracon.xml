@@ -1,35 +1,15 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <response>
     <baixados>
-        <livro>
-            <codigolivro>4</codigolivro>
-            <titulo>Normas Internacionais de Relatório Financeiro - Edição 2013</titulo>
-            <versao>2013</versao>
-            <codigoloja>2013002</codigoloja>
-            <foto>http://www.ibracon.com.br/idr/fotos/ifrs2013.png</foto>
-            <arquivo>http://localhost/arquivos/IFRS2013.pdf</arquivo>
-        </livro>
+			<livro>
+				<codigolivro>4</codigolivro>
+				<titulo>Normas Internacionais de RelatÛrio Financeiro - EdiÁ„o 2013</titulo>
+				<versao>2013</versao>
+				<codigoloja>2013002</codigoloja>
+				<foto>http://www.ibracon.com.br/idr/fotos/ifrs2013.png</foto>
+				<arquivo>http://www.ibracon.com.br/idr/livros/Normas Internacionais de Relatorio Financeiro - 2013.idr</arquivo>
+			</livro>
     </baixados>
-    <parabaixar>
-        <livro>
-            <codigolivro>4</codigolivro>
-            <titulo>Normas Internacionais de Relatório Financeiro - Edição 2013</titulo>
-            <versao>2013</versao>
-            <codigoloja>2013002</codigoloja>
-            <foto>http://www.ibracon.com.br/idr/fotos/ifrs2013.png</foto>
-            <arquivo>http://localhost/arquivos/IFRS2013.pdf</arquivo>
-        </livro>
-    </parabaixar>
-    <dedireito>
-        <livro>
-            <codigolivro>4</codigolivro>
-            <titulo>Normas Internacionais de Relatório Financeiro - Edição 2013</titulo>
-            <versao>2013</versao>
-            <codigoloja>2013002</codigoloja>
-            <foto>http://www.ibracon.com.br/idr/fotos/ifrs2013.png</foto>
-            <arquivo>http://localhost/arquivos/IFRS2013.pdf</arquivo>
-        </livro>
-    </dedireito>
     <erro>0</erro>
     <msgErro>N/A</msgErro>
 </response>
