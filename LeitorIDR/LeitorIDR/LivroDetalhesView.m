@@ -10,7 +10,8 @@
 #import "AFHTTPRequestOperation.h"
 #import "ConexaoRegistrarLivro.h"
 #import "ConexaoBuscarEstante.h"
-
+#import "MFDocumentManager.h"
+#import "ReaderViewController.h"
 
 @interface LivroDetalhesView ()
 

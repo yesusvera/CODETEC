@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2915311518C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2915311418C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf */; };
-		2915311B18C0231F009EBF14 /* FastPdfKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2915311718C0231F009EBF14 /* FastPdfKit.framework */; };
-		2915311C18C0231F009EBF14 /* FPKReaderBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2915311918C0231F009EBF14 /* FPKReaderBundle.bundle */; };
-		2915311D18C0231F009EBF14 /* Snippets.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2915311A18C0231F009EBF14 /* Snippets.txt */; };
 		2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */; };
 		2988CEB818C9612C005B84BE /* RegistrarLivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */; };
 		2988CEBB18C96A6F005B84BE /* ConexaoRegistrarLivro.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEBA18C96A6F005B84BE /* ConexaoRegistrarLivro.m */; };
@@ -18,6 +15,9 @@
 		2988CEC118C97128005B84BE /* DadosCliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEC018C97128005B84BE /* DadosCliente.m */; };
 		298E504A18BC02FE00F1F838 /* Registrar.xml in Resources */ = {isa = PBXBuildFile; fileRef = 298E504918BC02FE00F1F838 /* Registrar.xml */; };
 		299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 299D7B4718BC36FC00724BED /* EstanteResponse.m */; };
+		29B5D96618D6153A00B8F5E4 /* FastPdfKit.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 29B5D96518D6153A00B8F5E4 /* FastPdfKit.xcconfig */; };
+		29EA292C18D6165E00F9BCAC /* FPKReaderBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 29EA292B18D6165E00F9BCAC /* FPKReaderBundle.bundle */; };
+		29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */; };
 		82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */; };
 		82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F618B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m */; };
 		82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F818B8DD7A00EE7722 /* AFHTTPSessionManager.m */; };
@@ -29,7 +29,6 @@
 		82E0390E18B8DD7A00EE7722 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E0390518B8DD7A00EE7722 /* AFURLSessionManager.m */; };
 		82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A318B59B86001636EE /* ConexaoBuscarEstante.m */; };
 		82F335AA18B5AEFE001636EE /* LivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A918B5AEFE001636EE /* LivroResponse.m */; };
-		FB3A5C5318BD639400A0FEA8 /* LivroDetalhesView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */; };
 		FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3A5C5218BD639400A0FEA8 /* LivroDetalhesView.xib */; };
 		FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5A360B18657E29006C7FF3 /* RegistroAssociadoController.m */; };
 		FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */; };
@@ -61,6 +60,69 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2942838718D614D6001F6167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
+			remoteInfo = FPKSimpleApp;
+		};
+		2942838918D614D6001F6167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 018848E7131E89570045038F;
+			remoteInfo = FPKKioskApp;
+		};
+		2942838B18D614D6001F6167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 010D14AD13CAF5CE00FD6F08;
+			remoteInfo = FPKReaderLib;
+		};
+		2942838D18D614D6001F6167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 010D14AE13CAF5CE00FD6F08;
+			remoteInfo = FPKKioskLib;
+		};
+		2942838F18D614D6001F6167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6FB9770913CB6E76007C368C;
+			remoteInfo = FPKKioskBundle;
+		};
+		2942839118D614D6001F6167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6FB9771B13CB6E8A007C368C;
+			remoteInfo = FPKReaderBundle;
+		};
+		2942839318D614D6001F6167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 958A81A014027EEE00837C82;
+			remoteInfo = FastPdfKit;
+		};
+		2942839518D614D6001F6167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 954B74AD14B47F0D00503F90;
+			remoteInfo = Extended;
+		};
+		29B5D96F18D6157500B8F5E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 01598DA513CAE783007344EE;
+			remoteInfo = FPKReaderLib;
+		};
 		FB5F0A9318615A800068D497 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FB5F0A6218615A800068D497 /* Project object */;
@@ -72,9 +134,7 @@
 
 /* Begin PBXFileReference section */
 		2915311418C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = IFRS2013_TESTE_EXTRACAO.pdf; path = ../../../../../../../../Downloads/IFRS2013_TESTE_EXTRACAO.pdf; sourceTree = "<group>"; };
-		2915311718C0231F009EBF14 /* FastPdfKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FastPdfKit.framework; sourceTree = "<group>"; };
-		2915311918C0231F009EBF14 /* FPKReaderBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FPKReaderBundle.bundle; sourceTree = "<group>"; };
-		2915311A18C0231F009EBF14 /* Snippets.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snippets.txt; sourceTree = "<group>"; };
+		2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FastPdfKit.xcodeproj; path = ../../../../../../../FastPdfkit/FastPdfKit.xcodeproj; sourceTree = "<group>"; };
 		2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EstanteIbracon.xml; path = ../../EstanteIbracon.xml; sourceTree = "<group>"; };
 		2988CEB618C9612C005B84BE /* RegistrarLivroResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrarLivroResponse.h; sourceTree = "<group>"; };
 		2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrarLivroResponse.m; sourceTree = "<group>"; };
@@ -87,6 +147,8 @@
 		298E504918BC02FE00F1F838 /* Registrar.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Registrar.xml; sourceTree = "<group>"; };
 		299D7B4618BC36FC00724BED /* EstanteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstanteResponse.h; sourceTree = "<group>"; };
 		299D7B4718BC36FC00724BED /* EstanteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstanteResponse.m; sourceTree = "<group>"; };
+		29B5D96518D6153A00B8F5E4 /* FastPdfKit.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = FastPdfKit.xcconfig; path = ../../../../../../../../FastPdfkit/OtherSources/FastPdfKit.xcconfig; sourceTree = "<group>"; };
+		29EA292B18D6165E00F9BCAC /* FPKReaderBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FPKReaderBundle.bundle; path = ../../../../../../../../FastPdfkit/Bundle/FPKReaderBundle.bundle; sourceTree = "<group>"; };
 		47E5FF1C835D4E76A8748C52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E038F318B8DD7A00EE7722 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -161,7 +223,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2915311B18C0231F009EBF14 /* FastPdfKit.framework in Frameworks */,
 				FB5F0A7018615A800068D497 /* CoreGraphics.framework in Frameworks */,
 				FB5F0A7218615A800068D497 /* UIKit.framework in Frameworks */,
 				FB5F0A6E18615A800068D497 /* Foundation.framework in Frameworks */,
@@ -181,23 +242,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2915311618C0231F009EBF14 /* FastPdfKit.embeddedframework */ = {
+		2942837D18D614D6001F6167 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2915311718C0231F009EBF14 /* FastPdfKit.framework */,
-				2915311818C0231F009EBF14 /* Resources */,
+				2942838818D614D6001F6167 /* FastPdfKit Sample.app */,
+				2942838A18D614D6001F6167 /* FastPdfKit Kiosk.app */,
+				2942838C18D614D6001F6167 /* libFPKReaderLib.a */,
+				2942838E18D614D6001F6167 /* libFPKKioskLib.a */,
+				2942839018D614D6001F6167 /* FPKKioskBundle.bundle */,
+				2942839218D614D6001F6167 /* FPKReaderBundle.bundle */,
+				2942839418D614D6001F6167 /* FastPdfKit.framework */,
+				2942839618D614D6001F6167 /* Extended.app */,
 			);
-			name = FastPdfKit.embeddedframework;
-			path = "../../../../../../mobfarm-FastPdfKit-feb4b79/FastPdfKit.embeddedframework";
-			sourceTree = "<group>";
-		};
-		2915311818C0231F009EBF14 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				2915311918C0231F009EBF14 /* FPKReaderBundle.bundle */,
-				2915311A18C0231F009EBF14 /* Snippets.txt */,
-			);
-			path = Resources;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		299D7B4318BC35A300724BED /* estantes */ = {
@@ -289,6 +346,7 @@
 				FB5F0A6C18615A800068D497 /* Frameworks */,
 				FB5F0A6B18615A800068D497 /* Products */,
 				B159C45D2D774BBF9E4125BD /* Pods.xcconfig */,
+				2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -304,7 +362,6 @@
 		FB5F0A6C18615A800068D497 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2915311618C0231F009EBF14 /* FastPdfKit.embeddedframework */,
 				FB5F0A6D18615A800068D497 /* Foundation.framework */,
 				FB5F0A6F18615A800068D497 /* CoreGraphics.framework */,
 				FB5F0A7118615A800068D497 /* UIKit.framework */,
@@ -332,6 +389,8 @@
 		FB5F0A7418615A800068D497 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				29EA292B18D6165E00F9BCAC /* FPKReaderBundle.bundle */,
+				29B5D96518D6153A00B8F5E4 /* FastPdfKit.xcconfig */,
 				FB5F0A7518615A800068D497 /* LeitorIDR-Info.plist */,
 				FB5F0A7618615A800068D497 /* InfoPlist.strings */,
 				FB5F0A7918615A800068D497 /* main.m */,
@@ -422,15 +481,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB5F0A9F18615A800068D497 /* Build configuration list for PBXNativeTarget "LeitorIDR" */;
 			buildPhases = (
-				85C0548336E84C9A8991A430 /* Check Pods Manifest.lock */,
 				FB5F0A6618615A800068D497 /* Sources */,
 				FB5F0A6718615A800068D497 /* Frameworks */,
 				FB5F0A6818615A800068D497 /* Resources */,
-				E68D2CCE712D44A988AFECAA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				29B5D97018D6157500B8F5E4 /* PBXTargetDependency */,
 			);
 			name = LeitorIDR;
 			productName = LeitorIDR;
@@ -483,6 +541,12 @@
 			mainGroup = FB5F0A6118615A800068D497;
 			productRefGroup = FB5F0A6B18615A800068D497 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2942837D18D614D6001F6167 /* Products */;
+					ProjectRef = 2942837C18D614D6001F6167 /* FastPdfKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FB5F0A6918615A800068D497 /* LeitorIDR */,
@@ -490,6 +554,65 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2942838818D614D6001F6167 /* FastPdfKit Sample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "FastPdfKit Sample.app";
+			remoteRef = 2942838718D614D6001F6167 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2942838A18D614D6001F6167 /* FastPdfKit Kiosk.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "FastPdfKit Kiosk.app";
+			remoteRef = 2942838918D614D6001F6167 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2942838C18D614D6001F6167 /* libFPKReaderLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFPKReaderLib.a;
+			remoteRef = 2942838B18D614D6001F6167 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2942838E18D614D6001F6167 /* libFPKKioskLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFPKKioskLib.a;
+			remoteRef = 2942838D18D614D6001F6167 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2942839018D614D6001F6167 /* FPKKioskBundle.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FPKKioskBundle.bundle;
+			remoteRef = 2942838F18D614D6001F6167 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2942839218D614D6001F6167 /* FPKReaderBundle.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FPKReaderBundle.bundle;
+			remoteRef = 2942839118D614D6001F6167 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2942839418D614D6001F6167 /* FastPdfKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FastPdfKit.framework;
+			remoteRef = 2942839318D614D6001F6167 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2942839618D614D6001F6167 /* Extended.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Extended.app;
+			remoteRef = 2942839518D614D6001F6167 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FB5F0A6818615A800068D497 /* Resources */ = {
@@ -500,12 +623,12 @@
 				FB5A361318657EA6006C7FF3 /* RegistroNaoAssociadoController.xib in Resources */,
 				FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */,
 				FBF1E1381869506E00671EE2 /* EstantesController.xib in Resources */,
+				29B5D96618D6153A00B8F5E4 /* FastPdfKit.xcconfig in Resources */,
 				2915311518C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf in Resources */,
 				2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */,
 				FB5F0A8418615A800068D497 /* Main_iPad.storyboard in Resources */,
+				29EA292C18D6165E00F9BCAC /* FPKReaderBundle.bundle in Resources */,
 				FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */,
-				2915311C18C0231F009EBF14 /* FPKReaderBundle.bundle in Resources */,
-				2915311D18C0231F009EBF14 /* Snippets.txt in Resources */,
 				FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */,
 				FB5F0A8118615A800068D497 /* Main_iPhone.storyboard in Resources */,
 				FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */,
@@ -523,39 +646,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		85C0548336E84C9A8991A430 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E68D2CCE712D44A988AFECAA /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB5F0A6618615A800068D497 /* Sources */ = {
@@ -582,9 +672,9 @@
 				FBF1E1371869506E00671EE2 /* EstantesController.m in Sources */,
 				299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */,
 				82E0390D18B8DD7A00EE7722 /* AFURLResponseSerialization.m in Sources */,
+				29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */,
 				FBDF8A7B1878C0FD000EC732 /* EstanteLivrosController.m in Sources */,
 				FBDF8A6F1877CAC0000EC732 /* RegistrarDispositivoResponse.m in Sources */,
-				FB3A5C5318BD639400A0FEA8 /* LivroDetalhesView.m in Sources */,
 				82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */,
 				82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */,
 				FB5A361218657EA6006C7FF3 /* RegistroNaoAssociadoController.m in Sources */,
@@ -603,6 +693,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		29B5D97018D6157500B8F5E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FPKReaderLib;
+			targetProxy = 29B5D96F18D6157500B8F5E4 /* PBXContainerItemProxy */;
+		};
 		FB5F0A9418615A800068D497 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FB5F0A6918615A800068D497 /* LeitorIDR */;
@@ -679,7 +774,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -713,7 +808,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -722,7 +817,7 @@
 		};
 		FB5F0AA018615A800068D497 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B159C45D2D774BBF9E4125BD /* Pods.xcconfig */;
+			baseConfigurationReference = 29B5D96518D6153A00B8F5E4 /* FastPdfKit.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -735,6 +830,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeitorIDR/LeitorIDR-Prefix.pch";
 				INFOPLIST_FILE = "LeitorIDR/LeitorIDR-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -744,7 +840,7 @@
 		};
 		FB5F0AA118615A800068D497 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B159C45D2D774BBF9E4125BD /* Pods.xcconfig */;
+			baseConfigurationReference = 29B5D96518D6153A00B8F5E4 /* FastPdfKit.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -757,6 +853,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeitorIDR/LeitorIDR-Prefix.pch";
 				INFOPLIST_FILE = "LeitorIDR/LeitorIDR-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

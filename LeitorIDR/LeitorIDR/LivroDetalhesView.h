@@ -10,7 +10,6 @@
 #import "LivroResponse.h"
 #import "RegistrarDispositivoResponse.h"
 #import "ConexaoRegistrarLivro.h"
-#import <FastPdfKit/FastPdfKit.h>
 
 @class MFDocumentManager;
 
