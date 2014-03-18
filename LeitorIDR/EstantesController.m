@@ -32,8 +32,6 @@
     estanteLivrosController.nomeEstante = [estantes objectAtIndex:indexPath.row];
     estanteLivrosController.registrarDispositivoResponse = self.registrarDispositivoResponse;
     estanteLivrosController.estanteResponse = self.estanteResponse;
-    ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
-    self.estanteResponse = [conexaoBuscarEstante conectarObterEstante:self.registrarDispositivoResponse];
     
     [self.navigationController pushViewController:estanteLivrosController animated:YES];
 }
