@@ -17,9 +17,21 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    //VERIFICAR AQUI SE JA TEM REGISTRO
+    //IF NAO TEM REGISTRO{
     PerguntaRegistroController *perguntaRegistroViewController = [[PerguntaRegistroController alloc] init];
+    
     UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:perguntaRegistroViewController];
     self.window.rootViewController = navController;
+    //}ELSE{//
+    
+//    EstateController *estanteViewController = [[EstateController alloc] init];
+//    
+//    UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:estanteViewController];
+//    self.window.rootViewController = navController;
+//
+    
+    //
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -16,6 +16,9 @@
 
 @implementation EstantesController
 @synthesize estanteResponse;
+
+
+bool flagConexaoLocal;
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {
     NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
                                                                                                     NULL,
@@ -54,9 +57,25 @@
     [super viewDidLoad];
 
     self.title= @"Estantes";
+    
     ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
     self.estanteResponse = [conexaoBuscarEstante conectarObterEstante:self.registrarDispositivoResponse];
-    // Do any additional setup after loading the view from its nib.
+
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+
+//
+    // Falta sobrepor a estante e manter o vaor do registrarLivroResponse
+    //if([conexaoRegistrarLivro.registrarLivroResponse.erro isEqualToString:@"0"]){
+    if(flagConexaoLocal){
+        ConexaoBuscarEstante *conexaoBuscarEstante2 = [[ConexaoBuscarEstante alloc]init];
+        self.estanteResponse = [conexaoBuscarEstante2 conectarObterEstanteLocal:self.registrarDispositivoResponse];
+    }
+    
+     flagConexaoLocal = true;
+    //}
+
 }
 
 - (void)didReceiveMemoryWarning

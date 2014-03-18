@@ -107,18 +107,9 @@
 -(IBAction)startDownload:(id)sender{
    
     
-    [self downloadDoLivro:livroResponse.arquivo];
-    
     [self downloadFotoDoLivro:livroResponse.foto];
-    
-    ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
-    [conexaoRegistrarLivro registrarLivroBaixado:self.registroDispositivoResponse comLivroResponse:livroResponse];
-    // Falta sobrepor a estante e manter o vaor do registrarLivroResponse
-    //if([conexaoRegistrarLivro.registrarLivroResponse.erro isEqualToString:@"0"]){
-        ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
-        self.estanteResponse = [conexaoBuscarEstante conectarObterEstanteLocal:self.registroDispositivoResponse];
-    //}
-}
+    [self downloadDoLivro:livroResponse.arquivo];
+  }
 
 
 -(void) downloadDoLivro:(NSString *) urlLivroParaBaixar{
@@ -141,6 +132,11 @@
         downPdf.hidden = YES;
         abrirPdf.hidden = NO;
         
+        //REGISTRAR LIVRO
+        
+        ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
+        [conexaoRegistrarLivro registrarLivroBaixado:self.registroDispositivoResponse comLivroResponse:livroResponse];
+        
         [self showMessage:@"Download finalizado com sucesso!"];
         
         
@@ -155,6 +151,7 @@
     
     progressBar.hidden = NO;
     loadingIndicator.hidden = NO;
+    
     
     [loadingIndicator startAnimating];
     
