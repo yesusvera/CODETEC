@@ -166,7 +166,7 @@
         if([registrarDispositivoResponse.erro isEqualToString:@"0"] & [[registrarDispositivoResponse.status lowercaseString] isEqualToString:@"ativado"]){
             EstantesController *estanteController = [[EstantesController alloc] init];
             registrarDispositivoResponse.dadosCliente = dadosCliente;
-            [estanteController setRegistrarDispositivoResponse:registrarDispositivoResponse];
+            estanteController.registrarDispositivoResponse = registrarDispositivoResponse;
             [controlador.navigationController pushViewController:estanteController animated:YES];
             
         }
@@ -230,7 +230,7 @@
         if([registrarDispositivoResponse.erro isEqualToString:@"0"] & [[registrarDispositivoResponse.status lowercaseString] isEqualToString:@"ativado"]){
             EstantesController *estanteController = [[EstantesController alloc] init];
             registrarDispositivoResponse.dadosCliente = dadosCliente;
-            [estanteController setRegistrarDispositivoResponse:registrarDispositivoResponse];
+            estanteController.registrarDispositivoResponse = registrarDispositivoResponse;
             [controlador.navigationController pushViewController:estanteController animated:YES];
             
         }

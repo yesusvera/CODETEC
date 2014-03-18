@@ -15,7 +15,7 @@
 @end
 
 @implementation EstantesController
-
+@synthesize estanteResponse;
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {
     NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
                                                                                                     NULL,
@@ -27,12 +27,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    EstanteLivrosController *estanteLivros = [[EstanteLivrosController alloc]init];
-    estanteLivros.nomeEstante = [estantes objectAtIndex:indexPath.row];
-    [estanteLivros setRegistrarDispositivoResponse:self.registrarDispositivoResponse];
-    [estanteLivros setEstanteResponse:self.conexaoBuscarEstante.estanteResponse];
+    EstanteLivrosController *estanteLivrosController = [[EstanteLivrosController alloc]init];
+    estanteLivrosController.nomeEstante = [estantes objectAtIndex:indexPath.row];
+    estanteLivrosController.registrarDispositivoResponse = self.registrarDispositivoResponse;
+    estanteLivrosController.estanteResponse = self.estanteResponse;
     
-    [self.navigationController pushViewController:estanteLivros animated:YES];
+    [self.navigationController pushViewController:estanteLivrosController animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -53,8 +53,8 @@
     [super viewDidLoad];
 
     self.title= @"Estantes";
-    _conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
-    [_conexaoBuscarEstante conectarObterEstante:self.registrarDispositivoResponse];
+    ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
+    self.estanteResponse = [conexaoBuscarEstante conectarObterEstante:self.registrarDispositivoResponse];
     // Do any additional setup after loading the view from its nib.
 }
 

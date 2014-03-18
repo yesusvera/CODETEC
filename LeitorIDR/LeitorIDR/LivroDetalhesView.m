@@ -18,7 +18,7 @@
 @end
 
 @implementation LivroDetalhesView
-@synthesize livroResponse, tituloLivro,fotoLivro;
+@synthesize livroResponse, tituloLivro,fotoLivro,estanteResponse;
 
 
 // METODO PARA ESCONDER A LOGO DO FASTPDFKIT, SO FUNCIONA COM LICENÇA PAGA.
@@ -88,7 +88,6 @@
                                     [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ];
             self.tituloLivro.text = livroResponse.titulo;
         }else if([livroResponse.tipoLivro isEqualToString:@"baixados"]){
-            //[UIImage imageWithData:[[NSData alloc]initWithContentsOfFile: [self downloadSavePathFor:linkFotoLivro.lastPathComponent] ]];
             self.fotoLivro.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfFile: [self downloadSavePathFor:self.livroResponse.foto.lastPathComponent]]];
             downPdf.hidden = YES;
             abrirPdf.hidden = NO;
@@ -117,10 +116,10 @@
     ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
     [conexaoRegistrarLivro registrarLivroBaixado:self.registroDispositivoResponse comLivroResponse:livroResponse];
     // Falta sobrepor a estante e manter o vaor do registrarLivroResponse
-    if([conexaoRegistrarLivro.registrarLivroResponse.erro isEqualToString:@"0"]){
+    //if([conexaoRegistrarLivro.registrarLivroResponse.erro isEqualToString:@"0"]){
         ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
-        [conexaoBuscarEstante conectarObterEstanteLocal:self.registroDispositivoResponse];
-    }
+        self.estanteResponse = [conexaoBuscarEstante conectarObterEstanteLocal:self.registroDispositivoResponse];
+    //}
 }
 
 

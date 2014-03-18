@@ -12,7 +12,7 @@
 
 
 @interface EstanteLivrosController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
-      EstanteResponse *estanteResponse;
+    EstanteResponse *estanteResponse;
 } 
 
 @property (weak, nonatomic) IBOutlet UILabel *nomeEstanteLabel;

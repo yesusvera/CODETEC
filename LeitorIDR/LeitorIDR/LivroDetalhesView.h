@@ -10,6 +10,7 @@
 #import "LivroResponse.h"
 #import "RegistrarDispositivoResponse.h"
 #import "ConexaoRegistrarLivro.h"
+#import "EstanteResponse.h"
 
 @class MFDocumentManager;
 
@@ -23,12 +24,14 @@
     __weak IBOutlet UIImageView *fotoLivro;
     IBOutlet UIButton *abrirPdf;
     IBOutlet UIButton *downPdf;
+    EstanteResponse *estanteResponse;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *fotoLivro;
 -(IBAction)startDownload:(id)sender;
 @property (nonatomic, retain) LivroResponse *livroResponse;
 @property (nonatomic, retain) RegistrarDispositivoResponse *registroDispositivoResponse;
+@property (nonatomic, retain) EstanteResponse *estanteResponse;
 @property (nonatomic, retain) UILabel *tituloLivro;
 -(IBAction)actionOpenPlainDocument:(NSString *)nomeArq;
 @end

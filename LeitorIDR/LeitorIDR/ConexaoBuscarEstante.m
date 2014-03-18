@@ -13,7 +13,7 @@
 
 @implementation ConexaoBuscarEstante
 
-@synthesize estanteResponse;
+//@synthesize estanteResponse;
 
 BOOL isBaixados;
 BOOL isParaBaixar;
@@ -116,7 +116,7 @@ BOOL isDeDireito;
 
 
 
--(void)conectarObterEstante:(RegistrarDispositivoResponse *) registrarDispositivoResponse{
+-(EstanteResponse *)conectarObterEstante:(RegistrarDispositivoResponse *) registrarDispositivoResponse{
     
 //    NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"EstanteIbracon.xml"];
 //
@@ -217,10 +217,12 @@ BOOL isDeDireito;
     }];
     
     [networkQueue addOperation:operation];
+    
+    return estanteResponse;
 }
 
 
--(void)conectarObterEstanteLocal:(RegistrarDispositivoResponse *) registrarDispositivoResponse{
+-(EstanteResponse *)conectarObterEstanteLocal:(RegistrarDispositivoResponse *) registrarDispositivoResponse{
     
     NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"EstanteIbracon.xml"];
 
@@ -237,6 +239,8 @@ BOOL isDeDireito;
         NSLog(@"Ok Parse");
 
     }
+    
+    return estanteResponse;
 }
 
 

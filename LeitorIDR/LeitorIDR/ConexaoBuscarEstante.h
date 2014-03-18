@@ -18,9 +18,9 @@
     NSString *erro;
     NSString *msgErro;
 }
--(void)conectarObterEstante:(RegistrarDispositivoResponse *) registrarDispositivoResponse;
+-(EstanteResponse *)conectarObterEstante:(RegistrarDispositivoResponse *) registrarDispositivoResponse;
 -(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;
-@property (nonatomic, retain) EstanteResponse *estanteResponse;
--(void)conectarObterEstanteLocal:(RegistrarDispositivoResponse *) registrarDispositivoResponse;
+//@property (nonatomic, retain) EstanteResponse *estanteResponse;
+-(EstanteResponse *)conectarObterEstanteLocal:(RegistrarDispositivoResponse *) registrarDispositivoResponse;
 
 @end
