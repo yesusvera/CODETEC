@@ -8,12 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2915311518C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2915311418C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf */; };
-		2942CF2F18D7D74300311C64 /* FastPdfKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2942CF2B18D7D74300311C64 /* FastPdfKit.framework */; };
-		2942CF3018D7D74300311C64 /* FPKReaderBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2942CF2D18D7D74300311C64 /* FPKReaderBundle.bundle */; };
-		2942CF3118D7D74300311C64 /* Snippets.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2942CF2E18D7D74300311C64 /* Snippets.txt */; };
-		2942CF3F18D7DCD700311C64 /* FastPdfKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2942CF3B18D7DCD700311C64 /* FastPdfKit.framework */; };
-		2942CF4018D7DCD700311C64 /* FPKReaderBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2942CF3D18D7DCD700311C64 /* FPKReaderBundle.bundle */; };
-		2942CF4118D7DCD700311C64 /* Snippets.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2942CF3E18D7DCD700311C64 /* Snippets.txt */; };
+		2942CF4718D7DEDB00311C64 /* FastPdfKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2942CF4318D7DEDB00311C64 /* FastPdfKit.framework */; };
+		2942CF4818D7DEDB00311C64 /* FPKReaderBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2942CF4518D7DEDB00311C64 /* FPKReaderBundle.bundle */; };
+		2942CF4918D7DEDB00311C64 /* Snippets.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2942CF4618D7DEDB00311C64 /* Snippets.txt */; };
 		2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */; };
 		2988CEB818C9612C005B84BE /* RegistrarLivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */; };
 		2988CEBB18C96A6F005B84BE /* ConexaoRegistrarLivro.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEBA18C96A6F005B84BE /* ConexaoRegistrarLivro.m */; };
@@ -75,12 +72,9 @@
 
 /* Begin PBXFileReference section */
 		2915311418C021DC009EBF14 /* IFRS2013_TESTE_EXTRACAO.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = IFRS2013_TESTE_EXTRACAO.pdf; path = ../../../../../../../../Downloads/IFRS2013_TESTE_EXTRACAO.pdf; sourceTree = "<group>"; };
-		2942CF2B18D7D74300311C64 /* FastPdfKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FastPdfKit.framework; sourceTree = "<group>"; };
-		2942CF2D18D7D74300311C64 /* FPKReaderBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FPKReaderBundle.bundle; sourceTree = "<group>"; };
-		2942CF2E18D7D74300311C64 /* Snippets.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snippets.txt; sourceTree = "<group>"; };
-		2942CF3B18D7DCD700311C64 /* FastPdfKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FastPdfKit.framework; sourceTree = "<group>"; };
-		2942CF3D18D7DCD700311C64 /* FPKReaderBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FPKReaderBundle.bundle; sourceTree = "<group>"; };
-		2942CF3E18D7DCD700311C64 /* Snippets.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snippets.txt; sourceTree = "<group>"; };
+		2942CF4318D7DEDB00311C64 /* FastPdfKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FastPdfKit.framework; sourceTree = "<group>"; };
+		2942CF4518D7DEDB00311C64 /* FPKReaderBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FPKReaderBundle.bundle; sourceTree = "<group>"; };
+		2942CF4618D7DEDB00311C64 /* Snippets.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snippets.txt; sourceTree = "<group>"; };
 		2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EstanteIbracon.xml; path = ../../EstanteIbracon.xml; sourceTree = "<group>"; };
 		2988CEB618C9612C005B84BE /* RegistrarLivroResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrarLivroResponse.h; sourceTree = "<group>"; };
 		2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrarLivroResponse.m; sourceTree = "<group>"; };
@@ -167,8 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2942CF2F18D7D74300311C64 /* FastPdfKit.framework in Frameworks */,
-				2942CF3F18D7DCD700311C64 /* FastPdfKit.framework in Frameworks */,
+				2942CF4718D7DEDB00311C64 /* FastPdfKit.framework in Frameworks */,
 				FB5F0A7018615A800068D497 /* CoreGraphics.framework in Frameworks */,
 				FB5F0A7218615A800068D497 /* UIKit.framework in Frameworks */,
 				FB5F0A6E18615A800068D497 /* Foundation.framework in Frameworks */,
@@ -188,40 +181,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2942CF2A18D7D74300311C64 /* FastPdfKit.embeddedframework */ = {
+		2942CF4218D7DEDB00311C64 /* FastPdfKit.embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
-				2942CF2B18D7D74300311C64 /* FastPdfKit.framework */,
-				2942CF2C18D7D74300311C64 /* Resources */,
+				2942CF4318D7DEDB00311C64 /* FastPdfKit.framework */,
+				2942CF4418D7DEDB00311C64 /* Resources */,
 			);
 			name = FastPdfKit.embeddedframework;
 			path = ../../../../../../FastPdfkit/FastPdfKit.embeddedframework;
 			sourceTree = "<group>";
 		};
-		2942CF2C18D7D74300311C64 /* Resources */ = {
+		2942CF4418D7DEDB00311C64 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2942CF2D18D7D74300311C64 /* FPKReaderBundle.bundle */,
-				2942CF2E18D7D74300311C64 /* Snippets.txt */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		2942CF3A18D7DCD700311C64 /* FastPdfKit.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				2942CF3B18D7DCD700311C64 /* FastPdfKit.framework */,
-				2942CF3C18D7DCD700311C64 /* Resources */,
-			);
-			name = FastPdfKit.embeddedframework;
-			path = ../../../../../../FastPdfkit/FastPdfKit.embeddedframework;
-			sourceTree = "<group>";
-		};
-		2942CF3C18D7DCD700311C64 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				2942CF3D18D7DCD700311C64 /* FPKReaderBundle.bundle */,
-				2942CF3E18D7DCD700311C64 /* Snippets.txt */,
+				2942CF4518D7DEDB00311C64 /* FPKReaderBundle.bundle */,
+				2942CF4618D7DEDB00311C64 /* Snippets.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -330,8 +304,7 @@
 		FB5F0A6C18615A800068D497 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2942CF3A18D7DCD700311C64 /* FastPdfKit.embeddedframework */,
-				2942CF2A18D7D74300311C64 /* FastPdfKit.embeddedframework */,
+				2942CF4218D7DEDB00311C64 /* FastPdfKit.embeddedframework */,
 				FB5F0A6D18615A800068D497 /* Foundation.framework */,
 				FB5F0A6F18615A800068D497 /* CoreGraphics.framework */,
 				FB5F0A7118615A800068D497 /* UIKit.framework */,
@@ -529,15 +502,13 @@
 				2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */,
 				FB5F0A8418615A800068D497 /* Main_iPad.storyboard in Resources */,
 				FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */,
-				2942CF3018D7D74300311C64 /* FPKReaderBundle.bundle in Resources */,
-				2942CF3118D7D74300311C64 /* Snippets.txt in Resources */,
+				2942CF4818D7DEDB00311C64 /* FPKReaderBundle.bundle in Resources */,
+				2942CF4918D7DEDB00311C64 /* Snippets.txt in Resources */,
 				FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */,
 				FB5F0A8118615A800068D497 /* Main_iPhone.storyboard in Resources */,
-				2942CF4018D7DCD700311C64 /* FPKReaderBundle.bundle in Resources */,
 				FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */,
 				FBF102251870AFB900B4A361 /* Media.xcassets in Resources */,
 				FB5F0A7818615A800068D497 /* InfoPlist.strings in Resources */,
-				2942CF4118D7DCD700311C64 /* Snippets.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
