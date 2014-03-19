@@ -13,7 +13,7 @@
 #import "DadosDispositivo.h"
 #import "GLB.h"
 @implementation ConexaoRegistrarDispositivo
-
+@synthesize registrarDispositivoResponse;
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"response"]){
@@ -147,57 +147,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
 
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]]];
-        
-        NSData *data = [[NSData alloc] initWithContentsOfFile:thumbnailsPath];
-        if (!data) {
-            UIAlertView *alertError = [
-                                       [UIAlertView alloc] initWithTitle:@"Dispositivo não registrado! Necessário conexão com a Internet."
-                                       message:error.description
-                                       delegate:nil
-                                       cancelButtonTitle:@"Visto"
-                                       otherButtonTitles:nil
-                                       ];
-            
-            [alertError show];
-            
-            [indicadorAtividade stopAnimating];
-            indicadorAtividade.hidden = YES;
-            
-        }
-        
-        NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding];
-        NSLog(@"%@", corpoXML);
-        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-        NSLog(@"%@", parser);
-        [parser setDelegate:self];
-        
-        if(![parser parse]){
-            NSLog(@"Erro ao realizar o parse");
-        }else{
-            NSLog(@"Ok Parse");
-            
-        }
-
-        
-        NSString *mensagemAlerta = registrarDispositivoResponse.status;
-        if(![registrarDispositivoResponse.erro isEqualToString:@"0"]){
-            mensagemAlerta = [mensagemAlerta stringByAppendingString:@" - "];
-            mensagemAlerta = [mensagemAlerta stringByAppendingString:registrarDispositivoResponse.msgErro];
-        }
-        
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Registro "
-                                                        message:mensagemAlerta
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil
-                              
-                              ];
-        
-        [alert show];
-        
+        [self buscarRegistroLocal];
         
         //REDIRECIONANDO PARA AS ESTANTES
         if([registrarDispositivoResponse.erro isEqualToString:@"0"] & [[registrarDispositivoResponse.status lowercaseString] isEqualToString:@"ativado"]){
@@ -220,7 +170,7 @@
 
 - (NSString *)montarUrlParaRegistroDeDispositivo:(DadosCliente *) dadosCliente comDadosDispositivo:(DadosDispositivo *) dadosDispositivo{
     
-    NSString *urlRegistrarDisp = @"http://www.ibracon.com.br/idr/ws/ws_registrar.php?";
+    NSString *urlRegistrarDisp = [self urlRegistrar];
     
     urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"associado="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.ehAssociado]];
  
@@ -239,6 +189,65 @@
     urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&serial="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.serial]];
     
     return urlRegistrarDisp;
+}
+
+-(NSString *)urlRegistrar{
+    return @"http://www.ibracon.com.br/idr/ws/ws_registrar.php?";
+}
+
+- (BOOL) buscarRegistroLocal{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[[self urlRegistrar].lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]]];
+    
+    NSData *data = [[NSData alloc] initWithContentsOfFile:thumbnailsPath];
+    if (!data) {
+        UIAlertView *alertError = [
+                                   [UIAlertView alloc] initWithTitle:@"Dispositivo não registrado! Necessário conexão com a Internet."
+                                   message:@"Não foi localizado um registro local!"
+                                   delegate:nil
+                                   cancelButtonTitle:@"Visto"
+                                   otherButtonTitles:nil
+                                   ];
+        
+        [alertError show];
+        return false;
+        
+    }
+    
+    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding];
+    NSLog(@"%@", corpoXML);
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+    NSLog(@"%@", parser);
+    [parser setDelegate:self];
+    
+    if(![parser parse]){
+        NSLog(@"Erro ao realizar o parse");
+        return false;
+    }else{
+        NSLog(@"Ok Parse");
+        
+    }
+    
+    
+//    NSString *mensagemAlerta = registrarDispositivoResponse.status;
+//    if(![registrarDispositivoResponse.erro isEqualToString:@"0"]){
+//        mensagemAlerta = [mensagemAlerta stringByAppendingString:@" - "];
+//        mensagemAlerta = [mensagemAlerta stringByAppendingString:registrarDispositivoResponse.msgErro];
+//    }
+//    
+//    
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Registro "
+//                                                    message:mensagemAlerta
+//                                                   delegate:nil
+//                                          cancelButtonTitle:@"OK"
+//                                          otherButtonTitles:nil
+//                          
+//                          ];
+//    
+//    [alert show];
+    
+    return true;
 }
 
 
