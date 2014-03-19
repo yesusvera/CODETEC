@@ -11,9 +11,7 @@
 #import "EstanteResponse.h"
 
 
-@interface EstanteLivrosController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
-    EstanteResponse *estanteResponse;
-} 
+@interface EstanteLivrosController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nomeEstanteLabel;
 @property (nonatomic, retain) NSString *nomeEstante;

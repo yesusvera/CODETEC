@@ -25,14 +25,12 @@
     __weak IBOutlet UIImageView *fotoLivro;
     IBOutlet UIButton *abrirPdf;
     IBOutlet UIButton *downPdf;
-    EstanteResponse *estanteResponse;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *fotoLivro;
--(IBAction)startDownload:(id)sender;
 @property (nonatomic, retain) LivroResponse *livroResponse;
-@property (nonatomic, retain) RegistrarDispositivoResponse *registroDispositivoResponse;
-@property (nonatomic, retain) EstanteResponse *estanteResponse;
+@property (nonatomic, retain) RegistrarDispositivoResponse *registrarDispositivoResponse;
 @property (nonatomic, retain) UILabel *tituloLivro;
+-(IBAction)startDownload:(id)sender;
 -(IBAction)actionOpenPlainDocument:(NSString *)nomeArq;
 @end

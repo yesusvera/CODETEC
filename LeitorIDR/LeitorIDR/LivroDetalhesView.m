@@ -10,25 +10,14 @@
 #import "AFHTTPRequestOperation.h"
 #import "ConexaoRegistrarLivro.h"
 #import "ConexaoBuscarEstante.h"
+#import "GLB.h"
 
 @interface LivroDetalhesView ()
 
 @end
 
 @implementation LivroDetalhesView
-@synthesize livroResponse, tituloLivro,fotoLivro,estanteResponse;
-
-
-// METODO PARA ESCONDER A LOGO DO FASTPDFKIT, SO FUNCIONA COM LICENÇA PAGA.
-//- (void) viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:animated];
-//    
-//    [self.view.subviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
-//        if ([view isKindOfClass:[UIImageView class]]) {
-//            view.hidden = YES;
-//        }
-//    }];
-//}
+@synthesize livroResponse, tituloLivro,fotoLivro,registrarDispositivoResponse;
 
 // Função que abre o PDF pelo caminho especificado
 -(IBAction)actionOpenPlainDocument:(id)sender{
@@ -75,21 +64,25 @@
 {
     [super viewDidLoad];
     
-    progressBar.hidden = YES;
+    progressBar.hidden      = YES;
     loadingIndicator.hidden = YES;
-    abrirPdf.hidden = YES;
+    abrirPdf.hidden         = YES;
     if(livroResponse){
-        self.title = @"Detalhes";
+        self.title = @"Livro";
         if ([[UIImage alloc] initWithData:
             [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ] && ![livroResponse.tipoLivro isEqualToString:@"baixados"]) {
+            
             self.fotoLivro.image = [[UIImage alloc] initWithData:
                                     [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ];
             self.tituloLivro.text = livroResponse.titulo;
+            
         }else if([livroResponse.tipoLivro isEqualToString:@"baixados"]){
+            
             self.fotoLivro.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfFile: [self downloadSavePathFor:self.livroResponse.foto.lastPathComponent]]];
             downPdf.hidden = YES;
             abrirPdf.hidden = NO;
             self.tituloLivro.text = livroResponse.titulo;
+            
         }else{
             downPdf.hidden = YES;
             abrirPdf.hidden = YES;
@@ -105,8 +98,6 @@
 }
 
 -(IBAction)startDownload:(id)sender{
-   
-    
     [self downloadFotoDoLivro:livroResponse.foto];
     [self downloadDoLivro:livroResponse.arquivo];
   }
@@ -132,16 +123,15 @@
         downPdf.hidden = YES;
         abrirPdf.hidden = NO;
         
-        //REGISTRAR LIVRO
-        
+        /* Registro no portal do livro baixado */
         ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
-        [conexaoRegistrarLivro registrarLivroBaixado:self.registroDispositivoResponse comLivroResponse:livroResponse];
+        [conexaoRegistrarLivro registrarLivroBaixado:registrarDispositivoResponse comLivroResponse:livroResponse];
         
-        [self showMessage:@"Download finalizado com sucesso!"];
+        [GLB showMessage:@"Download finalizado com sucesso!"];
         
         
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
-        [self showMessage:
+        [GLB showMessage:
          [NSString stringWithFormat:@"Error no download: %@", [error localizedDescription]]];
     }];
     
@@ -152,7 +142,6 @@
     progressBar.hidden = NO;
     loadingIndicator.hidden = NO;
     
-    
     [loadingIndicator startAnimating];
     
     [operation start];
@@ -160,7 +149,6 @@
 
 
 -(void) downloadFotoDoLivro:(NSString *) urlFotoLivro{
-    //DOWNLOAD DA FOTO DO LIVRO
     NSURL *urlFoto = [NSURL URLWithString:urlFotoLivro];
     NSURLRequest *requestFoto = [NSURLRequest requestWithURL:urlFoto];
     NSString *saveFilenameFoto = [self downloadSavePathFor:urlFoto.lastPathComponent];
@@ -175,7 +163,7 @@
         
         
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
-        [self showMessage:
+        [GLB showMessage:
          [NSString stringWithFormat:@"Error no download da foto: %@", [error localizedDescription]]];
     }];
     
@@ -186,23 +174,6 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     return [documentsPath stringByAppendingPathComponent:filename];
-}
-
--(void) showMessage: (NSString *) message{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso" message:message delegate:nil cancelButtonTitle:@"Cancelar" otherButtonTitles:@"OK" , nil];
-    
-    [alert show];
-    
-}
-
--(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {
-    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                                                    NULL,
-                                                                                                    (CFStringRef)unencodedString,
-                                                                                                    NULL,
-                                                                                                    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                                    kCFStringEncodingUTF8 ));
-    return encodedString;
 }
 
 

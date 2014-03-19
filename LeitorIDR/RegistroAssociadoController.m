@@ -175,9 +175,7 @@
     dadosDispositivo.serial       = self.lblSerial.text;
 
     ConexaoRegistrarDispositivo *solicitarRegistroDispositivo =[[ConexaoRegistrarDispositivo alloc]init];
-
     [solicitarRegistroDispositivo registrarDispositivo: self.indicadorAtividade controller:self comDadosCliente:dadosCliente comDadosDispositivo:dadosDispositivo];
-    
 }
 
 //+ (BOOL)validateCPFWithNSString:(NSString *)cpf {

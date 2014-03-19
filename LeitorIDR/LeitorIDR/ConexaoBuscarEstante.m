@@ -9,23 +9,19 @@
 #import "ConexaoBuscarEstante.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "RegistrarDispositivoResponse.h"
-
+#import "GLB.h"
 
 @implementation ConexaoBuscarEstante
-
-//@synthesize estanteResponse;
 
 BOOL isBaixados;
 BOOL isParaBaixar;
 BOOL isDeDireito;
-
 
 -(id)init{
     self = [super init];
     if(self){
         estanteResponse = [[EstanteResponse alloc]init];
     }
-
     return self;
 }
 
@@ -34,7 +30,6 @@ BOOL isDeDireito;
         return;
     }
     if ([elementName  isEqualToString:@"baixados"]){
-        estanteResponse.listaDeLivrosBaixados = [[NSMutableArray alloc]init];
         isBaixados = YES;
         isParaBaixar = NO;
         isDeDireito = NO;
@@ -42,15 +37,14 @@ BOOL isDeDireito;
             estanteResponse.listaDeLivros = [[NSMutableArray alloc]init];
         }
     }else if ([elementName isEqualToString:@"parabaixar"]){
-        estanteResponse.listaDeLivrosParaBaixar = [[NSMutableArray alloc]init];
         isParaBaixar = YES;
         isDeDireito = NO;
         isBaixados = NO;
         if(!estanteResponse.listaDeLivros){
             estanteResponse.listaDeLivros = [[NSMutableArray alloc]init];
         }
+
     }else if ([elementName isEqualToString:@"dedireito"]){
-        estanteResponse.listaDeLivrosDeDireito = [[NSMutableArray alloc]init];
         isDeDireito = YES;
         isParaBaixar = NO;
         isBaixados = NO;
@@ -80,18 +74,18 @@ BOOL isDeDireito;
     }
     if([elementName isEqualToString:@"livro"] && isParaBaixar){
         livro.tipoLivro = @"parabaixar";
-        [estanteResponse.listaDeLivrosParaBaixar  addObject:livro];
         [estanteResponse.listaDeLivros  addObject:livro];
+        estanteResponse.qtdLivrosParaBaixar = [NSNumber numberWithInt:estanteResponse.qtdLivrosParaBaixar.intValue + 1];
         livro = nil;
     }else if([elementName isEqualToString:@"livro"] && isBaixados){
         livro.tipoLivro = @"baixados";
-        [estanteResponse.listaDeLivrosBaixados addObject:livro];
         [estanteResponse.listaDeLivros  addObject:livro];
+        estanteResponse.qtdLivrosBaixados = [NSNumber numberWithInt:estanteResponse.qtdLivrosBaixados.intValue + 1];
         livro = nil;
     }else if([elementName isEqualToString:@"livro"] && isDeDireito){
         livro.tipoLivro = @"dedireito";
-        [estanteResponse.listaDeLivrosDeDireito addObject:livro];
         [estanteResponse.listaDeLivros  addObject:livro];
+        estanteResponse.qtdLivrosDeDireito = [NSNumber numberWithInt:estanteResponse.qtdLivrosDeDireito.intValue + 1];
         livro = nil;
     }else if([elementName isEqualToString:@"erro"]){
         erro = valorNoAtual;
@@ -102,19 +96,6 @@ BOOL isDeDireito;
     
     valorNoAtual = nil;
 }
-
--(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {
-    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                                                    NULL,
-                                                                                                    (CFStringRef)unencodedString,
-                                                                                                    NULL,
-                                                                                                    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                                    kCFStringEncodingUTF8 ));
-    return encodedString;
-}
-
-
-
 
 -(EstanteResponse *)conectarObterEstante:(RegistrarDispositivoResponse *) registrarDispositivoResponse{
     
@@ -149,7 +130,6 @@ BOOL isDeDireito;
         NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSISOLatin1StringEncoding];
         NSLog(@"%@", respostaXML);
         
-        //FAZENDO O PARSE XML
         NSData *respDataXML = [respostaXML dataUsingEncoding:NSISOLatin1StringEncoding];
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
         [parser setDelegate:self];
@@ -158,9 +138,8 @@ BOOL isDeDireito;
             NSLog(@"Erro ao realizar o parse");
         }else{
             NSLog(@"Ok Parse");
-            //DOWNLOAD DO XML DE ESTANTES
             NSURLRequest *requestXML = [NSURLRequest requestWithURL:url];
-            NSString *saveFilenameXML = [self downloadSavePathFor: [url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]];
+            NSString *saveFilenameXML = [GLB downloadSavePathFor: [url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]];
             
             NSLog(@"Salvando o arquivo XML em %@", saveFilenameXML);
             
@@ -172,7 +151,7 @@ BOOL isDeDireito;
                 
                 
             } failure:^(AFHTTPRequestOperation *op, NSError *error) {
-                [self showMessage:
+                [GLB showMessage:
                  [NSString stringWithFormat:@"Error no download do XML: %@", [error localizedDescription]]];
             }];
             
@@ -248,29 +227,17 @@ BOOL isDeDireito;
     
     NSString *urlObterEstante = @"http://www.ibracon.com.br/idr/ws/ws_estantes.php?";
 
-    urlObterEstante = [[urlObterEstante stringByAppendingString:@"cliente="] stringByAppendingString:[self urlEncodeUsingEncoding:registrarDispositivoResponse.codCliente]];
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"cliente="] stringByAppendingString:[GLB urlEncodeUsingEncoding:registrarDispositivoResponse.codCliente]];
     
-    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&documento="] stringByAppendingString:[self urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.documento]];
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&documento="] stringByAppendingString:[GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.documento]];
     
-    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&dispositivo="] stringByAppendingString:[self urlEncodeUsingEncoding:registrarDispositivoResponse.codDispositivo]];
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&dispositivo="] stringByAppendingString:[GLB urlEncodeUsingEncoding:registrarDispositivoResponse.codDispositivo]];
     
-    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&keyword="] stringByAppendingString:[self urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.palavraChave]];
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&keyword="] stringByAppendingString:[GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.palavraChave]];
     
-    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&senha="] stringByAppendingString:[self urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.senha]];
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&senha="] stringByAppendingString:[GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.senha]];
     
     return urlObterEstante;
-}
-
--(NSString *) downloadSavePathFor:(NSString *) filename{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    return [documentsPath stringByAppendingPathComponent:filename];
-}
--(void) showMessage: (NSString *) message{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso" message:message delegate:nil cancelButtonTitle:@"Cancelar" otherButtonTitles:@"OK" , nil];
-    
-    [alert show];
-    
 }
 
 @end

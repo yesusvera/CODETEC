@@ -8,22 +8,12 @@
 
 #import "ConexaoRegistrarLivro.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "GLB.h"
 
 @implementation ConexaoRegistrarLivro
-@synthesize registrarLivroResponse;
-
-//-(id)init{
-//    self = [super init];
-//    if(self){
-//        registrarLivroResponse = [[RegistrarLivroResponse alloc]init];
-//    }
-//    
-//    return self;
-//}
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"response"]){
-        //return;
         registrarLivroResponse = [[RegistrarLivroResponse alloc] init];
     }
 }
@@ -69,8 +59,7 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSLog(@"%@", respostaXML);
-        
-        //FAZENDO O PARSE XML
+ 
         NSData *respDataXML = [respostaXML dataUsingEncoding:NSUTF8StringEncoding];
         NSLog(@"%@", respostaXML);
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
@@ -122,29 +111,19 @@
     
     NSString *urlRegistrarLivro = @"http://www.ibracon.com.br/idr/ws/ws_registrar_livro.php?";
     
-    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"cliente="] stringByAppendingString: [self urlEncodeUsingEncoding:registrarDispositivoResponse.codCliente]];
+    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"cliente="] stringByAppendingString: [GLB urlEncodeUsingEncoding:registrarDispositivoResponse.codCliente]];
     
-    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&documento="] stringByAppendingString: [self urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.documento]];
+    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&documento="] stringByAppendingString: [GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.documento]];
     
-    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&dispositivo="] stringByAppendingString: [self urlEncodeUsingEncoding:registrarDispositivoResponse.codDispositivo]];
+    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&dispositivo="] stringByAppendingString: [GLB urlEncodeUsingEncoding:registrarDispositivoResponse.codDispositivo]];
     
-    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&produto="] stringByAppendingString: [self urlEncodeUsingEncoding:livroResponse.codigolivro]];
+    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&produto="] stringByAppendingString: [GLB urlEncodeUsingEncoding:livroResponse.codigolivro]];
     
-    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&keyword="] stringByAppendingString: [self urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.palavraChave]];
+    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&keyword="] stringByAppendingString: [GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.palavraChave]];
     
-    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&senha="] stringByAppendingString: [self urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.senha]];
+    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&senha="] stringByAppendingString: [GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.senha]];
     
     return urlRegistrarLivro;
-}
-
--(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {
-    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                                                    NULL,
-                                                                                                    (CFStringRef)unencodedString,
-                                                                                                    NULL,
-                                                                                                    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                                    kCFStringEncodingUTF8 ));
-    return encodedString;
 }
 
 @end

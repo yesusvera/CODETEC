@@ -12,11 +12,9 @@
 #import "RegistrarLivroResponse.h"
 
 @interface ConexaoRegistrarLivro : NSObject<NSXMLParserDelegate>{
-     RegistrarLivroResponse *registrarLivroResponse;
      NSMutableString *valorElementoAtual;
+     RegistrarLivroResponse *registrarLivroResponse;
 }
 
-@property (nonatomic, retain) RegistrarLivroResponse *registrarLivroResponse;
 -(void)registrarLivroBaixado:(RegistrarDispositivoResponse *) registrarLivroResponse comLivroResponse:(LivroResponse *) livroResponse;
-
 @end

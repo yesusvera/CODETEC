@@ -11,7 +11,7 @@
 #import "EstantesController.h"
 #import "DadosCliente.h"
 #import "DadosDispositivo.h"
-
+#import "GLB.h"
 @implementation ConexaoRegistrarDispositivo
 
 
@@ -22,15 +22,7 @@
 }
 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    if(!valorElementoAtual)
-    {
-        valorElementoAtual = [[NSMutableString alloc]initWithString:string];
-    }
-    else
-    {
-        //[valorElementoAtual appendString:string];
-        valorElementoAtual = [[NSMutableString alloc]initWithString:string];
-    }
+    valorElementoAtual = [[NSMutableString alloc]initWithString:string];
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
@@ -38,34 +30,20 @@
     if([elementName isEqualToString:@"response"]){
         return;
     } else if([elementName isEqualToString:@"codCliente"]){
-        [registrarDispositivoResponse setCodCliente:valorElementoAtual];
+        registrarDispositivoResponse.codCliente = valorElementoAtual;
     }else if([elementName isEqualToString:@"codDispositivo"]){
-        [registrarDispositivoResponse setCodDispositivo:valorElementoAtual];
+        registrarDispositivoResponse.codDispositivo = valorElementoAtual;
     }else if([elementName isEqualToString:@"status"]){
-        [registrarDispositivoResponse setStatus:valorElementoAtual];
+        registrarDispositivoResponse.status = valorElementoAtual;
     }else if([elementName isEqualToString:@"appVersion"]){
-        [registrarDispositivoResponse setAppVersion:valorElementoAtual];
+        registrarDispositivoResponse.appVersion = valorElementoAtual;
     }else if([elementName isEqualToString:@"erro"]){
-        [registrarDispositivoResponse setErro:valorElementoAtual];
+        registrarDispositivoResponse.erro = valorElementoAtual;
     }else if([elementName isEqualToString:@"msgErro"]){
-        [registrarDispositivoResponse setMsgErro:valorElementoAtual];
+        registrarDispositivoResponse.msgErro = valorElementoAtual;
     }
-    
     valorElementoAtual = nil;
-    
 }
-
--(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {
-    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                                                    NULL,
-                                                                                                    (CFStringRef)unencodedString,
-                                                                                                    NULL,
-                                                                                                    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                                    kCFStringEncodingUTF8 ));
-    return encodedString;
-}
-
-
 
 -(void)registrarDispositivo:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador comDadosCliente:(DadosCliente *) dadosCliente comDadosDispositivo:(DadosDispositivo *) dadosDispositivo {
    
@@ -92,7 +70,6 @@
 //    [estanteController setTxtSenha : senha];
 //    [controlador.navigationController pushViewController:estanteController animated:YES];
 
-    
  //REGISTRO ONLINE
     NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
     networkQueue.maxConcurrentOperationCount = 5;
@@ -110,9 +87,7 @@
         NSLog(@"%@", respostaXML);
         
         [indicadorAtividade stopAnimating];
-        indicadorAtividade.hidden = YES;
-        
-        //FAZENDO O PARSE XML
+
         NSData *respDataXML = [respostaXML dataUsingEncoding:NSUTF8StringEncoding];
         NSLog(@"%@", respostaXML);
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
@@ -122,9 +97,9 @@
             NSLog(@"Erro ao realizar o parse");
         }else{
             NSLog(@"Ok Parse");
-            //DOWNLOAD DO XML DE REGISTRO
+            
             NSURLRequest *requestXML = [NSURLRequest requestWithURL:url];
-            NSString *saveFilenameXML = [self downloadSavePathFor: [url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]];
+            NSString *saveFilenameXML = [GLB downloadSavePathFor: [url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]];
             
             NSLog(@"Salvando o arquivo XML em %@", saveFilenameXML);
             
@@ -136,7 +111,7 @@
                 
                 
             } failure:^(AFHTTPRequestOperation *op, NSError *error) {
-                [self showMessage:
+                [GLB showMessage:
                  [NSString stringWithFormat:@"Error no download do XML de registro: %@", [error localizedDescription]]];
             }];
             
@@ -160,9 +135,7 @@
                               ];
         
         [alert show];
-        
-        
-        //REDIRECIONANDO PARA AS ESTANTES
+
         if([registrarDispositivoResponse.erro isEqualToString:@"0"] & [[registrarDispositivoResponse.status lowercaseString] isEqualToString:@"ativado"]){
             EstantesController *estanteController = [[EstantesController alloc] init];
             registrarDispositivoResponse.dadosCliente = dadosCliente;
@@ -173,8 +146,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
-        
-        // BUSCA DO XML DE REGISTRO LOCAL
+
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
         NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]]];
         
@@ -215,6 +187,7 @@
             mensagemAlerta = [mensagemAlerta stringByAppendingString:registrarDispositivoResponse.msgErro];
         }
         
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Registro "
                                                         message:mensagemAlerta
                                                        delegate:nil
@@ -249,36 +222,24 @@
     
     NSString *urlRegistrarDisp = @"http://www.ibracon.com.br/idr/ws/ws_registrar.php?";
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"associado="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosCliente.ehAssociado]];
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"associado="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.ehAssociado]];
  
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&registro="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosCliente.registroNacional]];
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&registro="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.registroNacional]];
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&documento="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosCliente.documento]];
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&documento="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.documento]];
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&senha="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosCliente.senha]];
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&senha="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.senha]];
 
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&dispositivo="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosDispositivo.dispositivo]];
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&dispositivo="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.dispositivo]];
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&ip="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosDispositivo.ip]];
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&ip="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.ip]];
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&macadress="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosDispositivo.macAdress]];
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&macadress="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.macAdress]];
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&serial="] stringByAppendingString: [self urlEncodeUsingEncoding:dadosDispositivo.serial]];
+    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&serial="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.serial]];
     
     return urlRegistrarDisp;
 }
 
--(NSString *) downloadSavePathFor:(NSString *) filename{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    return [documentsPath stringByAppendingPathComponent:filename];
-}
-
--(void) showMessage: (NSString *) message{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso" message:message delegate:nil cancelButtonTitle:@"Cancelar" otherButtonTitles:@"OK" , nil];
-    
-    [alert show];
-    
-}
 
 @end

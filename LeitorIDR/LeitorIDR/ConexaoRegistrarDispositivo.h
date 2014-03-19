@@ -15,10 +15,5 @@
     RegistrarDispositivoResponse *registrarDispositivoResponse;
     NSMutableString *valorElementoAtual;
 }
-
-
 -(void)registrarDispositivo:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador comDadosCliente:(DadosCliente *) dadosCliente comDadosDispositivo:(DadosDispositivo *) dadosDispositivo;
-
--(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;
-
 @end

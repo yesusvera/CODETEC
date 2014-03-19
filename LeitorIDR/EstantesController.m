@@ -15,26 +15,16 @@
 @end
 
 @implementation EstantesController
-@synthesize estanteResponse;
 
-
+@synthesize registrarDispositivoResponse;
 bool flagConexaoLocal;
--(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString {
-    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                                                    NULL,
-                                                                                                    (CFStringRef)unencodedString,
-                                                                                                    NULL,
-                                                                                                    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                                    kCFStringEncodingUTF8 ));
-    return encodedString;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     EstanteLivrosController *estanteLivrosController = [[EstanteLivrosController alloc]init];
     estanteLivrosController.nomeEstante = [estantes objectAtIndex:indexPath.row];
-    estanteLivrosController.registrarDispositivoResponse = self.registrarDispositivoResponse;
-    estanteLivrosController.estanteResponse = self.estanteResponse;
+    estanteLivrosController.registrarDispositivoResponse = registrarDispositivoResponse;
+    estanteLivrosController.estanteResponse = estanteResponse;
     
     [self.navigationController pushViewController:estanteLivrosController animated:YES];
 }
@@ -59,23 +49,17 @@ bool flagConexaoLocal;
     self.title= @"Estantes";
     
     ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
-    self.estanteResponse = [conexaoBuscarEstante conectarObterEstante:self.registrarDispositivoResponse];
+    estanteResponse = [conexaoBuscarEstante conectarObterEstante:registrarDispositivoResponse];
 
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-
-//
-    // Falta sobrepor a estante e manter o vaor do registrarLivroResponse
-    //if([conexaoRegistrarLivro.registrarLivroResponse.erro isEqualToString:@"0"]){
+    
     if(flagConexaoLocal){
         ConexaoBuscarEstante *conexaoBuscarEstante2 = [[ConexaoBuscarEstante alloc]init];
-        self.estanteResponse = [conexaoBuscarEstante2 conectarObterEstanteLocal:self.registrarDispositivoResponse];
+        estanteResponse = [conexaoBuscarEstante2 conectarObterEstanteLocal:registrarDispositivoResponse];
     }
-    
-     flagConexaoLocal = true;
-    //}
-
+    flagConexaoLocal = true;
 }
 
 - (void)didReceiveMemoryWarning

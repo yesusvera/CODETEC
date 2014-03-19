@@ -17,6 +17,7 @@
 		2988CEC118C97128005B84BE /* DadosCliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEC018C97128005B84BE /* DadosCliente.m */; };
 		298E504A18BC02FE00F1F838 /* Registrar.xml in Resources */ = {isa = PBXBuildFile; fileRef = 298E504918BC02FE00F1F838 /* Registrar.xml */; };
 		299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 299D7B4718BC36FC00724BED /* EstanteResponse.m */; };
+		29B679E118D91E4300787E05 /* GLB.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B679E018D91E4300787E05 /* GLB.m */; };
 		29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */; };
 		82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */; };
 		82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F618B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m */; };
@@ -85,6 +86,8 @@
 		298E504918BC02FE00F1F838 /* Registrar.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Registrar.xml; sourceTree = "<group>"; };
 		299D7B4618BC36FC00724BED /* EstanteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstanteResponse.h; sourceTree = "<group>"; };
 		299D7B4718BC36FC00724BED /* EstanteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstanteResponse.m; sourceTree = "<group>"; };
+		29B679DF18D91E4300787E05 /* GLB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLB.h; sourceTree = "<group>"; };
+		29B679E018D91E4300787E05 /* GLB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLB.m; sourceTree = "<group>"; };
 		47E5FF1C835D4E76A8748C52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E038F318B8DD7A00EE7722 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 		FB3A5C5618BD772200A0FEA8 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				29B679DF18D91E4300787E05 /* GLB.h */,
+				29B679E018D91E4300787E05 /* GLB.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */,
+				29B679E118D91E4300787E05 /* GLB.m in Sources */,
 				2988CEBE18C96F45005B84BE /* DadosDispositivo.m in Sources */,
 				2988CEB818C9612C005B84BE /* RegistrarLivroResponse.m in Sources */,
 				FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */,
