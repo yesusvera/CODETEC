@@ -99,25 +99,6 @@ BOOL isDeDireito;
 
 -(EstanteResponse *)conectarObterEstante:(RegistrarDispositivoResponse *) registrarDispositivoResponse{
     
-//    NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"EstanteIbracon.xml"];
-//
-//    NSData *data = [[NSData alloc] initWithContentsOfFile:estante];
-//    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//    NSLog(@"%@", corpoXML);
-//    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-//    NSLog(@"%@", parser);
-//    [parser setDelegate:self];
-//    
-//    if(![parser parse]){
-//        NSLog(@"Erro ao realizar o parse");
-//    }else{
-//        NSLog(@"Ok Parse");
-//
-//    }
-
-    
-// DESCOMENTAR QUANDO USAR O WEBSERVICE
-    
     NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
     networkQueue.maxConcurrentOperationCount = 5;
 
@@ -227,15 +208,15 @@ BOOL isDeDireito;
     
     NSString *urlObterEstante = @"http://www.ibracon.com.br/idr/ws/ws_estantes.php?";
 
-    urlObterEstante = [[urlObterEstante stringByAppendingString:@"cliente="] stringByAppendingString:[GLB urlEncodeUsingEncoding:registrarDispositivoResponse.codCliente]];
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"cliente="] stringByAppendingString:[GLB urlEncodeUsingEncoding: registrarDispositivoResponse.codCliente]];
     
-    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&documento="] stringByAppendingString:[GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.documento]];
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&documento="] stringByAppendingString:[GLB urlEncodeUsingEncoding:!registrarDispositivoResponse.dadosCliente.documento ? @"":registrarDispositivoResponse.dadosCliente.documento]];
     
     urlObterEstante = [[urlObterEstante stringByAppendingString:@"&dispositivo="] stringByAppendingString:[GLB urlEncodeUsingEncoding:registrarDispositivoResponse.codDispositivo]];
     
-    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&keyword="] stringByAppendingString:[GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.palavraChave]];
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&keyword="] stringByAppendingString:[GLB urlEncodeUsingEncoding:!registrarDispositivoResponse.dadosCliente.palavraChave?@"":registrarDispositivoResponse.dadosCliente.palavraChave]];
     
-    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&senha="] stringByAppendingString:[GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.senha]];
+    urlObterEstante = [[urlObterEstante stringByAppendingString:@"&senha="] stringByAppendingString:[GLB urlEncodeUsingEncoding:!registrarDispositivoResponse.dadosCliente.senha?@"":registrarDispositivoResponse.dadosCliente.senha]];
     
     return urlObterEstante;
 }

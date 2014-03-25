@@ -18,29 +18,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    //VERIFICAR AQUI SE JA TEM REGISTRO
+
     ConexaoRegistrarDispositivo *buscarRegistroLocal = [[ConexaoRegistrarDispositivo alloc]init];
+    RegistrarDispositivoResponse *retornoRegistro = [buscarRegistroLocal buscarRegistroLocal];
     
-    if(![buscarRegistroLocal buscarRegistroLocal]){
+    if(!retornoRegistro){
         PerguntaRegistroController *perguntaRegistroViewController = [[PerguntaRegistroController alloc] init];
-        
         UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:perguntaRegistroViewController];
         self.window.rootViewController = navController;
     }else{
-        // DEFININDO OS DADOS DO CLIENTE A FOGO. FALTA DEFINIR SE DEVO IR PARA A TELA DE REGISTRO DE ASSOCIADO PARA QUE O CLIENTE POSSA DIGITAR OS SEUS DADOS E ASSIM BUSCAR A ESTANTE CORRETAMENTE.
-        DadosCliente *dadosCliente = [[DadosCliente alloc] init];
-        dadosCliente.ehAssociado      = @"s";
-        dadosCliente.registroNacional = @"";
-        dadosCliente.documento        = @"338.804.908-48";
-        dadosCliente.senha            = @"";
-        dadosCliente.palavraChave     = @"";
         EstantesController *estanteViewController = [[EstantesController alloc] init];
-        buscarRegistroLocal.registrarDispositivoResponse.dadosCliente = dadosCliente;
-        estanteViewController.registrarDispositivoResponse = buscarRegistroLocal.registrarDispositivoResponse;
-        UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:estanteViewController];
+        estanteViewController.registrarDispositivoResponse = retornoRegistro;
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:estanteViewController];
         self.window.rootViewController = navController;
-        
     }
     
     [self.window makeKeyAndVisible];

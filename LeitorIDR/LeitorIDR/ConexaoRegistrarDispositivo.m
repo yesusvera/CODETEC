@@ -19,6 +19,7 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"response"]){
         registrarDispositivoResponse = [[RegistrarDispositivoResponse alloc] init];
+        registrarDispositivoResponse.dadosCliente = [[DadosCliente alloc]init];
     }
 }
 
@@ -38,6 +39,14 @@
         registrarDispositivoResponse.status = valorElementoAtual;
     }else if([elementName isEqualToString:@"appVersion"]){
         registrarDispositivoResponse.appVersion = valorElementoAtual;
+    }else if([elementName isEqualToString:@"registroNacional"]){
+        registrarDispositivoResponse.dadosCliente.registroNacional = valorElementoAtual;
+    }else if([elementName isEqualToString:@"documento"]){
+        registrarDispositivoResponse.dadosCliente.documento = valorElementoAtual;
+    }else if([elementName isEqualToString:@"senha"]){
+        registrarDispositivoResponse.dadosCliente.senha = valorElementoAtual;
+    }else if([elementName isEqualToString:@"palavraChave"]){
+        registrarDispositivoResponse.dadosCliente.palavraChave = valorElementoAtual;
     }else if([elementName isEqualToString:@"erro"]){
         registrarDispositivoResponse.erro = valorElementoAtual;
     }else if([elementName isEqualToString:@"msgErro"]){
@@ -47,31 +56,7 @@
 }
 
 -(void)registrarDispositivo:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador comDadosCliente:(DadosCliente *) dadosCliente comDadosDispositivo:(DadosDispositivo *) dadosDispositivo {
-   
-    //REGISTRO LOCAL
-//    NSString *estante = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"Registrar.xml"];
-//    
-//    NSData *data = [[NSData alloc] initWithContentsOfFile:estante];
-//    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//    NSLog(@"%@", corpoXML);
-//    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-//    NSLog(@"%@", parser);
-//    [parser setDelegate:self];
-//    
-//    if(![parser parse]){
-//        NSLog(@"Erro ao realizar o parse");
-//    }else{
-//        NSLog(@"Ok Parse");
-//    }
-//
-//    
-//    EstantesController *estanteController = [[EstantesController alloc] init];
-//    [estanteController setRegistrarLivroResponse:registrarLivroResponse];
-//    [estanteController setTxtDocumento : documento];
-//    [estanteController setTxtSenha : senha];
-//    [controlador.navigationController pushViewController:estanteController animated:YES];
 
- //REGISTRO ONLINE
     NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
     networkQueue.maxConcurrentOperationCount = 5;
     
@@ -91,12 +76,16 @@
         concatXML = [concatXML stringByAppendingString: @"</registroNacional>"];
         
         concatXML = [concatXML stringByAppendingString: @"<documento>"];
-        concatXML = [concatXML stringByAppendingString: dadosCliente.documento];
+        concatXML = [concatXML stringByAppendingString: !dadosCliente.documento ? @"" : dadosCliente.documento ];
         concatXML = [concatXML stringByAppendingString: @"</documento>"];
         
         concatXML = [concatXML stringByAppendingString: @"<senha>"];
-        concatXML = [concatXML stringByAppendingString: dadosCliente.senha];
+        concatXML = [concatXML stringByAppendingString: !dadosCliente.senha ? @"" : dadosCliente.senha];
         concatXML = [concatXML stringByAppendingString: @"</senha>"];
+        
+        concatXML = [concatXML stringByAppendingString: @"<palavraChave>"];
+        concatXML = [concatXML stringByAppendingString: !dadosCliente.palavraChave ? @"" : dadosCliente.palavraChave];
+        concatXML = [concatXML stringByAppendingString: @"</palavraChave>"];
         
         concatXML = [concatXML stringByAppendingString: @"</response>"];
         
@@ -116,25 +105,10 @@
         }else{
             NSLog(@"Ok Parse");
             
-            NSURLRequest *requestXML = [NSURLRequest requestWithURL:url];
-            NSString *saveFilenameXML = [GLB downloadSavePathFor: [url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]];
-            
-            NSLog(@"Salvando o arquivo XML em %@", saveFilenameXML);
-            
-            AFHTTPRequestOperation *operationXML = [[AFHTTPRequestOperation alloc] initWithRequest:requestXML];
-            
-            operationXML.outputStream = [NSOutputStream outputStreamToFileAtPath:saveFilenameXML append:NO];
-            
-            [operationXML setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
-                
-                
-            } failure:^(AFHTTPRequestOperation *op, NSError *error) {
-                [GLB showMessage:
-                 [NSString stringWithFormat:@"Error no download do XML de registro: %@", [error localizedDescription]]];
-            }];
-            
-            [operationXML start];
-
+            BOOL ok = [respostaXML writeToFile:[GLB downloadSavePathFor: [url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]] atomically:TRUE encoding:NSUTF8StringEncoding error:NULL];
+            if(ok){
+                NSLog(@"Salvou com sucesso");
+            }
         }
         
         
@@ -213,25 +187,12 @@
     return @"http://www.ibracon.com.br/idr/ws/ws_registrar.php?";
 }
 
-- (BOOL) buscarRegistroLocal{
+- (RegistrarDispositivoResponse *) buscarRegistroLocal{
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[[self urlRegistrar].lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]]];
     
     NSData *data = [[NSData alloc] initWithContentsOfFile:thumbnailsPath];
-    if (!data) {
-        UIAlertView *alertError = [
-                                   [UIAlertView alloc] initWithTitle:@"Dispositivo não registrado! Necessário conexão com a Internet."
-                                   message:@"Não foi localizado um registro local!"
-                                   delegate:nil
-                                   cancelButtonTitle:@"Visto"
-                                   otherButtonTitles:nil
-                                   ];
-        
-        [alertError show];
-        return false;
-        
-    }
     
     NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding];
     NSLog(@"%@", corpoXML);
@@ -241,31 +202,12 @@
     
     if(![parser parse]){
         NSLog(@"Erro ao realizar o parse");
-        return false;
     }else{
         NSLog(@"Ok Parse");
         
     }
     
-    
-//    NSString *mensagemAlerta = registrarDispositivoResponse.status;
-//    if(![registrarDispositivoResponse.erro isEqualToString:@"0"]){
-//        mensagemAlerta = [mensagemAlerta stringByAppendingString:@" - "];
-//        mensagemAlerta = [mensagemAlerta stringByAppendingString:registrarDispositivoResponse.msgErro];
-//    }
-//    
-//    
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Registro "
-//                                                    message:mensagemAlerta
-//                                                   delegate:nil
-//                                          cancelButtonTitle:@"OK"
-//                                          otherButtonTitles:nil
-//                          
-//                          ];
-//    
-//    [alert show];
-    
-    return true;
+    return registrarDispositivoResponse;
 }
 
 

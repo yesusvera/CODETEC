@@ -10,12 +10,10 @@
 		2942CF4F18D7E1D200311C64 /* FastPdfKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2942CF4B18D7E1D200311C64 /* FastPdfKit.framework */; };
 		2942CF5018D7E1D200311C64 /* FPKReaderBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2942CF4D18D7E1D200311C64 /* FPKReaderBundle.bundle */; };
 		2942CF5118D7E1D200311C64 /* Snippets.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2942CF4E18D7E1D200311C64 /* Snippets.txt */; };
-		2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */; };
 		2988CEB818C9612C005B84BE /* RegistrarLivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */; };
 		2988CEBB18C96A6F005B84BE /* ConexaoRegistrarLivro.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEBA18C96A6F005B84BE /* ConexaoRegistrarLivro.m */; };
 		2988CEBE18C96F45005B84BE /* DadosDispositivo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEBD18C96F45005B84BE /* DadosDispositivo.m */; };
 		2988CEC118C97128005B84BE /* DadosCliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEC018C97128005B84BE /* DadosCliente.m */; };
-		298E504A18BC02FE00F1F838 /* Registrar.xml in Resources */ = {isa = PBXBuildFile; fileRef = 298E504918BC02FE00F1F838 /* Registrar.xml */; };
 		299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 299D7B4718BC36FC00724BED /* EstanteResponse.m */; };
 		29B679E118D91E4300787E05 /* GLB.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B679E018D91E4300787E05 /* GLB.m */; };
 		29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */; };
@@ -74,7 +72,6 @@
 		2942CF4B18D7E1D200311C64 /* FastPdfKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FastPdfKit.framework; sourceTree = "<group>"; };
 		2942CF4D18D7E1D200311C64 /* FPKReaderBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FPKReaderBundle.bundle; sourceTree = "<group>"; };
 		2942CF4E18D7E1D200311C64 /* Snippets.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snippets.txt; sourceTree = "<group>"; };
-		2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EstanteIbracon.xml; path = ../../EstanteIbracon.xml; sourceTree = "<group>"; };
 		2988CEB618C9612C005B84BE /* RegistrarLivroResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrarLivroResponse.h; sourceTree = "<group>"; };
 		2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrarLivroResponse.m; sourceTree = "<group>"; };
 		2988CEB918C96A6F005B84BE /* ConexaoRegistrarLivro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConexaoRegistrarLivro.h; sourceTree = "<group>"; };
@@ -83,7 +80,6 @@
 		2988CEBD18C96F45005B84BE /* DadosDispositivo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DadosDispositivo.m; sourceTree = "<group>"; };
 		2988CEBF18C97128005B84BE /* DadosCliente.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DadosCliente.h; sourceTree = "<group>"; };
 		2988CEC018C97128005B84BE /* DadosCliente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DadosCliente.m; sourceTree = "<group>"; };
-		298E504918BC02FE00F1F838 /* Registrar.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Registrar.xml; sourceTree = "<group>"; };
 		299D7B4618BC36FC00724BED /* EstanteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstanteResponse.h; sourceTree = "<group>"; };
 		299D7B4718BC36FC00724BED /* EstanteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstanteResponse.m; sourceTree = "<group>"; };
 		29B679DF18D91E4300787E05 /* GLB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLB.h; sourceTree = "<group>"; };
@@ -397,8 +393,6 @@
 		FBDF8A711877CC70000EC732 /* xml */ = {
 			isa = PBXGroup;
 			children = (
-				298E504918BC02FE00F1F838 /* Registrar.xml */,
-				2949DE8E18BA616200A1E560 /* EstanteIbracon.xml */,
 			);
 			name = xml;
 			sourceTree = "<group>";
@@ -495,11 +489,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				298E504A18BC02FE00F1F838 /* Registrar.xml in Resources */,
 				FB5A361318657EA6006C7FF3 /* RegistroNaoAssociadoController.xib in Resources */,
 				FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */,
 				FBF1E1381869506E00671EE2 /* EstantesController.xib in Resources */,
-				2949DE8F18BA616200A1E560 /* EstanteIbracon.xml in Resources */,
 				FB5F0A8418615A800068D497 /* Main_iPad.storyboard in Resources */,
 				FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */,
 				2942CF5018D7E1D200311C64 /* FPKReaderBundle.bundle in Resources */,
