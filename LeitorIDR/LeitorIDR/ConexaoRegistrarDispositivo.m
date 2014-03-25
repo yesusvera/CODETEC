@@ -12,6 +12,7 @@
 #import "DadosCliente.h"
 #import "DadosDispositivo.h"
 #import "GLB.h"
+
 @implementation ConexaoRegistrarDispositivo
 @synthesize registrarDispositivoResponse;
 
@@ -84,6 +85,23 @@
     NSLog(@"%@", operation);
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        
+        NSString *concatXML = @"<registroNacional>";
+        concatXML = [concatXML stringByAppendingString: dadosCliente.registroNacional];
+        concatXML = [concatXML stringByAppendingString: @"</registroNacional>"];
+        
+        concatXML = [concatXML stringByAppendingString: @"<documento>"];
+        concatXML = [concatXML stringByAppendingString: dadosCliente.documento];
+        concatXML = [concatXML stringByAppendingString: @"</documento>"];
+        
+        concatXML = [concatXML stringByAppendingString: @"<senha>"];
+        concatXML = [concatXML stringByAppendingString: dadosCliente.senha];
+        concatXML = [concatXML stringByAppendingString: @"</senha>"];
+        
+        concatXML = [concatXML stringByAppendingString: @"</response>"];
+        
+        
+        respostaXML = [respostaXML stringByReplacingOccurrencesOfString:@"</response>" withString:concatXML];
         NSLog(@"%@", respostaXML);
         
         [indicadorAtividade stopAnimating];
