@@ -20,9 +20,18 @@
 bool flagConexaoLocal;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     EstanteLivrosController *estanteLivrosController = [[EstanteLivrosController alloc]init];
     estanteLivrosController.nomeEstante = [estantes objectAtIndex:indexPath.row];
+    
+    if ([estanteLivrosController.nomeEstante isEqualToString:@"Direito de uso"]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Seja bem vindo ao IDR - Ibracon Digital Reader" message:@"Por favor, informar a palavra chave e senha:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Prosseguir", nil];
+            alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+        
+            [[alertView textFieldAtIndex:0] setPlaceholder:@"Palavra-chave"];
+            [[alertView textFieldAtIndex:1] setPlaceholder:@"Senha"];
+        
+            [alertView show];
+    }
     estanteLivrosController.registrarDispositivoResponse = registrarDispositivoResponse;
     estanteLivrosController.estanteResponse = estanteResponse;
     
@@ -53,6 +62,24 @@ bool flagConexaoLocal;
 
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        UITextField *palavrachave = [alertView textFieldAtIndex:0];
+        registrarDispositivoResponse.dadosCliente.palavraChave = palavrachave.text;
+        NSLog(@"username: %@", palavrachave.text);
+        
+        UITextField *senha = [alertView textFieldAtIndex:1];
+        registrarDispositivoResponse.dadosCliente.senha = senha.text;
+        NSLog(@"password: %@", senha.text);
+        
+        ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
+        estanteResponse = [conexaoBuscarEstante conectarObterEstante:registrarDispositivoResponse];
+        
+    }
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     
     if(flagConexaoLocal){
@@ -67,9 +94,6 @@ bool flagConexaoLocal;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 
 @end
