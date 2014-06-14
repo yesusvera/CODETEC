@@ -206,7 +206,7 @@ BOOL isDeDireito;
 
 - (NSString *) montarUrlParaObterEstante:(RegistrarDispositivoResponse *)registrarDispositivoResponse{
     
-    NSString *urlObterEstante = @"http://www.ibracon.com.br/idr/ws/ws_estantes.php?";
+    NSString *urlObterEstante = @"http://www.ibracon.com.br/idr/ws/ws_estantes_mobile.php?";
 
     urlObterEstante = [[urlObterEstante stringByAppendingString:@"cliente="] stringByAppendingString:[GLB urlEncodeUsingEncoding: registrarDispositivoResponse.codCliente]];
     

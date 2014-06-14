@@ -119,9 +119,13 @@
     
     urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&produto="] stringByAppendingString: [GLB urlEncodeUsingEncoding:livroResponse.codigolivro]];
     
-    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&keyword="] stringByAppendingString: [GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.palavraChave]];
+    if(registrarDispositivoResponse.dadosCliente.palavraChave!=nil){
+        urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&keyword="] stringByAppendingString: [GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.palavraChave]];
+    }
     
-    urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&senha="] stringByAppendingString: [GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.senha]];
+    if(registrarDispositivoResponse.dadosCliente.senha!=nil){
+        urlRegistrarLivro = [[urlRegistrarLivro stringByAppendingString:@"&senha="] stringByAppendingString: [GLB urlEncodeUsingEncoding:registrarDispositivoResponse.dadosCliente.senha]];
+    }
     
     return urlRegistrarLivro;
 }

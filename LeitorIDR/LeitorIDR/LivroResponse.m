@@ -9,6 +9,6 @@
 #import "LivroResponse.h"
 
 @implementation LivroResponse
-@synthesize codigolivro,titulo,versao,codigoloja,foto,arquivo,tipoLivro;
+@synthesize codigolivro,titulo,versao,codigoloja,foto,arquivo,arquivomobile,indiceXML,tipoLivro;
 
 @end

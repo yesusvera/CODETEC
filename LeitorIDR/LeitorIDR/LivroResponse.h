@@ -15,6 +15,8 @@
     NSString *codigoloja;
     NSString *foto;
     NSString *arquivo;
+    NSString *arquivomobile;
+    NSString *indiceXML;
     NSString *tipoLivro;
 }
 
@@ -24,5 +26,7 @@
 @property(nonatomic, retain) NSString *codigoloja;
 @property(nonatomic, retain) NSString *foto;
 @property(nonatomic, retain) NSString *arquivo;
+@property(nonatomic, retain) NSString *arquivomobile;
+@property(nonatomic, retain) NSString *indiceXML;
 @property(nonatomic, retain) NSString *tipoLivro;
 @end

@@ -24,7 +24,7 @@
     
     /** Set document name */
     // RENOMEANDO TEMPORARIAMENTE DE .IDR PARA .PDF
-    NSString *documentName = [[livroResponse.arquivo.lastPathComponent stringByRemovingPercentEncoding] stringByReplacingOccurrencesOfString:@".idr" withString:@".pdf"];
+    NSString *documentName = [[livroResponse.arquivomobile.lastPathComponent stringByRemovingPercentEncoding] stringByReplacingOccurrencesOfString:@".idr" withString:@".pdf"];
     
     /** Get temporary directory to save thumbnails */
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -99,11 +99,12 @@
 
 -(IBAction)startDownload:(id)sender{
     [self downloadFotoDoLivro:livroResponse.foto];
-    [self downloadDoLivro:livroResponse.arquivo];
+    [self downloadArquivo:livroResponse.arquivomobile];
+    [self downloadArquivo:livroResponse.indiceXML];
   }
 
 
--(void) downloadDoLivro:(NSString *) urlLivroParaBaixar{
+-(void) downloadArquivo:(NSString *) urlLivroParaBaixar{
     NSURL *urlLivro = [NSURL URLWithString:urlLivroParaBaixar];
     NSURLRequest *request = [NSURLRequest requestWithURL:urlLivro];
     NSString *saveFilename = [self downloadSavePathFor:urlLivro.lastPathComponent];
