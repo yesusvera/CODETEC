@@ -16,4 +16,15 @@
 @property(nonatomic, retain) NSString *senha;
 @property(nonatomic, retain) NSString *palavraChave;
 
+@property(nonatomic, retain) NSString *nomeRazao;
+@property(nonatomic, retain) NSString *endereco;
+@property(nonatomic, retain) NSString *numero;
+@property(nonatomic, retain) NSString *complemento;
+@property(nonatomic, retain) NSString *bairro;
+@property(nonatomic, retain) NSString *cidade;
+@property(nonatomic, retain) NSString *uf;
+@property(nonatomic, retain) NSString *email;
+@property(nonatomic, retain) NSString *telefone;
+@property(nonatomic, retain) NSString *cep;
+
 @end

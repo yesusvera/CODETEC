@@ -13,13 +13,15 @@
 #include <sys/sysctl.h>
 #include <net/if.h>
 #include <net/if_dl.h>
+#import "EstantesController.h"
+#import "DadosCliente.h"
+#import "DadosDispositivo.h"
+#import "ConexaoRegistrarDispositivo.h"
 
 @interface RegistroNaoAssociadoController ()
-
 @end
 
 @implementation RegistroNaoAssociadoController
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,8 +34,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Não sou associado";
-
+    self.title = @"Registro - Não associado";
+    self.indicadorAtividade.hidden = TRUE;
+   
+    ufArray = [[NSArray alloc] initWithObjects:@"AC", @"AL", @"AM", @"AP", @"BA", @"CE", @"DF", @"ES", @"GO",@"MA", @"MG", @"MS", @"MT", @"PA", @"PB", @"PE", @"PI",@"PR", @"RJ", @"RN", @"RO", @"RR", @"RS", @"RS", @"SC", @"SE", @"SP",@"TO", nil];
+    
     //Inicializando UITextField
     [self.lblIP  setText: [self getIPAddress]];
     [self.lblMacAdress setText: [self getMacAddress]];
@@ -147,4 +152,81 @@
     return macAddressString;
 }
 
+- (IBAction)registrarDispositivo:(id)sender {
+    DadosCliente *dadosCliente = [[DadosCliente alloc] init];
+    
+    dadosCliente.ehAssociado      = @"n";
+    dadosCliente.documento        = self.txtDocumento.text;
+    dadosCliente.nomeRazao = self.txtNomeRazaoSocial.text;
+    dadosCliente.senha            = self.txtSenha.text;
+    dadosCliente.palavraChave     = @"";
+    dadosCliente.endereco = self.txtEndereco.text;
+    dadosCliente.numero = self.txtNumero.text;
+    dadosCliente.complemento = self.txtComplemento.text;
+    dadosCliente.bairro = self.txtBairro.text;
+    dadosCliente.cidade = self.txtCidade.text;
+    dadosCliente.uf = self.selectUF.description;
+    dadosCliente.email = self.txtEmail.text;
+    dadosCliente.cep = self.txtCEP.text;
+    
+    if([dadosCliente.nomeRazao length]==0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campo obrigatório "
+                                                        message:@"O campo Nome/Razão Social é de preenchimento obrigatório."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil
+                              ];
+        [alert show];
+        return;
+    }
+    
+    
+    if([dadosCliente.senha length]==0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campo obrigatório "
+                                                        message:@"O campo senha é de preenchimento obrigatório."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil
+                              ];
+        [alert show];
+        return;
+    }
+    
+    
+    if([dadosCliente.documento length]==0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campo obrigatório "
+                                                        message:@"O campo Documento é de preenchimento obrigatório."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil
+                              ];
+        [alert show];
+        return;
+    }
+
+    
+    DadosDispositivo *dadosDispositivo = [[DadosDispositivo alloc]init];
+    
+    dadosDispositivo.dispositivo  = self.lblDispositivo.text;
+    dadosDispositivo.ip           = self.lblIP.text;
+    dadosDispositivo.macAdress    = self.lblMacAdress.text;
+    dadosDispositivo.serial       = self.lblSerial.text;
+    
+    ConexaoRegistrarDispositivo *solicitarRegistroDispositivo =[[ConexaoRegistrarDispositivo alloc]init];
+    [solicitarRegistroDispositivo registrarDispositivo: self.indicadorAtividade controller:self comDadosCliente:dadosCliente comDadosDispositivo:dadosDispositivo];
+}
+
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [ufArray count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [ufArray objectAtIndex:row];
+}
 @end
