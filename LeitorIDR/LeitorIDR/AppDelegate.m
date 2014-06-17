@@ -12,6 +12,7 @@
 #import "EstantesController.h"
 #import "ConexaoRegistrarDispositivo.h"
 #import "DadosCliente.h"
+#import "PDFIOS.h"
 
 @implementation AppDelegate
 
