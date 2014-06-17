@@ -27,6 +27,7 @@
 		29CFB206194FC4D800E9DBDA /* NSObject+PerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB205194FC4D800E9DBDA /* NSObject+PerformBlock.m */; };
 		29CFB208194FC52000E9DBDA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CFB207194FC52000E9DBDA /* QuartzCore.framework */; };
 		29CFB20A194FC53E00E9DBDA /* libRDPDFLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CFB209194FC53E00E9DBDA /* libRDPDFLib.a */; };
+		29CFB20D194FC7B200E9DBDA /* RDPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB20C194FC7B200E9DBDA /* RDPDFViewController.m */; };
 		29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */; };
 		82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */; };
 		82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F618B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m */; };
@@ -118,6 +119,8 @@
 		29CFB205194FC4D800E9DBDA /* NSObject+PerformBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformBlock.m"; sourceTree = "<group>"; };
 		29CFB207194FC52000E9DBDA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29CFB209194FC53E00E9DBDA /* libRDPDFLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRDPDFLib.a; path = PDFViewer/PDFLib/libRDPDFLib.a; sourceTree = "<group>"; };
+		29CFB20B194FC7B200E9DBDA /* RDPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPDFViewController.h; sourceTree = "<group>"; };
+		29CFB20C194FC7B200E9DBDA /* RDPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPDFViewController.m; sourceTree = "<group>"; };
 		47E5FF1C835D4E76A8748C52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E038F318B8DD7A00EE7722 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -433,6 +436,8 @@
 				FBDF8A721877E353000EC732 /* connection */,
 				FBDF8A711877CC70000EC732 /* xml */,
 				FBDF8A701877CC5B000EC732 /* model */,
+				29CFB20B194FC7B200E9DBDA /* RDPDFViewController.h */,
+				29CFB20C194FC7B200E9DBDA /* RDPDFViewController.m */,
 			);
 			name = com.br.ibracon;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 				FBDF8A7B1878C0FD000EC732 /* EstanteLivrosController.m in Sources */,
 				FBDF8A6F1877CAC0000EC732 /* RegistrarDispositivoResponse.m in Sources */,
 				82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */,
+				29CFB20D194FC7B200E9DBDA /* RDPDFViewController.m in Sources */,
 				82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */,
 				FB5A361218657EA6006C7FF3 /* RegistroNaoAssociadoController.m in Sources */,
 				2988CEBB18C96A6F005B84BE /* ConexaoRegistrarLivro.m in Sources */,

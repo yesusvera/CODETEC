@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    APP_Init();
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     ConexaoRegistrarDispositivo *buscarRegistroLocal = [[ConexaoRegistrarDispositivo alloc]init];
