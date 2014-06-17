@@ -176,7 +176,6 @@ NSUserDefaults *userDefaults;
             
             self.fotoLivro.image = [[UIImage alloc] initWithData:
                                     [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ];
-            self.tituloLivro.text = livroResponse.titulo;
             
         }else if([livroResponse.tipoLivro isEqualToString:@"baixados"]){
             
@@ -190,6 +189,11 @@ NSUserDefaults *userDefaults;
             abrirPdf.hidden = YES;
             self.tituloLivro.text = @"";
         }
+        
+        self.tituloLivro.text = livroResponse.titulo;
+        self.lblCodigoLoja.text = livroResponse.codigoloja;
+        self.lblVersaoLivro.text = livroResponse.versao;
+
         livroResponse.arquivo = [livroResponse.arquivo stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     }
 }

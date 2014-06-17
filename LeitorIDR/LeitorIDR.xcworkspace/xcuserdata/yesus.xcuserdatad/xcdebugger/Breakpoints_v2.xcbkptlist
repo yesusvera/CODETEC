@@ -25,7 +25,7 @@
                   symbolName = "-[RegistrarLivroResponse codLivro]"
                   moduleName = "LeitorIDR"
                   urlString = "file:///Users/yesus/Documents/WorkIOSCodeTec/CODETEC/LeitorIDR/LeitorIDR/RegistrarLivroResponse.h"
-                  timestampString = "424617868.528998"
+                  timestampString = "424678527.168339"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -39,7 +39,7 @@
                   symbolName = "-[RegistrarLivroResponse setCodLivro:]"
                   moduleName = "LeitorIDR"
                   urlString = "file:///Users/yesus/Documents/WorkIOSCodeTec/CODETEC/LeitorIDR/LeitorIDR/RegistrarLivroResponse.h"
-                  timestampString = "424617868.529272"
+                  timestampString = "424678527.168656"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -125,7 +125,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "-startDownload:"
+            landmarkName = "-actionOpenPlainDocument:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -238,6 +238,54 @@
             startingLineNumber = "168"
             endingLineNumber = "168"
             landmarkName = "-registrarDispositivo:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EstantesController.m"
+            timestampString = "424676900.946184"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeitorIDR/ConexaoBuscarEstante.m"
+            timestampString = "424677489.300552"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "-parser:didEndElement:namespaceURI:qualifiedName:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeitorIDR/LivroDetalhesView.m"
+            timestampString = "424678223.71683"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-loadSettingsWithDefaults"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -42,16 +42,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    if([_nomeEstante isEqualToString:@"Disponíveis"]){
-        return estanteResponse.qtdLivrosParaBaixar.integerValue;
+    if([_nomeEstante isEqualToString:@"Visão Geral"]){
+        return self.estanteResponse.listaLivrosVisaoGeral.count;
+    }else if([_nomeEstante isEqualToString:@"Disponíveis"]){
+        return self.estanteResponse.listaLivrosDisponiveis.count;
     }else if([_nomeEstante isEqualToString:@"Direito de uso"]){
-        return estanteResponse.qtdLivrosDeDireito.integerValue;
+        return self.estanteResponse.listaLivrosDeDireito.count;
     }else if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
-        return estanteResponse.qtdLivrosBaixados.integerValue;
-    }else{
-        return estanteResponse.listaDeLivros.count;
+        return self.estanteResponse.listaLivrosBaixados.count;
     }
     
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -60,26 +61,24 @@
     NSString *tituloLivro;
     NSString *linkFotoLivro;
     
-    if([_nomeEstante isEqualToString:@"Disponíveis"]){
-        LivroResponse *livro = [estanteResponse.self.listaDeLivros objectAtIndex:indexPath.row];
-        [estanteResponse.listaDeLivros addObject:livro];
+    if([_nomeEstante isEqualToString:@"Visão Geral"]){
+        LivroResponse *livro = [estanteResponse.self.listaLivrosVisaoGeral objectAtIndex:indexPath.row];
         tituloLivro = livro.titulo;
         linkFotoLivro = livro.foto;
+    }else if([_nomeEstante isEqualToString:@"Disponíveis"]){
+        LivroResponse *livro = [estanteResponse.self.listaLivrosDisponiveis objectAtIndex:indexPath.row];
+               tituloLivro = livro.titulo;
+        linkFotoLivro = livro.foto;
     }else if([_nomeEstante isEqualToString:@"Direito de uso"]){
-        LivroResponse *livro = [estanteResponse.self.listaDeLivros objectAtIndex:indexPath.row];
-        [estanteResponse.listaDeLivros addObject:livro];
+        LivroResponse *livro = [estanteResponse.self.listaLivrosDeDireito objectAtIndex:indexPath.row];
         tituloLivro = livro.titulo;
         linkFotoLivro = livro.foto;
     }else if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
-        LivroResponse *livro = [estanteResponse.self.listaDeLivros objectAtIndex:indexPath.row];
-        [estanteResponse.listaDeLivros addObject:livro];
-        tituloLivro = livro.titulo;
-        linkFotoLivro = livro.foto;
-    }else{
-        LivroResponse *livro = [estanteResponse.self.listaDeLivros objectAtIndex:indexPath.row];
+        LivroResponse *livro = [estanteResponse.self.listaLivrosBaixados objectAtIndex:indexPath.row];
         tituloLivro = livro.titulo;
         linkFotoLivro = livro.foto;
     }
+    
     cell.textLabel.text = tituloLivro;
     if([UIImage imageWithData:[[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:linkFotoLivro]] ]){
         cell.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:linkFotoLivro]] ];
@@ -92,7 +91,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     LivroDetalhesView *livroDetalhesView = [[LivroDetalhesView alloc]init];
-    livroDetalhesView.livroResponse = [estanteResponse.listaDeLivros objectAtIndex:indexPath.row];;
+    if([_nomeEstante isEqualToString:@"Visão Geral"]){
+        livroDetalhesView.livroResponse = [estanteResponse.listaLivrosVisaoGeral objectAtIndex:indexPath.row];
+    }else if([_nomeEstante isEqualToString:@"Disponíveis"]){
+        livroDetalhesView.livroResponse = [estanteResponse.listaLivrosDisponiveis objectAtIndex:indexPath.row];
+    }else if([_nomeEstante isEqualToString:@"Direito de uso"]){
+        livroDetalhesView.livroResponse = [estanteResponse.listaLivrosDeDireito objectAtIndex:indexPath.row];
+    }else if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
+        livroDetalhesView.livroResponse = [estanteResponse.listaLivrosBaixados objectAtIndex:indexPath.row];
+    }
+
     livroDetalhesView.registrarDispositivoResponse = registrarDispositivoResponse;
     
     [self.navigationController pushViewController:livroDetalhesView animated:YES];

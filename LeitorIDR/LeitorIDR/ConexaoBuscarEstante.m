@@ -21,6 +21,10 @@ BOOL isDeDireito;
     self = [super init];
     if(self){
         estanteResponse = [[EstanteResponse alloc]init];
+        estanteResponse.listaLivrosVisaoGeral = [[NSMutableArray alloc]init];
+        estanteResponse.listaLivrosBaixados = [[NSMutableArray alloc]init];
+        estanteResponse.listaLivrosDisponiveis = [[NSMutableArray alloc]init];
+        estanteResponse.listaLivrosDeDireito = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -33,31 +37,20 @@ BOOL isDeDireito;
         isBaixados = YES;
         isParaBaixar = NO;
         isDeDireito = NO;
-        if(!estanteResponse.listaDeLivros){
-            estanteResponse.listaDeLivros = [[NSMutableArray alloc]init];
-        }
     }else if ([elementName isEqualToString:@"parabaixar"]){
         isParaBaixar = YES;
         isDeDireito = NO;
         isBaixados = NO;
-        if(!estanteResponse.listaDeLivros){
-            estanteResponse.listaDeLivros = [[NSMutableArray alloc]init];
-        }
-
     }else if ([elementName isEqualToString:@"dedireito"]){
         isDeDireito = YES;
         isParaBaixar = NO;
         isBaixados = NO;
-        if(!estanteResponse.listaDeLivros){
-            estanteResponse.listaDeLivros = [[NSMutableArray alloc]init];
-        }
     }else if ([elementName isEqualToString:@"livro"]){
         livro = [[LivroResponse alloc]init];
     }
 }
 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    
     if(!valorNoAtual)
     {
         valorNoAtual = [[NSMutableString alloc]initWithString:string];
@@ -74,26 +67,22 @@ BOOL isDeDireito;
     }
     if([elementName isEqualToString:@"livro"] && isParaBaixar){
         livro.tipoLivro = @"parabaixar";
-        [estanteResponse.listaDeLivros  addObject:livro];
-        estanteResponse.qtdLivrosParaBaixar = [NSNumber numberWithInt:estanteResponse.qtdLivrosParaBaixar.intValue + 1];
-        livro = nil;
+        [estanteResponse.listaLivrosDisponiveis addObject:livro];
+        [estanteResponse.listaLivrosVisaoGeral addObject:livro];
     }else if([elementName isEqualToString:@"livro"] && isBaixados){
         livro.tipoLivro = @"baixados";
-        [estanteResponse.listaDeLivros  addObject:livro];
-        estanteResponse.qtdLivrosBaixados = [NSNumber numberWithInt:estanteResponse.qtdLivrosBaixados.intValue + 1];
-        livro = nil;
+        [estanteResponse.listaLivrosBaixados addObject:livro];
     }else if([elementName isEqualToString:@"livro"] && isDeDireito){
         livro.tipoLivro = @"dedireito";
-        [estanteResponse.listaDeLivros  addObject:livro];
-        estanteResponse.qtdLivrosDeDireito = [NSNumber numberWithInt:estanteResponse.qtdLivrosDeDireito.intValue + 1];
-        livro = nil;
+        [estanteResponse.listaLivrosDeDireito addObject:livro];
+        [estanteResponse.listaLivrosVisaoGeral addObject:livro];
     }else if([elementName isEqualToString:@"erro"]){
         erro = valorNoAtual;
     }else if([elementName isEqualToString:@"msgErro"]){
         msgErro = valorNoAtual;
-    }else
+    }else{
         [livro setValue:[[valorNoAtual stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:elementName];
-    
+    }
     valorNoAtual = nil;
 }
 

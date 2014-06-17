@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface EstanteResponse : NSObject{
-    NSMutableArray *listaDeLivros;
-    NSNumber *qtdLivrosParaBaixar;
-    NSNumber *qtdLivrosBaixados;
-    NSNumber *qtdLivrosDeDireito;
+    NSMutableArray *listaLivrosVisaoGeral;
+    NSMutableArray *listaLivrosDisponiveis;
+    NSMutableArray *listaLivrosDeDireito;
+    NSMutableArray *listaLivrosBaixados;
+
 }
-@property (nonatomic, retain) NSMutableArray *listaDeLivros;
-@property (nonatomic, retain) NSNumber *qtdLivrosParaBaixar;
-@property (nonatomic, retain) NSNumber *qtdLivrosBaixados;
-@property (nonatomic, retain) NSNumber *qtdLivrosDeDireito;
+@property (nonatomic, retain) NSMutableArray *listaLivrosVisaoGeral;
+@property (nonatomic, retain) NSMutableArray *listaLivrosDisponiveis;
+@property (nonatomic, retain) NSMutableArray *listaLivrosDeDireito;
+@property (nonatomic, retain) NSMutableArray *listaLivrosBaixados;
+
 @end
