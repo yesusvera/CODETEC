@@ -12,11 +12,13 @@
 #import "EstantesController.h"
 #import "ConexaoRegistrarDispositivo.h"
 #import "DadosCliente.h"
+#import "PDFIOS.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    APP_Init();
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     ConexaoRegistrarDispositivo *buscarRegistroLocal = [[ConexaoRegistrarDispositivo alloc]init];
