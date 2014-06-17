@@ -202,7 +202,7 @@ NSUserDefaults *userDefaults;
 -(IBAction)startDownload:(id)sender{
     [self downloadFotoDoLivro:livroResponse.foto];
     [self downloadArquivo:livroResponse.arquivomobile];
-    [self downloadArquivo:livroResponse.indiceXML];
+    //[self downloadArquivo:livroResponse.indiceXML];
   }
 
 
