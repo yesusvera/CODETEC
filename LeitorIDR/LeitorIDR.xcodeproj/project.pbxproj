@@ -26,6 +26,8 @@
 		29CFB1CE194FC06600E9DBDA /* PDFVThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB1C1194FC06600E9DBDA /* PDFVThumb.m */; };
 		29CFB1CF194FC06600E9DBDA /* libRDPDFLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CFB1C3194FC06600E9DBDA /* libRDPDFLib.a */; };
 		29CFB1D0194FC06600E9DBDA /* PDFObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB1C6194FC06600E9DBDA /* PDFObjc.m */; };
+		29CFB1D7194FC2D600E9DBDA /* cmaps in Resources */ = {isa = PBXBuildFile; fileRef = 29CFB1D5194FC2D600E9DBDA /* cmaps */; };
+		29CFB1D8194FC2D600E9DBDA /* fdat in Resources */ = {isa = PBXBuildFile; fileRef = 29CFB1D6194FC2D600E9DBDA /* fdat */; };
 		29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */; };
 		82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */; };
 		82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F618B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m */; };
@@ -114,6 +116,8 @@
 		29CFB1C4194FC06600E9DBDA /* PDFIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFIOS.h; sourceTree = "<group>"; };
 		29CFB1C5194FC06600E9DBDA /* PDFObjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObjc.h; sourceTree = "<group>"; };
 		29CFB1C6194FC06600E9DBDA /* PDFObjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObjc.m; sourceTree = "<group>"; };
+		29CFB1D5194FC2D600E9DBDA /* cmaps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = cmaps; path = PDFViewer/cmaps; sourceTree = SOURCE_ROOT; };
+		29CFB1D6194FC2D600E9DBDA /* fdat */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fdat; path = PDFViewer/fdat; sourceTree = SOURCE_ROOT; };
 		47E5FF1C835D4E76A8748C52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E038F318B8DD7A00EE7722 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -380,6 +384,8 @@
 		FB5F0A7318615A800068D497 /* LeitorIDR */ = {
 			isa = PBXGroup;
 			children = (
+				29CFB1D5194FC2D600E9DBDA /* cmaps */,
+				29CFB1D6194FC2D600E9DBDA /* fdat */,
 				29CFB1B1194FC06600E9DBDA /* PDFView */,
 				29CFB1C2194FC06600E9DBDA /* PDFLib */,
 				FB62EE1D18763755007661BF /* com.br.ibracon */,
@@ -566,8 +572,10 @@
 				FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */,
 				FB5F0A8118615A800068D497 /* Main_iPhone.storyboard in Resources */,
 				FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */,
+				29CFB1D7194FC2D600E9DBDA /* cmaps in Resources */,
 				FBF102251870AFB900B4A361 /* Media.xcassets in Resources */,
 				FB5F0A7818615A800068D497 /* InfoPlist.strings in Resources */,
+				29CFB1D8194FC2D600E9DBDA /* fdat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
