@@ -85,18 +85,15 @@ NSUserDefaults *userDefaults;
     
     //    /** Get document from the App Bundle IDR*/
     NSURL *documentUrl = [[NSURL alloc] initFileURLWithPath:fullPath];
-    pdfName = @"IFRS2013_SENHA.pdf";
-    // The output string will have the file:// prefix
-    // pdfFullPath= [documentUrl absoluteString];
+    
     
     //fullPath = [fullPath stringByReplacingOccurrencesOfString:@" " withString:@"\\ " ];
-    
-    //pdfFullPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] pathForResource:@"IFRS2013_SENHA"ofType:@"pdf"];
-    
+
+    pdfName = fullPath;//@"IFRS2013_SENHA.pdf";
     pdfFullPath = fullPath;
     NSLog(@"Endereço completo: %@",pdfFullPath);
     
-    int result = [m_pdf PDFOpen:pdfFullPath withPassword:@"ibracon%2014"];
+    int result = [m_pdf PDFOpen:pdfFullPath:@"ibracon%2014"];
     
     if(result == 1)
     {
