@@ -20,5 +20,5 @@
     PDFDoc *m_doc;
 }
 
--(int)PDFOpen:(NSString *)path withPassword:(NSString *)pwd;
+-(int)PDFOpen:(NSString *)path:(NSString *)pwd;
 @end

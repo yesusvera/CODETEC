@@ -12,7 +12,6 @@
 #import "ConexaoRegistrarLivro.h"
 #import "EstanteResponse.h"
 #import "RDPDFViewController.h"
-//#import <FastPdfKit/FastPdfKit.h>
 
 
 @class MFDocumentManager;
