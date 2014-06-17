@@ -11,7 +11,7 @@
 @implementation GLB
 
 +(void) showMessage: (NSString *) message{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso" message:message delegate:nil cancelButtonTitle:@"Cancelar" otherButtonTitles:@"OK" , nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK" , nil];
     
     [alert show];
     
