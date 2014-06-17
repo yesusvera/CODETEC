@@ -165,9 +165,10 @@
     dadosCliente.complemento = self.txtComplemento.text;
     dadosCliente.bairro = self.txtBairro.text;
     dadosCliente.cidade = self.txtCidade.text;
-    dadosCliente.uf = self.selectUF.description;
+    dadosCliente.uf = [ufArray objectAtIndex:[self.ufPicker selectedRowInComponent:0]];
     dadosCliente.email = self.txtEmail.text;
     dadosCliente.cep = self.txtCEP.text;
+    dadosCliente.telefone = self.txtTelefone.text;
     
     if([dadosCliente.nomeRazao length]==0){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campo obrigatório "
@@ -212,8 +213,10 @@
     dadosDispositivo.macAdress    = self.lblMacAdress.text;
     dadosDispositivo.serial       = self.lblSerial.text;
     
+    self.btnRegistrar.enabled = false;
+    
     ConexaoRegistrarDispositivo *solicitarRegistroDispositivo =[[ConexaoRegistrarDispositivo alloc]init];
-    [solicitarRegistroDispositivo registrarDispositivo: self.indicadorAtividade controller:self comDadosCliente:dadosCliente comDadosDispositivo:dadosDispositivo];
+    [solicitarRegistroDispositivo registrarDispositivo: self.indicadorAtividade controller:self comDadosCliente:dadosCliente comDadosDispositivo:dadosDispositivo botaoRegistrar:self.btnRegistrar];
 }
 
 // returns the number of 'columns' to display.

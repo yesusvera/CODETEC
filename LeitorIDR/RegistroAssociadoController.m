@@ -188,9 +188,11 @@
     dadosDispositivo.ip           = self.lblIP.text;
     dadosDispositivo.macAdress    = self.lblMacAdress.text;
     dadosDispositivo.serial       = self.lblSerial.text;
+    
+    self.btnRegistrar.enabled = false;
 
     ConexaoRegistrarDispositivo *solicitarRegistroDispositivo =[[ConexaoRegistrarDispositivo alloc]init];
-    [solicitarRegistroDispositivo registrarDispositivo: self.indicadorAtividade controller:self comDadosCliente:dadosCliente comDadosDispositivo:dadosDispositivo];
+    [solicitarRegistroDispositivo registrarDispositivo: self.indicadorAtividade controller:self comDadosCliente:dadosCliente comDadosDispositivo:dadosDispositivo botaoRegistrar:self.btnRegistrar];
 }
 
 @end

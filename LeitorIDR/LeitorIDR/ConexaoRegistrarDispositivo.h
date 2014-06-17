@@ -15,7 +15,8 @@
     RegistrarDispositivoResponse *registrarDispositivoResponse;
     NSMutableString *valorElementoAtual;
 }
-- (void)registrarDispositivo:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador comDadosCliente:(DadosCliente *) dadosCliente comDadosDispositivo:(DadosDispositivo *) dadosDispositivo;
+- (void)registrarDispositivo:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador comDadosCliente:(DadosCliente *) dadosCliente comDadosDispositivo:(DadosDispositivo *) dadosDispositivo
+              botaoRegistrar: (UIButton *) btnRegistrar;
 - (RegistrarDispositivoResponse *) buscarRegistroLocal;
 @property (nonatomic, retain) RegistrarDispositivoResponse *registrarDispositivoResponse;
 @end

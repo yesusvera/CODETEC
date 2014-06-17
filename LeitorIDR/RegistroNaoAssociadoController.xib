@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistroNaoAssociadoController">
             <connections>
+                <outlet property="btnRegistrar" destination="4Ip-ab-jvP" id="AIu-rk-yev"/>
                 <outlet property="indicadorAtividade" destination="chb-Cx-fZC" id="uR7-Fr-eIB"/>
                 <outlet property="lblDispositivo" destination="kgY-7B-YiO" id="e8E-rN-Hbh"/>
                 <outlet property="lblIP" destination="8N8-op-xu2" id="muM-1r-Nq3"/>

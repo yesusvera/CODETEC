@@ -25,13 +25,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtComplemento;
 @property (weak, nonatomic) IBOutlet UITextField *txtBairro;
 @property (weak, nonatomic) IBOutlet UITextField *txtCidade;
-@property (weak, nonatomic) IBOutlet UIPickerView *selectUF;
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextField *txtTelefone;
 @property (weak, nonatomic) IBOutlet UITextField *txtCEP;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicadorAtividade;
 @property (weak, nonatomic) IBOutlet UIPickerView *ufPicker;
 @property (nonatomic,retain) NSArray *pickerData;
+@property (weak, nonatomic) IBOutlet UIButton *btnRegistrar;
 
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;

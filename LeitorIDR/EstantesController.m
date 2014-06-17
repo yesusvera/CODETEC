@@ -20,6 +20,8 @@
 bool flagConexaoLocal;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.hidesBottomBarWhenPushed = false;
+    
     EstanteLivrosController *estanteLivrosController = [[EstanteLivrosController alloc]init];
     estanteLivrosController.nomeEstante = [estantes objectAtIndex:indexPath.row];
     
@@ -61,6 +63,7 @@ bool flagConexaoLocal;
     estanteResponse = [conexaoBuscarEstante conectarObterEstante:registrarDispositivoResponse];
 
 }
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

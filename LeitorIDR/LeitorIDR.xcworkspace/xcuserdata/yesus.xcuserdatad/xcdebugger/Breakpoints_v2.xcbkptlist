@@ -25,7 +25,7 @@
                   symbolName = "-[RegistrarLivroResponse codLivro]"
                   moduleName = "LeitorIDR"
                   urlString = "file:///Users/yesus/Documents/WorkIOSCodeTec/CODETEC/LeitorIDR/LeitorIDR/RegistrarLivroResponse.h"
-                  timestampString = "424575488.799123"
+                  timestampString = "424617868.528998"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -39,7 +39,7 @@
                   symbolName = "-[RegistrarLivroResponse setCodLivro:]"
                   moduleName = "LeitorIDR"
                   urlString = "file:///Users/yesus/Documents/WorkIOSCodeTec/CODETEC/LeitorIDR/LeitorIDR/RegistrarLivroResponse.h"
-                  timestampString = "424575488.800486"
+                  timestampString = "424617868.529272"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -104,44 +104,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LeitorIDR/ConexaoRegistrarDispositivo.m"
-            timestampString = "417407008.828098"
+            timestampString = "424578760.863815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "-registrarDispositivo:controller:comDadosCliente:comDadosDispositivo:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeitorIDR/ConexaoRegistrarDispositivo.m"
-            timestampString = "424237245.519999"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-registrarDispositivo:controller:comDadosCliente:comDadosDispositivo:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LeitorIDR/ConexaoRegistrarDispositivo.m"
-            timestampString = "424237263.969502"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-registrarDispositivo:controller:comDadosCliente:comDadosDispositivo:"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "-registrarDispositivo:controller:comDadosCliente:comDadosDispositivo:botaoRegistrar:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -232,12 +200,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RegistroNaoAssociadoController.m"
-            timestampString = "424575392.311258"
+            timestampString = "424578436.63415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "-pickerView:titleForRow:forComponent:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeitorIDR/ConexaoRegistrarDispositivo.m"
+            timestampString = "424578760.863815"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "-montarUrlParaRegistroDeDispositivo:comDadosDispositivo:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RegistroNaoAssociadoController.m"
+            timestampString = "424578436.63415"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "-registrarDispositivo:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

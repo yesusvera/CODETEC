@@ -55,7 +55,11 @@
     valorElementoAtual = nil;
 }
 
--(void)registrarDispositivo:(UIActivityIndicatorView *)indicadorAtividade controller:(UIViewController *)controlador comDadosCliente:(DadosCliente *) dadosCliente comDadosDispositivo:(DadosDispositivo *) dadosDispositivo {
+-(void)registrarDispositivo:(UIActivityIndicatorView *)indicadorAtividade
+       controller:(UIViewController *)controlador
+       comDadosCliente:(DadosCliente *) dadosCliente
+       comDadosDispositivo:(DadosDispositivo *)
+       dadosDispositivo botaoRegistrar: (UIButton *) btnRegistrar {
 
     NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
     networkQueue.maxConcurrentOperationCount = 5;
@@ -72,7 +76,8 @@
         NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         
         NSString *concatXML = @"<registroNacional>";
-        concatXML = [concatXML stringByAppendingString: dadosCliente.registroNacional];
+        concatXML = [concatXML stringByAppendingString: !dadosCliente.registroNacional ?@"" : dadosCliente.registroNacional];
+
         concatXML = [concatXML stringByAppendingString: @"</registroNacional>"];
         
         concatXML = [concatXML stringByAppendingString: @"<documento>"];
@@ -122,15 +127,18 @@
                                   ];
             
             [alert show];
-
+            
             EstantesController *estanteController = [[EstantesController alloc] init];
             registrarDispositivoResponse.dadosCliente = dadosCliente;
             estanteController.registrarDispositivoResponse = registrarDispositivoResponse;
+            
             [controlador.navigationController pushViewController:estanteController animated:YES];
             
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        btnRegistrar.enabled = true;
+        
         NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
 
         [self buscarRegistroLocal];
@@ -141,14 +149,11 @@
             registrarDispositivoResponse.dadosCliente = dadosCliente;
             estanteController.registrarDispositivoResponse = registrarDispositivoResponse;
             [controlador.navigationController pushViewController:estanteController animated:YES];
-            
         }
-        
     }];
     
     indicadorAtividade.hidden = NO;
     [indicadorAtividade startAnimating];
-    
     
     [networkQueue addOperation:operation];
 }
@@ -158,39 +163,67 @@
     
     NSString *urlRegistrarDisp = [self urlRegistrar];
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"associado="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.ehAssociado]];
- 
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&registro="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.registroNacional]];
+    if(dadosCliente.ehAssociado!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"associado="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.ehAssociado]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&documento="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.documento]];
+    if(dadosCliente.registroNacional!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&registro="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.registroNacional]];
+    }
+
+    if(dadosCliente.documento!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&documento="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.documento]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&senha="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.senha]];
+    if(dadosCliente.senha!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&senha="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.senha]];
+    }
+    if(dadosCliente.endereco!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&endereco="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.endereco]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&endereco="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.endereco]];
+    if(dadosCliente.numero!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&numero="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.numero]];
+    }
+    if(dadosCliente.nomeRazao!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&cliente="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.nomeRazao]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&numero="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.numero]];
+    if(dadosCliente.uf!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&uf="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.uf]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&cliente="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.nomeRazao]];
+    if(dadosCliente.email!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&email="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.email]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&uf="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.uf]];
+    if(dadosCliente.telefone!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&telefone="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.telefone]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&email="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.email]];
+    if(dadosCliente.bairro!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&bairro="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.bairro]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&telefone="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.telefone]];
+    if(dadosCliente.complemento!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&complemento="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.complemento]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&bairro="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.bairro]];
+    if(dadosDispositivo.dispositivo!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&dispositivo="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.dispositivo]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&complemento="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosCliente.complemento]];
+    if(dadosDispositivo.ip!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&ip="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.ip]];
+    }
     
+    if(dadosDispositivo.macAdress!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&macadress="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.macAdress]];
+    }
     
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&dispositivo="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.dispositivo]];
-    
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&ip="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.ip]];
-    
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&macadress="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.macAdress]];
-    
-    urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&serial="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.serial]];
-    
+    if(dadosDispositivo.serial!=nil){
+        urlRegistrarDisp = [[urlRegistrarDisp stringByAppendingString:@"&serial="] stringByAppendingString: [GLB urlEncodeUsingEncoding:dadosDispositivo.serial]];
+    }
     return urlRegistrarDisp;
 }
 
