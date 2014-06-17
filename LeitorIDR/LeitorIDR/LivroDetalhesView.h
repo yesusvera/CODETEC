@@ -11,7 +11,9 @@
 #import "RegistrarDispositivoResponse.h"
 #import "ConexaoRegistrarLivro.h"
 #import "EstanteResponse.h"
-#import <FastPdfKit/FastPdfKit.h>
+#import "RDPDFViewController.h"
+//#import <FastPdfKit/FastPdfKit.h>
+
 
 @class MFDocumentManager;
 
@@ -25,6 +27,8 @@
     __weak IBOutlet UIImageView *fotoLivro;
     IBOutlet UIButton *abrirPdf;
     IBOutlet UIButton *downPdf;
+    
+    
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *fotoLivro;

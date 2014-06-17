@@ -17,39 +17,141 @@
 @end
 
 @implementation LivroDetalhesView
+NSMutableString *pdfName;
+NSMutableString *pdfPath;
+NSString *pdfFullPath;
+int g_PDF_ViewMode = 0 ;
+float g_Ink_Width = 2.0f;
+float g_rect_Width = 2.0f;
+float g_swipe_speed = 0.15f;
+float g_swipe_distance=1.0f;
+int g_render_quality = 1;
+bool g_CaseSensitive = false;
+bool g_MatchWholeWord = false;
+bool g_DarkMode = false;
+bool g_sel_right= false;
+bool g_ScreenAwake = false;
+uint g_ink_color = 0xFF000000;
+uint g_rect_color = 0xFF000000;
+NSUserDefaults *userDefaults;
 @synthesize livroResponse, tituloLivro,fotoLivro,registrarDispositivoResponse;
 
 // Função que abre o PDF pelo caminho especificado
 -(IBAction)actionOpenPlainDocument:(id)sender{
+//    
+//    /** Set document name */
+//    // RENOMEANDO TEMPORARIAMENTE DE .IDR PARA .PDF
+//    NSString *documentName = [[livroResponse.arquivomobile.lastPathComponent stringByRemovingPercentEncoding] stringByReplacingOccurrencesOfString:@".idr" withString:@".pdf"];
+//    
+//    /** Get temporary directory to save thumbnails */
+//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+//    
+//    /** Set thumbnails path */
+//    NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
+//    
+//    /** Get document from the App Bundle IDR*/
+//    NSURL *documentUrl = [NSURL fileURLWithPath:thumbnailsPath isDirectory:NO];
+//    
+//    /** Instancing the documentManager */
+//	MFDocumentManager *documentManager = [[MFDocumentManager alloc]initWithFileUrl:documentUrl];
+//    
+//	/** Instancing the readerViewController */
+//    ReaderViewController *pdfViewController = [[ReaderViewController alloc]initWithDocumentManager:documentManager];
+//    
+//    /** Set resources folder on the manager */
+//    documentManager.resourceFolder = thumbnailsPath;
+//    
+//    /** Set document id for thumbnail generation */
+//    pdfViewController.documentId = documentName;
+//	/** Present the pdf on screen in a modal view */
+//    
+//    [self presentViewController:pdfViewController animated:YES completion:nil];
     
-    /** Set document name */
-    // RENOMEANDO TEMPORARIAMENTE DE .IDR PARA .PDF
-    NSString *documentName = [[livroResponse.arquivomobile.lastPathComponent stringByRemovingPercentEncoding] stringByReplacingOccurrencesOfString:@".idr" withString:@".pdf"];
+    [self loadSettingsWithDefaults];
     
-    /** Get temporary directory to save thumbnails */
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    RDPDFViewController *m_pdf;
+    if( m_pdf == nil )
+    {
+        m_pdf = [[RDPDFViewController alloc] initWithNibName:@"RDPDFViewController"bundle:nil];
+    }
     
-    /** Set thumbnails path */
-    NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
+    NSString *documentName = [livroResponse.arquivomobile.lastPathComponent stringByRemovingPercentEncoding];
+    //
+    //    /** Get temporary directory to save thumbnails */
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    //
+    //    /** Set thumbnails path */
+    NSString *fullPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
     
-    /** Get document from the App Bundle IDR*/
-    NSURL *documentUrl = [NSURL fileURLWithPath:thumbnailsPath isDirectory:NO];
+    //    /** Get document from the App Bundle IDR*/
+    NSURL *documentUrl = [[NSURL alloc] initFileURLWithPath:fullPath];
+    pdfName = @"IFRS2013_SENHA.pdf";
+    // The output string will have the file:// prefix
+    // pdfFullPath= [documentUrl absoluteString];
     
-    /** Instancing the documentManager */
-	MFDocumentManager *documentManager = [[MFDocumentManager alloc]initWithFileUrl:documentUrl];
+    fullPath = [fullPath stringByReplacingOccurrencesOfString:@" " withString:@"\\ " ];
     
-	/** Instancing the readerViewController */
-    ReaderViewController *pdfViewController = [[ReaderViewController alloc]initWithDocumentManager:documentManager];
+    //pdfFullPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] pathForResource:@"IFRS2013_SENHA"ofType:@"pdf"];
     
-    /** Set resources folder on the manager */
-    documentManager.resourceFolder = thumbnailsPath;
+    pdfFullPath = fullPath;
+    NSLog(@"Endereço completo: %@",pdfFullPath);
     
-    /** Set document id for thumbnail generation */
-    pdfViewController.documentId = documentName;
-	/** Present the pdf on screen in a modal view */
+    int result = [m_pdf PDFOpen:pdfFullPath withPassword:@"ibracon%2014"];
     
-    [self presentViewController:pdfViewController animated:YES completion:nil];
+    if(result == 1)
+    {
+        m_pdf.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:m_pdf animated:YES];
+    }
 }
+
+- (void)loadSettingsWithDefaults
+{
+    userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    g_CaseSensitive = [userDefaults boolForKey:@"CaseSensitive"];
+    g_MatchWholeWord = [userDefaults boolForKey:@"MatchWholeWord"];
+    
+    g_ScreenAwake = [userDefaults boolForKey:@"KeepScreenAwake"];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:g_ScreenAwake];
+    
+    g_MatchWholeWord = [userDefaults floatForKey:@"MatchWholeWord"];
+    g_CaseSensitive = [userDefaults floatForKey:@"CaseSensitive"];
+    
+    userDefaults = [NSUserDefaults standardUserDefaults];
+    g_render_quality = [userDefaults integerForKey:@"RenderQuality"];
+    if(g_render_quality == 0)
+    {
+        g_render_quality =1;
+    }
+    renderQuality = g_render_quality;
+    
+    defView = [userDefaults integerForKey:@"ViewMode"];
+    g_ink_color = [userDefaults integerForKey:@"InkColor"];
+    if(g_ink_color ==0)
+    {
+        g_ink_color =0xFF000000;
+    }
+    g_rect_color = [userDefaults integerForKey:@"RectColor"];
+    if(g_rect_color==0)
+    {
+        g_rect_color =0xFF000000;
+    }
+    annotUnderlineColor = [userDefaults integerForKey:@"UnderlineColor"];
+    if (annotUnderlineColor == 0) {
+        annotUnderlineColor = 0xFF000000;
+    }
+    annotStrikeoutColor = [userDefaults integerForKey:@"StrikeoutColor"];
+    if (annotStrikeoutColor == 0) {
+        annotStrikeoutColor = 0xFF000000;
+    }
+    annotHighlightColor = [userDefaults integerForKey:@"HighlightColor"];
+    if(annotHighlightColor ==0)
+    {
+        annotHighlightColor =0xFFFFFF00;
+    }
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
