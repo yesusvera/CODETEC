@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PDFVGlobal.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
