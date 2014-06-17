@@ -325,6 +325,8 @@
 		FB3A5C5518BD63EE00A0FEA8 /* livros */ = {
 			isa = PBXGroup;
 			children = (
+				29CFB20B194FC7B200E9DBDA /* RDPDFViewController.h */,
+				29CFB20C194FC7B200E9DBDA /* RDPDFViewController.m */,
 				FB3A5C5018BD639400A0FEA8 /* LivroDetalhesView.h */,
 				FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */,
 			);
@@ -436,8 +438,6 @@
 				FBDF8A721877E353000EC732 /* connection */,
 				FBDF8A711877CC70000EC732 /* xml */,
 				FBDF8A701877CC5B000EC732 /* model */,
-				29CFB20B194FC7B200E9DBDA /* RDPDFViewController.h */,
-				29CFB20C194FC7B200E9DBDA /* RDPDFViewController.m */,
 			);
 			name = com.br.ibracon;
 			sourceTree = "<group>";

@@ -87,7 +87,7 @@ NSUserDefaults *userDefaults;
     NSURL *documentUrl = [[NSURL alloc] initFileURLWithPath:fullPath];
     
     
-    fullPath = [fullPath stringByReplacingOccurrencesOfString:@" " withString:@"\ " ];
+    //fullPath = [fullPath stringByReplacingOccurrencesOfString:@" " withString:@"\\ " ];
 
     pdfName = fullPath;//@"IFRS2013_SENHA.pdf";
     pdfFullPath = fullPath;
