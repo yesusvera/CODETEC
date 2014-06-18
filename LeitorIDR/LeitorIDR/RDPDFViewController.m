@@ -50,7 +50,7 @@ bool b_outline;
 extern uint annotOvalColor;
 - (void)createToolbarItems
 {
-    //toolBar.barStyle = UIBarStyleBlackOpaque;
+  //  toolBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *searchButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"view_search.png"] style:UIBarStyleBlackOpaque target:self action:@selector(searchView:)];
     searchButton.width =30;
     UIBarButtonItem *lineButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_line.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawLine:)];
@@ -202,7 +202,7 @@ extern uint annotOvalColor;
 {
     searchToolBar = [UIToolbar new];
     [searchToolBar sizeToFit];
-    //searchToolBar.barStyle = UIBarStyleBlackOpaque;
+//    searchToolBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *nextbutton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"right_arrow.png"] style:UIBarStyleBlackOpaque target:self action:@selector(nextword:)];
     nextbutton.width =30;
     UIBarButtonItem *prevbutton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"left_arrow.png"] style:UIBarStyleBlackOpaque target:self action:@selector(prevword:)];
