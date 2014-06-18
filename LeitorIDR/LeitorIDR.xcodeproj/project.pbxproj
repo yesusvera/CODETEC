@@ -27,7 +27,6 @@
 		29CFB206194FC4D800E9DBDA /* NSObject+PerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB205194FC4D800E9DBDA /* NSObject+PerformBlock.m */; };
 		29CFB208194FC52000E9DBDA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CFB207194FC52000E9DBDA /* QuartzCore.framework */; };
 		29CFB20A194FC53E00E9DBDA /* libRDPDFLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CFB209194FC53E00E9DBDA /* libRDPDFLib.a */; };
-		29CFB20D194FC7B200E9DBDA /* RDPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB20C194FC7B200E9DBDA /* RDPDFViewController.m */; };
 		29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */; };
 		82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */; };
 		82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F618B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m */; };
@@ -62,6 +61,15 @@
 		FB62EE2018763779007661BF /* ConexaoRegistrarDispositivo.m in Sources */ = {isa = PBXBuildFile; fileRef = FB62EE1F18763779007661BF /* ConexaoRegistrarDispositivo.m */; };
 		FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */; };
 		FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */; };
+		FBD0EC1819514D6D00905486 /* RDPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC1519514D6D00905486 /* RDPDFViewController.m */; };
+		FBD0EC1919514D6D00905486 /* RDPDFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD0EC1619514D6D00905486 /* RDPDFViewController.xib */; };
+		FBD0EC1D19514DA100905486 /* OutLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC1B19514DA100905486 /* OutLineViewController.m */; };
+		FBD0EC1E19514DA100905486 /* OutLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD0EC1C19514DA100905486 /* OutLineViewController.xib */; };
+		FBD0EC2119514DC700905486 /* TextAnnotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC2019514DC700905486 /* TextAnnotViewController.m */; };
+		FBD0EC2419514DE600905486 /* OUTLINE_ITEM.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC2319514DE600905486 /* OUTLINE_ITEM.m */; };
+		FBD0EC2C19514E0700905486 /* PopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC2719514E0700905486 /* PopupMenu.m */; };
+		FBD0EC2D19514E0700905486 /* PopupMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC2919514E0700905486 /* PopupMenuItem.m */; };
+		FBD0EC2E19514E0700905486 /* PopupMenuOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC2B19514E0700905486 /* PopupMenuOverlayView.m */; };
 		FBDF8A6F1877CAC0000EC732 /* RegistrarDispositivoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDF8A6E1877CAC0000EC732 /* RegistrarDispositivoResponse.m */; };
 		FBDF8A7B1878C0FD000EC732 /* EstanteLivrosController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDF8A791878C0FD000EC732 /* EstanteLivrosController.m */; };
 		FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDF8A7A1878C0FD000EC732 /* EstanteLivrosController.xib */; };
@@ -119,8 +127,6 @@
 		29CFB205194FC4D800E9DBDA /* NSObject+PerformBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformBlock.m"; sourceTree = "<group>"; };
 		29CFB207194FC52000E9DBDA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29CFB209194FC53E00E9DBDA /* libRDPDFLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRDPDFLib.a; path = PDFViewer/PDFLib/libRDPDFLib.a; sourceTree = "<group>"; };
-		29CFB20B194FC7B200E9DBDA /* RDPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPDFViewController.h; sourceTree = "<group>"; };
-		29CFB20C194FC7B200E9DBDA /* RDPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPDFViewController.m; sourceTree = "<group>"; };
 		47E5FF1C835D4E76A8748C52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E038F318B8DD7A00EE7722 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -179,6 +185,22 @@
 		FBC727A918658EAD00F72A23 /* PerguntaRegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerguntaRegistroController.h; path = ../PerguntaRegistroController.h; sourceTree = "<group>"; };
 		FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerguntaRegistroController.m; path = ../PerguntaRegistroController.m; sourceTree = "<group>"; };
 		FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PerguntaRegistroController.xib; path = ../PerguntaRegistroController.xib; sourceTree = "<group>"; };
+		FBD0EC1419514D6D00905486 /* RDPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDPDFViewController.h; path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/RDPDFViewController.h; sourceTree = "<group>"; };
+		FBD0EC1519514D6D00905486 /* RDPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDPDFViewController.m; path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/RDPDFViewController.m; sourceTree = "<group>"; };
+		FBD0EC1719514D6D00905486 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/en.lproj/RDPDFViewController.xib; sourceTree = "<group>"; };
+		FBD0EC1A19514DA100905486 /* OutLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutLineViewController.h; path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/OutLineViewController.h; sourceTree = "<group>"; };
+		FBD0EC1B19514DA100905486 /* OutLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutLineViewController.m; path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/OutLineViewController.m; sourceTree = "<group>"; };
+		FBD0EC1C19514DA100905486 /* OutLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OutLineViewController.xib; path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/OutLineViewController.xib; sourceTree = "<group>"; };
+		FBD0EC1F19514DC700905486 /* TextAnnotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextAnnotViewController.h; path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/TextAnnotViewController.h; sourceTree = "<group>"; };
+		FBD0EC2019514DC700905486 /* TextAnnotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextAnnotViewController.m; path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/TextAnnotViewController.m; sourceTree = "<group>"; };
+		FBD0EC2219514DE600905486 /* OUTLINE_ITEM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OUTLINE_ITEM.h; path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/OUTLINE_ITEM.h; sourceTree = "<group>"; };
+		FBD0EC2319514DE600905486 /* OUTLINE_ITEM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OUTLINE_ITEM.m; path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/OUTLINE_ITEM.m; sourceTree = "<group>"; };
+		FBD0EC2619514E0700905486 /* PopupMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupMenu.h; sourceTree = "<group>"; };
+		FBD0EC2719514E0700905486 /* PopupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupMenu.m; sourceTree = "<group>"; };
+		FBD0EC2819514E0700905486 /* PopupMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupMenuItem.h; sourceTree = "<group>"; };
+		FBD0EC2919514E0700905486 /* PopupMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupMenuItem.m; sourceTree = "<group>"; };
+		FBD0EC2A19514E0700905486 /* PopupMenuOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupMenuOverlayView.h; sourceTree = "<group>"; };
+		FBD0EC2B19514E0700905486 /* PopupMenuOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupMenuOverlayView.m; sourceTree = "<group>"; };
 		FBDF8A6D1877CAC0000EC732 /* RegistrarDispositivoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrarDispositivoResponse.h; sourceTree = "<group>"; };
 		FBDF8A6E1877CAC0000EC732 /* RegistrarDispositivoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrarDispositivoResponse.m; sourceTree = "<group>"; };
 		FBDF8A781878C0FD000EC732 /* EstanteLivrosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstanteLivrosController.h; sourceTree = "<group>"; };
@@ -325,8 +347,16 @@
 		FB3A5C5518BD63EE00A0FEA8 /* livros */ = {
 			isa = PBXGroup;
 			children = (
-				29CFB20B194FC7B200E9DBDA /* RDPDFViewController.h */,
-				29CFB20C194FC7B200E9DBDA /* RDPDFViewController.m */,
+				FBD0EC2219514DE600905486 /* OUTLINE_ITEM.h */,
+				FBD0EC2319514DE600905486 /* OUTLINE_ITEM.m */,
+				FBD0EC1F19514DC700905486 /* TextAnnotViewController.h */,
+				FBD0EC2019514DC700905486 /* TextAnnotViewController.m */,
+				FBD0EC1A19514DA100905486 /* OutLineViewController.h */,
+				FBD0EC1B19514DA100905486 /* OutLineViewController.m */,
+				FBD0EC1C19514DA100905486 /* OutLineViewController.xib */,
+				FBD0EC1419514D6D00905486 /* RDPDFViewController.h */,
+				FBD0EC1519514D6D00905486 /* RDPDFViewController.m */,
+				FBD0EC1619514D6D00905486 /* RDPDFViewController.xib */,
 				FB3A5C5018BD639400A0FEA8 /* LivroDetalhesView.h */,
 				FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */,
 			);
@@ -430,6 +460,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				FBD0EC2519514E0700905486 /* PopUpview */,
 				FB3A5C5618BD772200A0FEA8 /* util */,
 				FB3A5C5518BD63EE00A0FEA8 /* livros */,
 				299D7B4518BC35E800724BED /* registro */,
@@ -440,6 +471,20 @@
 				FBDF8A701877CC5B000EC732 /* model */,
 			);
 			name = com.br.ibracon;
+			sourceTree = "<group>";
+		};
+		FBD0EC2519514E0700905486 /* PopUpview */ = {
+			isa = PBXGroup;
+			children = (
+				FBD0EC2619514E0700905486 /* PopupMenu.h */,
+				FBD0EC2719514E0700905486 /* PopupMenu.m */,
+				FBD0EC2819514E0700905486 /* PopupMenuItem.h */,
+				FBD0EC2919514E0700905486 /* PopupMenuItem.m */,
+				FBD0EC2A19514E0700905486 /* PopupMenuOverlayView.h */,
+				FBD0EC2B19514E0700905486 /* PopupMenuOverlayView.m */,
+			);
+			name = PopUpview;
+			path = ../../../../../Downloads/pdfviewer2.2.0/PDFViewer/PopUpview;
 			sourceTree = "<group>";
 		};
 		FBDF8A701877CC5B000EC732 /* model */ = {
@@ -566,6 +611,8 @@
 				FB5F0A8418615A800068D497 /* Main_iPad.storyboard in Resources */,
 				FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */,
 				FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */,
+				FBD0EC1919514D6D00905486 /* RDPDFViewController.xib in Resources */,
+				FBD0EC1E19514DA100905486 /* OutLineViewController.xib in Resources */,
 				FB5F0A8118615A800068D497 /* Main_iPhone.storyboard in Resources */,
 				FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */,
 				29CFB201194FC46900E9DBDA /* cmaps in Resources */,
@@ -591,6 +638,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */,
+				FBD0EC1D19514DA100905486 /* OutLineViewController.m in Sources */,
 				29B679E118D91E4300787E05 /* GLB.m in Sources */,
 				29CFB1CE194FC06600E9DBDA /* PDFVThumb.m in Sources */,
 				2988CEBE18C96F45005B84BE /* DadosDispositivo.m in Sources */,
@@ -599,6 +647,7 @@
 				29CFB1CD194FC06600E9DBDA /* PDFVThread.m in Sources */,
 				FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */,
 				29CFB1C7194FC06600E9DBDA /* PDFV.m in Sources */,
+				FBD0EC2D19514E0700905486 /* PopupMenuItem.m in Sources */,
 				FB5F0A8718615A800068D497 /* IdrViewController.m in Sources */,
 				29CFB1CA194FC06600E9DBDA /* PDFVGlobal.m in Sources */,
 				29CFB1D0194FC06600E9DBDA /* PDFObjc.m in Sources */,
@@ -606,6 +655,7 @@
 				FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */,
 				29CFB1C8194FC06600E9DBDA /* PDFVCanvas.m in Sources */,
 				82E0390B18B8DD7A00EE7722 /* AFURLConnectionOperation.m in Sources */,
+				FBD0EC2C19514E0700905486 /* PopupMenu.m in Sources */,
 				82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */,
 				29CFB1CC194FC06600E9DBDA /* PDFVPage.m in Sources */,
 				FB5F0A7E18615A800068D497 /* AppDelegate.m in Sources */,
@@ -624,11 +674,14 @@
 				29CFB206194FC4D800E9DBDA /* NSObject+PerformBlock.m in Sources */,
 				FBDF8A7B1878C0FD000EC732 /* EstanteLivrosController.m in Sources */,
 				FBDF8A6F1877CAC0000EC732 /* RegistrarDispositivoResponse.m in Sources */,
+				FBD0EC2419514DE600905486 /* OUTLINE_ITEM.m in Sources */,
+				FBD0EC2119514DC700905486 /* TextAnnotViewController.m in Sources */,
 				82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */,
-				29CFB20D194FC7B200E9DBDA /* RDPDFViewController.m in Sources */,
 				82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */,
+				FBD0EC2E19514E0700905486 /* PopupMenuOverlayView.m in Sources */,
 				FB5A361218657EA6006C7FF3 /* RegistroNaoAssociadoController.m in Sources */,
 				2988CEBB18C96A6F005B84BE /* ConexaoRegistrarLivro.m in Sources */,
+				FBD0EC1819514D6D00905486 /* RDPDFViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +734,14 @@
 				FB5F0A9918615A800068D497 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FBD0EC1619514D6D00905486 /* RDPDFViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBD0EC1719514D6D00905486 /* en */,
+			);
+			name = RDPDFViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
