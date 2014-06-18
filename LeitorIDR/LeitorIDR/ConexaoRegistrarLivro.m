@@ -77,7 +77,7 @@
             mensagemAlerta = [mensagemAlerta stringByAppendingString:@" - "];
             mensagemAlerta = [mensagemAlerta stringByAppendingString:registrarLivroResponse.msgErro];
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Não foi possível registrar o livro no portal"
+/*            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Não foi possível registrar o livro no portal"
                                                             message:mensagemAlerta
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
@@ -85,7 +85,7 @@
                                   
                                   ];
             
-            [alert show];
+            [alert show];*/
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

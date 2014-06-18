@@ -38,34 +38,6 @@ NSUserDefaults *userDefaults;
 
 // Função que abre o PDF pelo caminho especificado
 -(IBAction)actionOpenPlainDocument:(id)sender{
-//    
-//    /** Set document name */
-//    // RENOMEANDO TEMPORARIAMENTE DE .IDR PARA .PDF
-//    NSString *documentName = [[livroResponse.arquivomobile.lastPathComponent stringByRemovingPercentEncoding] stringByReplacingOccurrencesOfString:@".idr" withString:@".pdf"];
-//    
-//    /** Get temporary directory to save thumbnails */
-//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-//    
-//    /** Set thumbnails path */
-//    NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
-//    
-//    /** Get document from the App Bundle IDR*/
-//    NSURL *documentUrl = [NSURL fileURLWithPath:thumbnailsPath isDirectory:NO];
-//    
-//    /** Instancing the documentManager */
-//	MFDocumentManager *documentManager = [[MFDocumentManager alloc]initWithFileUrl:documentUrl];
-//    
-//	/** Instancing the readerViewController */
-//    ReaderViewController *pdfViewController = [[ReaderViewController alloc]initWithDocumentManager:documentManager];
-//    
-//    /** Set resources folder on the manager */
-//    documentManager.resourceFolder = thumbnailsPath;
-//    
-//    /** Set document id for thumbnail generation */
-//    pdfViewController.documentId = documentName;
-//	/** Present the pdf on screen in a modal view */
-//    
-//    [self presentViewController:pdfViewController animated:YES completion:nil];
     
     [self loadSettingsWithDefaults];
     
@@ -74,31 +46,28 @@ NSUserDefaults *userDefaults;
     {
         m_pdf = [[RDPDFViewController alloc] initWithNibName:@"RDPDFViewController"bundle:nil];
     }
-    
-    NSString *documentName = [livroResponse.arquivomobile.lastPathComponent stringByRemovingPercentEncoding];
-    //
-    //    /** Get temporary directory to save thumbnails */
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    //
-    //    /** Set thumbnails path */
-    NSString *fullPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
-    
-    //    /** Get document from the App Bundle IDR*/
-    NSURL *documentUrl = [[NSURL alloc] initFileURLWithPath:fullPath];
-    
-    
-    //fullPath = [fullPath stringByReplacingOccurrencesOfString:@" " withString:@"\\ " ];
 
-    pdfName = fullPath;//@"IFRS2013_SENHA.pdf";
-    pdfFullPath = fullPath;
-    NSLog(@"Endereço completo: %@",pdfFullPath);
+    NSString *documentName = [livroResponse.arquivomobile.lastPathComponent stringByRemovingPercentEncoding];
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+
+    NSString *fullPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
+
+    NSLog(@"Abrindo o arquivo: %@",fullPath);
     
-    int result = [m_pdf PDFOpen:pdfFullPath:@"ibracon%2014"];
+    int result = [m_pdf PDFOpen:fullPath:@"ibracon%2014"];
     
     if(result == 1)
     {
+        //m_pdf.hidesBottomBarWhenPushed = YES;
+        //[self.navigationController pushViewController:m_pdf animated:YES];
+        
+        UINavigationController *nav = self.navigationController;
         m_pdf.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:m_pdf animated:YES];
+        [nav pushViewController:m_pdf animated:YES];
+        int pageno =1;
+        // [m_pdf initbar:pageno];
+        [m_pdf PDFThumbNailinit:pageno];
     }
 }
 
@@ -192,6 +161,10 @@ NSUserDefaults *userDefaults;
         self.lblVersaoLivro.text = livroResponse.versao;
 
         livroResponse.arquivo = [livroResponse.arquivo stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        
+        //RETIRAR DEPOIS YESUS
+        downPdf.hidden = YES;
+        abrirPdf.hidden = NO;
     }
 }
 
@@ -231,7 +204,7 @@ NSUserDefaults *userDefaults;
         ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
         [conexaoRegistrarLivro registrarLivroBaixado:registrarDispositivoResponse comLivroResponse:livroResponse];
         
-        [GLB showMessage:@"Download finalizado com sucesso!"];
+//        [GLB showMessage:@"Download finalizado com sucesso!"];
         
         
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
