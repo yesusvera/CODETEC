@@ -77,6 +77,14 @@
 		FB63E057195152D8000591E5 /* view_page.png in Resources */ = {isa = PBXBuildFile; fileRef = FB63E045195152D8000591E5 /* view_page.png */; };
 		FB63E058195152D8000591E5 /* view_search.png in Resources */ = {isa = PBXBuildFile; fileRef = FB63E046195152D8000591E5 /* view_search.png */; };
 		FB63E059195152D8000591E5 /* view_settings_page.png in Resources */ = {isa = PBXBuildFile; fileRef = FB63E047195152D8000591E5 /* view_settings_page.png */; };
+		FB63E05B195165C8000591E5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FB63E05A195165C8000591E5 /* libsqlite3.dylib */; };
+		FB63E05D19534F56000591E5 /* leitoribracon.db in Resources */ = {isa = PBXBuildFile; fileRef = FB63E05C19534F56000591E5 /* leitoribracon.db */; };
+		FB63E06319534F8C000591E5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FB63E05F19534F8C000591E5 /* .gitignore */; };
+		FB63E06419534F8C000591E5 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = FB63E06019534F8C000591E5 /* README.markdown */; };
+		FB63E06519534F8C000591E5 /* SCSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63E06219534F8C000591E5 /* SCSQLite.m */; };
+		FB63E06A195370E2000591E5 /* LivrosBaixadosDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63E069195370E2000591E5 /* LivrosBaixadosDAO.m */; };
+		FB63E06D19538959000591E5 /* NotasDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63E06C19538959000591E5 /* NotasDAO.m */; };
+		FB63E07019538980000591E5 /* Nota.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63E06F1953897F000591E5 /* Nota.m */; };
 		FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */; };
 		FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */; };
 		FBD0EC31195150F700905486 /* OUTLINE_ITEM.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC30195150F700905486 /* OUTLINE_ITEM.m */; };
@@ -218,6 +226,18 @@
 		FB63E045195152D8000591E5 /* view_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = view_page.png; sourceTree = "<group>"; };
 		FB63E046195152D8000591E5 /* view_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = view_search.png; sourceTree = "<group>"; };
 		FB63E047195152D8000591E5 /* view_settings_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = view_settings_page.png; sourceTree = "<group>"; };
+		FB63E05A195165C8000591E5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FB63E05C19534F56000591E5 /* leitoribracon.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = leitoribracon.db; path = ../leitoribracon.db; sourceTree = "<group>"; };
+		FB63E05F19534F8C000591E5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		FB63E06019534F8C000591E5 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		FB63E06119534F8C000591E5 /* SCSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSQLite.h; sourceTree = "<group>"; };
+		FB63E06219534F8C000591E5 /* SCSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSQLite.m; sourceTree = "<group>"; };
+		FB63E068195370E2000591E5 /* LivrosBaixadosDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivrosBaixadosDAO.h; sourceTree = "<group>"; };
+		FB63E069195370E2000591E5 /* LivrosBaixadosDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivrosBaixadosDAO.m; sourceTree = "<group>"; };
+		FB63E06B19538959000591E5 /* NotasDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotasDAO.h; sourceTree = "<group>"; };
+		FB63E06C19538959000591E5 /* NotasDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotasDAO.m; sourceTree = "<group>"; };
+		FB63E06E1953897F000591E5 /* Nota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nota.h; sourceTree = "<group>"; };
+		FB63E06F1953897F000591E5 /* Nota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Nota.m; sourceTree = "<group>"; };
 		FBC727A918658EAD00F72A23 /* PerguntaRegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerguntaRegistroController.h; path = ../PerguntaRegistroController.h; sourceTree = "<group>"; };
 		FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerguntaRegistroController.m; path = ../PerguntaRegistroController.m; sourceTree = "<group>"; };
 		FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PerguntaRegistroController.xib; path = ../PerguntaRegistroController.xib; sourceTree = "<group>"; };
@@ -253,6 +273,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB63E05B195165C8000591E5 /* libsqlite3.dylib in Frameworks */,
 				29CFB20A194FC53E00E9DBDA /* libRDPDFLib.a in Frameworks */,
 				29CFB208194FC52000E9DBDA /* QuartzCore.framework in Frameworks */,
 				FB5F0A7018615A800068D497 /* CoreGraphics.framework in Frameworks */,
@@ -413,6 +434,7 @@
 			children = (
 				82E038F218B8DD7A00EE7722 /* AFNetworking */,
 				FBF102241870AFB900B4A361 /* Media.xcassets */,
+				FB63E05E19534F8C000591E5 /* SCSQLite-master */,
 				FB5F0A7318615A800068D497 /* LeitorIDR */,
 				FB5F0A9518615A800068D497 /* LeitorIDRTests */,
 				FB5F0A6C18615A800068D497 /* Frameworks */,
@@ -433,6 +455,7 @@
 		FB5F0A6C18615A800068D497 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB63E05A195165C8000591E5 /* libsqlite3.dylib */,
 				29CFB209194FC53E00E9DBDA /* libRDPDFLib.a */,
 				29CFB207194FC52000E9DBDA /* QuartzCore.framework */,
 				FB5F0A6D18615A800068D497 /* Foundation.framework */,
@@ -468,6 +491,7 @@
 		FB5F0A7418615A800068D497 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FB63E05C19534F56000591E5 /* leitoribracon.db */,
 				FB5F0A7518615A800068D497 /* LeitorIDR-Info.plist */,
 				FB5F0A7618615A800068D497 /* InfoPlist.strings */,
 				FB5F0A7918615A800068D497 /* main.m */,
@@ -497,6 +521,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				FB63E067195370B5000591E5 /* dao */,
 				FBD0EC3F1951514E00905486 /* PopUpview */,
 				FB3A5C5618BD772200A0FEA8 /* util */,
 				FB3A5C5518BD63EE00A0FEA8 /* livros */,
@@ -535,6 +560,28 @@
 			name = image;
 			sourceTree = "<group>";
 		};
+		FB63E05E19534F8C000591E5 /* SCSQLite-master */ = {
+			isa = PBXGroup;
+			children = (
+				FB63E05F19534F8C000591E5 /* .gitignore */,
+				FB63E06019534F8C000591E5 /* README.markdown */,
+				FB63E06119534F8C000591E5 /* SCSQLite.h */,
+				FB63E06219534F8C000591E5 /* SCSQLite.m */,
+			);
+			path = "SCSQLite-master";
+			sourceTree = "<group>";
+		};
+		FB63E067195370B5000591E5 /* dao */ = {
+			isa = PBXGroup;
+			children = (
+				FB63E068195370E2000591E5 /* LivrosBaixadosDAO.h */,
+				FB63E069195370E2000591E5 /* LivrosBaixadosDAO.m */,
+				FB63E06B19538959000591E5 /* NotasDAO.h */,
+				FB63E06C19538959000591E5 /* NotasDAO.m */,
+			);
+			name = dao;
+			sourceTree = "<group>";
+		};
 		FBD0EC3F1951514E00905486 /* PopUpview */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +610,8 @@
 				2988CEBD18C96F45005B84BE /* DadosDispositivo.m */,
 				2988CEBF18C97128005B84BE /* DadosCliente.h */,
 				2988CEC018C97128005B84BE /* DadosCliente.m */,
+				FB63E06E1953897F000591E5 /* Nota.h */,
+				FB63E06F1953897F000591E5 /* Nota.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -670,12 +719,14 @@
 				FB63E048195152D8000591E5 /* add_mark.png in Resources */,
 				FB63E058195152D8000591E5 /* view_search.png in Resources */,
 				FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */,
+				FB63E06319534F8C000591E5 /* .gitignore in Resources */,
 				FBF1E1381869506E00671EE2 /* EstantesController.xib in Resources */,
 				FB5F0A8418615A800068D497 /* Main_iPad.storyboard in Resources */,
 				FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */,
 				FB63E04A195152D8000591E5 /* annot_line.png in Resources */,
 				FB63E049195152D8000591E5 /* annot_done.png in Resources */,
 				FB63E052195152D8000591E5 /* manage_mark.png in Resources */,
+				FB63E06419534F8C000591E5 /* README.markdown in Resources */,
 				FB63E04E195152D8000591E5 /* icon.png in Resources */,
 				FB63E056195152D8000591E5 /* view_menu.png in Resources */,
 				FB63E057195152D8000591E5 /* view_page.png in Resources */,
@@ -685,6 +736,7 @@
 				FB63E059195152D8000591E5 /* view_settings_page.png in Resources */,
 				FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */,
 				FBD0EC361951510F00905486 /* OutLineViewController.xib in Resources */,
+				FB63E05D19534F56000591E5 /* leitoribracon.db in Resources */,
 				FB5F0A8118615A800068D497 /* Main_iPhone.storyboard in Resources */,
 				FB63E04B195152D8000591E5 /* annot_rect.png in Resources */,
 				FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */,
@@ -719,6 +771,7 @@
 				82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */,
 				29B679E118D91E4300787E05 /* GLB.m in Sources */,
 				29CFB1CE194FC06600E9DBDA /* PDFVThumb.m in Sources */,
+				FB63E06519534F8C000591E5 /* SCSQLite.m in Sources */,
 				2988CEBE18C96F45005B84BE /* DadosDispositivo.m in Sources */,
 				29CFB1C9194FC06600E9DBDA /* PDFVFinder.m in Sources */,
 				2988CEB818C9612C005B84BE /* RegistrarLivroResponse.m in Sources */,
@@ -729,6 +782,7 @@
 				FBD0EC471951514E00905486 /* PopupMenuItem.m in Sources */,
 				29CFB1CA194FC06600E9DBDA /* PDFVGlobal.m in Sources */,
 				29CFB1D0194FC06600E9DBDA /* PDFObjc.m in Sources */,
+				FB63E06D19538959000591E5 /* NotasDAO.m in Sources */,
 				82E0390E18B8DD7A00EE7722 /* AFURLSessionManager.m in Sources */,
 				FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */,
 				29CFB1C8194FC06600E9DBDA /* PDFVCanvas.m in Sources */,
@@ -736,6 +790,7 @@
 				FBD0EC3D1951513900905486 /* RDPDFViewController.m in Sources */,
 				FBD0EC461951514E00905486 /* PopupMenu.m in Sources */,
 				82E0390B18B8DD7A00EE7722 /* AFURLConnectionOperation.m in Sources */,
+				FB63E07019538980000591E5 /* Nota.m in Sources */,
 				82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */,
 				29CFB1CC194FC06600E9DBDA /* PDFVPage.m in Sources */,
 				FB5F0A7E18615A800068D497 /* AppDelegate.m in Sources */,
@@ -757,6 +812,7 @@
 				FBD0EC351951510F00905486 /* OutLineViewController.m in Sources */,
 				FBDF8A6F1877CAC0000EC732 /* RegistrarDispositivoResponse.m in Sources */,
 				82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */,
+				FB63E06A195370E2000591E5 /* LivrosBaixadosDAO.m in Sources */,
 				FBD0EC481951514E00905486 /* PopupMenuOverlayView.m in Sources */,
 				82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */,
 				FB5A361218657EA6006C7FF3 /* RegistroNaoAssociadoController.m in Sources */,

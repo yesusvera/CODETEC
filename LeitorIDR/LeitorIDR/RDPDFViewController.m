@@ -251,7 +251,7 @@ extern uint annotOvalColor;
     
     drawLineToolBar = [UIToolbar new];
     [drawLineToolBar sizeToFit];
-    drawLineToolBar.barStyle = UIBarStyleBlackOpaque;
+   // drawLineToolBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *drawLineDoneBtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_done.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawLineDone:)];
     drawLineDoneBtn.width =30;
     UIBarButtonItem *drawLineCancelBtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_remove.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawLineCancel:)];
@@ -293,7 +293,7 @@ extern uint annotOvalColor;
     
     drawRectToolBar = [UIToolbar new];
     [drawRectToolBar sizeToFit];
-    drawRectToolBar.barStyle = UIBarStyleBlackOpaque;
+   // drawRectToolBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *drawLineDoneBtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_done.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawRectDone:)];
     drawLineDoneBtn.width =30;
     UIBarButtonItem *drawLineCancelBtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_remove.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawRectCancel:)];

@@ -13,12 +13,16 @@
 #import "ConexaoRegistrarDispositivo.h"
 #import "DadosCliente.h"
 #import "PDFIOS.h"
+#import "SCSQLite.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     APP_Init();
+    
+    [SCSQLite initWithDatabase:@"leitoribracon.db"];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     ConexaoRegistrarDispositivo *buscarRegistroLocal = [[ConexaoRegistrarDispositivo alloc]init];

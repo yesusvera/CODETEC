@@ -11,6 +11,7 @@
 #import "ConexaoRegistrarLivro.h"
 #import "ConexaoBuscarEstante.h"
 #import "GLB.h"
+#import "SCSQLite.h"
 
 @interface LivroDetalhesView ()
 
@@ -149,7 +150,6 @@ NSUserDefaults *userDefaults;
             downPdf.hidden = YES;
             abrirPdf.hidden = NO;
             self.tituloLivro.text = livroResponse.titulo;
-            
         }else{
             downPdf.hidden = YES;
             abrirPdf.hidden = YES;
@@ -163,8 +163,8 @@ NSUserDefaults *userDefaults;
         livroResponse.arquivo = [livroResponse.arquivo stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         
         //RETIRAR DEPOIS YESUS
-        downPdf.hidden = YES;
-        abrirPdf.hidden = NO;
+       // downPdf.hidden = YES;
+       // abrirPdf.hidden = NO;
     }
 }
 
@@ -177,7 +177,8 @@ NSUserDefaults *userDefaults;
     [self downloadFotoDoLivro:livroResponse.foto];
     [self downloadArquivo:livroResponse.arquivomobile];
     //[self downloadArquivo:livroResponse.indiceXML];
-  }
+    
+      }
 
 
 -(void) downloadArquivo:(NSString *) urlLivroParaBaixar{
@@ -200,13 +201,14 @@ NSUserDefaults *userDefaults;
         downPdf.hidden = YES;
         abrirPdf.hidden = NO;
         
+        //SALVANDO O LIVRO BAIXADO NO BANCO DE DADOS
+        livroResponse.arquivomobile = saveFilename;
+        
         /* Registro no portal do livro baixado */
         ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
         [conexaoRegistrarLivro registrarLivroBaixado:registrarDispositivoResponse comLivroResponse:livroResponse];
         
 //        [GLB showMessage:@"Download finalizado com sucesso!"];
-        
-        
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
         [GLB showMessage:
          [NSString stringWithFormat:@"Error no download: %@", [error localizedDescription]]];
@@ -237,7 +239,8 @@ NSUserDefaults *userDefaults;
     operationFoto.outputStream = [NSOutputStream outputStreamToFileAtPath:saveFilenameFoto append:NO];
     
     [operationFoto setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
-        
+        //Salvando o path da foto no banco de dados
+        livroResponse.foto = saveFilenameFoto;
         
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
         [GLB showMessage:
@@ -251,6 +254,19 @@ NSUserDefaults *userDefaults;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     return [documentsPath stringByAppendingPathComponent:filename];
+}
+
+- (BOOL)salvarAtualizarLivroBaixado:(LivroResponse *) livroBaixado{
+    
+    BOOL isSave = [SCSQLite executeSQL:@"insert into usuarios (codigoLivro, titulo, versao, codigoLoja, foto, arquivo, arquivomobile, indiceXML, tipoLivro) values ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')", livroBaixado.codigolivro, livroBaixado.titulo, livroBaixado.versao, livroBaixado.codigoloja, livroBaixado.foto, livroBaixado.arquivo, livroBaixado.arquivomobile, livroBaixado.indiceXML, livroBaixado.tipoLivro];
+    
+    if (isSave) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }//else{
+        //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erro..." message:@"Erro ao salvar registro" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
+       // [alert show];
+    //}
+    return isSave;
 }
 
 
