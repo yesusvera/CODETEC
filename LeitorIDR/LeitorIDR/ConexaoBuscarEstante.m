@@ -138,7 +138,7 @@ BOOL isDeDireito;
         NSData *data = [[NSData alloc] initWithContentsOfFile:thumbnailsPath];
         if (!data) {
             UIAlertView *alertError = [
-                                       [UIAlertView alloc] initWithTitle:@"Biblioteca local vazia! Necessário conexão com a Internet."
+                                       [UIAlertView alloc] initWithTitle:@"Parece que você está sem conexão com a Internet."
                                        message:error.description
                                        delegate:nil
                                        cancelButtonTitle:@"Visto"

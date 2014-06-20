@@ -158,7 +158,6 @@
 
 
 - (IBAction)registrarDispositivo:(id)sender {
-    
     DadosCliente *dadosCliente = [[DadosCliente alloc] init];
     
     dadosCliente.ehAssociado      = @"s";
@@ -167,18 +166,14 @@
     dadosCliente.senha            = self.txtSenha.text;
     dadosCliente.palavraChave     = @"";
     
-    
     if([dadosCliente.senha length]==0){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campo obrigatório "
                                                         message:@"O campo senha é de preenchimento obrigatório."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil
-                              
                               ];
-        
         [alert show];
-        
         return;
     }
     

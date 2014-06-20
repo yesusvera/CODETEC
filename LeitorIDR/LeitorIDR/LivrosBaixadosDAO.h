@@ -14,6 +14,6 @@
 
 - (BOOL)salvarAtualizarLivroBaixado:(LivroResponse *) livroBaixado;
 - (BOOL)existeLivro:(LivroResponse *) livroBaixado;
-- (NSMutableArray *) listaLivros: (NSString *) codigo;
+- (NSMutableArray *) listaLivros;
 @end
 

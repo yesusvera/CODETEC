@@ -38,7 +38,7 @@
         NSDictionary *livroDictionary = [results objectAtIndex:0];
         
         LivroResponse *livroBaixado = [LivroResponse alloc];
-        livroBaixado.codigolivro = [livroDictionary objectForKey:@"name"];
+        livroBaixado.codigolivro = [livroDictionary objectForKey:@"codigoLivro"];
         livroBaixado.titulo = [livroDictionary objectForKey:@"titulo"];
         livroBaixado.versao = [livroDictionary objectForKey:@"versao"];
         livroBaixado.codigoloja = [livroDictionary objectForKey:@"codigoLoja"];
@@ -53,7 +53,7 @@
     return nil;
 }
 
-- (NSMutableArray *) listaLivros: (NSString *) codigo{
+- (NSMutableArray *) listaLivros{
     
     NSMutableArray *listaLivros = [[NSMutableArray alloc] init];
     
@@ -62,7 +62,7 @@
         LivroResponse *livroBaixado = [[LivroResponse alloc] init];
 
         NSDictionary *livroDictionary = [results objectAtIndex:0];
-        livroBaixado.codigolivro = [livroDictionary objectForKey:@"name"];
+        livroBaixado.codigolivro = [livroDictionary objectForKey:@"codigoLivro"];
         livroBaixado.titulo = [livroDictionary objectForKey:@"titulo"];
         livroBaixado.versao = [livroDictionary objectForKey:@"versao"];
         livroBaixado.codigoloja = [livroDictionary objectForKey:@"codigoLoja"];

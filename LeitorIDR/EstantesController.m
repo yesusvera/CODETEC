@@ -20,37 +20,6 @@
 //bool flagConexaoLocal;
 EstanteLivrosController *estanteLivrosController;
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.hidesBottomBarWhenPushed = false;
-    
-    estanteLivrosController.nomeEstante = [estantes objectAtIndex:indexPath.row];
-    estanteLivrosController.estanteResponse = estanteResponse;
-    
-    if ([estanteLivrosController.nomeEstante isEqualToString:@"Direito de uso"]) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Seja bem vindo ao IDR - Ibracon Digital Reader" message:@"Por favor, informar a palavra chave e senha:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Prosseguir", nil];
-        alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
-        
-        [[alertView textFieldAtIndex:0] setPlaceholder:@"Palavra-chave"];
-        [[alertView textFieldAtIndex:1] setPlaceholder:@"Senha"];
-        
-        [alertView show];
-    }else{
-    
-        [self.navigationController pushViewController:estanteLivrosController animated:YES];
-    }
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return estantes.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"itemEstante"];
-    cell.textLabel.text = [estantes objectAtIndex:indexPath.row];
-    return cell;
-}
-
-
 - (void)viewDidLoad
 {
     estantes = @[@"Visão Geral", @"Disponíveis", @"Direito de uso", @"Minha Biblioteca"];
@@ -68,19 +37,48 @@ EstanteLivrosController *estanteLivrosController;
 
 
 -(void)viewDidAppear:(BOOL)animated{
-    
     ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
     
     estanteLivrosController = [[EstanteLivrosController alloc]init];
     estanteLivrosController.registrarDispositivoResponse = registrarDispositivoResponse;
     estanteResponse = [conexaoBuscarEstante conectarObterEstante:registrarDispositivoResponse];
-
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.hidesBottomBarWhenPushed = false;
+    
+    estanteLivrosController.nomeEstante = [estantes objectAtIndex:indexPath.row];
+    estanteLivrosController.estanteResponse = estanteResponse;
+    
+    if ([estanteLivrosController.nomeEstante isEqualToString:@"Direito de uso"]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Seja bem vindo ao IDR - Ibracon Digital Reader" message:@"Por favor, informar a palavra chave e senha:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Prosseguir", nil];
+        alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+        
+        [[alertView textFieldAtIndex:0] setPlaceholder:@"Palavra-chave"];
+        [[alertView textFieldAtIndex:1] setPlaceholder:@"Senha"];
+        
+        [alertView show];
+    }else{
+        [self.navigationController pushViewController:estanteLivrosController animated:YES];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return estantes.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"itemEstante"];
+    cell.textLabel.text = [estantes objectAtIndex:indexPath.row];
+    return cell;
+}
+
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

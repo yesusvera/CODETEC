@@ -36,4 +36,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblCodigoLoja;
 -(IBAction)startDownload:(id)sender;
 -(IBAction)actionOpenPlainDocument:(NSString *)nomeArq;
+-(void)salvarIndiceXMLNoLivro:(NSString *) urlIndiceXMLLivro;
 @end

@@ -12,6 +12,7 @@
 #import "ConexaoBuscarEstante.h"
 #import "GLB.h"
 #import "SCSQLite.h"
+#import "LivrosBaixadosDAO.h"
 
 @interface LivroDetalhesView ()
 
@@ -174,11 +175,10 @@ NSUserDefaults *userDefaults;
 }
 
 -(IBAction)startDownload:(id)sender{
-    [self downloadFotoDoLivro:livroResponse.foto];
+  
     [self downloadArquivo:livroResponse.arquivomobile];
-    //[self downloadArquivo:livroResponse.indiceXML];
     
-      }
+}
 
 
 -(void) downloadArquivo:(NSString *) urlLivroParaBaixar{
@@ -196,13 +196,11 @@ NSUserDefaults *userDefaults;
         [loadingIndicator stopAnimating];
         loadingIndicator.hidden = YES;
         
-        progressBar.hidden = YES;
-        loadingIndicator.hidden = YES;
-        downPdf.hidden = YES;
-        abrirPdf.hidden = NO;
-        
         //SALVANDO O LIVRO BAIXADO NO BANCO DE DADOS
         livroResponse.arquivomobile = saveFilename;
+//        LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
+//        [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
+          [self downloadFotoDoLivro:livroResponse.foto];
         
         /* Registro no portal do livro baixado */
         ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
@@ -241,6 +239,10 @@ NSUserDefaults *userDefaults;
     [operationFoto setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
         //Salvando o path da foto no banco de dados
         livroResponse.foto = saveFilenameFoto;
+//        LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
+//        [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
+        
+        [self salvarIndiceXMLNoLivro:livroResponse.indiceXML];
         
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
         [GLB showMessage:
@@ -256,18 +258,37 @@ NSUserDefaults *userDefaults;
     return [documentsPath stringByAppendingPathComponent:filename];
 }
 
-- (BOOL)salvarAtualizarLivroBaixado:(LivroResponse *) livroBaixado{
+-(void)salvarIndiceXMLNoLivro:(NSString *) urlIndiceXMLLivro{
     
-    BOOL isSave = [SCSQLite executeSQL:@"insert into usuarios (codigoLivro, titulo, versao, codigoLoja, foto, arquivo, arquivomobile, indiceXML, tipoLivro) values ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')", livroBaixado.codigolivro, livroBaixado.titulo, livroBaixado.versao, livroBaixado.codigoloja, livroBaixado.foto, livroBaixado.arquivo, livroBaixado.arquivomobile, livroBaixado.indiceXML, livroBaixado.tipoLivro];
+    NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
+    networkQueue.maxConcurrentOperationCount = 5;
     
-    if (isSave) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }//else{
-        //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erro..." message:@"Erro ao salvar registro" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
-       // [alert show];
-    //}
-    return isSave;
+    NSURL *url = [NSURL URLWithString:urlIndiceXMLLivro];
+    NSLog(@"%@", url);
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *indiceXML = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", indiceXML);
+        
+        //livroResponse.indiceXML = indiceXML;
+        livroResponse.tipoLivro = @"baixados";
+        LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
+        [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
+        
+        
+        progressBar.hidden = YES;
+        loadingIndicator.hidden = YES;
+        downPdf.hidden = YES;
+        abrirPdf.hidden = NO;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
+    }];
+    
+    [networkQueue addOperation:operation];
 }
+
 
 
 @end

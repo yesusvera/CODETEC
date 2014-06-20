@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSString *nomeEstante;
 @property (nonatomic, retain) RegistrarDispositivoResponse *registrarDispositivoResponse;
 @property (nonatomic, retain) EstanteResponse *estanteResponse;
+@property (nonatomic, retain) NSMutableArray *listaLivros;
 
 @end
