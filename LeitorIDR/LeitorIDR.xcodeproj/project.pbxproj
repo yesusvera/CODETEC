@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		295AD9D61955175900A1DA55 /* IndiceLivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 295AD9D51955175900A1DA55 /* IndiceLivroResponse.m */; };
 		295AD9DC19551DD200A1DA55 /* ItemDoIndice.m in Sources */ = {isa = PBXBuildFile; fileRef = 295AD9DB19551DD200A1DA55 /* ItemDoIndice.m */; };
-		295AD9DF19551F8600A1DA55 /* ConexaoBuscarIndice.m in Sources */ = {isa = PBXBuildFile; fileRef = 295AD9DE19551F8600A1DA55 /* ConexaoBuscarIndice.m */; };
+		295AD9DF19551F8600A1DA55 /* MontadorDeIncideDoLivro.m in Sources */ = {isa = PBXBuildFile; fileRef = 295AD9DE19551F8600A1DA55 /* MontadorDeIncideDoLivro.m */; };
 		2988CEB818C9612C005B84BE /* RegistrarLivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */; };
 		2988CEBB18C96A6F005B84BE /* ConexaoRegistrarLivro.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEBA18C96A6F005B84BE /* ConexaoRegistrarLivro.m */; };
 		2988CEBE18C96F45005B84BE /* DadosDispositivo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEBD18C96F45005B84BE /* DadosDispositivo.m */; };
@@ -122,8 +122,8 @@
 		295AD9D51955175900A1DA55 /* IndiceLivroResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndiceLivroResponse.m; sourceTree = "<group>"; };
 		295AD9DA19551DD200A1DA55 /* ItemDoIndice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDoIndice.h; sourceTree = "<group>"; };
 		295AD9DB19551DD200A1DA55 /* ItemDoIndice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDoIndice.m; sourceTree = "<group>"; };
-		295AD9DD19551F8600A1DA55 /* ConexaoBuscarIndice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConexaoBuscarIndice.h; sourceTree = "<group>"; };
-		295AD9DE19551F8600A1DA55 /* ConexaoBuscarIndice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConexaoBuscarIndice.m; sourceTree = "<group>"; };
+		295AD9DD19551F8600A1DA55 /* MontadorDeIncideDoLivro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MontadorDeIncideDoLivro.h; sourceTree = "<group>"; };
+		295AD9DE19551F8600A1DA55 /* MontadorDeIncideDoLivro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MontadorDeIncideDoLivro.m; sourceTree = "<group>"; };
 		2988CEB618C9612C005B84BE /* RegistrarLivroResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrarLivroResponse.h; sourceTree = "<group>"; };
 		2988CEB718C9612C005B84BE /* RegistrarLivroResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrarLivroResponse.m; sourceTree = "<group>"; };
 		2988CEB918C96A6F005B84BE /* ConexaoRegistrarLivro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConexaoRegistrarLivro.h; sourceTree = "<group>"; };
@@ -645,8 +645,8 @@
 				FB62EE1F18763779007661BF /* ConexaoRegistrarDispositivo.m */,
 				2988CEB918C96A6F005B84BE /* ConexaoRegistrarLivro.h */,
 				2988CEBA18C96A6F005B84BE /* ConexaoRegistrarLivro.m */,
-				295AD9DD19551F8600A1DA55 /* ConexaoBuscarIndice.h */,
-				295AD9DE19551F8600A1DA55 /* ConexaoBuscarIndice.m */,
+				295AD9DD19551F8600A1DA55 /* MontadorDeIncideDoLivro.h */,
+				295AD9DE19551F8600A1DA55 /* MontadorDeIncideDoLivro.m */,
 			);
 			name = connection;
 			sourceTree = "<group>";
@@ -820,7 +820,7 @@
 				FBF1E1371869506E00671EE2 /* EstantesController.m in Sources */,
 				299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */,
 				82E0390D18B8DD7A00EE7722 /* AFURLResponseSerialization.m in Sources */,
-				295AD9DF19551F8600A1DA55 /* ConexaoBuscarIndice.m in Sources */,
+				295AD9DF19551F8600A1DA55 /* MontadorDeIncideDoLivro.m in Sources */,
 				29CFB1CB194FC06600E9DBDA /* PDFView.m in Sources */,
 				29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */,
 				FBD0EC391951512600905486 /* TextAnnotViewController.m in Sources */,

@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "IndiceLivroResponse.h"
 
-@interface ConexaoBuscarIndice : NSObject<NSXMLParserDelegate>{
+@interface MontadorDeIncideDoLivro : NSObject<NSXMLParserDelegate>{
     NSMutableString *valorElementoAtual;
     IndiceLivroResponse *indiceLivroResponse;
 }
 
--(IndiceLivroResponse *)buscarIndiceDoLivro:(NSString *)linkIndice;
+-(IndiceLivroResponse *)montarIndiceDoLivro:(NSString *)linkIndice;
 
 @end
