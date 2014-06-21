@@ -11,6 +11,7 @@
 
 @implementation MontadorDeIncideDoLivro{
     ItemDoIndice *item;
+    BOOL fechouItem;
 }
 
 
@@ -35,6 +36,8 @@
     }
 }
 
+-(Item)
+
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
     
     if([elementName isEqualToString:@"response"] || [elementName isEqualToString:@"livro"] || [elementName isEqualToString:@"indice"] || [elementName isEqualToString:@"ParteA" ] || [elementName isEqualToString:@"ParteB" ] ){
@@ -43,7 +46,7 @@
         [indiceLivroResponse setErro:valorElementoAtual];
     }else if([elementName isEqualToString:@"msgErro"]){
         [indiceLivroResponse setMsgErro:valorElementoAtual];
-    }else if([elementName isEqualToString:@"item"] || [elementName isEqualToString:@"items"] ){
+    }else if([elementName isEqualToString:@"item"]){
     
         [item setValue:[[valorElementoAtual stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:elementName];
         
@@ -52,10 +55,11 @@
         }else if([item.parte isEqualToString:@"Parte B"]){
             [indiceLivroResponse.parteB addObject:item];
         }
+    }else if ([elementName isEqualToString:@"itens"] ){
+        [item.listaItens addObject:item];
     }
 
     valorElementoAtual = nil;
-    item = nil;
     
 }
 
