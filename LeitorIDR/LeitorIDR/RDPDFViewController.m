@@ -365,20 +365,21 @@ extern uint annotOvalColor;
 - (IBAction)viewMenu:(id) sender
 {
     
-    b_outline =true;
-    PDFOutline *root = [m_doc rootOutline];
-    if( root )
-    {
-        outlineView = [[OutLineViewController alloc] initWithNibName:@"OutLineViewController" bundle:nil];
-        //First parameter is root node
-        [outlineView setList:m_doc :NULL :root];
-        UINavigationController *nav = self.navigationController;
-        outlineView.hidesBottomBarWhenPushed = YES;
-        [outlineView setJump:self];
-        [nav pushViewController:outlineView animated:YES];
-    }
+//    b_outline =true;
+//    PDFOutline *root = [m_doc rootOutline];
+//    if( root )
+//    {
+//        outlineView = [[OutLineViewController alloc] initWithNibName:@"OutLineViewController" bundle:nil];
+//        //First parameter is root node
+//        [outlineView setList:m_doc :NULL :root];
+//        UINavigationController *nav = self.navigationController;
+//        outlineView.hidesBottomBarWhenPushed = YES;
+//        [outlineView setJump:self];
+//        [nav pushViewController:outlineView animated:YES];
+//    }
  
-        
+    NSLog(@"testes indice");
+    
 }
 -(IBAction)lockView:(id)sender
 {
