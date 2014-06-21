@@ -43,7 +43,7 @@
         [indiceLivroResponse setErro:valorElementoAtual];
     }else if([elementName isEqualToString:@"msgErro"]){
         [indiceLivroResponse setMsgErro:valorElementoAtual];
-    }else{
+    }else if([elementName isEqualToString:@"item"] || [elementName isEqualToString:@"items"] ){
     
         [item setValue:[[valorElementoAtual stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:elementName];
         
@@ -55,6 +55,7 @@
     }
 
     valorElementoAtual = nil;
+    item = nil;
     
 }
 

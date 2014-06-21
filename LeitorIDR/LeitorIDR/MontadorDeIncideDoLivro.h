@@ -14,6 +14,6 @@
     IndiceLivroResponse *indiceLivroResponse;
 }
 
--(IndiceLivroResponse *)montarIndiceDoLivro:(NSString *)linkIndice;
+-(IndiceLivroResponse *)montarIndiceDoLivro:(NSString *)indiceXML;
 
 @end
