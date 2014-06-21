@@ -17,12 +17,16 @@
     
     NSString *sql;
     if([self existeLivro:livroBaixado]){
-        sql = @"update LivroBaixado set codigoLivro='%@', titulo='%@', versao='%@', codigoLoja='%@', foto='%@', arquivo='%@', arquivomobile='%@', indiceXML='%@', tipoLivro='%@'";
+        sql = @"update LivroBaixado set codigoLivro='%@', titulo='%@', versao='%@', codigoLoja='%@', foto='%@', arquivo='%@', arquivomobile='%@', indiceXML='%@', tipoLivro='%@' WHERE codigoLivro='%@'";
+        BOOL isSave = [SCSQLite executeSQL:sql, livroBaixado.codigolivro, livroBaixado.titulo, livroBaixado.versao, livroBaixado.codigoloja, livroBaixado.foto, livroBaixado.arquivo, livroBaixado.arquivomobile, livroBaixado.indiceXML, livroBaixado.tipoLivro,livroBaixado.codigolivro];
+        return isSave;
+        
     }else{
         sql = @"insert into LivroBaixado (codigoLivro, titulo, versao, codigoLoja, foto, arquivo, arquivomobile, indiceXML, tipoLivro) values ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')";
+        BOOL isSave = [SCSQLite executeSQL:sql, livroBaixado.codigolivro, livroBaixado.titulo, livroBaixado.versao, livroBaixado.codigoloja, livroBaixado.foto, livroBaixado.arquivo, livroBaixado.arquivomobile, livroBaixado.indiceXML, livroBaixado.tipoLivro];
+        return isSave;
+        
     }
-    BOOL isSave = [SCSQLite executeSQL:sql, livroBaixado.codigolivro, livroBaixado.titulo, livroBaixado.versao, livroBaixado.codigoloja, livroBaixado.foto, livroBaixado.arquivo, livroBaixado.arquivomobile, livroBaixado.indiceXML, livroBaixado.tipoLivro];
-    return isSave;
 }
 
 - (BOOL)existeLivro:(LivroResponse *) livroBaixado{
@@ -31,7 +35,7 @@
 }
 
 - (LivroResponse *) pesquisarLivroPeloCodigo: (NSString *) codigo{
-
+    
     
     NSArray *results = [SCSQLite selectRowSQL:@"Select * from LivroBaixado where codigoLivro = '%@'", codigo];
     if(results.count > 0){
@@ -47,7 +51,7 @@
         livroBaixado.arquivomobile = [livroDictionary objectForKey:@"arquivomobile"];
         livroBaixado.indiceXML = [livroDictionary objectForKey:@"indiceXML"];
         livroBaixado.tipoLivro = [livroDictionary objectForKey:@"tipoLivro"];
-
+        
         return livroBaixado;
     }
     return nil;
@@ -60,7 +64,7 @@
     NSArray *results = [SCSQLite selectRowSQL:@"Select * from LivroBaixado"];
     if(results.count > 0){
         LivroResponse *livroBaixado = [[LivroResponse alloc] init];
-
+        
         NSDictionary *livroDictionary = [results objectAtIndex:0];
         livroBaixado.codigolivro = [livroDictionary objectForKey:@"codigoLivro"];
         livroBaixado.titulo = [livroDictionary objectForKey:@"titulo"];

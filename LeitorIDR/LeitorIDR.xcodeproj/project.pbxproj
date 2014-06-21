@@ -88,6 +88,8 @@
 		FB63E06A195370E2000591E5 /* LivrosBaixadosDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63E069195370E2000591E5 /* LivrosBaixadosDAO.m */; };
 		FB63E06D19538959000591E5 /* NotasDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63E06C19538959000591E5 /* NotasDAO.m */; };
 		FB63E07019538980000591E5 /* Nota.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63E06F1953897F000591E5 /* Nota.m */; };
+		FBC491F5195633C500947243 /* PerguntaListas.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC491F3195633C500947243 /* PerguntaListas.m */; };
+		FBC491F6195633C500947243 /* PerguntaListas.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC491F4195633C500947243 /* PerguntaListas.xib */; };
 		FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */; };
 		FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */; };
 		FBD0EC31195150F700905486 /* OUTLINE_ITEM.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC30195150F700905486 /* OUTLINE_ITEM.m */; };
@@ -247,6 +249,9 @@
 		FB63E06C19538959000591E5 /* NotasDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotasDAO.m; sourceTree = "<group>"; };
 		FB63E06E1953897F000591E5 /* Nota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nota.h; sourceTree = "<group>"; };
 		FB63E06F1953897F000591E5 /* Nota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Nota.m; sourceTree = "<group>"; };
+		FBC491F2195633C500947243 /* PerguntaListas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerguntaListas.h; sourceTree = "<group>"; };
+		FBC491F3195633C500947243 /* PerguntaListas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerguntaListas.m; sourceTree = "<group>"; };
+		FBC491F4195633C500947243 /* PerguntaListas.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerguntaListas.xib; sourceTree = "<group>"; };
 		FBC727A918658EAD00F72A23 /* PerguntaRegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerguntaRegistroController.h; path = ../PerguntaRegistroController.h; sourceTree = "<group>"; };
 		FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerguntaRegistroController.m; path = ../PerguntaRegistroController.m; sourceTree = "<group>"; };
 		FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PerguntaRegistroController.xib; path = ../PerguntaRegistroController.xib; sourceTree = "<group>"; };
@@ -318,6 +323,9 @@
 		299D7B4418BC35B100724BED /* views */ = {
 			isa = PBXGroup;
 			children = (
+				FBC491F2195633C500947243 /* PerguntaListas.h */,
+				FBC491F3195633C500947243 /* PerguntaListas.m */,
+				FBC491F4195633C500947243 /* PerguntaListas.xib */,
 				FBF1E1361869506E00671EE2 /* EstantesController.xib */,
 				FB5A361118657EA6006C7FF3 /* RegistroNaoAssociadoController.xib */,
 				FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */,
@@ -743,6 +751,7 @@
 				FB63E052195152D8000591E5 /* manage_mark.png in Resources */,
 				FB63E06419534F8C000591E5 /* README.markdown in Resources */,
 				FB63E04E195152D8000591E5 /* icon.png in Resources */,
+				FBC491F6195633C500947243 /* PerguntaListas.xib in Resources */,
 				FB63E056195152D8000591E5 /* view_menu.png in Resources */,
 				FB63E057195152D8000591E5 /* view_page.png in Resources */,
 				FB63E04C195152D8000591E5 /* annot_remove.png in Resources */,
@@ -805,6 +814,7 @@
 				FBD0EC31195150F700905486 /* OUTLINE_ITEM.m in Sources */,
 				FBD0EC3D1951513900905486 /* RDPDFViewController.m in Sources */,
 				FBD0EC461951514E00905486 /* PopupMenu.m in Sources */,
+				FBC491F5195633C500947243 /* PerguntaListas.m in Sources */,
 				82E0390B18B8DD7A00EE7722 /* AFURLConnectionOperation.m in Sources */,
 				FB63E07019538980000591E5 /* Nota.m in Sources */,
 				82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */,

@@ -17,13 +17,15 @@
     
     NSString *sql;
     if([self existeNota:nota]){
-        sql = @"update Nota set codigoLivro='%@', pagina='%@', nota='%@', titulo='%@'";
+        sql = @"update Nota set codigoLivro='%@', pagina='%@', nota='%@', titulo='%@' where codigoLivro='%@' and pagina='%@'";
+        BOOL isSave = [SCSQLite executeSQL:sql, nota.codigolivro, nota.pagina, nota.nota, nota.titulo,nota.codigolivro, nota.pagina];
+        return isSave;
     }else{
         sql = @"insert into Nota (codigoLivro, pagina, nota, titulo) values ('%@', '%@', '%@', '%@')";
+        BOOL isSave = [SCSQLite executeSQL:sql, nota.codigolivro, nota.pagina, nota.nota, nota.titulo];
+        return isSave;
     }
-    BOOL isSave = [SCSQLite executeSQL:sql, nota.codigolivro, nota.pagina, nota.nota, nota.titulo];
-    return isSave;
-
+    
 }
 - (BOOL)existeNota:(Nota *) nota{
     NSArray *results = [SCSQLite selectRowSQL:@"Select * from Nota where codigoLivro = '%@' and pagina = '%@'", nota.codigolivro, nota.pagina];
@@ -46,7 +48,7 @@
     }
     
     return listaNotas;
-
+    
 }
 - (Nota *) pesquisarNotaPorPagina:(NSString *)pagina eCodigoDoLivro:(NSString *) codLivro{
     NSArray *results = [SCSQLite selectRowSQL:@"Select * from Nota where codigoLivro = '%@' and pagina = '%@'", codLivro, pagina];

@@ -48,13 +48,13 @@ NSUserDefaults *userDefaults;
     {
         m_pdf = [[RDPDFViewController alloc] initWithNibName:@"RDPDFViewController"bundle:nil];
     }
-
+    
     NSString *documentName = [livroResponse.arquivomobile.lastPathComponent stringByRemovingPercentEncoding];
-
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-
+    
     NSString *fullPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
-
+    
     NSLog(@"Abrindo o arquivo: %@",fullPath);
     
     int result = [m_pdf PDFOpen:fullPath:@"ibracon%2014"];
@@ -140,7 +140,7 @@ NSUserDefaults *userDefaults;
     if(livroResponse){
         self.title = @"Livro";
         if ([[UIImage alloc] initWithData:
-            [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ] && ![livroResponse.tipoLivro isEqualToString:@"baixados"]) {
+             [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ] && ![livroResponse.tipoLivro isEqualToString:@"baixados"]) {
             
             self.fotoLivro.image = [[UIImage alloc] initWithData:
                                     [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ];
@@ -160,12 +160,12 @@ NSUserDefaults *userDefaults;
         self.tituloLivro.text = livroResponse.titulo;
         self.lblCodigoLoja.text = livroResponse.codigoloja;
         self.lblVersaoLivro.text = livroResponse.versao;
-
+        
         livroResponse.arquivo = [livroResponse.arquivo stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         
         //RETIRAR DEPOIS YESUS
-       // downPdf.hidden = YES;
-       // abrirPdf.hidden = NO;
+        // downPdf.hidden = YES;
+        // abrirPdf.hidden = NO;
     }
 }
 
@@ -175,7 +175,7 @@ NSUserDefaults *userDefaults;
 }
 
 -(IBAction)startDownload:(id)sender{
-  
+    
     [self downloadArquivo:livroResponse.arquivomobile];
     
 }
@@ -198,15 +198,15 @@ NSUserDefaults *userDefaults;
         
         //SALVANDO O LIVRO BAIXADO NO BANCO DE DADOS
         livroResponse.arquivomobile = saveFilename;
-//        LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
-//        [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
-          [self downloadFotoDoLivro:livroResponse.foto];
+        //        LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
+        //        [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
+        [self downloadFotoDoLivro:livroResponse.foto];
         
         /* Registro no portal do livro baixado */
         ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
         [conexaoRegistrarLivro registrarLivroBaixado:registrarDispositivoResponse comLivroResponse:livroResponse];
         
-//        [GLB showMessage:@"Download finalizado com sucesso!"];
+        //        [GLB showMessage:@"Download finalizado com sucesso!"];
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
         [GLB showMessage:
          [NSString stringWithFormat:@"Error no download: %@", [error localizedDescription]]];
@@ -239,8 +239,8 @@ NSUserDefaults *userDefaults;
     [operationFoto setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
         //Salvando o path da foto no banco de dados
         livroResponse.foto = saveFilenameFoto;
-//        LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
-//        [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
+        //        LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
+        //        [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
         
         [self salvarIndiceXMLNoLivro:livroResponse.indiceXML];
         
@@ -272,7 +272,7 @@ NSUserDefaults *userDefaults;
         NSString *indiceXML = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSLog(@"%@", indiceXML);
         
-        //livroResponse.indiceXML = indiceXML;
+        livroResponse.indiceXML = indiceXML;
         livroResponse.tipoLivro = @"baixados";
         LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
         [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
@@ -283,7 +283,7 @@ NSUserDefaults *userDefaults;
         downPdf.hidden = YES;
         abrirPdf.hidden = NO;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
+        NSLog(@"%s: AFHTTPRequestO  peration error: %@", __FUNCTION__, error);
     }];
     
     [networkQueue addOperation:operation];

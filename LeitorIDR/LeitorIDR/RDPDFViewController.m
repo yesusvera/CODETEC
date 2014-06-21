@@ -9,6 +9,7 @@
 #import "RDPDFViewController.h"
 #import "PopupMenu.h"
 #import "PDFVThumb.h"
+#import "PerguntaListas.h"
 @interface RDPDFViewController ()
 
 
@@ -50,10 +51,10 @@ bool b_outline;
 extern uint annotOvalColor;
 - (void)createToolbarItems
 {
-  //  toolBar.barStyle = UIBarStyleBlackOpaque;
+    //  toolBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *searchButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"view_search.png"] style:UIBarStyleBlackOpaque target:self action:@selector(searchView:)];
     searchButton.width =30;
-    UIBarButtonItem *lineButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_line.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawLine:)];
+    UIBarButtonItem *lineButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_line.png"] style:UIBarStyleBlackOpaque target:self action:@selector(notaDaPagina:)];
     lineButton.width =30;
     
     UIBarButtonItem *rectButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_rect.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawRect:)];
@@ -67,8 +68,8 @@ extern uint annotOvalColor;
     //UIBarButtonItem *spacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     
     /*UIBarButtonItem *lockButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"lock.png"] style:UIBarStyleBlackOpaque target:self action:@selector(lockView:)];
-    lockButton.width = 30;
-   */
+     lockButton.width = 30;
+     */
     NSArray *toolbarItem = [[NSArray alloc]initWithObjects:searchButton,lineButton,rectButton,viewMenuButton,addBookMarkButton,ellipseButton,nil];
     [self.toolBar setItems:toolbarItem animated:NO];
     
@@ -112,10 +113,10 @@ extern uint annotOvalColor;
     item6.width = 40;
     //选择转到
     popupMenu1.items = [NSArray arrayWithObjects:item1,item5,item4,item3,item6,nil];
-
+    
     m_bSel = false;
 }
--(void)viewWillAppear:(BOOL)animated 
+-(void)viewWillAppear:(BOOL)animated
 {
     
     toolBar = [UIToolbar new];
@@ -152,7 +153,7 @@ extern uint annotOvalColor;
 
 -(void)composeFile:(id)sender
 {
-
+    
     
     int pageno = 0;
     struct PDFV_POS pos;
@@ -160,7 +161,7 @@ extern uint annotOvalColor;
     pageno = pos.pageno;
     float x = pos.x;
     float y = pos.y;
-    NSString *tempFile; 
+    NSString *tempFile;
     NSString *tempName;
     tempName = [pdfName substringToIndex:pdfName.length-4];
     tempFile = [tempName stringByAppendingFormat:@"%d%@",pageno,@".bookmark"];
@@ -193,27 +194,27 @@ extern uint annotOvalColor;
     }
     
     
-
-  // [m_view saveAs];
-
+    
+    // [m_view saveAs];
+    
     
 }
 - (IBAction)searchView:(id) sender
 {
     searchToolBar = [UIToolbar new];
     [searchToolBar sizeToFit];
-//    searchToolBar.barStyle = UIBarStyleBlackOpaque;
+    //    searchToolBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *nextbutton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"right_arrow.png"] style:UIBarStyleBlackOpaque target:self action:@selector(nextword:)];
     nextbutton.width =30;
     UIBarButtonItem *prevbutton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"left_arrow.png"] style:UIBarStyleBlackOpaque target:self action:@selector(prevword:)];
     prevbutton.width =30;
     UIBarButtonItem *cancelbtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_remove.png"] style:UIBarStyleBlackOpaque target:self action:@selector(searchCancel:)];
     cancelbtn.width =30;
-
+    
     NSArray *toolbarItem = [[NSArray alloc]initWithObjects:prevbutton,nextbutton,cancelbtn,nil];
     [self.searchToolBar setItems:toolbarItem animated:NO];
     self.navigationItem.titleView =searchToolBar;
-
+    
     
     CGRect boundsc = [[UIScreen mainScreen]bounds];
     int cwidth = boundsc.size.width;
@@ -236,9 +237,14 @@ extern uint annotOvalColor;
     [self.view addSubview:m_searchBar];
     
 }
+
+-(void)notaDaPagina{
+    NSLog(@"notaDaPagina");
+}
+
 - (IBAction)drawLine:(id) sender
 {
-  
+    
     if(![m_view vInkStart])
     {
         NSString *str1=NSLocalizedString(@"Alert", @"Localizable");
@@ -251,7 +257,7 @@ extern uint annotOvalColor;
     
     drawLineToolBar = [UIToolbar new];
     [drawLineToolBar sizeToFit];
-   // drawLineToolBar.barStyle = UIBarStyleBlackOpaque;
+    // drawLineToolBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *drawLineDoneBtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_done.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawLineDone:)];
     drawLineDoneBtn.width =30;
     UIBarButtonItem *drawLineCancelBtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_remove.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawLineCancel:)];
@@ -281,7 +287,7 @@ extern uint annotOvalColor;
 - (IBAction)drawRect:(id) sender
 {
     
-    if(![m_view vRectStart])    
+    if(![m_view vRectStart])
     {
         NSString *str1=NSLocalizedString(@"Alert", @"Localizable");
         NSString *str2=NSLocalizedString(@"This Document is readonly", @"Localizable");
@@ -293,7 +299,7 @@ extern uint annotOvalColor;
     
     drawRectToolBar = [UIToolbar new];
     [drawRectToolBar sizeToFit];
-   // drawRectToolBar.barStyle = UIBarStyleBlackOpaque;
+    // drawRectToolBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *drawLineDoneBtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_done.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawRectDone:)];
     drawLineDoneBtn.width =30;
     UIBarButtonItem *drawLineCancelBtn=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_remove.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawRectCancel:)];
@@ -364,22 +370,8 @@ extern uint annotOvalColor;
 }
 - (IBAction)viewMenu:(id) sender
 {
-    
-//    b_outline =true;
-//    PDFOutline *root = [m_doc rootOutline];
-//    if( root )
-//    {
-//        outlineView = [[OutLineViewController alloc] initWithNibName:@"OutLineViewController" bundle:nil];
-//        //First parameter is root node
-//        [outlineView setList:m_doc :NULL :root];
-//        UINavigationController *nav = self.navigationController;
-//        outlineView.hidesBottomBarWhenPushed = YES;
-//        [outlineView setJump:self];
-//        [nav pushViewController:outlineView animated:YES];
-//    }
- 
-    NSLog(@"testes indice");
-    
+    PerguntaListas *perguntasListas = [[PerguntaListas alloc]init];
+    [self.navigationController pushViewController:perguntasListas animated:YES];
 }
 -(IBAction)lockView:(id)sender
 {
@@ -402,7 +394,7 @@ extern uint annotOvalColor;
     UIBarButtonItem *lockButton;
     if(b_lock)
     {
-    
+        
         lockButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"lock.png"] style:UIBarStyleBlackOpaque target:self action:@selector(lockView:)];
     }
     else {
@@ -497,7 +489,7 @@ extern uint annotOvalColor;
         [m_Thumbview sizeThatFits:CGRectMake(0, cheight-hi-50-20, cwidth, 50).size];
         [m_searchBar setFrame:CGRectMake(0, 0, cwidth, 41)];
     }
-   [m_Thumbview refresh];
+    [m_Thumbview refresh];
 }
 - (IBAction)sliderAction:(id)sender
 {
@@ -514,12 +506,12 @@ extern uint annotOvalColor;
     
     switch( err )
     {
-    case err_ok:
-        break;
-    case err_password:
-        return 2;
-        break;
-    default: return 0;
+        case err_ok:
+            break;
+        case err_password:
+            return 2;
+            break;
+        default: return 0;
     }
     CGRect rect = [[UIScreen mainScreen]bounds];
     
@@ -552,7 +544,7 @@ extern uint annotOvalColor;
     [self PDFClose];
     PDF_ERR err = 0;
     m_doc = [[PDFDoc alloc] init];
-   // err = [m_doc open:path :pwd];
+    // err = [m_doc open:path :pwd];
     err = [m_doc openStream:stream :password];
     switch( err )
     {
@@ -599,10 +591,10 @@ extern uint annotOvalColor;
     switch( err )
     {
         case err_ok:
-        break;
+            break;
         case err_password:
-        return 2;
-        break;
+            return 2;
+            break;
         default: return 0;
     }
     CGRect rect = [[UIScreen mainScreen]bounds];
@@ -635,7 +627,7 @@ extern uint annotOvalColor;
 
 -(void)PDFThumbNailinit:(int)pageno
 {
-   
+    
     CGRect boundsc = [[UIScreen mainScreen]bounds];
     if (![self isPortrait] && boundsc.size.width < boundsc.size.height) {
         float height = boundsc.size.height;
@@ -667,8 +659,8 @@ extern uint annotOvalColor;
     [self.view addSubview:m_Thumbview];
     
     pagenow = pageno;
-     
-
+    
+    
     
     pageNumLabel.backgroundColor = [UIColor colorWithRed:1.5 green:1.5 blue:1.5 alpha:0.2];
     
@@ -678,7 +670,7 @@ extern uint annotOvalColor;
     pageNumLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     pageNumLabel.layer.cornerRadius = 10;
     NSString *pagestr = [[NSString alloc]initWithFormat:@"%d/",pagecount];
-    pagestr = [pagestr stringByAppendingFormat:@"%d",pagecount];    
+    pagestr = [pagestr stringByAppendingFormat:@"%d",pagecount];
     pageNumLabel.text = pagestr;
     pageNumLabel.font = [UIFont boldSystemFontOfSize:16];
     pageNumLabel.shadowColor = [UIColor grayColor];
@@ -719,19 +711,19 @@ extern uint annotOvalColor;
 
 -(int)PDFOpenPage:(NSString *)path :(int)pageno :(float)x :(float)y :(NSString *)pwd
 {
-   
+    
     PDF_ERR err = 0;
     err = [m_doc open:path :pwd];
     switch( err )
     {
-    case err_ok:
-        break;
-    case err_password:
-        return 2;
-        break;
-    default: return 0;
+        case err_ok:
+            break;
+        case err_password:
+            return 2;
+            break;
+        default: return 0;
     }
-
+    
     CGRect rect = [[UIScreen mainScreen]bounds];
     //GEAR
     if (![self isPortrait] && rect.size.width < rect.size.height) {
@@ -891,7 +883,7 @@ extern uint annotOvalColor;
 {
     [m_searchBar resignFirstResponder];
     [m_searchBar removeFromSuperview];
-        self.navigationItem.titleView =toolBar;
+    self.navigationItem.titleView =toolBar;
     findString = nil;
     [m_view vFindEnd];
     b_findStart = NO;
@@ -910,12 +902,12 @@ extern uint annotOvalColor;
     //if(pageno == pagecount -1) pageno = pagecount;
     [m_Thumbview vGoto:pageno];
     pageno++;
-   // sliderBar.value = pageno;
+    // sliderBar.value = pageno;
     NSString *pagestr = [[NSString alloc]initWithFormat:@"%d/",pageno];
     pagestr = [pagestr stringByAppendingFormat:@"%d",pagecount];
     pageNumLabel.text = pagestr;
     
-
+    
 }
 -(void)PDFVThumbOnPageClicked:(int)pageno
 {
@@ -946,12 +938,12 @@ extern uint annotOvalColor;
 -(void)OnFound:(bool)found
 {
     /*
-    if( !found )//todo: show alert dialog
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Waring" message:@"Find Over" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-   */
+     if( !found )//todo: show alert dialog
+     {
+     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Waring" message:@"Find Over" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+     [alert show];
+     }
+     */
 }
 
 -(void)OnSingleTapped:(float)x :(float)y :(NSString *)text
@@ -974,9 +966,9 @@ extern uint annotOvalColor;
         {
             m_Thumbview.hidden =YES;
             [self.pageNumLabel setHidden:true];
-           //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-           [[UIApplication sharedApplication] setStatusBarHidden:YES];
-           // BOOL navBarState = [self.navigationController isNavigationBarHidden];
+            //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+            [[UIApplication sharedApplication] setStatusBarHidden:YES];
+            // BOOL navBarState = [self.navigationController isNavigationBarHidden];
             //Set the navigationBarHidden to the opposite of the current state.
             [self.navigationController setNavigationBarHidden:YES animated:YES];
             [m_searchBar resignFirstResponder];
@@ -1031,7 +1023,7 @@ extern uint annotOvalColor;
         [m_view vSelEnd];
     }
 }
--(void)OnTouchUp: (float)x :(float)y 
+-(void)OnTouchUp: (float)x :(float)y
 {
 }
 
@@ -1117,7 +1109,7 @@ extern uint annotOvalColor;
 }
 -(void)UnderLine :(id)sender
 {
-     //1下划线
+    //1下划线
     [m_view vSelMarkup:annotUnderlineColor :1];
     [popupMenu1 dismiss];
     if(m_bSel)
@@ -1155,20 +1147,20 @@ extern uint annotOvalColor;
 - (void)OnMovie:(NSString *)fileName
 {
     [tempfiles addObject:fileName];
- //GEAR
+    //GEAR
     NSURL *urlPath = [NSURL fileURLWithPath:fileName];
     if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
         mpvc = [[MPMoviePlayerViewController alloc] initWithContentURL:urlPath];
         mpvc.view.frame = self.view.bounds;
         mpvc.modalPresentationStyle = UIModalPresentationFormSheet;
-
+        
         [self presentMoviePlayerViewControllerAnimated:mpvc];
     }
     else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Couldn't find media file" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
-//END
+    //END
 }
 
 //GEAR
@@ -1181,7 +1173,7 @@ extern uint annotOvalColor;
     }
 }
 //END
-    
+
 - (void)OnSound:(NSString *)fileName
 {
     [tempfiles addObject:fileName];
