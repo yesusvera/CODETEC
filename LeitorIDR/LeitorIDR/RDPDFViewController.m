@@ -54,7 +54,7 @@ extern uint annotOvalColor;
     //  toolBar.barStyle = UIBarStyleBlackOpaque;
     UIBarButtonItem *searchButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"view_search.png"] style:UIBarStyleBlackOpaque target:self action:@selector(searchView:)];
     searchButton.width =30;
-    UIBarButtonItem *lineButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_line.png"] style:UIBarStyleBlackOpaque target:self action:@selector(notaDaPagina:)];
+    UIBarButtonItem *lineButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_line.png"] style:UIBarStyleBlackOpaque target:self action:@selector(notaDaPagina)];
     lineButton.width =30;
     
 //    UIBarButtonItem *rectButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_rect.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawRect:)];

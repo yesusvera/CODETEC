@@ -242,7 +242,7 @@ NSUserDefaults *userDefaults;
         //        LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
         //        [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
         
-        [self salvarIndiceXMLNoLivro:livroResponse.indiceXML];
+        [self salvarIndiceXML:livroResponse.indiceXML];
         
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
         [GLB showMessage:
@@ -258,37 +258,34 @@ NSUserDefaults *userDefaults;
     return [documentsPath stringByAppendingPathComponent:filename];
 }
 
--(void)salvarIndiceXMLNoLivro:(NSString *) urlIndiceXMLLivro{
+
+
+-(void) salvarIndiceXML:(NSString *) urlIndiceXML{
+    NSURL *urlIndice = [NSURL URLWithString:urlIndiceXML];
+    NSURLRequest *requestIndice = [NSURLRequest requestWithURL:urlIndice];
+    NSString *saveFilenameIndice = [self downloadSavePathFor:urlIndice.lastPathComponent];
     
-    NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
-    networkQueue.maxConcurrentOperationCount = 5;
+    NSLog(@"Salvando o arquivo de índice em %@", saveFilenameIndice);
     
-    NSURL *url = [NSURL URLWithString:urlIndiceXMLLivro];
-    NSLog(@"%@", url);
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operationIndice = [[AFHTTPRequestOperation alloc] initWithRequest:requestIndice];
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *indiceXML = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", indiceXML);
-        
-        livroResponse.indiceXML = indiceXML;
+    operationIndice.outputStream = [NSOutputStream outputStreamToFileAtPath:saveFilenameIndice append:NO];
+    
+    [operationIndice setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
+        livroResponse.indiceXML = saveFilenameIndice;
         livroResponse.tipoLivro = @"baixados";
         LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
         [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
-        
         
         progressBar.hidden = YES;
         loadingIndicator.hidden = YES;
         downPdf.hidden = YES;
         abrirPdf.hidden = NO;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%s: AFHTTPRequestO  peration error: %@", __FUNCTION__, error);
+        
+    } failure:^(AFHTTPRequestOperation *op, NSError *error) {
+        [GLB showMessage:
+         [NSString stringWithFormat:@"Error no download da foto: %@", [error localizedDescription]]];
     }];
-    
-    [networkQueue addOperation:operation];
+    [operationIndice start];
 }
-
-
-
 @end
