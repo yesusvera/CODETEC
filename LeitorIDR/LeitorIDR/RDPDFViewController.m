@@ -57,20 +57,22 @@ extern uint annotOvalColor;
     UIBarButtonItem *lineButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_line.png"] style:UIBarStyleBlackOpaque target:self action:@selector(notaDaPagina:)];
     lineButton.width =30;
     
-    UIBarButtonItem *rectButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_rect.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawRect:)];
-    rectButton.width =30;
-    UIBarButtonItem *addBookMarkButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"add_mark.png"] style:UIBarStyleBlackOpaque target:self action:@selector(composeFile:)];
-    addBookMarkButton.width = 30;
+//    UIBarButtonItem *rectButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_rect.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawRect:)];
+//    rectButton.width =30;
+//    UIBarButtonItem *addBookMarkButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"add_mark.png"] style:UIBarStyleBlackOpaque target:self action:@selector(composeFile:)];
+//    addBookMarkButton.width = 30;
     UIBarButtonItem *viewMenuButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"view_menu.png"] style:UIBarStyleBlackOpaque target:self action:@selector(viewMenu:)];
     viewMenuButton.width =30;
-    UIBarButtonItem *ellipseButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_ellipse.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawEllipse:)];
-    ellipseButton.width =30;
-    //UIBarButtonItem *spacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//    UIBarButtonItem *ellipseButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_ellipse.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawEllipse:)];
+//    ellipseButton.width =30;
+
+    //    //UIBarButtonItem *spacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     
     /*UIBarButtonItem *lockButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"lock.png"] style:UIBarStyleBlackOpaque target:self action:@selector(lockView:)];
      lockButton.width = 30;
      */
-    NSArray *toolbarItem = [[NSArray alloc]initWithObjects:searchButton,lineButton,rectButton,viewMenuButton,addBookMarkButton,ellipseButton,nil];
+    //NSArray *toolbarItem = [[NSArray alloc]initWithObjects:searchButton,lineButton,rectButton,viewMenuButton,addBookMarkButton,ellipseButton,nil];
+     NSArray *toolbarItem = [[NSArray alloc]initWithObjects:searchButton,lineButton,viewMenuButton,nil];
     [self.toolBar setItems:toolbarItem animated:NO];
     
 }
