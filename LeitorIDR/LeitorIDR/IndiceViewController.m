@@ -1,19 +1,20 @@
 //
-//  PerguntaListas.m
+//  IndiceViewController.m
 //  LeitorIDR
 //
-//  Created by Yesus Castillo Vera on 21/06/14.
+//  Created by Jonathan Jordan Carrillo Salcedo on 22/06/14.
 //  Copyright (c) 2014 Yesus Castillo Vera. All rights reserved.
 //
 
-#import "PerguntaListas.h"
-#import "MontadorDeIncideDoLivro.h"
 #import "IndiceViewController.h"
-@interface PerguntaListas ()
+#import "DetalheIndiceViewController.h"
+
+@interface IndiceViewController ()
 
 @end
 
-@implementation PerguntaListas
+@implementation IndiceViewController
+@synthesize indiceDoLivro;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.title= @"Indice";
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,11 +44,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"lista"];
-
+    
     if(indexPath.row == 0){
-        cell.textLabel.text = @"Índice...";
+        cell.textLabel.text = @"Parte A";
     }else if(indexPath.row == 1){
-        cell.textLabel.text = @"Anotações...";
+        cell.textLabel.text = @"Parte B";
     }
     return cell;
 }
@@ -55,17 +57,18 @@
     
     
     if (indexPath.row == 0) {
-        MontadorDeIncideDoLivro *montadorIndice = [[MontadorDeIncideDoLivro alloc]init];
-        //TODO FALTA PASSAR O CAMINHO DO LIVRO PARA QUE SEJA FEITO O PARSE
-
-        IndiceViewController *indice = [[IndiceViewController alloc]init];
-        [indice setIndiceDoLivro:[montadorIndice montarIndiceDoLivro:nil]];
-        [self.navigationController pushViewController:indice animated:YES];
+        DetalheIndiceViewController *detalhesIndice = [[DetalheIndiceViewController alloc]init];
+        detalhesIndice.detalheIndice = indiceDoLivro.parteA;
+        [self.navigationController pushViewController:detalhesIndice animated:YES];
+        
     }else if (indexPath.row == 1){
-        // DIRECIONAR PARA A TELA DE ANOTAÇÕES
+        DetalheIndiceViewController *detalhesIndice = [[DetalheIndiceViewController alloc]init];
+        detalhesIndice.detalheIndice = indiceDoLivro.parteB;
+        [self.navigationController pushViewController:detalhesIndice animated:YES];
     }
-
+    
 }
+
 
 
 @end
