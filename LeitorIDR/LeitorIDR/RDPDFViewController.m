@@ -10,12 +10,14 @@
 #import "PopupMenu.h"
 #import "PDFVThumb.h"
 #import "PerguntaListas.h"
+#import "AnotacoesViewController.h"
 @interface RDPDFViewController ()
 
 
 @end
 
 @implementation RDPDFViewController
+@synthesize livro;
 @synthesize m_searchBar;
 @synthesize drawLineToolBar;
 @synthesize drawRectToolBar;
@@ -61,7 +63,7 @@ extern uint annotOvalColor;
 //    rectButton.width =30;
 //    UIBarButtonItem *addBookMarkButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"add_mark.png"] style:UIBarStyleBlackOpaque target:self action:@selector(composeFile:)];
 //    addBookMarkButton.width = 30;
-    UIBarButtonItem *viewMenuButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"view_menu.png"] style:UIBarStyleBlackOpaque target:self action:@selector(viewMenu:)];
+    UIBarButtonItem *viewMenuButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"view_menu.png"] style:UIBarStyleBlackOpaque target:self action:@selector(viewMenu)];
     viewMenuButton.width =30;
 //    UIBarButtonItem *ellipseButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_ellipse.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawEllipse:)];
 //    ellipseButton.width =30;
@@ -241,7 +243,15 @@ extern uint annotOvalColor;
 }
 
 -(void)notaDaPagina{
-    NSLog(@"notaDaPagina");
+    AnotacoesViewController *anotacoesViewController = [[AnotacoesViewController alloc] init];
+    
+    Nota *nota = [[Nota alloc]init];
+    nota.codigolivro = livro.codigolivro;
+    nota.pagina = [NSString stringWithFormat:@"%d",pagenow];
+    
+    anotacoesViewController.nota = nota;
+    
+    [self.navigationController pushViewController:anotacoesViewController animated:YES];
 }
 
 - (IBAction)drawLine:(id) sender

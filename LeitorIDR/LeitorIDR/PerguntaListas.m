@@ -51,11 +51,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    LivroDetalhesView *livroDetalhesView = [[LivroDetalhesView alloc]init];
-//    livroDetalhesView.livroResponse = [listaLivros objectAtIndex:indexPath.row];
-//    livroDetalhesView.registrarDispositivoResponse = registrarDispositivoResponse;
-//    
-//    [self.navigationController pushViewController:livroDetalhesView animated:YES];
+    
 }
 
 

@@ -53,7 +53,6 @@
 		FB5F0A7818615A800068D497 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB5F0A7618615A800068D497 /* InfoPlist.strings */; };
 		FB5F0A7A18615A800068D497 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F0A7918615A800068D497 /* main.m */; };
 		FB5F0A7E18615A800068D497 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F0A7D18615A800068D497 /* AppDelegate.m */; };
-		FB5F0A8118615A800068D497 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5F0A7F18615A800068D497 /* Main_iPhone.storyboard */; };
 		FB5F0A8418615A800068D497 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5F0A8218615A800068D497 /* Main_iPad.storyboard */; };
 		FB5F0A8718615A800068D497 /* IdrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F0A8618615A800068D497 /* IdrViewController.m */; };
 		FB5F0A9018615A800068D497 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5F0A8F18615A800068D497 /* XCTest.framework */; };
@@ -90,6 +89,8 @@
 		FB63E07019538980000591E5 /* Nota.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63E06F1953897F000591E5 /* Nota.m */; };
 		FBC491F5195633C500947243 /* PerguntaListas.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC491F3195633C500947243 /* PerguntaListas.m */; };
 		FBC491F6195633C500947243 /* PerguntaListas.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC491F4195633C500947243 /* PerguntaListas.xib */; };
+		FBC491FB195647F900947243 /* AnotacoesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC491F9195647F900947243 /* AnotacoesViewController.m */; };
+		FBC491FC195647F900947243 /* AnotacoesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC491FA195647F900947243 /* AnotacoesViewController.xib */; };
 		FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */; };
 		FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */; };
 		FBD0EC31195150F700905486 /* OUTLINE_ITEM.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC30195150F700905486 /* OUTLINE_ITEM.m */; };
@@ -208,7 +209,6 @@
 		FB5F0A7B18615A800068D497 /* LeitorIDR-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeitorIDR-Prefix.pch"; sourceTree = "<group>"; };
 		FB5F0A7C18615A800068D497 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FB5F0A7D18615A800068D497 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FB5F0A8018615A800068D497 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		FB5F0A8318615A800068D497 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		FB5F0A8518615A800068D497 /* IdrViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdrViewController.h; sourceTree = "<group>"; };
 		FB5F0A8618615A800068D497 /* IdrViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdrViewController.m; sourceTree = "<group>"; };
@@ -252,6 +252,9 @@
 		FBC491F2195633C500947243 /* PerguntaListas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerguntaListas.h; sourceTree = "<group>"; };
 		FBC491F3195633C500947243 /* PerguntaListas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerguntaListas.m; sourceTree = "<group>"; };
 		FBC491F4195633C500947243 /* PerguntaListas.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerguntaListas.xib; sourceTree = "<group>"; };
+		FBC491F8195647F900947243 /* AnotacoesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotacoesViewController.h; sourceTree = "<group>"; };
+		FBC491F9195647F900947243 /* AnotacoesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnotacoesViewController.m; sourceTree = "<group>"; };
+		FBC491FA195647F900947243 /* AnotacoesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnotacoesViewController.xib; sourceTree = "<group>"; };
 		FBC727A918658EAD00F72A23 /* PerguntaRegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerguntaRegistroController.h; path = ../PerguntaRegistroController.h; sourceTree = "<group>"; };
 		FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerguntaRegistroController.m; path = ../PerguntaRegistroController.m; sourceTree = "<group>"; };
 		FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PerguntaRegistroController.xib; path = ../PerguntaRegistroController.xib; sourceTree = "<group>"; };
@@ -496,7 +499,6 @@
 				FB62EE1D18763755007661BF /* com.br.ibracon */,
 				FB5F0A7C18615A800068D497 /* AppDelegate.h */,
 				FB5F0A7D18615A800068D497 /* AppDelegate.m */,
-				FB5F0A7F18615A800068D497 /* Main_iPhone.storyboard */,
 				FB5F0A8218615A800068D497 /* Main_iPad.storyboard */,
 				FB5F0A8518615A800068D497 /* IdrViewController.h */,
 				FB5F0A8618615A800068D497 /* IdrViewController.m */,
@@ -538,6 +540,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				FBC491F7195647DA00947243 /* notas */,
 				FB63E067195370B5000591E5 /* dao */,
 				FBD0EC3F1951514E00905486 /* PopUpview */,
 				FB3A5C5618BD772200A0FEA8 /* util */,
@@ -597,6 +600,16 @@
 				FB63E06C19538959000591E5 /* NotasDAO.m */,
 			);
 			name = dao;
+			sourceTree = "<group>";
+		};
+		FBC491F7195647DA00947243 /* notas */ = {
+			isa = PBXGroup;
+			children = (
+				FBC491F8195647F900947243 /* AnotacoesViewController.h */,
+				FBC491F9195647F900947243 /* AnotacoesViewController.m */,
+				FBC491FA195647F900947243 /* AnotacoesViewController.xib */,
+			);
+			name = notas;
 			sourceTree = "<group>";
 		};
 		FBD0EC3F1951514E00905486 /* PopUpview */ = {
@@ -756,12 +769,12 @@
 				FB63E057195152D8000591E5 /* view_page.png in Resources */,
 				FB63E04C195152D8000591E5 /* annot_remove.png in Resources */,
 				FB63E053195152D8000591E5 /* pdf_icon.png in Resources */,
+				FBC491FC195647F900947243 /* AnotacoesViewController.xib in Resources */,
 				FBD0EC3E1951513900905486 /* RDPDFViewController.xib in Resources */,
 				FB63E059195152D8000591E5 /* view_settings_page.png in Resources */,
 				FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */,
 				FBD0EC361951510F00905486 /* OutLineViewController.xib in Resources */,
 				FB63E05D19534F56000591E5 /* leitoribracon.db in Resources */,
-				FB5F0A8118615A800068D497 /* Main_iPhone.storyboard in Resources */,
 				FB63E04B195152D8000591E5 /* annot_rect.png in Resources */,
 				FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */,
 				29CFB201194FC46900E9DBDA /* cmaps in Resources */,
@@ -830,6 +843,7 @@
 				FBF1E1371869506E00671EE2 /* EstantesController.m in Sources */,
 				299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */,
 				82E0390D18B8DD7A00EE7722 /* AFURLResponseSerialization.m in Sources */,
+				FBC491FB195647F900947243 /* AnotacoesViewController.m in Sources */,
 				295AD9DF19551F8600A1DA55 /* MontadorDeIncideDoLivro.m in Sources */,
 				29CFB1CB194FC06600E9DBDA /* PDFView.m in Sources */,
 				29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */,
@@ -873,14 +887,6 @@
 				FB5F0A7718615A800068D497 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FB5F0A7F18615A800068D497 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB5F0A8018615A800068D497 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		FB5F0A8218615A800068D497 /* Main_iPad.storyboard */ = {

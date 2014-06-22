@@ -25,7 +25,6 @@
         sql = @"insert into LivroBaixado (codigoLivro, titulo, versao, codigoLoja, foto, arquivo, arquivomobile, indiceXML, tipoLivro) values ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')";
         BOOL isSave = [SCSQLite executeSQL:sql, livroBaixado.codigolivro, livroBaixado.titulo, livroBaixado.versao, livroBaixado.codigoloja, livroBaixado.foto, livroBaixado.arquivo, livroBaixado.arquivomobile, livroBaixado.indiceXML, livroBaixado.tipoLivro];
         return isSave;
-        
     }
 }
 
@@ -35,7 +34,6 @@
 }
 
 - (LivroResponse *) pesquisarLivroPeloCodigo: (NSString *) codigo{
-    
     
     NSArray *results = [SCSQLite selectRowSQL:@"Select * from LivroBaixado where codigoLivro = '%@'", codigo];
     if(results.count > 0){
