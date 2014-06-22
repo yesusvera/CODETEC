@@ -1,0 +1,789 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<response>
+	<livro>
+		<indice>
+			<ParteA>
+				<item>
+					<id>2</id>
+					<capitulo>Mudanças nesta edição</capitulo>
+					<paginavirtual>A1</paginavirtual>
+					<paginareal>11</paginareal>
+					<parte>Parte A</parte>
+					<pai>1</pai>
+				</item>
+				<item>
+					<id>3</id>
+					<capitulo>Introdução a esta edição</capitulo>
+					<paginavirtual>A3</paginavirtual>
+					<paginareal>13</paginareal>
+					<parte>Parte A</parte>
+					<pai>1</pai>
+				</item>
+				<item>
+					<id>4</id>
+					<capitulo>Prefácio às Normas Internacionais de Relatório Financeiro</capitulo>
+					<paginavirtual>A9</paginavirtual>
+					<paginareal>20</paginareal>
+					<parte>Parte A</parte>
+					<pai>1</pai>
+				</item>
+				<item>
+					<id>5</id>
+					<capitulo>Estrutura Conceitual para Relatório Financeiro</capitulo>
+					<paginavirtual>A15</paginavirtual>
+					<paginareal>25</paginareal>
+					<parte>Parte A</parte>
+					<pai>1</pai>
+				</item>
+				<item>
+					<id>6</id>
+					<capitulo>Normas Internacionais de Relatório Financeiro (IFRS)</capitulo>
+					<paginavirtual>A43</paginavirtual>
+					<paginareal>53</paginareal>
+					<parte>Parte A</parte>
+					<pai>1</pai>
+					<itens>
+						<item>
+							<id>7</id>
+							<capitulo>IFRS 1 Adoção pela Primeira Vez das Normas
+								Internacionais de Relatório</capitulo>
+							<paginavirtual>A43</paginavirtual>
+							<paginareal>53</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>8</id>
+							<capitulo>IFRS 2 Pagamento baseado em ações</capitulo>
+							<paginavirtual>A75</paginavirtual>
+							<paginareal>85</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>9</id>
+							<capitulo>IFRS 3 Combinações de Negócios</capitulo>
+							<paginavirtual>A113</paginavirtual>
+							<paginareal>123</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>10</id>
+							<capitulo>IFRS 4 Contratos de Seguro</capitulo>
+							<paginavirtual>A155</paginavirtual>
+							<paginareal>165</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>11</id>
+							<capitulo>IFRS 5 Ativos Não Circulantes Mantidos para Venda e
+								Operações Descontinuadas</capitulo>
+							<paginavirtual>A181</paginavirtual>
+							<paginareal>191</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>12</id>
+							<capitulo>IFRS 6 Exploração e Avaliação de Recursos Minerais</capitulo>
+							<paginavirtual>A199</paginavirtual>
+							<paginareal>209</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>13</id>
+							<capitulo>IFRS 7 Instrumentos Financeiros: Divulgações</capitulo>
+							<paginavirtual>A211</paginavirtual>
+							<paginareal>221</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>14</id>
+							<capitulo>IFRS 8 Segmentos Operacionais</capitulo>
+							<paginavirtual>A249</paginavirtual>
+							<paginareal>259</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>15</id>
+							<capitulo>IFRS 9 Instrumentos Financeiros</capitulo>
+							<paginavirtual>A265</paginavirtual>
+							<paginareal>275</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>16</id>
+							<capitulo>IFRS 10 Demonstrações Financeiras Consolidadas</capitulo>
+							<paginavirtual>A323</paginavirtual>
+							<paginareal>333</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>17</id>
+							<capitulo>IFRS 11 Negócios em Conjunto</capitulo>
+							<paginavirtual>A373</paginavirtual>
+							<paginareal>383</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>18</id>
+							<capitulo>IFRS 12 Divulgação de Participações em Outras Entidades</capitulo>
+							<paginavirtual>A397</paginavirtual>
+							<paginareal>407</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+						<item>
+							<id>19</id>
+							<capitulo>IFRS 13 Mensuração do Valor Justo</capitulo>
+							<paginavirtual>A421</paginavirtual>
+							<paginareal>431</paginareal>
+							<parte>Parte A</parte>
+							<pai>6</pai>
+						</item>
+					</itens>
+				</item>
+				<item>
+					<id>20</id>
+					<capitulo>Normas Internacionais de Contabilidade (IASs)</capitulo>
+					<paginavirtual>A461</paginavirtual>
+					<paginareal>471</paginareal>
+					<parte>Parte A</parte>
+					<pai>1</pai>
+					<itens>
+						<item>
+							<id>21</id>
+							<capitulo>IAS 1 Apresentação de Demonstrações Financeiras</capitulo>
+							<paginavirtual>A461</paginavirtual>
+							<paginareal>471</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>22</id>
+							<capitulo>IAS 2 Estoques</capitulo>
+							<paginavirtual>A497</paginavirtual>
+							<paginareal>507</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>23</id>
+							<capitulo>IAS 7 Demonstração dos Fluxos de Caixa</capitulo>
+							<paginavirtual>A511</paginavirtual>
+							<paginareal>521</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>24</id>
+							<capitulo>IAS 8 Políticas Contábeis, Mudanças nas Estimativas
+								Contábeis e Erros</capitulo>
+							<paginavirtual>A525</paginavirtual>
+							<paginareal>535</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>25</id>
+							<capitulo>IAS 10 Eventos após o Período de Relatório</capitulo>
+							<paginavirtual>A543</paginavirtual>
+							<paginareal>553</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>26</id>
+							<capitulo>IAS 11 Contratos de Construção</capitulo>
+							<paginavirtual>A553</paginavirtual>
+							<paginareal>563</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>27</id>
+							<capitulo>IAS 12 Impostos sobre a Renda</capitulo>
+							<paginavirtual>A565</paginavirtual>
+							<paginareal>575</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>28</id>
+							<capitulo>IAS 16 Imobilizado</capitulo>
+							<paginavirtual>A599</paginavirtual>
+							<paginareal>609</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>29</id>
+							<capitulo>IAS 17 Arrendamentos</capitulo>
+							<paginavirtual>A619</paginavirtual>
+							<paginareal>629</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>30</id>
+							<capitulo>IAS 18 Receita</capitulo>
+							<paginavirtual>A639</paginavirtual>
+							<paginareal>649</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>31</id>
+							<capitulo>IAS 19 Benefícios aos Empregados</capitulo>
+							<paginavirtual>A649</paginavirtual>
+							<paginareal>659</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>32</id>
+							<capitulo>IAS 20 Contabilização de Subvenções Governamentais e
+								Divulgação de</capitulo>
+							<paginavirtual>A691</paginavirtual>
+							<paginareal>701</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>33</id>
+							<capitulo>IAS 21 Os Efeitos das Mudanças nas Taxas de Câmbio</capitulo>
+							<paginavirtual>A701</paginavirtual>
+							<paginareal>711</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>34</id>
+							<capitulo>IAS 23 Custos de Empréstimos</capitulo>
+							<paginavirtual>A721</paginavirtual>
+							<paginareal>731</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>35</id>
+							<capitulo>IAS 24 Divulgações sobre Partes Relacionadas</capitulo>
+							<paginavirtual>A731</paginavirtual>
+							<paginareal>741</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>36</id>
+							<capitulo>IAS 26 Contabilização e Relatório Financeiro de Planos
+								de Benefícios</capitulo>
+							<paginavirtual>A743</paginavirtual>
+							<paginareal>753</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>37</id>
+							<capitulo>IAS 27 Demonstrações Financeiras Separadas</capitulo>
+							<paginavirtual>A753</paginavirtual>
+							<paginareal>763</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>38</id>
+							<capitulo>IAS 28 Investimentos em Coligadas e Empreendimentos em Conjunto(Joint Ventures)</capitulo>
+							<paginavirtual>A763</paginavirtual>
+							<paginareal>773</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>39</id>
+							<capitulo>IAS 29 Relatório Financeiro em Economias
+								Hiperinflacionárias</capitulo>
+							<paginavirtual>A777</paginavirtual>
+							<paginareal>787</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>40</id>
+							<capitulo>IAS 32 Instrumentos Financeiros: Apresentação</capitulo>
+							<paginavirtual>A787</paginavirtual>
+							<paginareal>797</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>41</id>
+							<capitulo>IAS 33 Lucro por Ação</capitulo>
+							<paginavirtual>A825</paginavirtual>
+							<paginareal>835</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>42</id>
+							<capitulo>IAS 34 Relatório Financeiro Intermediário</capitulo>
+							<paginavirtual>A847</paginavirtual>
+							<paginareal>857</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>43</id>
+							<capitulo>IAS 36 Redução ao Valor Recuperável de Ativos</capitulo>
+							<paginavirtual>A863</paginavirtual>
+							<paginareal>873</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>44</id>
+							<capitulo>IAS 37 Provisões, Passivos Contingentes e Ativos
+								Contingentes</capitulo>
+							<paginavirtual>A907</paginavirtual>
+							<paginareal>917</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>45</id>
+							<capitulo>IAS 38 Ativos Intangíveis</capitulo>
+							<paginavirtual>A929</paginavirtual>
+							<paginareal>939</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>46</id>
+							<capitulo>IAS 39 Instrumentos Financeiros: Reconhecimento e
+								Mensuração</capitulo>
+							<paginavirtual>A959</paginavirtual>
+							<paginareal>969</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>47</id>
+							<capitulo>IAS 40 Propriedades para Investimento</capitulo>
+							<paginavirtual>A995</paginavirtual>
+							<paginareal>1005</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+						<item>
+							<id>48</id>
+							<capitulo>IAS 41 Agricultura</capitulo>
+							<paginavirtual>A1015</paginavirtual>
+							<paginareal>1025</paginareal>
+							<parte>Parte A</parte>
+							<pai>20</pai>
+						</item>
+					</itens>
+				</item>
+			</ParteA>
+			<ParteB>
+				<item>
+					<id>76</id>
+					<capitulo>Documentos anexos:</capitulo>
+					<paginavirtual></paginavirtual>
+					<paginareal>1295</paginareal>
+					<parte>Parte B</parte>
+					<pai>75</pai>
+				</item>
+				<item>
+					<id>77</id>
+					<capitulo>Estrutura Conceitual para Relatório Financeiro</capitulo>
+					<paginavirtual></paginavirtual>
+					<paginareal>1295</paginareal>
+					<parte>Parte B</parte>
+					<pai>75</pai>
+				</item>
+				<item>
+					<id>78</id>
+					<capitulo>Normas Internacionais de Relatório Financeiro (IFRS)</capitulo>
+					<paginavirtual>B21</paginavirtual>
+					<paginareal>1315</paginareal>
+					<parte>Parte B</parte>
+					<pai>75</pai>
+					<itens>
+						<item>
+							<id>79</id>
+							<capitulo>IFRS 1 Adoção pela Primeira Vez das Normas
+								Internacionais de Relatório</capitulo>
+							<paginavirtual>B21</paginavirtual>
+							<paginareal>1315</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>80</id>
+							<capitulo>IFRS 2 Pagamento baseado em ações</capitulo>
+							<paginavirtual>B97</paginavirtual>
+							<paginareal>1391</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>81</id>
+							<capitulo>IFRS 3 Combinações de Negócios</capitulo>
+							<paginavirtual>B193</paginavirtual>
+							<paginareal>1487</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>82</id>
+							<capitulo>IFRS 4 Contratos de Seguro</capitulo>
+							<paginavirtual>B331</paginavirtual>
+							<paginareal>1625</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>83</id>
+							<capitulo>IFRS 5 Ativos Não Circulantes Mantidos para Venda e
+								Operações Descontinuadas</capitulo>
+							<paginavirtual>B423</paginavirtual>
+							<paginareal>1717</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>84</id>
+							<capitulo>IFRS 6 Exploração e Avaliação de Recursos Minerais</capitulo>
+							<paginavirtual>B455</paginavirtual>
+							<paginareal>1749</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>85</id>
+							<capitulo>IFRS 7 Instrumentos Financeiros: Divulgações</capitulo>
+							<paginavirtual>B473</paginavirtual>
+							<paginareal>1767</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>86</id>
+							<capitulo>IFRS 8 Segmentos Operacionais</capitulo>
+							<paginavirtual>B527</paginavirtual>
+							<paginareal>1821</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>87</id>
+							<capitulo>IFRS 9 Instrumentos Financeiros</capitulo>
+							<paginavirtual>B565</paginavirtual>
+							<paginareal>1859</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>88</id>
+							<capitulo>IFRS 10 Demonstrações Financeiras Consolidadas</capitulo>
+							<paginavirtual>B667</paginavirtual>
+							<paginareal>1961</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>89</id>
+							<capitulo>IFRS 11 Negócios em Conjunto</capitulo>
+							<paginavirtual>B735</paginavirtual>
+							<paginareal>2029</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>90</id>
+							<capitulo>IFRS 12 Divulgação de Participações em Outras Entidades</capitulo>
+							<paginavirtual>B763</paginavirtual>
+							<paginareal>2057</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+						<item>
+							<id>91</id>
+							<capitulo>IFRS 13 Mensuração do Valor Justo</capitulo>
+							<paginavirtual>B789</paginavirtual>
+							<paginareal>2083</paginareal>
+							<parte>Parte B</parte>
+							<pai>78</pai>
+						</item>
+					</itens>
+				</item>
+				<item>
+					<id>92</id>
+					<capitulo>Normas Internacionais de Contabilidade (IASs)</capitulo>
+					<paginavirtual></paginavirtual>
+					<paginareal>2153</paginareal>
+					<parte>Parte B</parte>
+					<pai>75</pai>
+					<itens>
+						<item>
+							<id>93</id>
+							<capitulo>IAS 1 Apresentação de Demonstrações Financeiras</capitulo>
+							<paginavirtual>B859</paginavirtual>
+							<paginareal>2153</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>94</id>
+							<capitulo>IAS 2 Estoques</capitulo>
+							<paginavirtual>B915</paginavirtual>
+							<paginareal>2209</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>95</id>
+							<capitulo>IAS 7 Demonstração dos Fluxos de Caixa</capitulo>
+							<paginavirtual>B921</paginavirtual>
+							<paginareal>2215</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>96</id>
+							<capitulo>IAS 8 Políticas Contábeis, Mudanças nas Estimativas
+								Contábeis e Erros</capitulo>
+							<paginavirtual>B931</paginavirtual>
+							<paginareal>2225</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>97</id>
+							<capitulo>IAS 10 Eventos após o Período de Relatório</capitulo>
+							<paginavirtual>B943</paginavirtual>
+							<paginareal>2237</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>98</id>
+							<capitulo>IAS 11 Contratos de Construção</capitulo>
+							<paginavirtual>B947</paginavirtual>
+							<paginareal>2241</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>99</id>
+							<capitulo>IAS 12 Impostos sobre a Renda</capitulo>
+							<paginavirtual>B953</paginavirtual>
+							<paginareal>2247</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>100</id>
+							<capitulo>IAS 16 Imobilizado</capitulo>
+							<paginavirtual>B981</paginavirtual>
+							<paginareal>2275</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>101</id>
+							<capitulo>IAS 17 Arrendamentos</capitulo>
+							<paginavirtual>B993</paginavirtual>
+							<paginareal>2287</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>102</id>
+							<capitulo>IAS 18 Receita</capitulo>
+							<paginavirtual>B1003</paginavirtual>
+							<paginareal>2297</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>103</id>
+							<capitulo>IAS 19 Benefícios aos Empregados</capitulo>
+							<paginavirtual>B1011</paginavirtual>
+							<paginareal>2305</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>104</id>
+							<capitulo>IAS 20 Contabilização de Subvenções Governamentais e
+								Divulgação de</capitulo>
+							<paginavirtual>B1083</paginavirtual>
+							<paginareal>2377</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>105</id>
+							<capitulo>IAS 21 Os Efeitos das Mudanças nas Taxas de Câmbio</capitulo>
+							<paginavirtual>B1085</paginavirtual>
+							<paginareal>2379</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>106</id>
+							<capitulo>IAS 23 Custos de Empréstimos</capitulo>
+							<paginavirtual>B1097</paginavirtual>
+							<paginareal>2391</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>107</id>
+							<capitulo>IAS 24 Divulgações sobre Partes Relacionadas</capitulo>
+							<paginavirtual>B1109</paginavirtual>
+							<paginareal>2403</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>108</id>
+							<capitulo>IAS 27 Demonstrações Financeiras Separadas</capitulo>
+							<paginavirtual>B1129</paginavirtual>
+							<paginareal>2423</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>109</id>
+							<capitulo>IAS 28 Investimentos em Coligadas e Empreendimentos em
+								Conjunto (Joint Ventures)</capitulo>
+							<paginavirtual>B1141</paginavirtual>
+							<paginareal>2435</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>110</id>
+							<capitulo>IAS 29 Relatório Financeiro em Economias
+								Hiperinflacionárias</capitulo>
+							<paginavirtual>B1157</paginavirtual>
+							<paginareal>2451</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>111</id>
+							<capitulo>IAS 32 Instrumentos Financeiros: Apresentação</capitulo>
+							<paginavirtual>B1159</paginavirtual>
+							<paginareal>2453</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>112</id>
+							<capitulo>IAS 33 Lucro por Ação</capitulo>
+							<paginavirtual>B1215</paginavirtual>
+							<paginareal>2509</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>113</id>
+							<capitulo>IAS 34 Relatório Financeiro Intermediário</capitulo>
+							<paginavirtual>B1247</paginavirtual>
+							<paginareal>2541</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>114</id>
+							<capitulo>IAS 36 Redução ao Valor Recuperável de Ativos</capitulo>
+							<paginavirtual>B1257</paginavirtual>
+							<paginareal>2551</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>115</id>
+							<capitulo>IAS 37 Provisões, Passivos Contingentes e Ativos
+								Contingentes</capitulo>
+							<paginavirtual>B1349</paginavirtual>
+							<paginareal>2643</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>116</id>
+							<capitulo>IAS 38 Ativos Intangíveis</capitulo>
+							<paginavirtual>B1361</paginavirtual>
+							<paginareal>2655</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>117</id>
+							<capitulo>IAS 39 Instrumentos Financeiros: Reconhecimento e
+								Mensuração</capitulo>
+							<paginavirtual>B1395</paginavirtual>
+							<paginareal>2689</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>118</id>
+							<capitulo>IAS 40 Propriedades para Investimento</capitulo>
+							<paginavirtual>B1527</paginavirtual>
+							<paginareal>2821</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+						<item>
+							<id>119</id>
+							<capitulo>IAS 41 Agricultura</capitulo>
+							<paginavirtual>B1547</paginavirtual>
+							<paginareal>2841</paginareal>
+							<parte>Parte B</parte>
+							<pai>92</pai>
+						</item>
+					</itens>
+				</item>
+				<item>
+					<id>149</id>
+					<capitulo>Lista de Normas</capitulo>
+					<paginavirtual>B1843</paginavirtual>
+					<paginareal>3137</paginareal>
+					<parte>Parte B</parte>
+					<pai>75</pai>
+				</item>
+				<item>
+					<id>150</id>
+					<capitulo>Glossário</capitulo>
+					<paginavirtual>B1859</paginavirtual>
+					<paginareal>3153</paginareal>
+					<parte>Parte B</parte>
+					<pai>75</pai>
+				</item>
+				<item>
+					<id>151</id>
+					<capitulo>Índice remissivo</capitulo>
+					<paginavirtual>B1893</paginavirtual>
+					<paginareal>3187</paginareal>
+					<parte>Parte B</parte>
+					<pai>75</pai>
+				</item>
+			</ParteB>
+		</indice>
+	</livro>
+	<erro>0</erro>
+	<msgErro>N/A</msgErro>
+</response>
