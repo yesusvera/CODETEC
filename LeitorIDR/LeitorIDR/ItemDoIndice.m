@@ -9,5 +9,5 @@
 #import "ItemDoIndice.h"
 
 @implementation ItemDoIndice
-@synthesize ID,capitulo,paginavirtual,paginareal,parte,pai,listaItens;
+@synthesize id,capitulo,paginavirtual,paginareal,parte,pai,listaItens;
 @end

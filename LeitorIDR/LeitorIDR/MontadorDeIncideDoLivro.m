@@ -10,7 +10,10 @@
 #import "ItemDoIndice.h"
 
 @implementation MontadorDeIncideDoLivro{
-    ItemDoIndice *item;
+    ItemDoIndice *itemPai;
+    ItemDoIndice *itemFilho;
+    NSString *idPai;
+    BOOL temFilho;
 }
 
 
@@ -19,8 +22,17 @@
         indiceLivroResponse = [[IndiceLivroResponse alloc] init];
         indiceLivroResponse.parteA = [[NSMutableArray alloc]init];
         indiceLivroResponse.parteB = [[NSMutableArray alloc]init];
-    }else if ([elementName isEqualToString:@"ParteA" ] || [elementName isEqualToString:@"ParteB" ]){
-         item = [[ItemDoIndice alloc]init];
+        itemPai = [[ItemDoIndice alloc]init];
+    }
+    
+    if ([elementName isEqualToString:@"item" ] && ![idPai isEqualToString:itemPai.id]){
+        itemPai = [[ItemDoIndice alloc]init];
+        temFilho = NO;
+    }else if([elementName isEqualToString:@"itens"]){
+        temFilho = YES;
+        itemFilho = [[ItemDoIndice alloc]init];
+        itemPai.listaItens = [[NSMutableArray alloc]init];
+        idPai = itemPai.id;
     }
 }
 
@@ -40,40 +52,71 @@
     if([elementName isEqualToString:@"response"] || [elementName isEqualToString:@"livro"] || [elementName isEqualToString:@"indice"] || [elementName isEqualToString:@"ParteA" ] || [elementName isEqualToString:@"ParteB" ] ){
         return;
     }else if([elementName isEqualToString:@"erro"]){
-        [indiceLivroResponse setErro:valorElementoAtual];
+        [indiceLivroResponse setErro:[[valorElementoAtual stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] ];
     }else if([elementName isEqualToString:@"msgErro"]){
-        [indiceLivroResponse setMsgErro:valorElementoAtual];
-    }else if([elementName isEqualToString:@"item"] || [elementName isEqualToString:@"items"] ){
+        [indiceLivroResponse setMsgErro:[[valorElementoAtual stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] ];
+    }else if([elementName isEqualToString:@"item"]){
     
-        [item setValue:[[valorElementoAtual stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:elementName];
-        
-        if ([item.parte isEqualToString:@"Parte A"]) {
-            [indiceLivroResponse.parteA addObject:item];
-        }else if([item.parte isEqualToString:@"Parte B"]){
-            [indiceLivroResponse.parteB addObject:item];
+        if (![idPai isEqualToString:itemPai.id]) {
+            if ([itemPai.parte isEqualToString:@"Parte A"]) {
+                [indiceLivroResponse.parteA addObject:itemPai];
+            }else if([itemPai.parte isEqualToString:@"Parte B"]){
+                [indiceLivroResponse.parteB addObject:itemPai];
+            }
+            idPai = itemPai.id;
+            itemPai = nil;
+        }else{
+            [itemPai.listaItens addObject:itemFilho];
         }
+        
+    }else if([elementName isEqualToString:@"itens"]){
+        temFilho = NO;
+        itemFilho = nil;
+        idPai = nil;
+    }else{
+        if (!temFilho){
+           [itemPai setValue:[[valorElementoAtual stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:elementName];
+        }else{
+           [itemFilho setValue:[[valorElementoAtual stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:elementName];
+        }
+        
     }
 
     valorElementoAtual = nil;
-    item = nil;
     
 }
 
 -(IndiceLivroResponse *)montarIndiceDoLivro:(NSString *) indiceXML{
     
-    NSString *respostaXML = indiceXML;
-    NSLog(@"%@", respostaXML);
+    NSString *indice = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"indice.xml"];
     
-    NSData *respDataXML = [respostaXML dataUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"%@", respostaXML);
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:indice];
+    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", corpoXML);
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+    NSLog(@"%@", parser);
     [parser setDelegate:self];
-        
+    
     if(![parser parse]){
         NSLog(@"Erro ao realizar o parse");
     }else{
         NSLog(@"Ok Parse");
+        
     }
+    
+//    NSString *respostaXML = indiceXML;
+//    NSLog(@"%@", respostaXML);
+//    
+//    NSData *respDataXML = [respostaXML dataUsingEncoding:NSUTF8StringEncoding];
+//    NSLog(@"%@", respostaXML);
+//    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
+//    [parser setDelegate:self];
+//        
+//    if(![parser parse]){
+//        NSLog(@"Erro ao realizar o parse");
+//    }else{
+//        NSLog(@"Ok Parse");
+//    }
     
     return indiceLivroResponse;
 
