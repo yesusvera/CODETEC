@@ -13,6 +13,7 @@
 #import <CoreData/CoreData.h>
 #import "TextAnnotViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "LivroResponse.h"
 
 @class OutLineViewController;
 @class PDFView;
@@ -62,6 +63,7 @@
 @property (assign, nonatomic)int pagenow;
 @property (assign,nonatomic) BOOL b_keyboard;
 @property (assign,nonatomic) PopupMenu* popupMenu;
+@property (nonatomic, retain) LivroResponse *livro;
 - (IBAction)composeFile:(id) sender;
 - (IBAction)searchView:(id) sender;
 - (IBAction)drawLine:(id) sender;

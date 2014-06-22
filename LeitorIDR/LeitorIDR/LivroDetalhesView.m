@@ -66,6 +66,7 @@ NSUserDefaults *userDefaults;
         
         UINavigationController *nav = self.navigationController;
         m_pdf.hidesBottomBarWhenPushed = YES;
+        m_pdf.livro = livroResponse;
         [nav pushViewController:m_pdf animated:YES];
         int pageno =1;
         // [m_pdf initbar:pageno];

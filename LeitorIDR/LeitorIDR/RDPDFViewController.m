@@ -10,12 +10,17 @@
 #import "PopupMenu.h"
 #import "PDFVThumb.h"
 #import "PerguntaListas.h"
+#import "AnotacoesViewController.h"
 @interface RDPDFViewController ()
 
 
 @end
 
 @implementation RDPDFViewController
+
+int numeroPaginaAtual;
+
+@synthesize livro;
 @synthesize m_searchBar;
 @synthesize drawLineToolBar;
 @synthesize drawRectToolBar;
@@ -241,7 +246,15 @@ extern uint annotOvalColor;
 }
 
 -(void)notaDaPagina{
-    NSLog(@"notaDaPagina");
+    AnotacoesViewController *anotacoesViewController = [[AnotacoesViewController alloc] init];
+    
+    Nota *nota = [[Nota alloc]init];
+    nota.codigolivro = livro.codigolivro;
+    nota.pagina = [NSString stringWithFormat:@"%d",numeroPaginaAtual];
+    
+    anotacoesViewController.nota = nota;
+    
+    [self.navigationController pushViewController:anotacoesViewController animated:YES];
 }
 
 - (IBAction)drawLine:(id) sender
@@ -904,6 +917,7 @@ extern uint annotOvalColor;
     //if(pageno == pagecount -1) pageno = pagecount;
     [m_Thumbview vGoto:pageno];
     pageno++;
+    numeroPaginaAtual = pageno;
     // sliderBar.value = pageno;
     NSString *pagestr = [[NSString alloc]initWithFormat:@"%d/",pageno];
     pagestr = [pagestr stringByAppendingFormat:@"%d",pagecount];

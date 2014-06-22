@@ -15,5 +15,4 @@
 - (BOOL)existeNota:(Nota *) nota;
 - (NSMutableArray *) listaNotasPorCodLivro: (NSString *) codigoLivro;
 - (Nota *) pesquisarNotaPorPagina:(NSString *)pagina eCodigoDoLivro:(NSString *) codLivro;
-
 @end
