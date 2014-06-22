@@ -16,6 +16,10 @@
 		2988CEC118C97128005B84BE /* DadosCliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEC018C97128005B84BE /* DadosCliente.m */; };
 		299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 299D7B4718BC36FC00724BED /* EstanteResponse.m */; };
 		29B679E118D91E4300787E05 /* GLB.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B679E018D91E4300787E05 /* GLB.m */; };
+		29BABB261957543500CFEDA4 /* IndiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BABB241957543500CFEDA4 /* IndiceViewController.m */; };
+		29BABB271957543500CFEDA4 /* IndiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BABB251957543500CFEDA4 /* IndiceViewController.xib */; };
+		29BABB2B1957594A00CFEDA4 /* DetalheIndiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BABB291957594A00CFEDA4 /* DetalheIndiceViewController.m */; };
+		29BABB2C1957594A00CFEDA4 /* DetalheIndiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BABB2A1957594A00CFEDA4 /* DetalheIndiceViewController.xib */; };
 		29CFB1C7194FC06600E9DBDA /* PDFV.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB1B3194FC06600E9DBDA /* PDFV.m */; };
 		29CFB1C8194FC06600E9DBDA /* PDFVCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB1B5194FC06600E9DBDA /* PDFVCanvas.m */; };
 		29CFB1C9194FC06600E9DBDA /* PDFVFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB1B7194FC06600E9DBDA /* PDFVFinder.m */; };
@@ -139,6 +143,12 @@
 		299D7B4718BC36FC00724BED /* EstanteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstanteResponse.m; sourceTree = "<group>"; };
 		29B679DF18D91E4300787E05 /* GLB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLB.h; sourceTree = "<group>"; };
 		29B679E018D91E4300787E05 /* GLB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLB.m; sourceTree = "<group>"; };
+		29BABB231957543500CFEDA4 /* IndiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndiceViewController.h; sourceTree = "<group>"; };
+		29BABB241957543500CFEDA4 /* IndiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndiceViewController.m; sourceTree = "<group>"; };
+		29BABB251957543500CFEDA4 /* IndiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndiceViewController.xib; sourceTree = "<group>"; };
+		29BABB281957594A00CFEDA4 /* DetalheIndiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalheIndiceViewController.h; sourceTree = "<group>"; };
+		29BABB291957594A00CFEDA4 /* DetalheIndiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalheIndiceViewController.m; sourceTree = "<group>"; };
+		29BABB2A1957594A00CFEDA4 /* DetalheIndiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetalheIndiceViewController.xib; sourceTree = "<group>"; };
 		29CFB1B2194FC06600E9DBDA /* PDFV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFV.h; sourceTree = "<group>"; };
 		29CFB1B3194FC06600E9DBDA /* PDFV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFV.m; sourceTree = "<group>"; };
 		29CFB1B4194FC06600E9DBDA /* PDFVCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFVCanvas.h; sourceTree = "<group>"; };
@@ -315,7 +325,6 @@
 		299D7B4318BC35A300724BED /* estantes */ = {
 			isa = PBXGroup;
 			children = (
-				FBDF8A721877E353000EC732 /* connection */,
 				FBF1E1341869506E00671EE2 /* EstantesController.h */,
 				FBF1E1351869506E00671EE2 /* EstantesController.m */,
 				FBDF8A781878C0FD000EC732 /* EstanteLivrosController.h */,
@@ -336,6 +345,12 @@
 				FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */,
 				FBDF8A7A1878C0FD000EC732 /* EstanteLivrosController.xib */,
 				FB3A5C5218BD639400A0FEA8 /* LivroDetalhesView.xib */,
+				29BABB231957543500CFEDA4 /* IndiceViewController.h */,
+				29BABB241957543500CFEDA4 /* IndiceViewController.m */,
+				29BABB251957543500CFEDA4 /* IndiceViewController.xib */,
+				29BABB281957594A00CFEDA4 /* DetalheIndiceViewController.h */,
+				29BABB291957594A00CFEDA4 /* DetalheIndiceViewController.m */,
+				29BABB2A1957594A00CFEDA4 /* DetalheIndiceViewController.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -541,7 +556,8 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
-				FBC491F7195647DA00947243 /* notas */,
+				FBDF8A721877E353000EC732 /* connection */,
+				290E7B38195655AD0026769E /* indice.xml */,
 				FB63E067195370B5000591E5 /* dao */,
 				FBD0EC3F1951514E00905486 /* PopUpview */,
 				FB3A5C5618BD772200A0FEA8 /* util */,
@@ -757,6 +773,7 @@
 				FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */,
 				FB63E06319534F8C000591E5 /* .gitignore in Resources */,
 				FBF1E1381869506E00671EE2 /* EstantesController.xib in Resources */,
+				29BABB2C1957594A00CFEDA4 /* DetalheIndiceViewController.xib in Resources */,
 				FB5F0A8418615A800068D497 /* Main_iPad.storyboard in Resources */,
 				FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */,
 				FB63E04A195152D8000591E5 /* annot_line.png in Resources */,
@@ -764,6 +781,7 @@
 				FB63E052195152D8000591E5 /* manage_mark.png in Resources */,
 				FB63E06419534F8C000591E5 /* README.markdown in Resources */,
 				FB63E04E195152D8000591E5 /* icon.png in Resources */,
+				29BABB271957543500CFEDA4 /* IndiceViewController.xib in Resources */,
 				FBC491F6195633C500947243 /* PerguntaListas.xib in Resources */,
 				FB63E056195152D8000591E5 /* view_menu.png in Resources */,
 				FB63E057195152D8000591E5 /* view_page.png in Resources */,
@@ -821,6 +839,7 @@
 				29CFB1D0194FC06600E9DBDA /* PDFObjc.m in Sources */,
 				FB63E06D19538959000591E5 /* NotasDAO.m in Sources */,
 				295AD9DC19551DD200A1DA55 /* ItemDoIndice.m in Sources */,
+				29BABB261957543500CFEDA4 /* IndiceViewController.m in Sources */,
 				82E0390E18B8DD7A00EE7722 /* AFURLSessionManager.m in Sources */,
 				FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */,
 				29CFB1C8194FC06600E9DBDA /* PDFVCanvas.m in Sources */,
@@ -833,6 +852,7 @@
 				82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */,
 				29CFB1CC194FC06600E9DBDA /* PDFVPage.m in Sources */,
 				FB5F0A7E18615A800068D497 /* AppDelegate.m in Sources */,
+				29BABB2B1957594A00CFEDA4 /* DetalheIndiceViewController.m in Sources */,
 				82E0390918B8DD7A00EE7722 /* AFNetworkReachabilityManager.m in Sources */,
 				FB62EE2018763779007661BF /* ConexaoRegistrarDispositivo.m in Sources */,
 				82F335AA18B5AEFE001636EE /* LivroResponse.m in Sources */,

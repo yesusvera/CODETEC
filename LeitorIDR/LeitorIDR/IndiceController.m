@@ -1,19 +1,18 @@
 //
-//  PerguntaListas.m
+//  NSObject+IndiceController.m
 //  LeitorIDR
 //
-//  Created by Yesus Castillo Vera on 21/06/14.
+//  Created by Jonathan Jordan Carrillo Salcedo on 22/06/14.
 //  Copyright (c) 2014 Yesus Castillo Vera. All rights reserved.
 //
 
-#import "PerguntaListas.h"
-#import "MontadorDeIncideDoLivro.h"
-#import "IndiceViewController.h"
-@interface PerguntaListas ()
+#import "IndiceController.h"
+
+@interface IndiceController()
 
 @end
 
-@implementation PerguntaListas
+@implementation IndiceController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.title= @"Indice";
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,7 +42,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"lista"];
-
+    
     if(indexPath.row == 0){
         cell.textLabel.text = @"Índice...";
     }else if(indexPath.row == 1){
@@ -55,17 +55,13 @@
     
     
     if (indexPath.row == 0) {
-        MontadorDeIncideDoLivro *montadorIndice = [[MontadorDeIncideDoLivro alloc]init];
-        //TODO FALTA PASSAR O CAMINHO DO LIVRO PARA QUE SEJA FEITO O PARSE
-
-        IndiceViewController *indice = [[IndiceViewController alloc]init];
-        [indice setIndiceDoLivro:[montadorIndice montarIndiceDoLivro:nil]];
-        [self.navigationController pushViewController:indice animated:YES];
+    
     }else if (indexPath.row == 1){
         // DIRECIONAR PARA A TELA DE ANOTAÇÕES
     }
-
+    
 }
+
 
 
 @end
