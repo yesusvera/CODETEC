@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface ItemDoIndice : NSObject{
-    NSString *ID;
+    NSString *id;
     NSString *capitulo;
     NSString *paginavirtual;
     NSString *paginareal;
@@ -18,7 +18,7 @@
     NSMutableArray *listaItens;
 }
 
-@property(nonatomic, retain) NSString *ID;
+@property(nonatomic, retain) NSString *id;
 @property(nonatomic, retain) NSString *capitulo;
 @property(nonatomic, retain) NSString *paginavirtual;
 @property(nonatomic, retain) NSString *paginareal;
