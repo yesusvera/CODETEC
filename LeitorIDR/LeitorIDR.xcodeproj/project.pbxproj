@@ -92,6 +92,7 @@
 		FB63E07019538980000591E5 /* Nota.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63E06F1953897F000591E5 /* Nota.m */; };
 		FB8EE8EB1957671200FB91C9 /* AnotacoesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE8E91957671200FB91C9 /* AnotacoesViewController.m */; };
 		FB8EE8EC1957671200FB91C9 /* AnotacoesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE8EA1957671200FB91C9 /* AnotacoesViewController.xib */; };
+		FB8EE8EE195768D800FB91C9 /* indice.xml in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE8ED195768D800FB91C9 /* indice.xml */; };
 		FBC491F5195633C500947243 /* PerguntaListas.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC491F3195633C500947243 /* PerguntaListas.m */; };
 		FBC491F6195633C500947243 /* PerguntaListas.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC491F4195633C500947243 /* PerguntaListas.xib */; };
 		FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */; };
@@ -261,6 +262,7 @@
 		FB8EE8E81957671200FB91C9 /* AnotacoesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotacoesViewController.h; sourceTree = "<group>"; };
 		FB8EE8E91957671200FB91C9 /* AnotacoesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnotacoesViewController.m; sourceTree = "<group>"; };
 		FB8EE8EA1957671200FB91C9 /* AnotacoesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnotacoesViewController.xib; sourceTree = "<group>"; };
+		FB8EE8ED195768D800FB91C9 /* indice.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = indice.xml; sourceTree = "<group>"; };
 		FBC491F2195633C500947243 /* PerguntaListas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerguntaListas.h; sourceTree = "<group>"; };
 		FBC491F3195633C500947243 /* PerguntaListas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerguntaListas.m; sourceTree = "<group>"; };
 		FBC491F4195633C500947243 /* PerguntaListas.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerguntaListas.xib; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 		FB5F0A7318615A800068D497 /* LeitorIDR */ = {
 			isa = PBXGroup;
 			children = (
+				FB8EE8ED195768D800FB91C9 /* indice.xml */,
 				FB63E035195152CA000591E5 /* image */,
 				29CFB203194FC4D800E9DBDA /* NSObject */,
 				29CFB1FF194FC46900E9DBDA /* cmaps */,
@@ -793,6 +796,7 @@
 				FB63E05D19534F56000591E5 /* leitoribracon.db in Resources */,
 				FB63E04B195152D8000591E5 /* annot_rect.png in Resources */,
 				FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */,
+				FB8EE8EE195768D800FB91C9 /* indice.xml in Resources */,
 				29CFB201194FC46900E9DBDA /* cmaps in Resources */,
 				FBF102251870AFB900B4A361 /* Media.xcassets in Resources */,
 				FB63E054195152D8000591E5 /* right_arrow.png in Resources */,

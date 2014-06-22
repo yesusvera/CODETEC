@@ -67,6 +67,10 @@
         nota.nota = self.txtNota.text;
         [notasDAO salvarAtualizarNota:nota];
         
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Anotação salva com sucesso." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+        
     }
 }
 
