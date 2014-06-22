@@ -177,8 +177,19 @@ NSUserDefaults *userDefaults;
 
 -(IBAction)startDownload:(id)sender{
     
-    [self downloadArquivo:livroResponse.arquivomobile];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Deseja realmente baixa este livro?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil];
+    alertView.alertViewStyle = UIAlertViewStyleDefault;
     
+    [alertView show];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        [self downloadArquivo:livroResponse.arquivomobile];
+    }
 }
 
 
@@ -282,6 +293,11 @@ NSUserDefaults *userDefaults;
         loadingIndicator.hidden = YES;
         downPdf.hidden = YES;
         abrirPdf.hidden = NO;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Livro baixado com sucesso!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+
         
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
         [GLB showMessage:
