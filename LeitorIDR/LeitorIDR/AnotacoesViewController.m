@@ -67,8 +67,6 @@
         nota.nota = self.txtNota.text;
         [notasDAO salvarAtualizarNota:nota];
         
-        self.
-        
     }
 }
 
