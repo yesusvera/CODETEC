@@ -51,9 +51,22 @@
 }
 
 - (IBAction)salvarAnotacao:(id)sender {
-    nota.titulo = self.txtTitulo.text;
-    nota.nota = self.txtNota.text;
+
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Deseja realmente salvar esta anotação?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil];
+    alertView.alertViewStyle = UIAlertViewStyleDefault;
     
-    [notasDAO salvarAtualizarNota:nota];
+    [alertView show];
+
+   }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        nota.titulo = self.txtTitulo.text;
+        nota.nota = self.txtNota.text;
+        [notasDAO salvarAtualizarNota:nota];
+    }
 }
+
 @end
