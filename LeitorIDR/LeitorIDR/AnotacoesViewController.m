@@ -34,7 +34,7 @@
     self.lblTituloPagina.text =[NSString stringWithFormat:@"Anotação página %@", nota.pagina];
     
     notasDAO =[[NotasDAO alloc] init];
-    Nota *notaTmp = [notasDAO pesquisarNotaPorPagina:nota.pagina eCodigoDoLivro:nota.pagina];
+    Nota *notaTmp = [notasDAO pesquisarNotaPorPagina:nota.pagina eCodigoDoLivro:nota.codigolivro];
     
     if(notaTmp!=nil){
         nota = notaTmp;

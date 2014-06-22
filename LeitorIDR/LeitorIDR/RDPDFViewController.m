@@ -17,6 +17,9 @@
 @end
 
 @implementation RDPDFViewController
+
+int numeroPaginaAtual;
+
 @synthesize livro;
 @synthesize m_searchBar;
 @synthesize drawLineToolBar;
@@ -63,7 +66,7 @@ extern uint annotOvalColor;
 //    rectButton.width =30;
 //    UIBarButtonItem *addBookMarkButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"add_mark.png"] style:UIBarStyleBlackOpaque target:self action:@selector(composeFile:)];
 //    addBookMarkButton.width = 30;
-    UIBarButtonItem *viewMenuButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"view_menu.png"] style:UIBarStyleBlackOpaque target:self action:@selector(viewMenu)];
+    UIBarButtonItem *viewMenuButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"view_menu.png"] style:UIBarStyleBlackOpaque target:self action:@selector(viewMenu:)];
     viewMenuButton.width =30;
 //    UIBarButtonItem *ellipseButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"annot_ellipse.png"] style:UIBarStyleBlackOpaque target:self action:@selector(drawEllipse:)];
 //    ellipseButton.width =30;
@@ -247,7 +250,7 @@ extern uint annotOvalColor;
     
     Nota *nota = [[Nota alloc]init];
     nota.codigolivro = livro.codigolivro;
-    nota.pagina = [NSString stringWithFormat:@"%d",pagenow];
+    nota.pagina = [NSString stringWithFormat:@"%d",numeroPaginaAtual];
     
     anotacoesViewController.nota = nota;
     
@@ -914,6 +917,7 @@ extern uint annotOvalColor;
     //if(pageno == pagecount -1) pageno = pagecount;
     [m_Thumbview vGoto:pageno];
     pageno++;
+    numeroPaginaAtual = pageno;
     // sliderBar.value = pageno;
     NSString *pagestr = [[NSString alloc]initWithFormat:@"%d/",pageno];
     pagestr = [pagestr stringByAppendingFormat:@"%d",pagecount];
