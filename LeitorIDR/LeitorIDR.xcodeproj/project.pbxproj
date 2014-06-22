@@ -543,6 +543,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				290E7B38195655AD0026769E /* indice.xml */,
 				FBC491F7195647DA00947243 /* notas */,
 				FB63E067195370B5000591E5 /* dao */,
 				FBD0EC3F1951514E00905486 /* PopUpview */,

@@ -52,6 +52,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
+    if (indexPath.row == 0) {
+        MontadorDeIncideDoLivro *montadorIndice = [[MontadorDeIncideDoLivro alloc]init];
+        [montadorIndice montarIndiceDoLivro:nil];
+    }
+//    LivroDetalhesView *livroDetalhesView = [[LivroDetalhesView alloc]init];
+//    livroDetalhesView.livroResponse = [listaLivros objectAtIndex:indexPath.row];
+//    livroDetalhesView.registrarDispositivoResponse = registrarDispositivoResponse;
+//    
+//    [self.navigationController pushViewController:livroDetalhesView animated:YES];
 }
 
 
