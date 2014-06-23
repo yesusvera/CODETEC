@@ -122,10 +122,9 @@ extern uint annotOvalColor;
     popupMenu1.items = [NSArray arrayWithObjects:item1,item5,item4,item3,item6,nil];
     
     m_bSel = false;
-}
--(void)viewWillAppear:(BOOL)animated
-{
     
+    
+    //EXTRAIDO DO VIEWVILL APPER POR YESUS
     toolBar = [UIToolbar new];
     [toolBar sizeToFit];
 	//CGFloat toolbarHeight = [toolBar frame].size.height;
@@ -137,25 +136,31 @@ extern uint annotOvalColor;
     //GEAR
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayedDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     //END
+    
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    if(!b_outline)
-    {
-        [m_Thumbview vClose];
-        [m_view vClose];
-    }
-    //delete temp files
-    for(int i=0; i<[tempfiles count];i++)
-    {
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        [fileManager removeItemAtPath:[tempfiles objectAtIndex:i] error:nil];
-        [tempfiles removeObjectAtIndex:i];
-    }
-    //GEAR
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    //END
+//    if(!b_outline)
+//    {
+//        [m_Thumbview vClose];
+//        [m_view vClose];
+//    }
+//    //delete temp files
+//    for(int i=0; i<[tempfiles count];i++)
+//    {
+//        NSFileManager *fileManager = [NSFileManager defaultManager];
+//        [fileManager removeItemAtPath:[tempfiles objectAtIndex:i] error:nil];
+//        [tempfiles removeObjectAtIndex:i];
+//    }
+//    //GEAR
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    //END
 }
 
 -(void)composeFile:(id)sender
