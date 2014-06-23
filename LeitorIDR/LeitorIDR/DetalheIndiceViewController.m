@@ -69,34 +69,13 @@
         detalhesFilho.viewLivro     = self.viewLivro;
         [self.navigationController pushViewController:detalhesFilho animated:YES];
     }else{
-        
-        RDPDFViewController *m_pdf = self.viewLivro;
-        if( m_pdf == nil )
-        {
-            m_pdf = [[RDPDFViewController alloc] initWithNibName:@"RDPDFViewController"bundle:nil];
-        }
-        
-        NSString *documentName = [m_pdf.livro.arquivomobile.lastPathComponent stringByRemovingPercentEncoding];
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        
-        NSString *fullPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
-        
-        NSLog(@"Abrindo o arquivo: %@",fullPath);
-        
-        int result = [m_pdf PDFOpen: fullPath:@"ibracon%2014"];
-        
-        if(result == 1)
-        {
-            UINavigationController *nav = self.navigationController;
-            m_pdf.hidesBottomBarWhenPushed = YES;
-            int pageno = [[detalheIndice objectAtIndex:indexPath.row] paginareal].intValue - 1;
-            
-            [m_pdf PDFGoto:pageno];
-            [nav popToViewController:m_pdf animated:YES];
-            [m_pdf PDFThumbNailinit:pageno];
-            
-        }
+      UINavigationController *nav = self.navigationController;
+       int pageno = [[detalheIndice objectAtIndex:indexPath.row] paginareal].intValue - 1;
+       
+       [viewLivro PDFGoto:pageno];
+       [nav popToViewController:viewLivro animated:YES];
+       [viewLivro PDFThumbNailinit:pageno];
+
     }
 }
 
