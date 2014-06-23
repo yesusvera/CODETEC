@@ -50,6 +50,7 @@
     }else if(indexPath.row == 1){
         cell.textLabel.text = @"Anotações...";
     }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 

@@ -50,6 +50,8 @@
     }else if(indexPath.row == 1){
         cell.textLabel.text = @"Parte B";
     }
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
