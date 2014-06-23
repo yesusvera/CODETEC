@@ -54,15 +54,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    DetalheIndiceViewController *detalhesIndice = [[DetalheIndiceViewController alloc]init];
+    detalhesIndice.viewLivro = self.viewLivro;
     
     if (indexPath.row == 0) {
-        DetalheIndiceViewController *detalhesIndice = [[DetalheIndiceViewController alloc]init];
         detalhesIndice.detalheIndice = indiceDoLivro.parteA;
         [self.navigationController pushViewController:detalhesIndice animated:YES];
         
     }else if (indexPath.row == 1){
-        DetalheIndiceViewController *detalhesIndice = [[DetalheIndiceViewController alloc]init];
         detalhesIndice.detalheIndice = indiceDoLivro.parteB;
         [self.navigationController pushViewController:detalhesIndice animated:YES];
     }

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "IndiceLivroResponse.h"
 #import "LivroResponse.h"
+#import "RDPDFViewController.h"
 
 @interface IndiceViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
     IndiceLivroResponse *indiceDoLivro;
@@ -16,5 +17,6 @@
 
 @property (nonatomic, retain) IndiceLivroResponse *indiceDoLivro;
 @property (nonatomic, retain) LivroResponse *livro;
+@property (nonatomic, retain) RDPDFViewController *viewLivro;
 
 @end

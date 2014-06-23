@@ -91,11 +91,28 @@
     
 }
 
--(IndiceLivroResponse *)montarIndiceDoLivro:(NSString *) indiceXML{
+-(IndiceLivroResponse *)montarIndiceDoLivro:(NSString *) localIndiceXML{
     
-    NSString *indice = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"indice.xml"];
+//    NSString *indice = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"indice.xml"];
+//    
+//    NSData *data = [[NSData alloc] initWithContentsOfFile:indice];
+//    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSLog(@"%@", corpoXML);
+//    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+//    NSLog(@"%@", parser);
+//    [parser setDelegate:self];
+//    
+//    if(![parser parse]){
+//        NSLog(@"Erro ao realizar o parse");
+//    }else{
+//        NSLog(@"Ok Parse");
+//        
+//    }
     
-    NSData *data = [[NSData alloc] initWithContentsOfFile:indice];
+    NSLog(@"%@", localIndiceXML);
+    NSString *thumbnailsPath = localIndiceXML;
+    NSData *data = [[NSData alloc] initWithContentsOfFile:thumbnailsPath];
+    
     NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"%@", corpoXML);
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
@@ -108,20 +125,6 @@
         NSLog(@"Ok Parse");
         
     }
-    
-//    NSString *respostaXML = indiceXML;
-//    NSLog(@"%@", respostaXML);
-//    
-//    NSData *respDataXML = [respostaXML dataUsingEncoding:NSUTF8StringEncoding];
-//    NSLog(@"%@", respostaXML);
-//    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
-//    [parser setDelegate:self];
-//        
-//    if(![parser parse]){
-//        NSLog(@"Erro ao realizar o parse");
-//    }else{
-//        NSLog(@"Ok Parse");
-//    }
     
     return indiceLivroResponse;
 

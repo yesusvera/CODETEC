@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RDPDFViewController.h"
 
 @interface DetalheIndiceViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
     NSMutableArray *detalheIndice;
 }
 
 @property (nonatomic, retain) NSMutableArray *detalheIndice;
+@property (nonatomic, retain) RDPDFViewController *viewLivro;
 
 @end

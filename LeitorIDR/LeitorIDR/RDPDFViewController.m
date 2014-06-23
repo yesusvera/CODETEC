@@ -387,6 +387,7 @@ extern uint annotOvalColor;
 {
     PerguntaListas *perguntasListas = [[PerguntaListas alloc]init];
     perguntasListas.livro = livro;
+    perguntasListas.viewLivro = self;
     [self.navigationController pushViewController:perguntasListas animated:YES];
 }
 -(IBAction)lockView:(id)sender

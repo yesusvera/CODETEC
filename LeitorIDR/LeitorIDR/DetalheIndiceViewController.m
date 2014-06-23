@@ -16,7 +16,7 @@
 @implementation DetalheIndiceViewController{
     
 }
-@synthesize detalheIndice;
+@synthesize detalheIndice,viewLivro;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,6 +64,12 @@
         [self.navigationController pushViewController:detalhesFilho animated:YES];
     }else{
         
+        //[self.viewLivro PDFGoto:[[detalheIndice objectAtIndex:indexPath.row] paginareal].integerValue];
+        
+        
+        [self.viewLivro PDFThumbNailinit:[[detalheIndice objectAtIndex:indexPath.row] paginareal].integerValue];
+        [self.navigationController popToViewController:self.viewLivro animated:YES];
+        //[self.viewLivro PDFGoto:[[detalheIndice objectAtIndex:indexPath.row] paginareal].integerValue];
     }
 
 }

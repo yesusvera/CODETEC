@@ -62,7 +62,8 @@
 
         IndiceViewController *indice = [[IndiceViewController alloc]init];
         indice.livro = livro;
-        [indice setIndiceDoLivro:[montadorIndice montarIndiceDoLivro:nil]];
+        [indice setIndiceDoLivro:[montadorIndice montarIndiceDoLivro:livro.indiceXML]];
+        indice.viewLivro = self.viewLivro;
         [self.navigationController pushViewController:indice animated:YES];
     }else if (indexPath.row == 1){
         ListaAnotacoesViewController *listaAnotacoesViewController = [[ListaAnotacoesViewController alloc]init];
