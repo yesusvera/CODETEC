@@ -9,6 +9,7 @@
 #import "ListaAnotacoesViewController.h"
 #import "Nota.h"
 #import "NotasDAO.h"
+#import "AnotacoesViewController.h"
 
 @interface ListaAnotacoesViewController ()
 
@@ -55,7 +56,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    AnotacoesViewController *anotacoesViewController = [[AnotacoesViewController alloc] init];
     
+    anotacoesViewController.nota = [listaAnotacoes objectAtIndex:indexPath.row];
+    
+    [self.navigationController pushViewController:anotacoesViewController animated:YES];
 }
 
 

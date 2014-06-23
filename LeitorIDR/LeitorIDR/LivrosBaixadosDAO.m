@@ -36,8 +36,10 @@
 - (LivroResponse *) pesquisarLivroPeloCodigo: (NSString *) codigo{
     
     NSArray *results = [SCSQLite selectRowSQL:@"Select * from LivroBaixado where codigoLivro = '%@'", codigo];
-    if(results.count > 0){
-        NSDictionary *livroDictionary = [results objectAtIndex:0];
+    int i = 0;
+    while(i < results.count){
+
+        NSDictionary *livroDictionary = [results objectAtIndex:i];
         
         LivroResponse *livroBaixado = [LivroResponse alloc];
         livroBaixado.codigolivro = [livroDictionary objectForKey:@"codigoLivro"];
@@ -50,6 +52,8 @@
         livroBaixado.indiceXML = [livroDictionary objectForKey:@"indiceXML"];
         livroBaixado.tipoLivro = [livroDictionary objectForKey:@"tipoLivro"];
         
+        
+        i++;
         return livroBaixado;
     }
     return nil;
