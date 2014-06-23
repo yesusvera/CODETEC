@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LivroResponse.h"
 
 @interface PerguntaListas : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic, retain) LivroResponse *livro;
 
 @end
