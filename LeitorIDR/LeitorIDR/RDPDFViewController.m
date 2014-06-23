@@ -250,7 +250,7 @@ extern uint annotOvalColor;
     
     Nota *nota = [[Nota alloc]init];
     nota.codigolivro = livro.codigolivro;
-    nota.pagina = numeroPaginaAtual;
+    nota.pagina = [NSString stringWithFormat:@"%d",numeroPaginaAtual];
     
     anotacoesViewController.nota = nota;
     
