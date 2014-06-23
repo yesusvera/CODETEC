@@ -25,9 +25,13 @@
         itemPai = [[ItemDoIndice alloc]init];
     }
     
-    if ([elementName isEqualToString:@"item" ] && ![idPai isEqualToString:itemPai.id]){
-        itemPai = [[ItemDoIndice alloc]init];
-        temFilho = NO;
+    if ([elementName isEqualToString:@"item" ]){
+        if([idPai isEqualToString:itemPai.id]){
+            itemFilho = [[ItemDoIndice alloc]init];
+        }else{
+            itemPai = [[ItemDoIndice alloc]init];
+            temFilho = NO;
+        }
     }else if([elementName isEqualToString:@"itens"]){
         temFilho = YES;
         itemFilho = [[ItemDoIndice alloc]init];
@@ -67,6 +71,7 @@
             itemPai = nil;
         }else{
             [itemPai.listaItens addObject:itemFilho];
+            itemFilho = nil;
         }
         
     }else if([elementName isEqualToString:@"itens"]){
