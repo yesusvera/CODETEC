@@ -570,7 +570,6 @@
 				299D7B4518BC35E800724BED /* registro */,
 				299D7B4418BC35B100724BED /* views */,
 				299D7B4318BC35A300724BED /* estantes */,
-				FBDF8A711877CC70000EC732 /* xml */,
 				FBDF8A701877CC5B000EC732 /* model */,
 			);
 			name = com.br.ibracon;
@@ -682,13 +681,6 @@
 				295AD9DB19551DD200A1DA55 /* ItemDoIndice.m */,
 			);
 			name = model;
-			sourceTree = "<group>";
-		};
-		FBDF8A711877CC70000EC732 /* xml */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = xml;
 			sourceTree = "<group>";
 		};
 		FBDF8A721877E353000EC732 /* connection */ = {
