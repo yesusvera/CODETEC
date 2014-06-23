@@ -55,7 +55,9 @@
     if ([[detalheIndice objectAtIndex:indexPath.row] listaItens]) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    
     cell.textLabel.text = itemIndice.capitulo;
+
 
     return cell;
 }
