@@ -54,6 +54,7 @@
     ItemDoIndice *itemIndice = [detalheIndice objectAtIndex:indexPath.row];
 
     cell.textLabel.text = itemIndice.capitulo;
+
     return cell;
 }
 
@@ -64,12 +65,33 @@
         [self.navigationController pushViewController:detalhesFilho animated:YES];
     }else{
         
-        //[self.viewLivro PDFGoto:[[detalheIndice objectAtIndex:indexPath.row] paginareal].integerValue];
+        RDPDFViewController *m_pdf = self.viewLivro;
+        if( m_pdf == nil )
+        {
+            m_pdf = [[RDPDFViewController alloc] initWithNibName:@"RDPDFViewController"bundle:nil];
+        }
         
+        NSString *documentName = [m_pdf.livro.arquivomobile.lastPathComponent stringByRemovingPercentEncoding];
         
-        [self.viewLivro PDFThumbNailinit:[[detalheIndice objectAtIndex:indexPath.row] paginareal].integerValue];
-        [self.navigationController popToViewController:self.viewLivro animated:YES];
-        //[self.viewLivro PDFGoto:[[detalheIndice objectAtIndex:indexPath.row] paginareal].integerValue];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        
+        NSString *fullPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
+        
+        NSLog(@"Abrindo o arquivo: %@",fullPath);
+        
+        int result = [m_pdf PDFOpen: fullPath:@"ibracon%2014"];
+        
+        if(result == 1)
+        {
+            UINavigationController *nav = self.navigationController;
+            m_pdf.hidesBottomBarWhenPushed = YES;
+            int pageno = [[detalheIndice objectAtIndex:indexPath.row] paginareal].intValue - 1;
+            
+            [m_pdf PDFGoto:pageno];
+            [nav popToViewController:m_pdf animated:YES];
+            [m_pdf PDFThumbNailinit:pageno];
+            
+        }
     }
 
 }
