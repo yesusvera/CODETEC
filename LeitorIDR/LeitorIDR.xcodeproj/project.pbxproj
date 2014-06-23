@@ -93,6 +93,8 @@
 		FB8EE8EB1957671200FB91C9 /* AnotacoesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE8E91957671200FB91C9 /* AnotacoesViewController.m */; };
 		FB8EE8EC1957671200FB91C9 /* AnotacoesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE8EA1957671200FB91C9 /* AnotacoesViewController.xib */; };
 		FB8EE8EE195768D800FB91C9 /* indice.xml in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE8ED195768D800FB91C9 /* indice.xml */; };
+		FB8EE8F41957AF1B00FB91C9 /* ListaAnotacoesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE8F21957AF1B00FB91C9 /* ListaAnotacoesViewController.m */; };
+		FB8EE8F51957AF1B00FB91C9 /* ListaAnotacoesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE8F31957AF1B00FB91C9 /* ListaAnotacoesViewController.xib */; };
 		FBC491F5195633C500947243 /* PerguntaListas.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC491F3195633C500947243 /* PerguntaListas.m */; };
 		FBC491F6195633C500947243 /* PerguntaListas.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC491F4195633C500947243 /* PerguntaListas.xib */; };
 		FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */; };
@@ -263,6 +265,9 @@
 		FB8EE8E91957671200FB91C9 /* AnotacoesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnotacoesViewController.m; sourceTree = "<group>"; };
 		FB8EE8EA1957671200FB91C9 /* AnotacoesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnotacoesViewController.xib; sourceTree = "<group>"; };
 		FB8EE8ED195768D800FB91C9 /* indice.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = indice.xml; sourceTree = "<group>"; };
+		FB8EE8F11957AF1B00FB91C9 /* ListaAnotacoesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaAnotacoesViewController.h; sourceTree = "<group>"; };
+		FB8EE8F21957AF1B00FB91C9 /* ListaAnotacoesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaAnotacoesViewController.m; sourceTree = "<group>"; };
+		FB8EE8F31957AF1B00FB91C9 /* ListaAnotacoesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListaAnotacoesViewController.xib; sourceTree = "<group>"; };
 		FBC491F2195633C500947243 /* PerguntaListas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerguntaListas.h; sourceTree = "<group>"; };
 		FBC491F3195633C500947243 /* PerguntaListas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerguntaListas.m; sourceTree = "<group>"; };
 		FBC491F4195633C500947243 /* PerguntaListas.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerguntaListas.xib; sourceTree = "<group>"; };
@@ -337,9 +342,6 @@
 		299D7B4418BC35B100724BED /* views */ = {
 			isa = PBXGroup;
 			children = (
-				FBC491F2195633C500947243 /* PerguntaListas.h */,
-				FBC491F3195633C500947243 /* PerguntaListas.m */,
-				FBC491F4195633C500947243 /* PerguntaListas.xib */,
 				FBF1E1361869506E00671EE2 /* EstantesController.xib */,
 				FB5A361118657EA6006C7FF3 /* RegistroNaoAssociadoController.xib */,
 				FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */,
@@ -558,6 +560,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				FB8EE8EF1957AEE100FB91C9 /* perguntaListas */,
 				FB8EE8E7195766E900FB91C9 /* anotacoes */,
 				FBDF8A721877E353000EC732 /* connection */,
 				FB63E067195370B5000591E5 /* dao */,
@@ -626,8 +629,21 @@
 				FB8EE8E81957671200FB91C9 /* AnotacoesViewController.h */,
 				FB8EE8E91957671200FB91C9 /* AnotacoesViewController.m */,
 				FB8EE8EA1957671200FB91C9 /* AnotacoesViewController.xib */,
+				FB8EE8F11957AF1B00FB91C9 /* ListaAnotacoesViewController.h */,
+				FB8EE8F21957AF1B00FB91C9 /* ListaAnotacoesViewController.m */,
+				FB8EE8F31957AF1B00FB91C9 /* ListaAnotacoesViewController.xib */,
 			);
 			name = anotacoes;
+			sourceTree = "<group>";
+		};
+		FB8EE8EF1957AEE100FB91C9 /* perguntaListas */ = {
+			isa = PBXGroup;
+			children = (
+				FBC491F2195633C500947243 /* PerguntaListas.h */,
+				FBC491F3195633C500947243 /* PerguntaListas.m */,
+				FBC491F4195633C500947243 /* PerguntaListas.xib */,
+			);
+			name = perguntaListas;
 			sourceTree = "<group>";
 		};
 		FBD0EC3F1951514E00905486 /* PopUpview */ = {
@@ -787,6 +803,7 @@
 				FB63E056195152D8000591E5 /* view_menu.png in Resources */,
 				FB63E057195152D8000591E5 /* view_page.png in Resources */,
 				FB63E04C195152D8000591E5 /* annot_remove.png in Resources */,
+				FB8EE8F51957AF1B00FB91C9 /* ListaAnotacoesViewController.xib in Resources */,
 				FB8EE8EC1957671200FB91C9 /* AnotacoesViewController.xib in Resources */,
 				FB63E053195152D8000591E5 /* pdf_icon.png in Resources */,
 				FBD0EC3E1951513900905486 /* RDPDFViewController.xib in Resources */,
@@ -869,6 +886,7 @@
 				295AD9DF19551F8600A1DA55 /* MontadorDeIncideDoLivro.m in Sources */,
 				29CFB1CB194FC06600E9DBDA /* PDFView.m in Sources */,
 				29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */,
+				FB8EE8F41957AF1B00FB91C9 /* ListaAnotacoesViewController.m in Sources */,
 				FBD0EC391951512600905486 /* TextAnnotViewController.m in Sources */,
 				29CFB206194FC4D800E9DBDA /* NSObject+PerformBlock.m in Sources */,
 				FBDF8A7B1878C0FD000EC732 /* EstanteLivrosController.m in Sources */,

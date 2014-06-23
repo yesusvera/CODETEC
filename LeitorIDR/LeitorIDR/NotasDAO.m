@@ -35,9 +35,11 @@
     NSMutableArray *listaNotas = [[NSMutableArray alloc] init];
     
     NSArray *results = [SCSQLite selectRowSQL:@"Select * from Nota where codigoLivro = '%@'", codigoLivro];
-    if(results.count > 0){
+    int i = 0;
+    while(i < results.count){
         Nota *nota = [[Nota alloc] init];
-        NSDictionary *notaDictionary = [results objectAtIndex:0];
+        NSDictionary *notaDictionary = [results objectAtIndex:i];
+    
         
         nota.codigolivro = [notaDictionary objectForKey:@"codigoLivro"];
         nota.pagina = [notaDictionary objectForKey:@"pagina"];
@@ -45,6 +47,8 @@
         nota.titulo = [notaDictionary objectForKey:@"titulo"];
         
         [listaNotas addObject:nota];
+        
+        i++;
     }
     
     return listaNotas;

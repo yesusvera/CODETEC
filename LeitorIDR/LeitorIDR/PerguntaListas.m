@@ -9,11 +9,13 @@
 #import "PerguntaListas.h"
 #import "MontadorDeIncideDoLivro.h"
 #import "IndiceViewController.h"
+#import "ListaAnotacoesViewController.h"
 @interface PerguntaListas ()
 
 @end
 
 @implementation PerguntaListas
+@synthesize livro;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,10 +61,13 @@
         //TODO FALTA PASSAR O CAMINHO DO LIVRO PARA QUE SEJA FEITO O PARSE
 
         IndiceViewController *indice = [[IndiceViewController alloc]init];
+        indice.livro = livro;
         [indice setIndiceDoLivro:[montadorIndice montarIndiceDoLivro:nil]];
         [self.navigationController pushViewController:indice animated:YES];
     }else if (indexPath.row == 1){
-        // DIRECIONAR PARA A TELA DE ANOTAÇÕES
+        ListaAnotacoesViewController *listaAnotacoesViewController = [[ListaAnotacoesViewController alloc]init];
+        listaAnotacoesViewController.livro = livro;
+        [self.navigationController pushViewController:listaAnotacoesViewController animated:YES];
     }
 
 }

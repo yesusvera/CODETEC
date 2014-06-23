@@ -14,7 +14,7 @@
 @end
 
 @implementation IndiceViewController
-@synthesize indiceDoLivro;
+@synthesize indiceDoLivro, livro;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
