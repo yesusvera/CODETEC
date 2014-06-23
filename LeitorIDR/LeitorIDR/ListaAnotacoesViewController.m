@@ -50,8 +50,14 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"lista"];
     
     Nota *nota = [listaAnotacoes objectAtIndex:indexPath.row];
-    cell.textLabel.text = nota.titulo;
-
+    
+    NSString *textoCelula = @"(Pag ";
+    textoCelula = [[textoCelula stringByAppendingString:nota.pagina] stringByAppendingString:@")"];
+    textoCelula =[textoCelula stringByAppendingString:nota.titulo];
+    
+    const char *string = [textoCelula UTF8String];
+    
+    cell.textLabel.text = [NSString stringWithUTF8String:string];
     return cell;
 }
 

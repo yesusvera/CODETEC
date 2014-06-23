@@ -253,7 +253,7 @@ extern uint annotOvalColor;
     nota.pagina = [NSString stringWithFormat:@"%d",numeroPaginaAtual];
     
     anotacoesViewController.nota = nota;
-    
+//    [self.navigationController popToViewController:anotacoesViewController animated:YES];
     [self.navigationController pushViewController:anotacoesViewController animated:YES];
 }
 
