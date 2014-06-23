@@ -52,7 +52,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"item"];
     ItemDoIndice *itemIndice = [detalheIndice objectAtIndex:indexPath.row];
-
+    if ([[detalheIndice objectAtIndex:indexPath.row] listaItens]) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     cell.textLabel.text = itemIndice.capitulo;
 
     return cell;
@@ -62,6 +64,7 @@
     if([[detalheIndice objectAtIndex:indexPath.row] listaItens]){
         DetalheIndiceViewController *detalhesFilho = [[DetalheIndiceViewController alloc]init];
         detalhesFilho.detalheIndice = [[detalheIndice objectAtIndex:indexPath.row] listaItens];
+        detalhesFilho.viewLivro     = self.viewLivro;
         [self.navigationController pushViewController:detalhesFilho animated:YES];
     }else{
         
@@ -93,7 +96,6 @@
             
         }
     }
-
 }
 
 @end
