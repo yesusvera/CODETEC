@@ -100,9 +100,10 @@ void APP_Init()
     char dst[512];
     const char *dd1 = [path UTF8String];
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    Global_activeStandard("com.br.ibracon", "Code CRM tecnologia e servicos de Informatica LTDA EPP", "janaina.souza@codecrm.com.br", "7N0N5X-YV816G-YUN64X-YM6RDS-P9KOCA-7E9V8V");
     //Global_activeStandard("com.radaee.pdf.PDFViewer", "Radaee", "radaee_com@yahoo.cn", "3BQIA5-IW8GQM-H3CRUZ-WAJQ9H-FADG6Z-XEBCAO");
     //Global_activeProfession("com.radaee.pdf.PDFViewer", "Radaee", "radaee_com@yahoo.cn", "MP8SG1-7SPIWP-H3CRUZ-WAJQ9H-FADG6Z-XEBCAO");
-    Global_activePremium("com.radaee.pdf.PDFViewer", "Radaee", "radaee_com@yahoo.cn", "89WG9I-HCL62K-H3CRUZ-WAJQ9H-FADG6Z-XEBCAO");
+    //Global_activePremium("com.radaee.pdf.PDFViewer", "Radaee", "radaee_com@yahoo.cn", "89WG9I-HCL62K-H3CRUZ-WAJQ9H-FADG6Z-XEBCAO");
     
     
     NSString *cmaps_path = [[NSBundle mainBundle] pathForResource:@"cmaps" ofType:@"dat" inDirectory:@"cmaps"];

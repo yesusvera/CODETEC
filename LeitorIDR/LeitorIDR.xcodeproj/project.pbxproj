@@ -49,6 +49,7 @@
 		82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A318B59B86001636EE /* ConexaoBuscarEstante.m */; };
 		82F335AA18B5AEFE001636EE /* LivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A918B5AEFE001636EE /* LivroResponse.m */; };
 		FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3A5C5218BD639400A0FEA8 /* LivroDetalhesView.xib */; };
+		FB4F8C0E1959E8A900877CCD /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5F0A8218615A800068D497 /* Main_iPad.storyboard */; };
 		FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5A360B18657E29006C7FF3 /* RegistroAssociadoController.m */; };
 		FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */; };
 		FB5A361218657EA6006C7FF3 /* RegistroNaoAssociadoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5A361018657EA6006C7FF3 /* RegistroNaoAssociadoController.m */; };
@@ -760,7 +761,7 @@
 		FB5F0A6218615A800068D497 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Yesus Castillo Vera";
 				TargetAttributes = {
 					FB5F0A6918615A800068D497 = {
@@ -831,6 +832,7 @@
 				FB5F0A7818615A800068D497 /* InfoPlist.strings in Resources */,
 				FB63E051195152D8000591E5 /* lock.png in Resources */,
 				FB63E04F195152D8000591E5 /* left_arrow.png in Resources */,
+				FB4F8C0E1959E8A900877CCD /* Main_iPad.storyboard in Resources */,
 				FB63E050195152D8000591E5 /* lock_selected.png in Resources */,
 				FB63E055195152D8000591E5 /* view_about.png in Resources */,
 				29CFB202194FC46900E9DBDA /* fdat in Resources */,
@@ -964,7 +966,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1004,7 +1005,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1101,7 +1101,6 @@
 		FB5F0AA318615A800068D497 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LeitorIDR.app/LeitorIDR";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1124,7 +1123,6 @@
 		FB5F0AA418615A800068D497 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LeitorIDR.app/LeitorIDR";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
