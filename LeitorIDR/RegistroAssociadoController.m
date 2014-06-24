@@ -46,7 +46,7 @@
     //Inicializando UITextField
     //[self.txtCPFCNPJ setText:@"338.804.908-48"];
 
-    [self.txtCPFCNPJ setText:[NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"]];
+    //[self.txtCPFCNPJ setText:[NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"]];
     [self.lblIP  setText: [self getIPAddress]];
     [self.lblMacAdress setText: [self getMacAddress]];
     [self.lblSerial setText: [[UIDevice currentDevice] description]];
