@@ -15,6 +15,8 @@
 		2988CEBE18C96F45005B84BE /* DadosDispositivo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEBD18C96F45005B84BE /* DadosDispositivo.m */; };
 		2988CEC118C97128005B84BE /* DadosCliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988CEC018C97128005B84BE /* DadosCliente.m */; };
 		299D7B4818BC36FC00724BED /* EstanteResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 299D7B4718BC36FC00724BED /* EstanteResponse.m */; };
+		29A56E7A19590E9500DC274B /* NSStringMask.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A56E7719590E9500DC274B /* NSStringMask.m */; };
+		29A56E7B19590E9500DC274B /* UITextFieldMask.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A56E7919590E9500DC274B /* UITextFieldMask.m */; };
 		29B679E118D91E4300787E05 /* GLB.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B679E018D91E4300787E05 /* GLB.m */; };
 		29BABB261957543500CFEDA4 /* IndiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BABB241957543500CFEDA4 /* IndiceViewController.m */; };
 		29BABB271957543500CFEDA4 /* IndiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BABB251957543500CFEDA4 /* IndiceViewController.xib */; };
@@ -143,6 +145,10 @@
 		2988CEC018C97128005B84BE /* DadosCliente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DadosCliente.m; sourceTree = "<group>"; };
 		299D7B4618BC36FC00724BED /* EstanteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstanteResponse.h; sourceTree = "<group>"; };
 		299D7B4718BC36FC00724BED /* EstanteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstanteResponse.m; sourceTree = "<group>"; };
+		29A56E7619590E9500DC274B /* NSStringMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringMask.h; sourceTree = "<group>"; };
+		29A56E7719590E9500DC274B /* NSStringMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringMask.m; sourceTree = "<group>"; };
+		29A56E7819590E9500DC274B /* UITextFieldMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldMask.h; sourceTree = "<group>"; };
+		29A56E7919590E9500DC274B /* UITextFieldMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldMask.m; sourceTree = "<group>"; };
 		29B679DF18D91E4300787E05 /* GLB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLB.h; sourceTree = "<group>"; };
 		29B679E018D91E4300787E05 /* GLB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLB.m; sourceTree = "<group>"; };
 		29BABB231957543500CFEDA4 /* IndiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndiceViewController.h; sourceTree = "<group>"; };
@@ -371,6 +377,17 @@
 			name = registro;
 			sourceTree = "<group>";
 		};
+		29A56E7519590E9500DC274B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				29A56E7619590E9500DC274B /* NSStringMask.h */,
+				29A56E7719590E9500DC274B /* NSStringMask.m */,
+				29A56E7819590E9500DC274B /* UITextFieldMask.h */,
+				29A56E7919590E9500DC274B /* UITextFieldMask.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		29CFB1B1194FC06600E9DBDA /* PDFView */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +577,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				29A56E7519590E9500DC274B /* Classes */,
 				FB8EE8EF1957AEE100FB91C9 /* perguntaListas */,
 				FB8EE8E7195766E900FB91C9 /* anotacoes */,
 				FBDF8A721877E353000EC732 /* connection */,
@@ -855,6 +873,7 @@
 				82E0390E18B8DD7A00EE7722 /* AFURLSessionManager.m in Sources */,
 				FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */,
 				29CFB1C8194FC06600E9DBDA /* PDFVCanvas.m in Sources */,
+				29A56E7A19590E9500DC274B /* NSStringMask.m in Sources */,
 				FBD0EC31195150F700905486 /* OUTLINE_ITEM.m in Sources */,
 				FBD0EC3D1951513900905486 /* RDPDFViewController.m in Sources */,
 				FBD0EC461951514E00905486 /* PopupMenu.m in Sources */,
@@ -883,6 +902,7 @@
 				29CFB206194FC4D800E9DBDA /* NSObject+PerformBlock.m in Sources */,
 				FBDF8A7B1878C0FD000EC732 /* EstanteLivrosController.m in Sources */,
 				295AD9D61955175900A1DA55 /* IndiceLivroResponse.m in Sources */,
+				29A56E7B19590E9500DC274B /* UITextFieldMask.m in Sources */,
 				FBD0EC351951510F00905486 /* OutLineViewController.m in Sources */,
 				FBDF8A6F1877CAC0000EC732 /* RegistrarDispositivoResponse.m in Sources */,
 				82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */,

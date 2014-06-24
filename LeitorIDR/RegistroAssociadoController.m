@@ -17,6 +17,7 @@
 #import "EstantesController.h"
 #import "DadosCliente.h"
 #import "DadosDispositivo.h"
+#import "NSStringMask.h"
 
 @interface RegistroAssociadoController ()
 
@@ -43,7 +44,9 @@
     self.indicadorAtividade.hidden = TRUE;
     
     //Inicializando UITextField
-    [self.txtCPFCNPJ setText:@"338.804.908-48"];
+    //[self.txtCPFCNPJ setText:@"338.804.908-48"];
+
+    [self.txtCPFCNPJ setText:[NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"]];
     [self.lblIP  setText: [self getIPAddress]];
     [self.lblMacAdress setText: [self getMacAddress]];
     [self.lblSerial setText: [[UIDevice currentDevice] description]];
@@ -163,6 +166,15 @@
     dadosCliente.ehAssociado      = @"s";
     dadosCliente.registroNacional = self.txtRegistroNacional.text;
     dadosCliente.documento        = self.txtCPFCNPJ.text;
+    
+//    if(self.txtCPFCNPJ.text.length == 11){
+//        dadosCliente.documento        = [NSStringMask maskString:self.txtCPFCNPJ.text withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})"];
+//    }else if(self.txtCPFCNPJ.text.length == 14){
+//        dadosCliente.documento        = [NSStringMask maskString:self.txtCPFCNPJ.text withPattern:@"(\\d{2}).(\\d{3}).(\\d{3})/(\\d{4})-(\\d{2})"];
+//    }
+    
+    NSLog(@"documento: %@", dadosCliente.documento);
+    
     dadosCliente.senha            = self.txtSenha.text;
     dadosCliente.palavraChave     = @"";
     
