@@ -63,7 +63,7 @@
     
     NSMutableArray *listaLivros = [[NSMutableArray alloc] init];
     
-    NSArray *results = [SCSQLite selectRowSQL:@"Select * from LivroBaixado"];
+    NSArray *results = [SCSQLite selectRowSQL:@"Select * from LivroBaixado order by titulo"];
     if(results.count > 0){
         LivroResponse *livroBaixado = [[LivroResponse alloc] init];
         

@@ -257,6 +257,7 @@ extern uint annotOvalColor;
     nota.codigolivro = livro.codigolivro;
     nota.pagina = [NSString stringWithFormat:@"%d",numeroPaginaAtual];
     
+    anotacoesViewController.viewLivro = self;
     anotacoesViewController.nota = nota;
 //    [self.navigationController popToViewController:anotacoesViewController animated:YES];
     [self.navigationController pushViewController:anotacoesViewController animated:YES];
@@ -670,18 +671,21 @@ extern uint annotOvalColor;
     if([[iosversion substringToIndex:1] isEqualToString:@"7"])
     {
         m_Thumbview = [[PDFVThumb alloc] initWithFrame:CGRectMake(0, cheight-50, cwidth, 50)];
-        pageNumLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 20+hi+1, 65, 30)];
+        if(pageNumLabel==nil){
+            pageNumLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 20+hi+1, 65, 30)];
+        }
     }
     else{
         m_Thumbview = [[PDFVThumb alloc] initWithFrame:CGRectMake(0, cheight-hi-50-20, cwidth, 50)];
-        pageNumLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 65, 30)];
+        if(pageNumLabel==nil){
+            pageNumLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 65, 30)];
+        }
     }
     [m_Thumbview vOpenThumb:m_doc];
     //[m_Thumbview sizeThatFits:CGRectMake(0, cheight-180, cwidth, 110).size];
     [self.view addSubview:m_Thumbview];
     
     pagenow = pageno;
-    
     
     
     pageNumLabel.backgroundColor = [UIColor colorWithRed:1.5 green:1.5 blue:1.5 alpha:0.2];
@@ -691,8 +695,10 @@ extern uint annotOvalColor;
     pageNumLabel.textAlignment= UITextAlignmentCenter;
     pageNumLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     pageNumLabel.layer.cornerRadius = 10;
-    NSString *pagestr = [[NSString alloc]initWithFormat:@"%d/",pagecount];
+    
+    NSString *pagestr = [[NSString alloc]initWithFormat:@"%d/",pagenow];
     pagestr = [pagestr stringByAppendingFormat:@"%d",pagecount];
+
     pageNumLabel.text = pagestr;
     pageNumLabel.font = [UIFont boldSystemFontOfSize:16];
     pageNumLabel.shadowColor = [UIColor grayColor];

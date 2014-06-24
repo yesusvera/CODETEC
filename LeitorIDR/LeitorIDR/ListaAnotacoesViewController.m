@@ -65,6 +65,7 @@
     AnotacoesViewController *anotacoesViewController = [[AnotacoesViewController alloc] init];
     
     anotacoesViewController.nota = [listaAnotacoes objectAtIndex:indexPath.row];
+    anotacoesViewController.viewLivro = self.viewLivro;
     
     [self.navigationController pushViewController:anotacoesViewController animated:YES];
 }

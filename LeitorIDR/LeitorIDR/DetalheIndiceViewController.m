@@ -57,8 +57,6 @@
     }
     
     cell.textLabel.text = itemIndice.capitulo;
-
-
     return cell;
 }
 
@@ -66,16 +64,15 @@
     if([[detalheIndice objectAtIndex:indexPath.row] listaItens]){
         DetalheIndiceViewController *detalhesFilho = [[DetalheIndiceViewController alloc]init];
         detalhesFilho.detalheIndice = [[detalheIndice objectAtIndex:indexPath.row] listaItens];
-        detalhesFilho.viewLivro     = self.viewLivro;
+        detalhesFilho.viewLivro    = self.viewLivro;
         [self.navigationController pushViewController:detalhesFilho animated:YES];
     }else{
-      UINavigationController *nav = self.navigationController;
+       UINavigationController *nav = self.navigationController;
        int pageno = [[detalheIndice objectAtIndex:indexPath.row] paginareal].intValue - 1;
        
        [viewLivro PDFGoto:pageno];
        [nav popToViewController:viewLivro animated:YES];
        [viewLivro PDFThumbNailinit:pageno];
-
     }
 }
 

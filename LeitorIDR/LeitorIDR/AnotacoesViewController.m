@@ -67,10 +67,18 @@
         nota.nota = self.txtNota.text;
         [notasDAO salvarAtualizarNota:nota];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Anotação salva com sucesso." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Anotação salva com sucesso." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//        
+//        [alert show];
         
+        UINavigationController *nav = self.navigationController;
+        
+        int pageno =[nota.pagina intValue] -1;
+        
+        [self.viewLivro PDFGoto:pageno];
+        [nav popToViewController:self.viewLivro  animated:YES];
+        [self.viewLivro  PDFThumbNailinit:pageno];
     }
 }
 

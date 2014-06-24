@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "LivroResponse.h"
+#import "RDPDFViewController.h"
 
 @interface ListaAnotacoesViewController : UIViewController
 
 @property (nonatomic, retain) NSMutableArray *listaAnotacoes;
 @property (nonatomic, retain) LivroResponse *livro;
+@property (nonatomic, retain) RDPDFViewController *viewLivro;
 
 
 @end

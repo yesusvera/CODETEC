@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Nota.h"
 #import "NotasDAO.h"
-
+#import "RDPDFViewController.h"
 
 @interface AnotacoesViewController : UIViewController
 
@@ -21,5 +21,7 @@
 
 @property (nonatomic, retain) Nota *nota;
 @property (nonatomic, retain) NotasDAO *notasDAO;
+
+@property (nonatomic, retain) RDPDFViewController *viewLivro;
 
 @end

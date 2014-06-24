@@ -34,7 +34,7 @@
 - (NSMutableArray *) listaNotasPorCodLivro: (NSString *) codigoLivro{
     NSMutableArray *listaNotas = [[NSMutableArray alloc] init];
     
-    NSArray *results = [SCSQLite selectRowSQL:@"Select * from Nota where codigoLivro = '%@'", codigoLivro];
+    NSArray *results = [SCSQLite selectRowSQL:@"Select * from Nota where codigoLivro = '%@' order by CAST(pagina AS INTEGER) asc", codigoLivro];
     int i = 0;
     while(i < results.count){
         Nota *nota = [[Nota alloc] init];

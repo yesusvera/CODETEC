@@ -69,6 +69,7 @@
     }else if (indexPath.row == 1){
         ListaAnotacoesViewController *listaAnotacoesViewController = [[ListaAnotacoesViewController alloc]init];
         listaAnotacoesViewController.livro = livro;
+        listaAnotacoesViewController.viewLivro = self.viewLivro;
         [self.navigationController pushViewController:listaAnotacoesViewController animated:YES];
     }
 
