@@ -56,7 +56,9 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = itemIndice.capitulo;
+    NSData *enc = [itemIndice.capitulo dataUsingEncoding:NSISOLatin1StringEncoding];
+    NSString *result = [[NSString alloc] initWithData:enc encoding:NSUTF8StringEncoding];
+    cell.textLabel.text = result;
     return cell;
 }
 

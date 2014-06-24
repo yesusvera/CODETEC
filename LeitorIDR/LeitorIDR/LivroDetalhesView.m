@@ -281,7 +281,7 @@ NSUserDefaults *userDefaults;
     
     AFHTTPRequestOperation *operationIndice = [[AFHTTPRequestOperation alloc] initWithRequest:requestIndice];
     
-    operationIndice.outputStream = [NSOutputStream outputStreamToFileAtPath:saveFilenameIndice append:NO];
+    operationIndice.outputStream = [NSOutputStream outputStreamToFileAtPath:saveFilenameIndice append:NO] ;
     
     [operationIndice setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
         livroResponse.indiceXML = saveFilenameIndice;
