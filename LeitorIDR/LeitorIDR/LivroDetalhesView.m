@@ -33,13 +33,37 @@ bool g_MatchWholeWord = false;
 bool g_DarkMode = false;
 bool g_sel_right= false;
 bool g_ScreenAwake = false;
+
+bool versaoDiferente = false;
+
 uint g_ink_color = 0xFF000000;
 uint g_rect_color = 0xFF000000;
 NSUserDefaults *userDefaults;
-@synthesize livroResponse, tituloLivro,fotoLivro,registrarDispositivoResponse;
+@synthesize livroResponse, tituloLivro,fotoLivro,registrarDispositivoResponse,estanteResponse;
 
 // Função que abre o PDF pelo caminho especificado
 -(IBAction)actionOpenPlainDocument:(id)sender{
+    
+    versaoDiferente = false;
+    
+    if(estanteResponse!=nil){
+        NSMutableArray *listaVisaoGeral = estanteResponse.listaLivrosVisaoGeral;
+        for (LivroResponse *lvTmp in listaVisaoGeral) {
+            if(![lvTmp.codigolivro isEqualToString:livroResponse.codigolivro ] && [lvTmp.codigoloja isEqualToString:livroResponse.codigoloja]){
+                if([lvTmp.versao isEqualToString:livroResponse.versao]){
+                    versaoDiferente = true;
+                    livroResponse = lvTmp;
+                    
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Existe uma nova versão deste livro nos servidores da IBRACON, deseja fazer o download?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil];
+                    alertView.alertViewStyle = UIAlertViewStyleDefault;
+                    [alertView show];
+                    
+                    return;
+                }
+            }
+        }
+    }
+    
     
     [self loadSettingsWithDefaults];
     
@@ -177,7 +201,7 @@ NSUserDefaults *userDefaults;
 
 -(IBAction)startDownload:(id)sender{
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Deseja realmente baixa este livro?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Deseja realmente baixar este livro?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil];
     alertView.alertViewStyle = UIAlertViewStyleDefault;
     
     [alertView show];
@@ -188,7 +212,43 @@ NSUserDefaults *userDefaults;
 {
     if (buttonIndex == 1)
     {
-        [self downloadArquivo:livroResponse.arquivomobile];
+            [self downloadArquivo:livroResponse.arquivomobile];
+    }else{
+        if(versaoDiferente){
+            
+            [self loadSettingsWithDefaults];
+            
+            RDPDFViewController *m_pdf;
+            if( m_pdf == nil )
+            {
+                m_pdf = [[RDPDFViewController alloc] initWithNibName:@"RDPDFViewController"bundle:nil];
+            }
+            
+            NSString *documentName = [livroResponse.arquivomobile.lastPathComponent stringByRemovingPercentEncoding];
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            
+            NSString *fullPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
+            
+            NSLog(@"Abrindo o arquivo: %@",fullPath);
+            
+            int result = [m_pdf PDFOpen: fullPath:@"ibracon%2014"];
+            
+            if(result == 1)
+            {
+                //m_pdf.hidesBottomBarWhenPushed = YES;
+                //[self.navigationController pushViewController:m_pdf animated:YES];
+                
+                UINavigationController *nav = self.navigationController;
+                m_pdf.hidesBottomBarWhenPushed = YES;
+                m_pdf.livro = livroResponse;
+                [nav pushViewController:m_pdf animated:YES];
+                int pageno =1;
+                // [m_pdf initbar:pageno];
+                [m_pdf PDFThumbNailinit:pageno];
+            }
+
+        }
     }
 }
 

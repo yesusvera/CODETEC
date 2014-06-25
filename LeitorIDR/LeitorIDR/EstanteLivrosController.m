@@ -13,11 +13,14 @@
 #import "LivrosBaixadosDAO.h"
 @interface EstanteLivrosController ()
 
+
 @end
 
 @implementation EstanteLivrosController
 
 @synthesize estanteResponse,registrarDispositivoResponse,listaLivros;
+
+bool flagMinhaBiblioteca = false;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,6 +50,9 @@
             return;
         }
     }else if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
+        
+        flagMinhaBiblioteca = true;
+        
         //self.listaLivros = self.estanteResponse.listaLivrosBaixados;
         LivrosBaixadosDAO *livroBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
         self.listaLivros = [livroBaixadosDAO listaLivros];
@@ -104,6 +110,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     LivroDetalhesView *livroDetalhesView = [[LivroDetalhesView alloc]init];
     livroDetalhesView.livroResponse = [listaLivros objectAtIndex:indexPath.row];
+    livroDetalhesView.estanteResponse = estanteResponse;
     livroDetalhesView.registrarDispositivoResponse = registrarDispositivoResponse;
     
     [self.navigationController pushViewController:livroDetalhesView animated:YES];
