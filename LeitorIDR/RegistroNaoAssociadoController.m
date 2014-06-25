@@ -17,11 +17,16 @@
 #import "DadosCliente.h"
 #import "DadosDispositivo.h"
 #import "ConexaoRegistrarDispositivo.h"
+#import "NSstringMask.h"
+#import "CWSBrasilValidate.h"
+#import "GLB.h"
 
 @interface RegistroNaoAssociadoController ()
 @end
 
 @implementation RegistroNaoAssociadoController
+
+@synthesize tipoPessoa;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,6 +35,47 @@
     }
     return self;
 }
+- (IBAction)editarDocComMascara:(UITextField *)sender {
+    if (tipoPessoa.selectedSegmentIndex == 0) {
+        
+        if(sender.text.length == 3 || sender.text.length == 7){
+            [sender setText:[sender.text stringByAppendingString:@"."]];
+        }else if(sender.text.length == 11){
+            [sender setText:[sender.text stringByAppendingString:@"-"]];
+        }
+        NSRange range = NSMakeRange(0,14);
+        if(sender.text.length == 15){
+            [sender setText:[sender.text substringWithRange:range]];
+        }
+        
+    }else{
+        if(sender.text.length == 2 || sender.text.length == 6){
+            [sender setText:[sender.text stringByAppendingString:@"."]];
+        }else if(sender.text.length == 10){
+            [sender setText:[sender.text stringByAppendingString:@"/"]];
+        }else if(sender.text.length == 15){
+            [sender setText:[sender.text stringByAppendingString:@"-"]];
+        }
+        NSRange range = NSMakeRange(0,18);
+        if(sender.text.length == 19){
+            [sender setText:[sender.text substringWithRange:range]];
+        }
+    }
+
+}
+
+- (IBAction)defineTipoPessoa:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        [self.txtDocumento setText:@""];
+        self.txtDocumento.placeholder = [NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"];
+    }else{
+        [self.txtDocumento setText:@""];
+        self.txtDocumento.placeholder =[NSStringMask maskString:@"" withPattern:@"(\\d{2}).(\\d{3}).(\\d{3})/(\\d{4})-(\\d{2})" placeholder:@"0"];
+    }
+    
+}
+
+
 
 - (void)viewDidLoad
 {
@@ -40,6 +86,9 @@
     ufArray = [[NSArray alloc] initWithObjects:@"AC", @"AL", @"AM", @"AP", @"BA", @"CE", @"DF", @"ES", @"GO",@"MA", @"MG", @"MS", @"MT", @"PA", @"PB", @"PE", @"PI",@"PR", @"RJ", @"RN", @"RO", @"RR", @"RS", @"RS", @"SC", @"SE", @"SP",@"TO", nil];
     
     //Inicializando UITextField
+    
+    self.txtDocumento.placeholder = [NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"];
+    
     [self.lblIP  setText: [self getIPAddress]];
     [self.lblMacAdress setText: [self getMacAddress]];
     [self.lblSerial setText: [[UIDevice currentDevice] description]];
@@ -156,6 +205,23 @@
     DadosCliente *dadosCliente = [[DadosCliente alloc] init];
     
     dadosCliente.ehAssociado      = @"n";
+    
+    NSString *docSemMask = [[[self.txtDocumento.text stringByReplacingOccurrencesOfString:@"/" withString:@""] stringByReplacingOccurrencesOfString:@"." withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    
+    if (tipoPessoa.selectedSegmentIndex == 0) {
+        BOOL valido = [CWSBrasilValidate validarCPF:docSemMask];
+        if (!valido) {
+            [GLB showMessage:@"CPF Inválido!"];
+            return;
+        }
+    }else{
+        BOOL valido = [CWSBrasilValidate validarCNPJ:docSemMask];
+        if (!valido) {
+            [GLB showMessage:@"CNPJ Inválido!"];
+            return;
+        }
+    }
+    
     dadosCliente.documento        = self.txtDocumento.text;
     dadosCliente.nomeRazao = self.txtNomeRazaoSocial.text;
     dadosCliente.senha            = self.txtSenha.text;

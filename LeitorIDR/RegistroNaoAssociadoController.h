@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *ufPicker;
 @property (nonatomic,retain) NSArray *pickerData;
 @property (weak, nonatomic) IBOutlet UIButton *btnRegistrar;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *tipoPessoa;
 
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
