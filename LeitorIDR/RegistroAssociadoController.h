@@ -19,4 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblSerial;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicadorAtividade;
 @property (weak, nonatomic) IBOutlet UIButton *btnRegistrar;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *tipoPessoa;
+
 @end

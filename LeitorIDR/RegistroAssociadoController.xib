@@ -12,6 +12,7 @@
                 <outlet property="lblIP" destination="XTw-tx-EPC" id="DLT-Qw-Qiv"/>
                 <outlet property="lblMacAdress" destination="ypO-bL-EFp" id="SBS-w5-xd6"/>
                 <outlet property="lblSerial" destination="4K9-Pg-UJg" id="Wms-Nl-WYq"/>
+                <outlet property="tipoPessoa" destination="cZ1-GW-qS8" id="SqG-EC-Qd1"/>
                 <outlet property="txtCPFCNPJ" destination="6XZ-0x-09b" id="GtR-P9-IhH"/>
                 <outlet property="txtRegistroNacional" destination="T0u-zY-NTi" id="iKK-1l-6nu"/>
                 <outlet property="txtSenha" destination="8bu-yz-OeK" id="8ay-Bn-uhQ"/>
@@ -49,6 +50,9 @@
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="editarDocComMascara:" destination="-1" eventType="editingChanged" id="maf-ac-Qaa"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8bu-yz-OeK">
                     <rect key="frame" x="210" y="152" width="188" height="30"/>
