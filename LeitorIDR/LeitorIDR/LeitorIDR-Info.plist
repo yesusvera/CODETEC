@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>br.com.ibracon.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.br.ibracon</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -24,7 +24,7 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIMainStoryboardFile</key>
+	<key>NSMainNibFile</key>
 	<string>Main_iPad</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>Main_iPad</string>
