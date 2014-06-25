@@ -18,6 +18,8 @@
 #import "DadosCliente.h"
 #import "DadosDispositivo.h"
 #import "NSStringMask.h"
+#import "CWSBrasilValidate.h"
+#import "GLB.h"
 
 @interface RegistroAssociadoController ()
 
@@ -36,8 +38,10 @@
 
 - (IBAction)defineTipoPessoa:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 0) {
+        [self.txtCPFCNPJ setText:@""];
         self.txtCPFCNPJ.placeholder = [NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"];
     }else{
+        [self.txtCPFCNPJ setText:@""];
         self.txtCPFCNPJ.placeholder =[NSStringMask maskString:@"" withPattern:@"(\\d{2}).(\\d{3}).(\\d{3})/(\\d{4})-(\\d{2})" placeholder:@"0"];
     }
 }
@@ -66,20 +70,6 @@
     
 }
 
-#define MAXLENGTH 10
-
-- (BOOL)textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
-    NSUInteger oldLength = [textField.text length];
-    NSUInteger replacementLength = [string length];
-    NSUInteger rangeLength = range.length;
-    
-    NSUInteger newLength = oldLength - rangeLength + replacementLength;
-    
-    BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
-    
-    return newLength <= MAXLENGTH || returnKey;
-}
 
 - (IBAction)editarDocComMascara:(UITextField *)sender {
     if (tipoPessoa.selectedSegmentIndex == 0) {
@@ -221,13 +211,26 @@
     
     dadosCliente.ehAssociado      = @"s";
     dadosCliente.registroNacional = self.txtRegistroNacional.text;
+    
+    NSString *docSemMask = [[[self.txtCPFCNPJ.text stringByReplacingOccurrencesOfString:@"/" withString:@""] stringByReplacingOccurrencesOfString:@"." withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+
+    if (tipoPessoa.selectedSegmentIndex == 0) {
+        BOOL valido = [CWSBrasilValidate validarCPF:docSemMask];
+        if (!valido) {
+            [GLB showMessage:@"CPF Inválido!"];
+            return;
+        }
+    }else{
+        BOOL valido = [CWSBrasilValidate validarCNPJ:docSemMask];
+        if (!valido) {
+            [GLB showMessage:@"CNPJ Inválido!"];
+            return;
+        }
+    }
+    
     dadosCliente.documento        = self.txtCPFCNPJ.text;
     
-//    if(self.txtCPFCNPJ.text.length == 11){
-//        dadosCliente.documento        = [NSStringMask maskString:self.txtCPFCNPJ.text withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})"];
-//    }else if(self.txtCPFCNPJ.text.length == 14){
-//        dadosCliente.documento        = [NSStringMask maskString:self.txtCPFCNPJ.text withPattern:@"(\\d{2}).(\\d{3}).(\\d{3})/(\\d{4})-(\\d{2})"];
-//    }
+
     
     NSLog(@"documento: %@", dadosCliente.documento);
     
