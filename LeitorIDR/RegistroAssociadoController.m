@@ -36,9 +36,9 @@
 
 - (IBAction)defineTipoPessoa:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 0) {
-        [self.txtCPFCNPJ setText:[NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"]];
+        self.txtCPFCNPJ.placeholder = [NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"];
     }else{
-        [self.txtCPFCNPJ setText:[NSStringMask maskString:@"" withPattern:@"(\\d{2}).(\\d{3}).(\\d{3})/(\\d{4})-(\\d{2})" placeholder:@"0"]];
+        self.txtCPFCNPJ.placeholder =[NSStringMask maskString:@"" withPattern:@"(\\d{2}).(\\d{3}).(\\d{3})/(\\d{4})-(\\d{2})" placeholder:@"0"];
     }
 }
 
@@ -56,8 +56,9 @@
     
     //Inicializando UITextField
     //[self.txtCPFCNPJ setText:@"338.804.908-48"];
+    
+    self.txtCPFCNPJ.placeholder = [NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"];
 
-    [self.txtCPFCNPJ setText:[NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"]];
     [self.lblIP  setText: [self getIPAddress]];
     [self.lblMacAdress setText: [self getMacAddress]];
     [self.lblSerial setText: [[UIDevice currentDevice] description]];
