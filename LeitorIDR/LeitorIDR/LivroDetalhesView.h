@@ -37,4 +37,5 @@
 -(IBAction)startDownload:(id)sender;
 -(IBAction)actionOpenPlainDocument:(NSString *)nomeArq;
 -(void) salvarIndiceXML:(NSString *) urlIndiceXML;
+@property (nonatomic, retain) EstanteResponse *estanteResponse;
 @end
