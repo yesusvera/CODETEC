@@ -12,7 +12,6 @@
 #import "RegistrarDispositivoResponse.h"
 
 @interface ConexaoBuscarEstante : NSObject<NSXMLParserDelegate>{
-    EstanteResponse *estanteResponse;
     NSMutableString *valorNoAtual;
     LivroResponse *livro;
     NSString *erro;
@@ -20,5 +19,8 @@
 }
 -(EstanteResponse *)conectarObterEstante:(RegistrarDispositivoResponse *) registrarDispositivoResponse;
 -(EstanteResponse *)conectarObterEstanteLocal:(RegistrarDispositivoResponse *) registrarDispositivoResponse;
+- (NSString *) montarUrlParaObterEstante:(RegistrarDispositivoResponse *)registrarDispositivoResponse;
+
+@property (nonatomic, retain) EstanteResponse *estanteResponse;
 
 @end
