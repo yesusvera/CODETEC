@@ -845,7 +845,7 @@
 + (BOOL)validarCEP:(NSString *)cep
 {
     //NSString *regex = @"^[0-9]{2}\\.[0-9]{3}-[0-9]{3}$";
-    NSString *regex = @"^[0-9]{5}-[0-9]{3}$";
+    NSString *regex = @"^[0-9]{2}.[0-9]{3}-[0-9]{3}$";
     NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     return [test evaluateWithObject: cep];
 }

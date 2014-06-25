@@ -35,6 +35,34 @@
     }
     return self;
 }
+
+- (IBAction)incluirMascaraDoCEP:(UITextField *)sender {
+    if(sender.text.length == 2){
+        [sender setText:[sender.text stringByAppendingString:@"."]];
+    }else if(sender.text.length == 6){
+        [sender setText:[sender.text stringByAppendingString:@"-"]];
+    }
+    NSRange range = NSMakeRange(0,10);
+    if(sender.text.length == 11){
+        [sender setText:[sender.text substringWithRange:range]];
+    }
+    
+}
+
+- (IBAction)incluirMascaraTel:(UITextField *)sender {
+    if(sender.text.length == 1){
+        [sender setText:[@"(" stringByAppendingString:sender.text]];
+    }else if(sender.text.length == 3){
+        [sender setText:[sender.text stringByAppendingString:@") "]];
+    }else if(sender.text.length == 9){
+        [sender setText:[sender.text stringByAppendingString:@"-"]];
+    }
+    NSRange range = NSMakeRange(0,14);
+    if(sender.text.length == 15){
+        [sender setText:[sender.text substringWithRange:range]];
+    }
+}
+
 - (IBAction)editarDocComMascara:(UITextField *)sender {
     if (tipoPessoa.selectedSegmentIndex == 0) {
         
@@ -88,6 +116,11 @@
     //Inicializando UITextField
     
     self.txtDocumento.placeholder = [NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"];
+    
+    self.txtCEP.placeholder = [NSStringMask maskString:@"" withPattern:@"(\\d{2}).(\\d{3})-(\\d{3})" placeholder:@"0"];
+    
+    self.txtTelefone.placeholder = [NSStringMask maskString:@"" withPattern:@"\\((\\d{2})\\) (\\d{4})-(\\d{4})" placeholder:@"0"];
+    
     
     [self.lblIP  setText: [self getIPAddress]];
     [self.lblMacAdress setText: [self getMacAddress]];
@@ -233,6 +266,15 @@
     dadosCliente.cidade = self.txtCidade.text;
     dadosCliente.uf = [ufArray objectAtIndex:[self.ufPicker selectedRowInComponent:0]];
     dadosCliente.email = self.txtEmail.text;
+    
+    BOOL cepValido = [CWSBrasilValidate validarCEP:self.txtCEP.text];
+    
+    if(!cepValido){
+        [GLB showMessage:@"CEP Inválido!"];
+        return;
+    }
+        
+    
     dadosCliente.cep = self.txtCEP.text;
     dadosCliente.telefone = self.txtTelefone.text;
     
