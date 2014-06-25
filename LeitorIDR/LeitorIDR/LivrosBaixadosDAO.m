@@ -36,10 +36,9 @@
 - (LivroResponse *) pesquisarLivroPeloCodigo: (NSString *) codigo{
     
     NSArray *results = [SCSQLite selectRowSQL:@"Select * from LivroBaixado where codigoLivro = '%@'", codigo];
-    int i = 0;
-    while(i < results.count){
-
-        NSDictionary *livroDictionary = [results objectAtIndex:i];
+   
+    if(results.count > 0){
+        NSDictionary *livroDictionary = [results objectAtIndex:0];
         
         LivroResponse *livroBaixado = [LivroResponse alloc];
         livroBaixado.codigolivro = [livroDictionary objectForKey:@"codigoLivro"];
@@ -52,8 +51,6 @@
         livroBaixado.indiceXML = [livroDictionary objectForKey:@"indiceXML"];
         livroBaixado.tipoLivro = [livroDictionary objectForKey:@"tipoLivro"];
         
-        
-        i++;
         return livroBaixado;
     }
     return nil;
@@ -64,10 +61,11 @@
     NSMutableArray *listaLivros = [[NSMutableArray alloc] init];
     
     NSArray *results = [SCSQLite selectRowSQL:@"Select * from LivroBaixado order by titulo"];
-    if(results.count > 0){
+    int i = 0;
+    while(i < results.count){
         LivroResponse *livroBaixado = [[LivroResponse alloc] init];
         
-        NSDictionary *livroDictionary = [results objectAtIndex:0];
+        NSDictionary *livroDictionary = [results objectAtIndex:i];
         livroBaixado.codigolivro = [livroDictionary objectForKey:@"codigoLivro"];
         livroBaixado.titulo = [livroDictionary objectForKey:@"titulo"];
         livroBaixado.versao = [livroDictionary objectForKey:@"versao"];
@@ -79,6 +77,8 @@
         livroBaixado.tipoLivro = [livroDictionary objectForKey:@"tipoLivro"];
         
         [listaLivros addObject:livroBaixado];
+        
+         i++;
     }
     
     return listaLivros;

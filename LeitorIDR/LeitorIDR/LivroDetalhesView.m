@@ -295,7 +295,6 @@ NSUserDefaults *userDefaults;
         abrirPdf.hidden = NO;
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Livro baixado com sucesso!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
         [alert show];
 
         

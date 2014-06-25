@@ -39,11 +39,31 @@
         self.listaLivros =self.estanteResponse.listaLivrosDisponiveis;
     }else if([_nomeEstante isEqualToString:@"Direito de uso"]){
         self.listaLivros = self.estanteResponse.listaLivrosDeDireito;
+        
+        if(listaLivros == nil || listaLivros.count ==0 ){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Não existem livros nesta estante, por favor verifique o usuário e senha e/ou a disponibilidade com o IBRACON." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
+            return;
+        }
     }else if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
         //self.listaLivros = self.estanteResponse.listaLivrosBaixados;
         LivrosBaixadosDAO *livroBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
         self.listaLivros = [livroBaixadosDAO listaLivros];
+        
+        if(listaLivros == nil || listaLivros.count ==0 ){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Não existem livros nesta estante, você deve baixar algum livro primeiro." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
+            return;
+        }
     }
+    
+    if(listaLivros == nil || listaLivros.count ==0 ){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Não existem livros nesta estante, por favor verifique a disponibilidade com o IBRACON." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -71,8 +91,7 @@
     linkFotoLivro = livro.foto;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    cell.textLabel.text = tituloLivro;
-    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ | %@", livro.titulo, livro.codigoloja];
     if([UIImage imageWithData:[[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:linkFotoLivro]] ]){
         cell.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:linkFotoLivro]] ];
     }else{

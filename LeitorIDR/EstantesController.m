@@ -9,6 +9,7 @@
 #import "EstantesController.h"
 #import "EstanteLivrosController.h"
 #import "ConexaoBuscarEstante.h"
+#import "AFHTTPRequestOperationManager.h"
 
 @interface EstantesController ()
    
@@ -97,14 +98,45 @@ EstanteLivrosController *estanteLivrosController;
 
 
         if(registrarDispositivoResponse.dadosCliente.palavraChave != nil &&
-           registrarDispositivoResponse.dadosCliente.senha != nil){
+            registrarDispositivoResponse.dadosCliente.senha != nil){
             
             ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
-            estanteLivrosController.registrarDispositivoResponse = registrarDispositivoResponse;
-            estanteResponse = [conexaoBuscarEstante conectarObterEstante:registrarDispositivoResponse];
-            estanteLivrosController.estanteResponse = estanteResponse;
+          
+            NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
+            networkQueue.maxConcurrentOperationCount = 5;
             
-            [self.navigationController pushViewController:estanteLivrosController animated:YES];
+            NSURL *url = [NSURL URLWithString:[conexaoBuscarEstante montarUrlParaObterEstante:registrarDispositivoResponse]];
+            NSLog(@"%@", url);
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            
+            AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+            [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSISOLatin1StringEncoding];
+                NSLog(@"%@", respostaXML);
+                
+                NSData *respDataXML = [respostaXML dataUsingEncoding:NSISOLatin1StringEncoding];
+                NSXMLParser *parser = [[NSXMLParser alloc] initWithData:respDataXML];
+                [parser setDelegate:conexaoBuscarEstante];
+                
+                if(![parser parse]){
+                    NSLog(@"Erro ao realizar o parse");
+                }else{
+                    NSLog(@"Ok Parse");
+                   // estanteResponse = [conexaoBuscarEstante estanteResponse];
+                    estanteLivrosController.registrarDispositivoResponse = registrarDispositivoResponse;
+                    estanteLivrosController.estanteResponse = [conexaoBuscarEstante estanteResponse];
+                    
+                    [self.navigationController pushViewController:estanteLivrosController animated:YES];
+                }
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
+                
+            
+            }];
+            
+            [networkQueue addOperation:operation];
+        
         }
     }
 }
