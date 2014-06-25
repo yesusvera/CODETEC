@@ -37,6 +37,7 @@
 		29CFB208194FC52000E9DBDA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CFB207194FC52000E9DBDA /* QuartzCore.framework */; };
 		29CFB20A194FC53E00E9DBDA /* libRDPDFLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CFB209194FC53E00E9DBDA /* libRDPDFLib.a */; };
 		29EA293518D6178400F9BCAC /* LivroDetalhesView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */; };
+		29F69F38195A63CD00A80DFA /* CWSBrasilValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F69F37195A63CD00A80DFA /* CWSBrasilValidate.m */; };
 		82E0390618B8DD7A00EE7722 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */; };
 		82E0390718B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F618B8DD7A00EE7722 /* AFHTTPRequestOperationManager.m */; };
 		82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E038F818B8DD7A00EE7722 /* AFHTTPSessionManager.m */; };
@@ -94,7 +95,6 @@
 		FB63E07019538980000591E5 /* Nota.m in Sources */ = {isa = PBXBuildFile; fileRef = FB63E06F1953897F000591E5 /* Nota.m */; };
 		FB8EE8EB1957671200FB91C9 /* AnotacoesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE8E91957671200FB91C9 /* AnotacoesViewController.m */; };
 		FB8EE8EC1957671200FB91C9 /* AnotacoesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE8EA1957671200FB91C9 /* AnotacoesViewController.xib */; };
-		FB8EE8EE195768D800FB91C9 /* indice.xml in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE8ED195768D800FB91C9 /* indice.xml */; };
 		FB8EE8F41957AF1B00FB91C9 /* ListaAnotacoesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE8F21957AF1B00FB91C9 /* ListaAnotacoesViewController.m */; };
 		FB8EE8F51957AF1B00FB91C9 /* ListaAnotacoesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE8F31957AF1B00FB91C9 /* ListaAnotacoesViewController.xib */; };
 		FBC491F5195633C500947243 /* PerguntaListas.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC491F3195633C500947243 /* PerguntaListas.m */; };
@@ -145,10 +145,10 @@
 		2988CEC018C97128005B84BE /* DadosCliente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DadosCliente.m; sourceTree = "<group>"; };
 		299D7B4618BC36FC00724BED /* EstanteResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstanteResponse.h; sourceTree = "<group>"; };
 		299D7B4718BC36FC00724BED /* EstanteResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstanteResponse.m; sourceTree = "<group>"; };
-		29A56E7619590E9500DC274B /* NSStringMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringMask.h; sourceTree = "<group>"; };
-		29A56E7719590E9500DC274B /* NSStringMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringMask.m; sourceTree = "<group>"; };
-		29A56E7819590E9500DC274B /* UITextFieldMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldMask.h; sourceTree = "<group>"; };
-		29A56E7919590E9500DC274B /* UITextFieldMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldMask.m; sourceTree = "<group>"; };
+		29A56E7619590E9500DC274B /* NSStringMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringMask.h; path = Classes/NSStringMask.h; sourceTree = "<group>"; };
+		29A56E7719590E9500DC274B /* NSStringMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringMask.m; path = Classes/NSStringMask.m; sourceTree = "<group>"; };
+		29A56E7819590E9500DC274B /* UITextFieldMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITextFieldMask.h; path = Classes/UITextFieldMask.h; sourceTree = "<group>"; };
+		29A56E7919590E9500DC274B /* UITextFieldMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UITextFieldMask.m; path = Classes/UITextFieldMask.m; sourceTree = "<group>"; };
 		29B679DF18D91E4300787E05 /* GLB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLB.h; sourceTree = "<group>"; };
 		29B679E018D91E4300787E05 /* GLB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLB.m; sourceTree = "<group>"; };
 		29BABB231957543500CFEDA4 /* IndiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndiceViewController.h; sourceTree = "<group>"; };
@@ -183,6 +183,8 @@
 		29CFB205194FC4D800E9DBDA /* NSObject+PerformBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformBlock.m"; sourceTree = "<group>"; };
 		29CFB207194FC52000E9DBDA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29CFB209194FC53E00E9DBDA /* libRDPDFLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRDPDFLib.a; path = PDFViewer/PDFLib/libRDPDFLib.a; sourceTree = "<group>"; };
+		29F69F36195A63CD00A80DFA /* CWSBrasilValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSBrasilValidate.h; sourceTree = "<group>"; };
+		29F69F37195A63CD00A80DFA /* CWSBrasilValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSBrasilValidate.m; sourceTree = "<group>"; };
 		47E5FF1C835D4E76A8748C52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E038F318B8DD7A00EE7722 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -270,7 +272,6 @@
 		FB8EE8E81957671200FB91C9 /* AnotacoesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotacoesViewController.h; sourceTree = "<group>"; };
 		FB8EE8E91957671200FB91C9 /* AnotacoesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnotacoesViewController.m; sourceTree = "<group>"; };
 		FB8EE8EA1957671200FB91C9 /* AnotacoesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnotacoesViewController.xib; sourceTree = "<group>"; };
-		FB8EE8ED195768D800FB91C9 /* indice.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = indice.xml; sourceTree = "<group>"; };
 		FB8EE8F11957AF1B00FB91C9 /* ListaAnotacoesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaAnotacoesViewController.h; sourceTree = "<group>"; };
 		FB8EE8F21957AF1B00FB91C9 /* ListaAnotacoesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaAnotacoesViewController.m; sourceTree = "<group>"; };
 		FB8EE8F31957AF1B00FB91C9 /* ListaAnotacoesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListaAnotacoesViewController.xib; sourceTree = "<group>"; };
@@ -377,17 +378,6 @@
 			name = registro;
 			sourceTree = "<group>";
 		};
-		29A56E7519590E9500DC274B /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				29A56E7619590E9500DC274B /* NSStringMask.h */,
-				29A56E7719590E9500DC274B /* NSStringMask.m */,
-				29A56E7819590E9500DC274B /* UITextFieldMask.h */,
-				29A56E7919590E9500DC274B /* UITextFieldMask.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		29CFB1B1194FC06600E9DBDA /* PDFView */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +469,12 @@
 		FB3A5C5618BD772200A0FEA8 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				29F69F36195A63CD00A80DFA /* CWSBrasilValidate.h */,
+				29F69F37195A63CD00A80DFA /* CWSBrasilValidate.m */,
+				29A56E7619590E9500DC274B /* NSStringMask.h */,
+				29A56E7719590E9500DC274B /* NSStringMask.m */,
+				29A56E7819590E9500DC274B /* UITextFieldMask.h */,
+				29A56E7919590E9500DC274B /* UITextFieldMask.m */,
 				29B679DF18D91E4300787E05 /* GLB.h */,
 				29B679E018D91E4300787E05 /* GLB.m */,
 			);
@@ -526,7 +522,6 @@
 		FB5F0A7318615A800068D497 /* LeitorIDR */ = {
 			isa = PBXGroup;
 			children = (
-				FB8EE8ED195768D800FB91C9 /* indice.xml */,
 				FB63E035195152CA000591E5 /* image */,
 				29CFB203194FC4D800E9DBDA /* NSObject */,
 				29CFB1FF194FC46900E9DBDA /* cmaps */,
@@ -577,7 +572,6 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
-				29A56E7519590E9500DC274B /* Classes */,
 				FB8EE8EF1957AEE100FB91C9 /* perguntaListas */,
 				FB8EE8E7195766E900FB91C9 /* anotacoes */,
 				FBDF8A721877E353000EC732 /* connection */,
@@ -823,7 +817,6 @@
 				FB63E05D19534F56000591E5 /* leitoribracon.db in Resources */,
 				FB63E04B195152D8000591E5 /* annot_rect.png in Resources */,
 				FBDF8A7C1878C0FD000EC732 /* EstanteLivrosController.xib in Resources */,
-				FB8EE8EE195768D800FB91C9 /* indice.xml in Resources */,
 				29CFB201194FC46900E9DBDA /* cmaps in Resources */,
 				FBF102251870AFB900B4A361 /* Media.xcassets in Resources */,
 				FB63E054195152D8000591E5 /* right_arrow.png in Resources */,
@@ -906,6 +899,7 @@
 				FBD0EC351951510F00905486 /* OutLineViewController.m in Sources */,
 				FBDF8A6F1877CAC0000EC732 /* RegistrarDispositivoResponse.m in Sources */,
 				82E0390818B8DD7A00EE7722 /* AFHTTPSessionManager.m in Sources */,
+				29F69F38195A63CD00A80DFA /* CWSBrasilValidate.m in Sources */,
 				FB63E06A195370E2000591E5 /* LivrosBaixadosDAO.m in Sources */,
 				FBD0EC481951514E00905486 /* PopupMenuOverlayView.m in Sources */,
 				82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */,

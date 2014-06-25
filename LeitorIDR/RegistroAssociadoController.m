@@ -34,6 +34,15 @@
     return self;
 }
 
+- (IBAction)defineTipoPessoa:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        [self.txtCPFCNPJ setText:[NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"]];
+    }else{
+        [self.txtCPFCNPJ setText:[NSStringMask maskString:@"" withPattern:@"(\\d{2}).(\\d{3}).(\\d{3})/(\\d{4})-(\\d{2})" placeholder:@"0"]];
+    }
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,10 +52,12 @@
     
     self.indicadorAtividade.hidden = TRUE;
     
+    self.txtCPFCNPJ.hidden = NO;
+    
     //Inicializando UITextField
     //[self.txtCPFCNPJ setText:@"338.804.908-48"];
 
-    //[self.txtCPFCNPJ setText:[NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"]];
+    [self.txtCPFCNPJ setText:[NSStringMask maskString:@"" withPattern:@"(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})" placeholder:@"0"]];
     [self.lblIP  setText: [self getIPAddress]];
     [self.lblMacAdress setText: [self getMacAddress]];
     [self.lblSerial setText: [[UIDevice currentDevice] description]];
@@ -202,4 +213,8 @@
     [solicitarRegistroDispositivo registrarDispositivo: self.indicadorAtividade controller:self comDadosCliente:dadosCliente comDadosDispositivo:dadosDispositivo botaoRegistrar:self.btnRegistrar];
 }
 
+- (IBAction)tipoPEssoa:(id)sender {
+}
+- (IBAction)tipoPessoa:(UISegmentedControl *)sender {
+}
 @end

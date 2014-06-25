@@ -12,4 +12,5 @@
 +(void) showMessage: (NSString *) message;
 +(NSString *)urlEncodeUsingEncoding:(NSString *)unencodedString;
 +(NSString *) downloadSavePathFor:(NSString *) filename;
++ (BOOL)validateCPFWithNSString:(NSString *)cpf;
 @end
