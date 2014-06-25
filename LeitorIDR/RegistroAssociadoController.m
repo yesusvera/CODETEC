@@ -24,7 +24,7 @@
 @end
 
 @implementation RegistroAssociadoController
-
+@synthesize tipoPessoa;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -65,6 +65,50 @@
     [self.lblDispositivo setText: [[UIDevice currentDevice] localizedModel]];
     
 }
+
+#define MAXLENGTH 10
+
+- (BOOL)textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSUInteger oldLength = [textField.text length];
+    NSUInteger replacementLength = [string length];
+    NSUInteger rangeLength = range.length;
+    
+    NSUInteger newLength = oldLength - rangeLength + replacementLength;
+    
+    BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
+    
+    return newLength <= MAXLENGTH || returnKey;
+}
+
+- (IBAction)editarDocComMascara:(UITextField *)sender {
+    if (tipoPessoa.selectedSegmentIndex == 0) {
+        
+        if(sender.text.length == 3 || sender.text.length == 7){
+          [sender setText:[sender.text stringByAppendingString:@"."]];
+        }else if(sender.text.length == 11){
+          [sender setText:[sender.text stringByAppendingString:@"-"]];
+        }
+        NSRange range = NSMakeRange(0,14);
+        if(sender.text.length == 15){
+          [sender setText:[sender.text substringWithRange:range]];
+        }
+        
+    }else{
+        if(sender.text.length == 2 || sender.text.length == 6){
+            [sender setText:[sender.text stringByAppendingString:@"."]];
+        }else if(sender.text.length == 10){
+            [sender setText:[sender.text stringByAppendingString:@"/"]];
+        }else if(sender.text.length == 15){
+            [sender setText:[sender.text stringByAppendingString:@"-"]];
+        }
+        NSRange range = NSMakeRange(0,18);
+        if(sender.text.length == 19){
+            [sender setText:[sender.text substringWithRange:range]];
+        }
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
