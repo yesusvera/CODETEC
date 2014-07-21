@@ -36,6 +36,8 @@ bool flagMinhaBiblioteca = false;
     [super viewDidLoad];
     self.title = self.nomeEstante;
     
+    self.navigationController.navigationBarHidden = FALSE;
+    
     if([_nomeEstante isEqualToString:@"Visão Geral"]){
        self.listaLivros = self.estanteResponse.listaLivrosVisaoGeral;
     }else if([_nomeEstante isEqualToString:@"Disponíveis"]){

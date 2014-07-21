@@ -29,6 +29,8 @@ EstanteLivrosController *estanteLivrosController;
 
     self.title= @"Estantes";
     
+    self.navigationController.navigationBarHidden = TRUE;
+    
     ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
 
     estanteLivrosController = [[EstanteLivrosController alloc]init];
@@ -38,6 +40,9 @@ EstanteLivrosController *estanteLivrosController;
 
 
 -(void)viewDidAppear:(BOOL)animated{
+    
+    self.navigationController.navigationBarHidden = TRUE;
+    
     ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
     
     estanteLivrosController = [[EstanteLivrosController alloc]init];
