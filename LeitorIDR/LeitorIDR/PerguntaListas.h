@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "LivroResponse.h"
 #import "RDPDFViewController.h"
+#import "IndiceLivroResponse.h"
 
 @interface PerguntaListas : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
 
 @property (nonatomic, retain) LivroResponse *livro;
 @property (nonatomic, retain) RDPDFViewController *viewLivro;

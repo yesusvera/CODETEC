@@ -20,8 +20,7 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"indice"]){
         indiceLivroResponse = [[IndiceLivroResponse alloc] init];
-        indiceLivroResponse.parteA = [[NSMutableArray alloc]init];
-        indiceLivroResponse.parteB = [[NSMutableArray alloc]init];
+        indiceLivroResponse.indice = [[NSMutableArray alloc]init];
         itemPai = [[ItemDoIndice alloc]init];
     }
     
@@ -62,11 +61,9 @@
     }else if([elementName isEqualToString:@"item"]){
     
         if (![idPai isEqualToString:itemPai.id]) {
-            if ([itemPai.parte isEqualToString:@"Parte A"]) {
-                [indiceLivroResponse.parteA addObject:itemPai];
-            }else if([itemPai.parte isEqualToString:@"Parte B"]){
-                [indiceLivroResponse.parteB addObject:itemPai];
-            }
+            
+            [indiceLivroResponse.indice addObject:itemPai];
+            
             idPai = itemPai.id;
             itemPai = nil;
         }else{
@@ -92,22 +89,6 @@
 }
 
 -(IndiceLivroResponse *)montarIndiceDoLivro:(NSString *) localIndiceXML{
-    
-//    NSString *indice = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"indice.xml"];
-//    
-//    NSData *data = [[NSData alloc] initWithContentsOfFile:indice];
-//    NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//    NSLog(@"%@", corpoXML);
-//    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-//    NSLog(@"%@", parser);
-//    [parser setDelegate:self];
-//    
-//    if(![parser parse]){
-//        NSLog(@"Erro ao realizar o parse");
-//    }else{
-//        NSLog(@"Ok Parse");
-//        
-//    }
     
     NSLog(@"%@", localIndiceXML);
     NSString *thumbnailsPath = localIndiceXML;

@@ -16,6 +16,7 @@
 @implementation DetalheIndiceViewController{
     
 }
+@synthesize indiceDoLivro, livro;
 @synthesize detalheIndice,viewLivro;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,6 +56,7 @@
     if ([[detalheIndice objectAtIndex:indexPath.row] listaItens]) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    
     
     NSData *enc = [itemIndice.capitulo dataUsingEncoding:NSISOLatin1StringEncoding];
     NSString *result = [[NSString alloc] initWithData:enc encoding:NSUTF8StringEncoding];

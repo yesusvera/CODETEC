@@ -9,5 +9,5 @@
 #import "IndiceLivroResponse.h"
 
 @implementation IndiceLivroResponse
-@synthesize parteA,parteB,erro,msgErro;
+@synthesize indice,erro,msgErro;
 @end

@@ -10,14 +10,12 @@
 #import "LivroResponse.h"
 
 @interface IndiceLivroResponse : NSObject{
-    NSMutableArray *parteA;
-    NSMutableArray *parteB;
+    NSMutableArray *indice;
     NSString *erro;
     NSString *msgErro;
 }
 
-@property(nonatomic, retain) NSMutableArray *parteA;
-@property(nonatomic, retain) NSMutableArray *parteB;
+@property(nonatomic, retain) NSMutableArray *indice;
 @property(nonatomic, retain) NSString *erro;
 @property(nonatomic, retain) NSString *msgErro;
 

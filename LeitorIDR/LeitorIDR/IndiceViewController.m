@@ -45,11 +45,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"lista"];
     
-    if(indexPath.row == 0){
-        cell.textLabel.text = @"Parte A";
-    }else if(indexPath.row == 1){
-        cell.textLabel.text = @"Parte B";
-    }
+//    if(indexPath.row == 0){
+//        cell.textLabel.text = @"Parte A";
+//    }else if(indexPath.row == 1){
+//        cell.textLabel.text = @"Parte B";
+//    }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
@@ -57,16 +57,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetalheIndiceViewController *detalhesIndice = [[DetalheIndiceViewController alloc]init];
+    
     detalhesIndice.viewLivro = self.viewLivro;
     
-    if (indexPath.row == 0) {
-        detalhesIndice.detalheIndice = indiceDoLivro.parteA;
-        [self.navigationController pushViewController:detalhesIndice animated:YES];
-        
-    }else if (indexPath.row == 1){
-        detalhesIndice.detalheIndice = indiceDoLivro.parteB;
-        [self.navigationController pushViewController:detalhesIndice animated:YES];
-    }
+    detalhesIndice.detalheIndice = indiceDoLivro.indice;
+    
+    [self.navigationController pushViewController:detalhesIndice animated:YES];
+    
+//    if (indexPath.row == 0) {
+//        detalhesIndice.detalheIndice = indiceDoLivro.parteA;
+//        [self.navigationController pushViewController:detalhesIndice animated:YES];
+//        
+//    }else if (indexPath.row == 1){
+//        detalhesIndice.detalheIndice = indiceDoLivro.parteB;
+//        [self.navigationController pushViewController:detalhesIndice animated:YES];
+//    }
     
 }
 

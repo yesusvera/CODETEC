@@ -8,7 +8,7 @@
 
 #import "PerguntaListas.h"
 #import "MontadorDeIncideDoLivro.h"
-#import "IndiceViewController.h"
+#import "DetalheIndiceViewController.h"
 #import "ListaAnotacoesViewController.h"
 @interface PerguntaListas ()
 
@@ -59,13 +59,24 @@
     
     if (indexPath.row == 0) {
         MontadorDeIncideDoLivro *montadorIndice = [[MontadorDeIncideDoLivro alloc]init];
-        //TODO FALTA PASSAR O CAMINHO DO LIVRO PARA QUE SEJA FEITO O PARSE
 
-        IndiceViewController *indice = [[IndiceViewController alloc]init];
-        indice.livro = livro;
-        [indice setIndiceDoLivro:[montadorIndice montarIndiceDoLivro:livro.indiceXML]];
-        indice.viewLivro = self.viewLivro;
-        [self.navigationController pushViewController:indice animated:YES];
+        
+        DetalheIndiceViewController *detalheIndice = [[DetalheIndiceViewController alloc]init];
+        
+        
+        detalheIndice.livro = livro;
+        [detalheIndice setIndiceDoLivro:[montadorIndice montarIndiceDoLivro:livro.indiceXML]];
+        
+        detalheIndice.detalheIndice = detalheIndice.indiceDoLivro.indice;
+        
+        detalheIndice.viewLivro = self.viewLivro;
+        
+        [self.navigationController pushViewController:detalheIndice animated:YES];
+        
+        
+        
+
+        
     }else if (indexPath.row == 1){
         ListaAnotacoesViewController *listaAnotacoesViewController = [[ListaAnotacoesViewController alloc]init];
         listaAnotacoesViewController.livro = livro;
