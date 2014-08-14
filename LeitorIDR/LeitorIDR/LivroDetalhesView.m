@@ -39,7 +39,7 @@ bool versaoDiferente = false;
 uint g_ink_color = 0xFF000000;
 uint g_rect_color = 0xFF000000;
 NSUserDefaults *userDefaults;
-@synthesize livroResponse, tituloLivro,fotoLivro,registrarDispositivoResponse,estanteResponse;
+@synthesize livroVersaoNova,livroResponse,tituloLivro,fotoLivro,registrarDispositivoResponse,estanteResponse;
 
 // Função que abre o PDF pelo caminho especificado
 -(IBAction)actionOpenPlainDocument:(id)sender{
@@ -47,12 +47,12 @@ NSUserDefaults *userDefaults;
     versaoDiferente = false;
     
     if(estanteResponse!=nil){
-        NSMutableArray *listaVisaoGeral = estanteResponse.listaLivrosVisaoGeral;
-        for (LivroResponse *lvTmp in listaVisaoGeral) {
-            if(![lvTmp.codigolivro isEqualToString:livroResponse.codigolivro ] && [lvTmp.codigoloja isEqualToString:livroResponse.codigoloja]){
-                if([lvTmp.versao isEqualToString:livroResponse.versao]){
+        NSMutableArray *listaBaixadosOnline = estanteResponse.listaLivrosBaixados;
+        for (LivroResponse *lvTmp in listaBaixadosOnline) {
+            if([lvTmp.codigolivro isEqualToString:livroResponse.codigolivro] && [lvTmp.codigoloja isEqualToString:livroResponse.codigoloja]){
+                if(![lvTmp.versao isEqualToString:livroResponse.versao]){
                     versaoDiferente = true;
-                    livroResponse = lvTmp;
+                    livroVersaoNova = lvTmp;
                     
                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Existe uma nova versão deste livro nos servidores da IBRACON, deseja fazer o download?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil];
                     alertView.alertViewStyle = UIAlertViewStyleDefault;
@@ -162,10 +162,16 @@ NSUserDefaults *userDefaults;
     progressBar.hidden      = YES;
     loadingIndicator.hidden = YES;
     abrirPdf.hidden         = YES;
+    
+    [self carregaLivro];
+}
+
+- (void) carregaLivro{
     if(livroResponse){
         self.title = @"Livro";
-        if ([[UIImage alloc] initWithData:
-             [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ] && ![livroResponse.tipoLivro isEqualToString:@"baixados"]) {
+        //        if ([[UIImage alloc] initWithData:
+        //             [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ] && ![livroResponse.tipoLivro isEqualToString:@"baixados"]) {
+        if (![livroResponse.tipoLivro isEqualToString:@"baixados"]) {
             
             self.fotoLivro.image = [[UIImage alloc] initWithData:
                                     [[NSData alloc]initWithContentsOfURL: [NSURL URLWithString:self.livroResponse.foto]] ];
@@ -177,8 +183,8 @@ NSUserDefaults *userDefaults;
             abrirPdf.hidden = NO;
             self.tituloLivro.text = livroResponse.titulo;
         }else{
-            downPdf.hidden = YES;
-            abrirPdf.hidden = YES;
+            downPdf.hidden = NO;
+            abrirPdf.hidden = NO;
             self.tituloLivro.text = @"";
         }
         
@@ -187,11 +193,8 @@ NSUserDefaults *userDefaults;
         self.lblVersaoLivro.text = livroResponse.versao;
         
         livroResponse.arquivo = [livroResponse.arquivo stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        
-        //RETIRAR DEPOIS YESUS
-        // downPdf.hidden = YES;
-        // abrirPdf.hidden = NO;
     }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -212,6 +215,9 @@ NSUserDefaults *userDefaults;
 {
     if (buttonIndex == 1)
     {
+            if(versaoDiferente){
+                livroResponse = livroVersaoNova;
+            }
             [self downloadArquivo:livroResponse.arquivomobile];
     }else{
         if(versaoDiferente){
@@ -275,8 +281,10 @@ NSUserDefaults *userDefaults;
         [self downloadFotoDoLivro:livroResponse.foto];
         
         /* Registro no portal do livro baixado */
-        ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
-        [conexaoRegistrarLivro registrarLivroBaixado:registrarDispositivoResponse comLivroResponse:livroResponse];
+        if(!versaoDiferente){
+            ConexaoRegistrarLivro *conexaoRegistrarLivro = [[ConexaoRegistrarLivro alloc]init];
+            [conexaoRegistrarLivro registrarLivroBaixado:registrarDispositivoResponse comLivroResponse:livroResponse];
+        }
         
         //        [GLB showMessage:@"Download finalizado com sucesso!"];
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
@@ -309,11 +317,16 @@ NSUserDefaults *userDefaults;
     operationFoto.outputStream = [NSOutputStream outputStreamToFileAtPath:saveFilenameFoto append:NO];
     
     [operationFoto setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
+        
         //Salvando o path da foto no banco de dados
         livroResponse.foto = saveFilenameFoto;
         //        LivrosBaixadosDAO *livrosBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
         //        [livrosBaixadosDAO salvarAtualizarLivroBaixado:livroResponse];
         
+        if(versaoDiferente){
+            [self carregaLivro];
+        }
+
         [self salvarIndiceXML:livroResponse.indiceXML];
         
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {

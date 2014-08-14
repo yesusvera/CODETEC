@@ -23,6 +23,7 @@
     IBOutlet UIActivityIndicatorView *loadingIndicator;
     IBOutlet UILabel *tituloLivro;
     LivroResponse *livroResponse;
+    LivroResponse *livroVersaoNova;
     __weak IBOutlet UIImageView *fotoLivro;
     IBOutlet UIButton *abrirPdf;
     IBOutlet UIButton *downPdf;
@@ -30,6 +31,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *fotoLivro;
 @property (nonatomic, retain) LivroResponse *livroResponse;
+@property (nonatomic, retain) LivroResponse *livroVersaoNova;
 @property (nonatomic, retain) RegistrarDispositivoResponse *registrarDispositivoResponse;
 @property (nonatomic, retain) UILabel *tituloLivro;
 @property (weak, nonatomic) IBOutlet UILabel *lblVersaoLivro;

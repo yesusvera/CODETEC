@@ -267,13 +267,14 @@
     dadosCliente.uf = [ufArray objectAtIndex:[self.ufPicker selectedRowInComponent:0]];
     dadosCliente.email = self.txtEmail.text;
     
-    BOOL cepValido = [CWSBrasilValidate validarCEP:self.txtCEP.text];
+//    
+//    BOOL cepValido = [CWSBrasilValidate validarCEP:self.txtCEP.text];
+//    
+//    if(!cepValido){
+//        [GLB showMessage:@"CEP Inválido!"];
+//        return;
+//    }
     
-    if(!cepValido){
-        [GLB showMessage:@"CEP Inválido!"];
-        return;
-    }
-        
     
     dadosCliente.cep = self.txtCEP.text;
     dadosCliente.telefone = self.txtTelefone.text;
