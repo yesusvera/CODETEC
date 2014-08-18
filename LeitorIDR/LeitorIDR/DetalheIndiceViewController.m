@@ -53,7 +53,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"item"];
     ItemDoIndice *itemIndice = [detalheIndice objectAtIndex:indexPath.row];
-    if ([[detalheIndice objectAtIndex:indexPath.row] listaItens]) {
+    if ([itemIndice listaItens] != nil && [[itemIndice listaItens] count] > 0) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -65,7 +65,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if([[detalheIndice objectAtIndex:indexPath.row] listaItens]){
+    ItemDoIndice *itemIndice = [detalheIndice objectAtIndex:indexPath.row];
+    if ([itemIndice listaItens] != nil && [[itemIndice listaItens] count] > 0) {
         DetalheIndiceViewController *detalhesFilho = [[DetalheIndiceViewController alloc]init];
         detalhesFilho.detalheIndice = [[detalheIndice objectAtIndex:indexPath.row] listaItens];
         detalhesFilho.viewLivro    = self.viewLivro;
