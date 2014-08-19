@@ -57,6 +57,18 @@ bool flagMinhaBiblioteca = false;
         
         //self.listaLivros = self.estanteResponse.listaLivrosBaixados;
         LivrosBaixadosDAO *livroBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
+        
+        
+        //**** VERIFICANDO REVOGACAO DOS LIVROS ***********
+        NSMutableArray *listaLivrosLocaisTMP =[livroBaixadosDAO listaLivros];
+        
+        //MOSTRANDO APENAS OS LIVROS QUE NAO ESTAO REVOGADOS.
+        for(LivroResponse *livroLocal in listaLivrosLocaisTMP){
+            if([self livroEstaRevogado:livroLocal]){
+                [livroBaixadosDAO excluirLivro:livroLocal];
+            }
+        }
+
         self.listaLivros = [livroBaixadosDAO listaLivros];
         
         if(listaLivros == nil || listaLivros.count ==0 ){
@@ -73,6 +85,23 @@ bool flagMinhaBiblioteca = false;
     }
 
     // Do any additional setup after loading the view from its nib.
+}
+
+//Comparando se o livro local ainda está na prateleira de baixados online.
+-(BOOL)livroEstaRevogado:(LivroResponse *)livro{
+    if(self.estanteResponse==nil || !self.estanteResponse.conectouEstante){
+        return false;
+    }
+    BOOL flagRevogado = true;
+    
+    NSMutableArray *livrosBaixadosOnline = self.estanteResponse.listaLivrosBaixados;
+    for(LivroResponse *lvrTmp in livrosBaixadosOnline){
+          if(lvrTmp!=nil &&
+           [lvrTmp.codigolivro isEqualToString: livro.codigolivro]){
+            flagRevogado = false;
+        }
+    }
+    return flagRevogado;
 }
 
 - (void)didReceiveMemoryWarning

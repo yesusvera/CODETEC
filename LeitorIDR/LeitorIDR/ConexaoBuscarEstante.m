@@ -26,6 +26,7 @@ BOOL isDeDireito;
         estanteResponse.listaLivrosBaixados = [[NSMutableArray alloc]init];
         estanteResponse.listaLivrosDisponiveis = [[NSMutableArray alloc]init];
         estanteResponse.listaLivrosDeDireito = [[NSMutableArray alloc]init];
+        estanteResponse.conectouEstante = false;
     }
     return self;
 }
@@ -98,6 +99,9 @@ BOOL isDeDireito;
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        estanteResponse.conectouEstante = true;
+        
         NSString *respostaXML = [[NSString alloc] initWithData:responseObject encoding:NSISOLatin1StringEncoding];
         NSLog(@"%@", respostaXML);
         
@@ -109,60 +113,12 @@ BOOL isDeDireito;
             NSLog(@"Erro ao realizar o parse");
         }else{
             NSLog(@"Ok Parse");
-//            NSURLRequest *requestXML = [NSURLRequest requestWithURL:url];
-//            NSString *saveFilenameXML = [GLB downloadSavePathFor: [url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]];
-//            
-//            NSLog(@"Salvando o arquivo XML em %@", saveFilenameXML);
-//            
-//            AFHTTPRequestOperation *operationXML = [[AFHTTPRequestOperation alloc] initWithRequest:requestXML];
-//            
-//            operationXML.outputStream = [NSOutputStream outputStreamToFileAtPath:saveFilenameXML append:NO];
-//            
-//            [operationXML setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *op, NSHTTPURLResponse *response) {
-//                
-//                
-//            } failure:^(AFHTTPRequestOperation *op, NSError *error) {
-//                [GLB showMessage:
-//                 [NSString stringWithFormat:@"Error no download do XML: %@", [error localizedDescription]]];
-//            }];
-//            
-//            [operationXML start];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
         
-        // BUSCA DO XML LOCAL
-//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-//        NSString *thumbnailsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[url.lastPathComponent.stringByDeletingPathExtension stringByAppendingPathExtension:@"xml"]]];
-//        
-//        NSData *data = [[NSData alloc] initWithContentsOfFile:thumbnailsPath];
-//        if (!data) {
-//            UIAlertView *alertError = [
-//                                       [UIAlertView alloc] initWithTitle:@"Parece que você está sem conexão com a Internet."
-//                                       message:error.description
-//                                       delegate:nil
-//                                       cancelButtonTitle:@"Visto"
-//                                       otherButtonTitles:nil
-//                                       ];
-//            
-//            [alertError show];
-//
-//        }
-//        
-//        NSString *corpoXML = [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding];
-//        NSLog(@"%@", corpoXML);
-//        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-//        NSLog(@"%@", parser);
-//        [parser setDelegate:self];
-//        
-//        if(![parser parse]){
-//            NSLog(@"Erro ao realizar o parse");
-//        }else{
-//            NSLog(@"Ok Parse");
-//        
-//        }
-        
+        estanteResponse.conectouEstante = false;
         
     }];
     

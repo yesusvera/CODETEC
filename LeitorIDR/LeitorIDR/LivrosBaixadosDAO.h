@@ -15,5 +15,6 @@
 - (BOOL)salvarAtualizarLivroBaixado:(LivroResponse *) livroBaixado;
 - (BOOL)existeLivro:(LivroResponse *) livroBaixado;
 - (NSMutableArray *) listaLivros;
+- (void) excluirLivro:(LivroResponse *)livroBaixado;
 @end
 

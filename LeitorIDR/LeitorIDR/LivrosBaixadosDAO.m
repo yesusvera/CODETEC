@@ -28,6 +28,14 @@
     }
 }
 
+- (void) excluirLivro:(LivroResponse *)livroBaixado{
+    NSString *sql;
+    if([self existeLivro:livroBaixado]){
+        sql = @"delete from LivroBaixado WHERE codigoLivro='%@'";
+        BOOL isSave = [SCSQLite executeSQL:sql, livroBaixado.codigolivro];
+    }
+}
+
 - (BOOL)existeLivro:(LivroResponse *) livroBaixado{
     NSArray *results = [SCSQLite selectRowSQL:@"Select * from LivroBaixado where codigoLivro = '%@'", livroBaixado.codigolivro];
     return results.count > 0;
