@@ -38,8 +38,39 @@ bool flagMinhaBiblioteca = false;
     
     self.navigationController.navigationBarHidden = FALSE;
     
+    //self.listaLivros = self.estanteResponse.listaLivrosBaixados;
+    LivrosBaixadosDAO *livroBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
+    
+    
+    //**** VERIFICANDO REVOGACAO DOS LIVROS ***********
+    NSMutableArray *listaLivrosLocaisTMP =[livroBaixadosDAO listaLivros];
+    
+    //MOSTRANDO APENAS OS LIVROS QUE NAO ESTAO REVOGADOS.
+    for(LivroResponse *livroLocal in listaLivrosLocaisTMP){
+        if([self livroEstaRevogado:livroLocal]){
+            [livroBaixadosDAO excluirLivro:livroLocal];
+        }
+    }
+
+    
     if([_nomeEstante isEqualToString:@"Visão Geral"]){
-       self.listaLivros = self.estanteResponse.listaLivrosVisaoGeral;
+      
+        self.listaLivros = [[NSMutableArray alloc] init];
+        
+        if(self.estanteResponse.listaLivrosDisponiveis!=nil){
+            for(LivroResponse *lvr in self.estanteResponse.listaLivrosDisponiveis){
+                [self.listaLivros addObject:lvr];
+            }
+        }
+        
+        NSMutableArray *listaLivrosBaixadosOffline = [livroBaixadosDAO listaLivros];
+        
+        if(listaLivrosBaixadosOffline!=nil){
+            for(LivroResponse *lvr in listaLivrosBaixadosOffline){
+                [self.listaLivros addObject:lvr];
+            }
+        }
+        
     }else if([_nomeEstante isEqualToString:@"Disponíveis"]){
         self.listaLivros =self.estanteResponse.listaLivrosDisponiveis;
     }else if([_nomeEstante isEqualToString:@"Direito de uso"]){
@@ -55,20 +86,6 @@ bool flagMinhaBiblioteca = false;
         
         flagMinhaBiblioteca = true;
         
-        //self.listaLivros = self.estanteResponse.listaLivrosBaixados;
-        LivrosBaixadosDAO *livroBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
-        
-        
-        //**** VERIFICANDO REVOGACAO DOS LIVROS ***********
-        NSMutableArray *listaLivrosLocaisTMP =[livroBaixadosDAO listaLivros];
-        
-        //MOSTRANDO APENAS OS LIVROS QUE NAO ESTAO REVOGADOS.
-        for(LivroResponse *livroLocal in listaLivrosLocaisTMP){
-            if([self livroEstaRevogado:livroLocal]){
-                [livroBaixadosDAO excluirLivro:livroLocal];
-            }
-        }
-
         self.listaLivros = [livroBaixadosDAO listaLivros];
         
         if(listaLivros == nil || listaLivros.count ==0 ){
