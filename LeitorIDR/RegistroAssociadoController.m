@@ -212,8 +212,44 @@
     dadosCliente.ehAssociado      = @"s";
     dadosCliente.registroNacional = self.txtRegistroNacional.text;
     
+    
     NSString *docSemMask = [[[self.txtCPFCNPJ.text stringByReplacingOccurrencesOfString:@"/" withString:@""] stringByReplacingOccurrencesOfString:@"." withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""];
 
+    
+    dadosCliente.documento        = self.txtCPFCNPJ.text;
+    
+
+    
+    NSLog(@"documento: %@", dadosCliente.documento);
+    
+    dadosCliente.senha            = self.txtSenha.text;
+    dadosCliente.palavraChave     = @"";
+    
+    
+    
+    if([dadosCliente.registroNacional length]==0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campo obrigatório "
+                                                        message:@"O campo Registro Nacional é de preenchimento obrigatório."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil
+                              ];
+        [alert show];
+        return;
+    }
+
+    
+    if([dadosCliente.senha length]==0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campo obrigatório "
+                                                        message:@"O campo senha é de preenchimento obrigatório."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil
+                              ];
+        [alert show];
+        return;
+    }
+    
     if (tipoPessoa.selectedSegmentIndex == 0) {
         BOOL valido = [CWSBrasilValidate validarCPF:docSemMask];
         if (!valido) {
@@ -227,26 +263,8 @@
             return;
         }
     }
-    
-    dadosCliente.documento        = self.txtCPFCNPJ.text;
-    
 
-    
-    NSLog(@"documento: %@", dadosCliente.documento);
-    
-    dadosCliente.senha            = self.txtSenha.text;
-    dadosCliente.palavraChave     = @"";
-    
-    if([dadosCliente.senha length]==0){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campo obrigatório "
-                                                        message:@"O campo senha é de preenchimento obrigatório."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil
-                              ];
-        [alert show];
-        return;
-    }
+
     
     DadosDispositivo *dadosDispositivo = [[DadosDispositivo alloc]init];
     

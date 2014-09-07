@@ -239,21 +239,9 @@
     
     dadosCliente.ehAssociado      = @"n";
     
+    
     NSString *docSemMask = [[[self.txtDocumento.text stringByReplacingOccurrencesOfString:@"/" withString:@""] stringByReplacingOccurrencesOfString:@"." withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""];
     
-    if (tipoPessoa.selectedSegmentIndex == 0) {
-        BOOL valido = [CWSBrasilValidate validarCPF:docSemMask];
-        if (!valido) {
-            [GLB showMessage:@"CPF Inválido!"];
-            return;
-        }
-    }else{
-        BOOL valido = [CWSBrasilValidate validarCNPJ:docSemMask];
-        if (!valido) {
-            [GLB showMessage:@"CNPJ Inválido!"];
-            return;
-        }
-    }
     
     dadosCliente.documento        = self.txtDocumento.text;
     dadosCliente.nomeRazao = self.txtNomeRazaoSocial.text;
@@ -313,6 +301,21 @@
         [alert show];
         return;
     }
+    
+    if (tipoPessoa.selectedSegmentIndex == 0) {
+        BOOL valido = [CWSBrasilValidate validarCPF:docSemMask];
+        if (!valido) {
+            [GLB showMessage:@"CPF Inválido!"];
+            return;
+        }
+    }else{
+        BOOL valido = [CWSBrasilValidate validarCNPJ:docSemMask];
+        if (!valido) {
+            [GLB showMessage:@"CNPJ Inválido!"];
+            return;
+        }
+    }
+
 
     
     DadosDispositivo *dadosDispositivo = [[DadosDispositivo alloc]init];
