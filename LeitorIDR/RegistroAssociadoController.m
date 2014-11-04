@@ -36,6 +36,13 @@
     return self;
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    return TRUE;
+}
+
 - (IBAction)defineTipoPessoa:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 0) {
         [self.txtCPFCNPJ setText:@""];

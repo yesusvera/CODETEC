@@ -75,6 +75,13 @@ EstanteLivrosController *estanteLivrosController;
     }
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    return TRUE;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return estantes.count;
 }

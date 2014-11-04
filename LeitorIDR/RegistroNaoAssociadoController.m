@@ -36,6 +36,13 @@
     return self;
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    return TRUE;
+}
+
 - (IBAction)incluirMascaraDoCEP:(UITextField *)sender {
     if(sender.text.length == 2){
         [sender setText:[sender.text stringByAppendingString:@"."]];
