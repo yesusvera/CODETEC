@@ -82,4 +82,20 @@
     }
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    return TRUE;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([[self txtNota] isFirstResponder] && [touch view] != [self txtNota]) {
+        [[self txtNota] resignFirstResponder];
+    }
+    [super touchesBegan:touches withEvent:event];
+}
+
 @end
