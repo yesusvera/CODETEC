@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RegistroNaoAssociadoController.m"
-            timestampString = "436820012.007033"
+            timestampString = "437881713.86239"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "-getIPAddress"
             landmarkType = "5">
          </BreakpointContent>

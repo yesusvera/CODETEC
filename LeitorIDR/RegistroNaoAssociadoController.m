@@ -117,6 +117,9 @@
     [super viewDidLoad];
     self.title = @"Registro - Não associado";
     self.indicadorAtividade.hidden = TRUE;
+    
+    [scroller setScrollEnabled:true];
+    [scroller setContentSize:CGSizeMake(320, 1800)];
    
     ufArray = [[NSArray alloc] initWithObjects:@"AC", @"AL", @"AM", @"AP", @"BA", @"CE", @"DF", @"ES", @"GO",@"MA", @"MG", @"MS", @"MT", @"PA", @"PB", @"PE", @"PI",@"PR", @"RJ", @"RN", @"RO", @"RR", @"RS", @"RS", @"SC", @"SE", @"SP",@"TO", nil];
     

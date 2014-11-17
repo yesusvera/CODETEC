@@ -10,6 +10,7 @@
 
 @interface RegistroNaoAssociadoController:UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>{
     NSArray *ufArray;
+    __weak IBOutlet UIScrollView *scroller;
 }
 - (IBAction)registrarDispositivo:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *lblDispositivo;
