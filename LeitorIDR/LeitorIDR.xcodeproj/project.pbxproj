@@ -1043,7 +1043,7 @@
 				GCC_PREFIX_HEADER = "LeitorIDR/LeitorIDR-Prefix.pch";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				INFOPLIST_FILE = "LeitorIDR/LeitorIDR-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LeitorIDR/PDFLib",
@@ -1076,7 +1076,7 @@
 				GCC_PREFIX_HEADER = "LeitorIDR/LeitorIDR-Prefix.pch";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				INFOPLIST_FILE = "LeitorIDR/LeitorIDR-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LeitorIDR/PDFLib",
