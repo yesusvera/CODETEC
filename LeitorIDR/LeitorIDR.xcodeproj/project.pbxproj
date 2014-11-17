@@ -47,7 +47,6 @@
 		82E0390E18B8DD7A00EE7722 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E0390518B8DD7A00EE7722 /* AFURLSessionManager.m */; };
 		82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A318B59B86001636EE /* ConexaoBuscarEstante.m */; };
 		82F335AA18B5AEFE001636EE /* LivroResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F335A918B5AEFE001636EE /* LivroResponse.m */; };
-		F956B663DCC52BBA6EE180D9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E5FF1C835D4E76A8748C52 /* libPods.a */; };
 		FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3A5C5218BD639400A0FEA8 /* LivroDetalhesView.xib */; };
 		FB4F8C0E1959E8A900877CCD /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5F0A8218615A800068D497 /* Main_iPad.storyboard */; };
 		FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5A360B18657E29006C7FF3 /* RegistroAssociadoController.m */; };
@@ -61,7 +60,6 @@
 		FB5F0A7A18615A800068D497 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F0A7918615A800068D497 /* main.m */; };
 		FB5F0A7E18615A800068D497 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F0A7D18615A800068D497 /* AppDelegate.m */; };
 		FB5F0A8718615A800068D497 /* IdrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F0A8618615A800068D497 /* IdrViewController.m */; };
-		FB5F0A9018615A800068D497 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5F0A8F18615A800068D497 /* XCTest.framework */; };
 		FB5F0A9118615A800068D497 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5F0A6D18615A800068D497 /* Foundation.framework */; };
 		FB5F0A9218615A800068D497 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5F0A7118615A800068D497 /* UIKit.framework */; };
 		FB5F0A9A18615A800068D497 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB5F0A9818615A800068D497 /* InfoPlist.strings */; };
@@ -97,6 +95,7 @@
 		FB8EE8EC1957671200FB91C9 /* AnotacoesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE8EA1957671200FB91C9 /* AnotacoesViewController.xib */; };
 		FB8EE8F41957AF1B00FB91C9 /* ListaAnotacoesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE8F21957AF1B00FB91C9 /* ListaAnotacoesViewController.m */; };
 		FB8EE8F51957AF1B00FB91C9 /* ListaAnotacoesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8EE8F31957AF1B00FB91C9 /* ListaAnotacoesViewController.xib */; };
+		FB9FF6761A19B1E300C78EBA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9FF6751A19B1E300C78EBA /* CoreData.framework */; };
 		FBC491F5195633C500947243 /* PerguntaListas.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC491F3195633C500947243 /* PerguntaListas.m */; };
 		FBC491F6195633C500947243 /* PerguntaListas.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC491F4195633C500947243 /* PerguntaListas.xib */; };
 		FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */; };
@@ -182,7 +181,6 @@
 		29CFB209194FC53E00E9DBDA /* libRDPDFLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRDPDFLib.a; path = PDFViewer/PDFLib/libRDPDFLib.a; sourceTree = "<group>"; };
 		29F69F36195A63CD00A80DFA /* CWSBrasilValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSBrasilValidate.h; sourceTree = "<group>"; };
 		29F69F37195A63CD00A80DFA /* CWSBrasilValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSBrasilValidate.m; sourceTree = "<group>"; };
-		47E5FF1C835D4E76A8748C52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E038F318B8DD7A00EE7722 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		82E038F418B8DD7A00EE7722 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		82E038F518B8DD7A00EE7722 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 		FB5F0A8518615A800068D497 /* IdrViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdrViewController.h; sourceTree = "<group>"; };
 		FB5F0A8618615A800068D497 /* IdrViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdrViewController.m; sourceTree = "<group>"; };
 		FB5F0A8E18615A800068D497 /* LeitorIDRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeitorIDRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB5F0A8F18615A800068D497 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FB5F0A9718615A800068D497 /* LeitorIDRTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LeitorIDRTests-Info.plist"; sourceTree = "<group>"; };
 		FB5F0A9918615A800068D497 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FB5F0A9B18615A800068D497 /* LeitorIDRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeitorIDRTests.m; sourceTree = "<group>"; };
@@ -273,6 +270,7 @@
 		FB8EE8F11957AF1B00FB91C9 /* ListaAnotacoesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaAnotacoesViewController.h; sourceTree = "<group>"; };
 		FB8EE8F21957AF1B00FB91C9 /* ListaAnotacoesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaAnotacoesViewController.m; sourceTree = "<group>"; };
 		FB8EE8F31957AF1B00FB91C9 /* ListaAnotacoesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListaAnotacoesViewController.xib; sourceTree = "<group>"; };
+		FB9FF6751A19B1E300C78EBA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FBC491F2195633C500947243 /* PerguntaListas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerguntaListas.h; sourceTree = "<group>"; };
 		FBC491F3195633C500947243 /* PerguntaListas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerguntaListas.m; sourceTree = "<group>"; };
 		FBC491F4195633C500947243 /* PerguntaListas.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerguntaListas.xib; sourceTree = "<group>"; };
@@ -311,13 +309,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9FF6761A19B1E300C78EBA /* CoreData.framework in Frameworks */,
 				FB63E05B195165C8000591E5 /* libsqlite3.dylib in Frameworks */,
 				29CFB20A194FC53E00E9DBDA /* libRDPDFLib.a in Frameworks */,
 				29CFB208194FC52000E9DBDA /* QuartzCore.framework in Frameworks */,
 				FB5F0A7018615A800068D497 /* CoreGraphics.framework in Frameworks */,
 				FB5F0A7218615A800068D497 /* UIKit.framework in Frameworks */,
 				FB5F0A6E18615A800068D497 /* Foundation.framework in Frameworks */,
-				F956B663DCC52BBA6EE180D9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +323,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB5F0A9018615A800068D497 /* XCTest.framework in Frameworks */,
 				FB5F0A9218615A800068D497 /* UIKit.framework in Frameworks */,
 				FB5F0A9118615A800068D497 /* Foundation.framework in Frameworks */,
 			);
@@ -512,14 +509,13 @@
 		FB5F0A6C18615A800068D497 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB9FF6751A19B1E300C78EBA /* CoreData.framework */,
 				FB63E05A195165C8000591E5 /* libsqlite3.dylib */,
 				29CFB209194FC53E00E9DBDA /* libRDPDFLib.a */,
 				29CFB207194FC52000E9DBDA /* QuartzCore.framework */,
 				FB5F0A6D18615A800068D497 /* Foundation.framework */,
 				FB5F0A6F18615A800068D497 /* CoreGraphics.framework */,
 				FB5F0A7118615A800068D497 /* UIKit.framework */,
-				FB5F0A8F18615A800068D497 /* XCTest.framework */,
-				47E5FF1C835D4E76A8748C52 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -722,11 +718,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB5F0A9F18615A800068D497 /* Build configuration list for PBXNativeTarget "LeitorIDR" */;
 			buildPhases = (
-				977AEC138B07BFC56DF5BE9D /* Check Pods Manifest.lock */,
 				FB5F0A6618615A800068D497 /* Sources */,
 				FB5F0A6718615A800068D497 /* Frameworks */,
 				FB5F0A6818615A800068D497 /* Resources */,
-				8B7BA2E0250EA93D596CFF80 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -846,39 +840,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		8B7BA2E0250EA93D596CFF80 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		977AEC138B07BFC56DF5BE9D /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB5F0A6618615A800068D497 /* Sources */ = {
@@ -1073,11 +1034,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/JJCS/Documents/mobfarm-FastPdfKit-feb4b79/FastPdfKit.embeddedframework",
-					/Users/JJCS/FastPdfkit/FastPdfKit.embeddedframework,
-					/Users/JJCS/Documents/FastPdfkit/FastPdfKit.embeddedframework,
 					"$(PROJECT_DIR)/FastPdfKit.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1108,11 +1067,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/JJCS/Documents/mobfarm-FastPdfKit-feb4b79/FastPdfKit.embeddedframework",
-					/Users/JJCS/FastPdfkit/FastPdfKit.embeddedframework,
-					/Users/JJCS/Documents/FastPdfkit/FastPdfKit.embeddedframework,
 					"$(PROJECT_DIR)/FastPdfKit.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
