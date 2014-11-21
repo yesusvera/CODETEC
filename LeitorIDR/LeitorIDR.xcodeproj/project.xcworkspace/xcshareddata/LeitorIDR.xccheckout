@@ -10,31 +10,31 @@
 	<string>LeitorIDR</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2D76AC1B-855A-459F-98BC-14F5FB9D3E16</key>
+		<key>B1FB80A530F54B9726E7EF0FDBEA17B1FA054655</key>
 		<string>https://github.com/yesusvera/CODETEC.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>LeitorIDR/LeitorIDR.xcodeproj/project.xcworkspace</string>
+	<string>LeitorIDR/LeitorIDR.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2D76AC1B-855A-459F-98BC-14F5FB9D3E16</key>
+		<key>B1FB80A530F54B9726E7EF0FDBEA17B1FA054655</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/yesusvera/CODETEC.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2D76AC1B-855A-459F-98BC-14F5FB9D3E16</string>
+	<string>B1FB80A530F54B9726E7EF0FDBEA17B1FA054655</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2D76AC1B-855A-459F-98BC-14F5FB9D3E16</string>
+			<string>B1FB80A530F54B9726E7EF0FDBEA17B1FA054655</string>
 			<key>IDESourceControlWCCName</key>
-			<string>IBRACON</string>
+			<string>COD_PDF</string>
 		</dict>
 	</array>
 </dict>
