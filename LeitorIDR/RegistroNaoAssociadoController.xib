@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistroNaoAssociadoController">
@@ -55,17 +54,17 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                             <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="152" y="110" width="155" height="30"/>
+                                <rect key="frame" x="11" y="110" width="296" height="30"/>
                             </variation>
                             <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="137" y="112" width="168" height="30"/>
+                                <rect key="frame" x="11" y="112" width="294" height="30"/>
                             </variation>
                             <connections>
                                 <action selector="editarDocComMascara:" destination="-1" eventType="editingChanged" id="H7z-BO-1zz"/>
                                 <outlet property="delegate" destination="-1" id="WcD-gj-UX9"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MqL-qk-LRm">
+                        <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MqL-qk-LRm">
                             <rect key="frame" x="186" y="98" width="188" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
@@ -79,7 +78,7 @@
                                 <outlet property="delegate" destination="-1" id="pdK-73-Cl5"/>
                             </connections>
                         </textField>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nova Senha:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPj-Tb-ZvC">
+                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nova Senha:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPj-Tb-ZvC">
                             <rect key="frame" x="13" y="102" width="99" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -405,22 +404,6 @@
                                 <rect key="frame" x="94" y="751" width="211" height="21"/>
                             </variation>
                         </label>
-                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AIR-7E-yVm">
-                            <rect key="frame" x="8" y="139" width="99" height="29"/>
-                            <segments>
-                                <segment title="CPF"/>
-                                <segment title="CNPJ"/>
-                            </segments>
-                            <variation key="widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="152" y="80" width="99" height="29"/>
-                            </variation>
-                            <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="137" y="80" width="99" height="29"/>
-                            </variation>
-                            <connections>
-                                <action selector="defineTipoPessoa:" destination="-1" eventType="valueChanged" id="z4G-oZ-pQX"/>
-                            </connections>
-                        </segmentedControl>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aow-2q-rHg">
                             <rect key="frame" x="653" y="53" width="7" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -433,7 +416,7 @@
                                 <rect key="frame" x="306" y="54" width="7" height="21"/>
                             </variation>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uk-YU-eD3">
+                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uk-YU-eD3">
                             <rect key="frame" x="377" y="101" width="7" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" red="1" green="0.2218808998" blue="0.16915310489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -532,6 +515,22 @@
                                 <action selector="registrarDispositivo:" destination="-1" eventType="touchUpInside" id="GOk-JE-L3W"/>
                             </connections>
                         </button>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AIR-7E-yVm">
+                            <rect key="frame" x="8" y="139" width="99" height="29"/>
+                            <segments>
+                                <segment title="CPF"/>
+                                <segment title="CNPJ"/>
+                            </segments>
+                            <variation key="widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="11" y="80" width="99" height="29"/>
+                            </variation>
+                            <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="12" y="80" width="99" height="29"/>
+                            </variation>
+                            <connections>
+                                <action selector="defineTipoPessoa:" destination="-1" eventType="valueChanged" id="z4G-oZ-pQX"/>
+                            </connections>
+                        </segmentedControl>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -539,7 +538,7 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="333.5" y="521"/>
+            <point key="canvasLocation" x="333" y="521"/>
         </view>
     </objects>
 </document>

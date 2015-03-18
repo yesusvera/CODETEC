@@ -246,16 +246,16 @@
     }
 
     
-    if([dadosCliente.senha length]==0){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campo obrigatório "
-                                                        message:@"O campo senha é de preenchimento obrigatório."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil
-                              ];
-        [alert show];
-        return;
-    }
+//    if([dadosCliente.senha length]==0){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campo obrigatório "
+//                                                        message:@"O campo senha é de preenchimento obrigatório."
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil
+//                              ];
+//        [alert show];
+//        return;
+//    }
     
     if (tipoPessoa.selectedSegmentIndex == 0) {
         BOOL valido = [CWSBrasilValidate validarCPF:docSemMask];
