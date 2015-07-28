@@ -231,15 +231,15 @@ extern uint annotOvalColor;
     CGRect boundsc = [[UIScreen mainScreen]bounds];
     int cwidth = boundsc.size.width;
     NSString *iosversion =[[UIDevice currentDevice]systemVersion];
-    if([[iosversion substringToIndex:1] isEqualToString:@"7"])
-    {
+//    if([[iosversion substringToIndex:1] isEqualToString:@"7"])
+//    {
         float hi = self.navigationController.navigationBar.bounds.size.height;
         m_searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, hi+20, cwidth, 41)];
-    }
-    else
-    {
-        m_searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, cwidth, 41)];
-    }
+//    }
+//    else
+//    {
+//        m_searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, cwidth, 41)];
+//    }
     m_searchBar.delegate = self;
     m_searchBar.barStyle =UIBarStyleBlackTranslucent;
     m_searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
