@@ -28,7 +28,6 @@
 		29CFB1CC194FC06600E9DBDA /* PDFVPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB1BD194FC06600E9DBDA /* PDFVPage.m */; };
 		29CFB1CD194FC06600E9DBDA /* PDFVThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB1BF194FC06600E9DBDA /* PDFVThread.m */; };
 		29CFB1CE194FC06600E9DBDA /* PDFVThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB1C1194FC06600E9DBDA /* PDFVThumb.m */; };
-		29CFB1D0194FC06600E9DBDA /* PDFObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB1C6194FC06600E9DBDA /* PDFObjc.m */; };
 		29CFB201194FC46900E9DBDA /* cmaps in Resources */ = {isa = PBXBuildFile; fileRef = 29CFB1FF194FC46900E9DBDA /* cmaps */; };
 		29CFB202194FC46900E9DBDA /* fdat in Resources */ = {isa = PBXBuildFile; fileRef = 29CFB200194FC46900E9DBDA /* fdat */; };
 		29CFB206194FC4D800E9DBDA /* NSObject+PerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CFB205194FC4D800E9DBDA /* NSObject+PerformBlock.m */; };
@@ -48,6 +47,8 @@
 		FB0EE9E61B67486B00C22698 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0EE9DC1B67486B00C22698 /* AFURLResponseSerialization.m */; };
 		FB0EE9E71B67486B00C22698 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0EE9DE1B67486B00C22698 /* AFURLSessionManager.m */; };
 		FB3A5C5418BD639400A0FEA8 /* LivroDetalhesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3A5C5218BD639400A0FEA8 /* LivroDetalhesView.xib */; };
+		FB3FEBA71B6752E500559B07 /* libRDPDFLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3FEBA31B6752E500559B07 /* libRDPDFLib.a */; };
+		FB3FEBA81B6752E500559B07 /* PDFObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3FEBA61B6752E500559B07 /* PDFObjc.m */; };
 		FB4F8C0E1959E8A900877CCD /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5F0A8218615A800068D497 /* Main_iPad.storyboard */; };
 		FB5A360D18657E29006C7FF3 /* RegistroAssociadoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5A360B18657E29006C7FF3 /* RegistroAssociadoController.m */; };
 		FB5A360E18657E29006C7FF3 /* RegistroAssociadoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */; };
@@ -98,6 +99,7 @@
 		FB9FF6761A19B1E300C78EBA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9FF6751A19B1E300C78EBA /* CoreData.framework */; };
 		FBC491F5195633C500947243 /* PerguntaListas.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC491F3195633C500947243 /* PerguntaListas.m */; };
 		FBC491F6195633C500947243 /* PerguntaListas.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC491F4195633C500947243 /* PerguntaListas.xib */; };
+		FBC706631B6B2EB7000C8819 /* backgroundCadastros.png in Resources */ = {isa = PBXBuildFile; fileRef = FBC706621B6B2EB7000C8819 /* backgroundCadastros.png */; };
 		FBC727AC18658EAD00F72A23 /* PerguntaRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */; };
 		FBC727AD18658EAD00F72A23 /* PerguntaRegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */; };
 		FBD0EC31195150F700905486 /* OUTLINE_ITEM.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0EC30195150F700905486 /* OUTLINE_ITEM.m */; };
@@ -169,10 +171,6 @@
 		29CFB1BF194FC06600E9DBDA /* PDFVThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFVThread.m; sourceTree = "<group>"; };
 		29CFB1C0194FC06600E9DBDA /* PDFVThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFVThumb.h; sourceTree = "<group>"; };
 		29CFB1C1194FC06600E9DBDA /* PDFVThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFVThumb.m; sourceTree = "<group>"; };
-		29CFB1C3194FC06600E9DBDA /* libRDPDFLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRDPDFLib.a; sourceTree = "<group>"; };
-		29CFB1C4194FC06600E9DBDA /* PDFIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFIOS.h; sourceTree = "<group>"; };
-		29CFB1C5194FC06600E9DBDA /* PDFObjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObjc.h; sourceTree = "<group>"; };
-		29CFB1C6194FC06600E9DBDA /* PDFObjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObjc.m; sourceTree = "<group>"; };
 		29CFB1FF194FC46900E9DBDA /* cmaps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cmaps; sourceTree = "<group>"; };
 		29CFB200194FC46900E9DBDA /* fdat */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fdat; sourceTree = "<group>"; };
 		29CFB204194FC4D800E9DBDA /* NSObject+PerformBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PerformBlock.h"; sourceTree = "<group>"; };
@@ -207,6 +205,10 @@
 		FB3A5C5018BD639400A0FEA8 /* LivroDetalhesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivroDetalhesView.h; sourceTree = "<group>"; };
 		FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivroDetalhesView.m; sourceTree = "<group>"; };
 		FB3A5C5218BD639400A0FEA8 /* LivroDetalhesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LivroDetalhesView.xib; sourceTree = "<group>"; };
+		FB3FEBA31B6752E500559B07 /* libRDPDFLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRDPDFLib.a; sourceTree = "<group>"; };
+		FB3FEBA41B6752E500559B07 /* PDFIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFIOS.h; sourceTree = "<group>"; };
+		FB3FEBA51B6752E500559B07 /* PDFObjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFObjc.h; sourceTree = "<group>"; };
+		FB3FEBA61B6752E500559B07 /* PDFObjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFObjc.m; sourceTree = "<group>"; };
 		FB5A360A18657E29006C7FF3 /* RegistroAssociadoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistroAssociadoController.h; path = ../RegistroAssociadoController.h; sourceTree = "<group>"; };
 		FB5A360B18657E29006C7FF3 /* RegistroAssociadoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistroAssociadoController.m; path = ../RegistroAssociadoController.m; sourceTree = "<group>"; };
 		FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegistroAssociadoController.xib; path = ../RegistroAssociadoController.xib; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 		FBC491F2195633C500947243 /* PerguntaListas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerguntaListas.h; sourceTree = "<group>"; };
 		FBC491F3195633C500947243 /* PerguntaListas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerguntaListas.m; sourceTree = "<group>"; };
 		FBC491F4195633C500947243 /* PerguntaListas.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerguntaListas.xib; sourceTree = "<group>"; };
+		FBC706621B6B2EB7000C8819 /* backgroundCadastros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundCadastros.png; sourceTree = "<group>"; };
 		FBC727A918658EAD00F72A23 /* PerguntaRegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerguntaRegistroController.h; path = ../PerguntaRegistroController.h; sourceTree = "<group>"; };
 		FBC727AA18658EAD00F72A23 /* PerguntaRegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerguntaRegistroController.m; path = ../PerguntaRegistroController.m; sourceTree = "<group>"; };
 		FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PerguntaRegistroController.xib; path = ../PerguntaRegistroController.xib; sourceTree = "<group>"; };
@@ -309,6 +312,7 @@
 			files = (
 				FB9FF6761A19B1E300C78EBA /* CoreData.framework in Frameworks */,
 				FB63E05B195165C8000591E5 /* libsqlite3.dylib in Frameworks */,
+				FB3FEBA71B6752E500559B07 /* libRDPDFLib.a in Frameworks */,
 				29CFB20A194FC53E00E9DBDA /* libRDPDFLib.a in Frameworks */,
 				29CFB208194FC52000E9DBDA /* QuartzCore.framework in Frameworks */,
 				FB5F0A7018615A800068D497 /* CoreGraphics.framework in Frameworks */,
@@ -395,10 +399,10 @@
 		29CFB1C2194FC06600E9DBDA /* PDFLib */ = {
 			isa = PBXGroup;
 			children = (
-				29CFB1C3194FC06600E9DBDA /* libRDPDFLib.a */,
-				29CFB1C4194FC06600E9DBDA /* PDFIOS.h */,
-				29CFB1C5194FC06600E9DBDA /* PDFObjc.h */,
-				29CFB1C6194FC06600E9DBDA /* PDFObjc.m */,
+				FB3FEBA31B6752E500559B07 /* libRDPDFLib.a */,
+				FB3FEBA41B6752E500559B07 /* PDFIOS.h */,
+				FB3FEBA51B6752E500559B07 /* PDFObjc.h */,
+				FB3FEBA61B6752E500559B07 /* PDFObjc.m */,
 			);
 			path = PDFLib;
 			sourceTree = "<group>";
@@ -579,6 +583,7 @@
 		FB63E035195152CA000591E5 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				FBC706621B6B2EB7000C8819 /* backgroundCadastros.png */,
 				FB63E036195152D8000591E5 /* add_mark.png */,
 				FB63E037195152D8000591E5 /* annot_done.png */,
 				FB63E038195152D8000591E5 /* annot_line.png */,
@@ -794,6 +799,7 @@
 				FBC491F6195633C500947243 /* PerguntaListas.xib in Resources */,
 				FB63E056195152D8000591E5 /* view_menu.png in Resources */,
 				FB63E057195152D8000591E5 /* view_page.png in Resources */,
+				FBC706631B6B2EB7000C8819 /* backgroundCadastros.png in Resources */,
 				FB63E04C195152D8000591E5 /* annot_remove.png in Resources */,
 				FB8EE8F51957AF1B00FB91C9 /* ListaAnotacoesViewController.xib in Resources */,
 				FB8EE8EC1957671200FB91C9 /* AnotacoesViewController.xib in Resources */,
@@ -850,7 +856,6 @@
 				FB0EE9E71B67486B00C22698 /* AFURLSessionManager.m in Sources */,
 				FBD0EC471951514E00905486 /* PopupMenuItem.m in Sources */,
 				29CFB1CA194FC06600E9DBDA /* PDFVGlobal.m in Sources */,
-				29CFB1D0194FC06600E9DBDA /* PDFObjc.m in Sources */,
 				FB63E06D19538959000591E5 /* NotasDAO.m in Sources */,
 				FB0EE9DF1B67486B00C22698 /* AFHTTPRequestOperation.m in Sources */,
 				295AD9DC19551DD200A1DA55 /* ItemDoIndice.m in Sources */,
@@ -892,6 +897,7 @@
 				FBD0EC481951514E00905486 /* PopupMenuOverlayView.m in Sources */,
 				82F335A418B59B86001636EE /* ConexaoBuscarEstante.m in Sources */,
 				FB5A361218657EA6006C7FF3 /* RegistroNaoAssociadoController.m in Sources */,
+				FB3FEBA81B6752E500559B07 /* PDFObjc.m in Sources */,
 				2988CEBB18C96A6F005B84BE /* ConexaoRegistrarLivro.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

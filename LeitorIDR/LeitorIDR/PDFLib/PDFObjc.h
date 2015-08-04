@@ -21,14 +21,14 @@
  *	@param 	width 	width in pixels
  *	@param 	height 	height in pixels
  */
--(id)init:(int)width:(int)height;
+-(id)init:(int)width :(int)height;
 /**
  *	@brief	resize a DIB object
  *
  *	@param 	newWidth 	width in pixels
  *	@param 	newHeight 	height in pixels
  */
--(void)resize:(int)newWidth:(int)newHeight;
+-(void)resize:(int)newWidth :(int)newHeight;
 /**
  *	@brief	get pixels data.
  */
@@ -62,7 +62,7 @@
  *	@param	handle	outline handle.
  *
  */
--(id)init:(PDF_DOC)doc:(PDF_OUTLINE)handle;
+-(id)init:(PDF_DOC)doc :(PDF_OUTLINE)handle;
 /**
  *	@brief	get next sibling outline.
  */
@@ -87,6 +87,8 @@
  *	@brief	remove this outline from PDF Document.
  */
 -(bool)removeFromDoc;
+-(bool)addNext:(NSString *)label :(int)pageno :(float)top;
+-(bool)addChild:(NSString *)label :(int)pageno :(float)top;
 @end
 
 @interface PDFDocFont : NSObject
@@ -103,7 +105,7 @@
  *	@param	handle	FONT handle.
  *
  */
--(id)init:(PDF_DOC)doc:(PDF_DOC_FONT)handle;
+-(id)init:(PDF_DOC)doc :(PDF_DOC_FONT)handle;
 -(float)ascent;
 -(float)descent;
 @end
@@ -122,7 +124,7 @@
  *	@param	handle	GState handle.
  *
  */
--(id)init:(PDF_DOC)doc:(PDF_DOC_GSTATE)handle;
+-(id)init:(PDF_DOC)doc :(PDF_DOC_GSTATE)handle;
 /**
  *	@brief	set alpha value for stroke.
  *
@@ -130,7 +132,7 @@
  *
  *	@return true or false.
  */
--(bool)setStrokeAlpha:(int)alpha;
+-(bool)setStrokeAlpha :(int)alpha;
 /**
  *	@brief	set alpha value for fill.
  *
@@ -138,7 +140,7 @@
  *
  *	@return true or false.
  */
--(bool)setFillAlpha:(int)alpha;
+-(bool)setFillAlpha :(int)alpha;
 @end
 
 @interface PDFDocImage : NSObject
@@ -155,7 +157,7 @@
  *	@param	handle	IMAGE handle.
  *
  */
--(id)init:(PDF_DOC)doc:(PDF_DOC_IMAGE)handle;
+-(id)init:(PDF_DOC)doc :(PDF_DOC_IMAGE)handle;
 @end
 
 @interface PDFFinder : NSObject
@@ -196,13 +198,13 @@
  *	@brief	create a path object may includes some contours.
  */
 -(id)init;
--(void)moveTo:(float)x:(float)y;
--(void)lineTo:(float)x:(float)y;
+-(void)moveTo:(float)x :(float)y;
+-(void)lineTo:(float)x :(float)y;
 /**
  * @brief append cubic curve line to path
  *
  */
--(void)CurveTo:(float)x1:(float)y1:(float)x2:(float)y2:(float)x3:(float)y3;
+-(void)CurveTo:(float)x1 :(float)y1 :(float)x2 :(float)y2 :(float)x3 :(float)y3;
 /**
  * @brief close current contour.
  */
@@ -223,7 +225,7 @@
  * 3: curve to, index, index + 1, index + 2 are points for this operation.
  * 4: close operation
  */
--(int)node:(int)index:(PDF_POINT *)pt;
+-(int)node:(int)index :(PDF_POINT *)pt;
 @end
 
 @interface PDFInk : NSObject
@@ -237,19 +239,19 @@
  *	@param	line_width	ink width.
  *	@param	color	ink color in format: 0xAARRGGBB, AA is alpha, RR is Red, GG is Green, BB is Blue.
  */
--(id)init:(float)line_width:(int)color;
+-(id)init:(float)line_width :(int)color;
 /**
  * @brief invoked when touch down.
  */
--(void)onDown:(float)x:(float)y;
+-(void)onDown:(float)x :(float)y;
 /**
  * @brief invoked when moving.
  */
--(void)onMove:(float)x:(float)y;
+-(void)onMove:(float)x :(float)y;
 /**
  * @brief invoked when touch up.
  */
--(void)onUp:(float)x:(float)y;
+-(void)onUp:(float)x :(float)y;
 -(int)nodesCount;
 /**
  * @brief	get each node, by index
@@ -267,7 +269,7 @@
  * 3: curve to, index, index + 1, index + 2 are points for this operation.
  * 4: close operation
  */
--(int)node:(int)index:(PDF_POINT *)pt;
+-(int)node:(int)index :(PDF_POINT *)pt;
 @end
 
 @interface PDFMatrix : NSObject
@@ -286,7 +288,7 @@
  *	@param	orgx	orgin x.
  *	@param	orgy	orgin y.
  */
--(id)init:(float)scalex:(float)scaley:(float)orgx:(float)orgy;
+-(id)init:(float)scalex :(float)scaley :(float)orgx :(float)orgy;
 /**
  *	@brief	create a Matrix object.
  *
@@ -295,13 +297,13 @@
  *			y1 = y * yy + x * yx + y0;
  *
  */
--(id)init:(float)xx:(float)yx:(float)xy:(float)yy:(float)x0:(float)y0;
+-(id)init:(float)xx :(float)yx :(float)xy :(float)yy :(float)x0 :(float)y0;
 -(void)invert;
 -(void)transformPath:(PDFPath *)path;
 -(void)transformInk:(PDFInk *)ink;
 -(void)transformRect:(PDF_RECT *)rect;
 -(void)transformPoint:(PDF_POINT *)point;
-@end
+@end    
 
 @interface PDFPageContent : NSObject
 {
@@ -360,14 +362,14 @@
  * @param path path to fill
  * @param winding true if use winding rule, or even-odd rule.
  */
--(void)fillPath:(PDFPath *)path:(bool) winding;
+-(void)fillPath:(PDFPath *)path :(bool) winding;
 /**
  * @brief set the path to clip
  *
  * @param path path to clip
  * @param winding true if use winding rule, or even-odd rule.
  */
--(void)clipPath:(PDFPath *)path:(bool) winding;
+-(void)clipPath:(PDFPath *)path :(bool) winding;
 /**
  * @brief set fill color
  *
@@ -434,13 +436,13 @@
  * @param x in PDF coordinate add to previous line position
  * @param y in PDF coordinate add to previous line position
  */
--(void)textMove:(float) x: (float) y;
+-(void)textMove:(float) x :(float) y;
 /**
  * @brief set text font
  * @param font ResFont object created by Page.AddResFont()
  * @param size text size in PDF coordinate.
  */
--(void)textSetFont:(PDF_PAGE_FONT) font: (float) size;
+-(void)textSetFont:(PDF_PAGE_FONT) font :(float) size;
 /**
  * @brief PDF operator: set text render mode.
  * @param mode values as below:
@@ -467,7 +469,7 @@
  * @brief	create an annotation object, 
  *			this method is not supplied for developers, but invoked inner.
  */
--(id)init:(PDF_PAGE)page:(PDF_ANNOT)handle;
+-(id)init:(PDF_PAGE)page :(PDF_ANNOT)handle;
 /**
  * @brief	get annotation type.
  *			this method valid in professional or premium version
@@ -564,6 +566,22 @@
  * @param rect rect in PDF coordinate system
  */
 -(void)setRect:(const PDF_RECT *)rect;
+/**
+* @brief get markup annotation's rectangles.
+* this method valid in professional or premium version.
+* @param rects rects in PDF coordinate system, as out values.
+* @param cnt count of rects allocated.
+* @return rects count that markup annotation has.
+*/
+-(int)getMarkupRects:(PDF_RECT *)rects : (int)cnt;
+-(int)getIndex;
+-(PDFPath *)getInkPath;
+-(bool)setInkPath:(PDFPath *)path;
+-(PDFPath *)getPolygonPath;
+-(bool)setPolygonPath:(PDFPath *)path;
+-(PDFPath *)getPolylinePath;
+-(bool)setPolylinePath:(PDFPath *)path;
+
 /**
  * @brief get fill color of square/circle/highlight/line/ploygon/polyline/sticky text/free text annotation.
  * this method valid in professional or premium version
@@ -720,6 +738,7 @@
  * @return string of URL, or null
  */
 -(NSString *)getURI;
+-(NSString *)getJS;
 /**
  * @brief get annotation's 3D object name.
  * this method valid in professional or premium version
@@ -765,7 +784,7 @@
  * @param save_file full path name to save data.
  * @return true if save_file created, or false.
  */
--(bool)getSoundData:(int *)paras: (NSString *)save_file;
+-(bool)getSoundData:(int *)paras :(NSString *)save_file;
 /**
  * @brief get annotation's attachment data.
  * this method valid in professional or premium version
@@ -785,6 +804,7 @@
  * @return text string or null if failed.
  */
 -(NSString *)getPopupText;
+-(NSString *)getPopupLabel;
 /**
  * @brief set annotation's popup subject.
  * this method valid in professional or premium version
@@ -823,6 +843,7 @@
  * @return size of text, in PDF coordinate system.
  */
 -(float)getEditTextSize:(PDF_RECT *)rect;
+-(NSString *)getEditTextFormat;
 /**
  * @brief get contents of edit-box.
  * this method valid in premium version
@@ -837,6 +858,8 @@
  * @return true or false.
  */
 -(bool)setEditText:(NSString *)val;
+-(int)getEditTextColor;
+-(bool)setEditTextColor:(int)color;
 /**
  * @brief get item count of combo-box.
  * this method valid in premium version
@@ -849,7 +872,7 @@
  * @param item 0 based item index. range:[0, getComboItemCount()-1]
  * @return null if this is not combo-box, "" if no item selected, otherwise the item selected.
  */
--(NSString *)getComboItem:(int)index;
+-(NSString *)getComboItem :(int)index;
 /**
  * @brief get current selected item index of combo-box.
  * this method valid in premium version
@@ -882,14 +905,14 @@
  * this method valid in premium version
  * @return -1 if it is not a list-box, or no items selected if return 0.
  */
--(int)getListSels:(int *)sels:(int)sels_max;
+-(int)getListSels:(int *)sels :(int)sels_max;
 /**
  * @brief set selects of list-box
  * this method valid in premium version
  * @param sels 0 based indexes of items.
  * @return true or false
  */
--(bool)setComboSel:(const int *)sels:(int)sels_cnt;
+-(bool)setComboSel:(const int *)sels :(int)sels_cnt;
 /**
  * @brief get status of check-box and radio-box.
  * this method valid in premium version
@@ -949,7 +972,7 @@
  * @return true or false
  */
 -(bool)removeFromPage;
--(bool)MoveToPage:(PDFPage *)page:(const PDF_RECT *)rect;
+-(bool)MoveToPage:(PDFPage *)page :(const PDF_RECT *)rect;
 @end
 
 @interface PDFPage : NSObject
@@ -977,7 +1000,7 @@
  * 2: best quality.
  * @return true or false.
  */
--(bool)render:(PDFDIB *)dib:(PDFMatrix *)mat:(int)quality;
+-(bool)render:(PDFDIB *)dib :(PDFMatrix *)mat :(int)quality;
 /**
  * @brief set page status to cancelled and cancel render function.
  */
@@ -987,8 +1010,8 @@
  * @return true or false
  */
 -(bool)renderIsFinished;
--(float)reflowPrepare:(float)width:(float)scale;
--(bool)reflow:(PDFDIB *)dib:(float)orgx:(float)orgy;
+-(float)reflowPrepare:(float)width :(float)scale;
+-(bool)reflow:(PDFDIB *)dib :(float)orgx :(float)orgy;
 /**
  * @brief get text objects to memory.
  * a standard license is needed for this method
@@ -1006,26 +1029,26 @@
  * @param to 0 based unicode index.
  * @return string or null.
  */
--(NSString *)objsString:(int)from:(int)to;
+-(NSString *)objsString:(int)from :(int)to;
 /**
  * @brief get index aligned by word. this can be invoked after ObjsStart
  * @param from 0 based unicode index.
  * @param dir if dir < 0,  get start index of the word. otherwise get last index of the word.
  * @return new index value.
  */
--(int)objsAlignWord:(int)index:(int)dir;
+-(int)objsAlignWord:(int)index :(int)dir;
 /**
  * @brief get char's box in PDF coordinate system, this can be invoked after ObjsStart
  * @param index 0 based unicode index.
  * @param vals return 4 elements for PDF rectangle.
  */
--(void)objsCharRect:(int)index:(PDF_RECT *)rect;
+-(void)objsCharRect:(int)index :(PDF_RECT *)rect;
 /**
  * @brief get char index nearest to point
  * @param pt point as [x,y] in PDF coordinate.
  * @return char index or -1 failed.
  */
--(int)objsGetCharIndex:(float)x:(float)y;
+-(int)objsGetCharIndex:(float)x :(float)y;
 /**
  * @brief create a find session. this can be invoked after ObjsStart
  * @param str key string to find.
@@ -1033,7 +1056,7 @@
  * @param whole_word match whole word?
  * @return handle of find session, or 0 if no found.
  */
--(PDFFinder *)find:(NSString *)key:(bool)match_case:(bool)whole_word;
+-(PDFFinder *)find:(NSString *)key :(bool)match_case :(bool)whole_word;
 /**
  * @brief get annotations count in this page.
  * this can be invoked after ObjsStart or Render or RenderToBmp.
@@ -1057,8 +1080,8 @@
  * @param y y value in PDF coordinate system.
  * @return handle of annotation, valid until Close invoked.
  */
--(PDFAnnot *)annotAtPoint:(float)x:(float)y;
--(bool)copyAnnot:(PDFAnnot *)annot:(const PDF_RECT *)rect;
+-(PDFAnnot *)annotAtPoint:(float)x :(float)y;
+-(bool)copyAnnot:(PDFAnnot *)annot :(const PDF_RECT *)rect;
 /**
  * @brief add a text-markup annotation to page.
  * you should re-render page to display modified data.
@@ -1074,7 +1097,7 @@
  * 4: Squiggly underline.
  * @return true or false.
  */
--(bool)addAnnotMarkup:(int)index1:(int)index2:(int)type;
+-(bool)addAnnotMarkup:(int)index1 :(int)index2 :(int)type :(int) color;
 /**
  * @brief add hand-writing to page.
  * you should re-render page to display modified data.
@@ -1094,7 +1117,7 @@
  * @param top y coordinate in PDF coordinate, page.height is top of page. and 0 is bottom of page.
  * @return true or false.
  */
--(bool)addAnnotGoto:(const PDF_RECT *)rect:(int)dest:(float)top;
+-(bool)addAnnotGoto:(const PDF_RECT *)rect :(int)dest :(float)top;
 /**
  * @brief add URL link to page.
  * you should re-render page to display modified data.
@@ -1104,7 +1127,7 @@
  * @param uri url address, example: "http://www.radaee.com/en"
  * @return true or false
  */
--(bool)addAnnotURI:(NSString *)uri:(const PDF_RECT *)rect;
+-(bool)addAnnotURI:(NSString *)uri :(const PDF_RECT *)rect;
 /**
  * @brief add line to page.
  * you should re-render page to display modified data.
@@ -1129,7 +1152,7 @@
  * @param icolor fill color, used to fill arrows of the line.
  * @return true or false.
  */
--(bool)addAnnotLine:(const PDF_POINT *)pt1:(const PDF_POINT *)pt2:(int) style1: (int) style2: (float) width: (int) color: (int) icolor;
+-(bool)addAnnotLine:(const PDF_POINT *)pt1 :(const PDF_POINT *)pt2 :(int) style1 :(int) style2 :(float) width :(int) color :(int) icolor;
 /**
  * @brief add rectangle to page.
  * you should re-render page to display modified data.
@@ -1141,7 +1164,7 @@
  * @param fill_color fill color in rectangle, formated as 0xAARRGGBB, if alpha channel is 0, means no fill operation, otherwise alpha channel are ignored.
  * @return true or false
  */
--(bool)addAnnotRect:(const PDF_RECT *)rect:(float) width: (int) color: (int) icolor;
+-(bool)addAnnotRect:(const PDF_RECT *)rect :(float) width :(int) color :(int) icolor;
 /**
  * @brief add ellipse to page.
  * you should re-render page to display modified data.
@@ -1153,7 +1176,7 @@
  * @param fill_color fill color in ellipse, formated as 0xAARRGGBB, if alpha channel is 0, means no fill operation, otherwise alpha channel are ignored.
  * @return true or false
  */
--(bool)addAnnotEllipse:(const PDF_RECT *)rect:(float) width: (int) color: (int) icolor;
+-(bool)addAnnotEllipse:(const PDF_RECT *)rect :(float) width :(int) color :(int) icolor;
 /**
  * @brief add a sticky text annotation to page.
  * you should re-render page to display modified data.
@@ -1197,7 +1220,9 @@
 	 * @return true or false.
 	 * the added annotation can be obtained by Page.GetAnnot(Page.GetAnnotCount() - 1), if this method return true.
 	 */
--(bool)addAnnotStamp:(int)icon:(const PDF_RECT *)rect;
+-(bool)addAnnotStamp:(int)icon :(const PDF_RECT *)rect;
+-(bool)addAnnotBitmap0:(PDFMatrix *)mat :(CGImageRef) bitmap :(bool) has_alpha :(const PDF_RECT *) rect;
+-(bool)addAnnotBitmap:(CGImageRef) bitmap :(bool) has_alpha :(const PDF_RECT *) rect;
 /**
  * @brief add a file as an attachment to page.
  * you should re-render page to display modified data.
@@ -1212,7 +1237,7 @@
  * @param rect 4 elements: left, top, right, bottom in PDF coordinate system.
  * @return true or false.
 */
--(bool)addAnnotAttachment:(NSString *)att:(int)icon:(const PDF_RECT *)rect;
+-(bool)addAnnotAttachment:(NSString *)att :(int)icon :(const PDF_RECT *)rect;
 /**
  * @brief add a font as resource of this page.
  * a premium license is needed for this method.
@@ -1248,7 +1273,7 @@
     PDF_DOC m_doc;
 	PDF_IMPORTCTX m_handle;
 }
--(id)init:(PDF_DOC)doc:(PDF_IMPORTCTX)handle;
+-(id)init:(PDF_DOC)doc :(PDF_IMPORTCTX)handle;
 /**
  * @brief import a page to dest document.
  * a premium license is needed for this method.
@@ -1256,7 +1281,8 @@
  * @param dstno 0 based page NO. to insert in dest document object.
  * @return true or false.
  */
--(bool)import:(int)src_no:(int)dst_no;
+-(bool)import:(int)src_no :(int)dst_no;
+-(void)importEnd;
 @end
 
 @interface PDFDoc : NSObject
@@ -1300,6 +1326,7 @@
  */
 -(bool)canSave;
 -(bool)isEncrypted;
+-(NSString *)exportForm;
 /**
  * @brief save the document.
  * this always return false, if no license actived or standard license actived.
@@ -1310,9 +1337,22 @@
  * @brief save as the document to another file. it remove any security information.
  * this always return false, if no license actived or standard license actived.
  * @param path path to save.
+ * @param rem_sec to remove security handler.
  * @return true or false.
  */
--(bool)saveAs:(NSString *)dst;
+-(bool)saveAs:(NSString *)dst :(bool)rem_sec;
+/**
+*	@brief	encrypt PDF file as another file. this function need premium license.
+*
+*	@param 	dst 	full path to save.
+*	@param  upswd	user password.
+*	@param  opswd	owner password.
+*	@param  perm	permission to set, see PDF reference or Document_getPermission().
+*	@param  method	reserved.
+*	@param	fid		file ID to be set. must be 32 bytes long.
+*	@return	true or false.
+*/
+-(bool)encryptAs:(NSString *)dst : (NSString *)upswd : (NSString *)opswd : (int)perm : (int)method : (unsigned char *)fid;
 /**
  * @brief get meta data for document.
  * @param tag Predefined values:"Title", "Author", "Subject", "Keywords", "Creator", "Producer", "CreationDate", "ModDate".
@@ -1320,6 +1360,12 @@
  * @return Meta string value, or null.
  */
 -(NSString *)meta:(NSString *)tag;
+/**
+* @brief get ID of PDF file.
+* @param buf receive 32 bytes as PDF ID, must be 32 bytes long.
+* @return true or false.
+*/
+-(bool)PDFID:(unsigned char *)buf;
 /**
  * @brief get pages count.
  * @return pages count.
@@ -1348,6 +1394,7 @@
  * @return handle value of first root outline item. or null if no outlines.
  */
 -(PDFOutline *)rootOutline;
+-(bool)newRootOutline: (NSString *)label :(int) pageno :(float) top;
 /**
  * @brief create a font object, used to write texts.
  * a premium license is needed for this method.
@@ -1361,7 +1408,7 @@
  *   (style&16) means vertical writing, mostly used in Asia fonts.
  * @return DocFont object or null is failed.
  */
--(PDFDocFont *)newFontCID: (NSString *)name: (int) style;
+-(PDFDocFont *)newFontCID: (NSString *)name :(int) style;
 /**
  * @brief create a ExtGraphicState object, used to set alpha values.
  * a premium license is needed for this method.
@@ -1378,7 +1425,7 @@
  * @param h page height in PDF coordinate
  * @return Page object or null means failed.
  */
--(PDFPage *)newPage:(int) pageno: (float) w: (float) h;
+-(PDFPage *)newPage:(int) pageno :(float) w :(float) h;
 /**
  * @brief Start import operations, import page from src
  * a premium license is needed for this method.
@@ -1394,7 +1441,7 @@
  * @param pageno2 page NO, move to
  * @return true or false
  */
--(bool)movePage:(int)pageno1:(int)pageno2;
+-(bool)movePage:(int)pageno1 :(int)pageno2;
 /**
  * @brief remove page by page NO.
  * a premium license is needed for this method.

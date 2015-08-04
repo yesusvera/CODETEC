@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>36C71F14-4AFB-4ECE-8886-FFED311F62D2</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>LeitorIDR</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B1FB80A530F54B9726E7EF0FDBEA17B1FA054655</key>
 		<string>https://github.com/yesusvera/CODETEC.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>LeitorIDR/LeitorIDR.xcodeproj/project.xcworkspace</string>
+	<string>LeitorIDR/LeitorIDR.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B1FB80A530F54B9726E7EF0FDBEA17B1FA054655</key>

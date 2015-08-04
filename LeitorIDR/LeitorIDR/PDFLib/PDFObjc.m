@@ -21,7 +21,7 @@ extern uint annotStrikeoutColor;
     return self;
 }
 
--(id)init:(int)width:(int)height
+-(id)init:(int)width :(int)height
 {
     if( self = [super init] )
     {
@@ -29,7 +29,7 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(void)resize:(int)newWidth:(int)newHeight
+-(void)resize:(int)newWidth :(int)newHeight
 {
     m_dib = Global_dibGet(m_dib, newWidth, newHeight);
 }
@@ -48,10 +48,15 @@ extern uint annotStrikeoutColor;
 {
     return Global_dibGetHeight(m_dib);
 }
+-(void)clear
+{
+    Global_dibFree(m_dib);
+    m_dib = NULL;
+}
 
 -(void)dealloc
 {
-    Global_dibFree(m_dib);
+	Global_dibFree(m_dib);
     m_dib = NULL;
 }
 @end
@@ -66,7 +71,7 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(id)init:(float)scalex:(float)scaley:(float)orgx:(float)orgy
+-(id)init:(float)scalex :(float)scaley :(float)orgx :(float)orgy
 {
     if( self = [super init] )
     {
@@ -74,7 +79,7 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(id)init:(float)xx:(float)yx:(float)xy:(float)yy:(float)x0:(float)y0
+-(id)init:(float)xx :(float)yx :(float)xy :(float)yy :(float)x0 :(float)y0
 {
     if( self = [super init] )
     {
@@ -120,7 +125,7 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(id)init:(PDF_DOC)doc:(PDF_OUTLINE)handle
+-(id)init:(PDF_DOC)doc :(PDF_OUTLINE)handle
 {
     if( self = [super init] )
     {
@@ -155,6 +160,14 @@ extern uint annotStrikeoutColor;
 {
 	return Document_removeOutline( m_doc, m_handle );
 }
+-(bool)addNext:(NSString *)label :(int)pageno :(float)top
+{
+    return Document_addOutlineNext(m_doc, m_handle, [label UTF8String], pageno, top);
+}
+-(bool)addChild:(NSString *)label :(int)pageno :(float)top
+{
+    return Document_addOutlineChild(m_doc, m_handle, [label UTF8String], pageno, top);
+}
 @end
 
 @implementation PDFDocFont
@@ -168,7 +181,7 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(id)init:(PDF_DOC)doc:(PDF_DOC_FONT)handle
+-(id)init:(PDF_DOC)doc :(PDF_DOC_FONT)handle
 {
     if( self = [super init] )
     {
@@ -198,7 +211,7 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(id)init:(PDF_DOC)doc:(PDF_DOC_GSTATE)handle
+-(id)init:(PDF_DOC)doc :(PDF_DOC_GSTATE)handle
 {
     if( self = [super init] )
     {
@@ -228,7 +241,7 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(id)init:(PDF_DOC)doc:(PDF_DOC_IMAGE)handle
+-(id)init:(PDF_DOC)doc :(PDF_DOC_IMAGE)handle
 {
     if( self = [super init] )
     {
@@ -282,15 +295,25 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(void)moveTo:(float)x:(float)y
+
+-(id)init:(PDF_PATH)path
+{
+    if( self = [super init] )
+    {
+		m_handle = path;
+    }
+    return self;
+}
+
+-(void)moveTo:(float)x :(float)y
 {
 	Path_moveTo( m_handle, x, y );
 }
--(void)lineTo:(float)x:(float)y
+-(void)lineTo:(float)x :(float)y
 {
 	Path_lineTo( m_handle, x, y );
 }
--(void)CurveTo:(float)x1:(float)y1:(float)x2:(float)y2:(float)x3:(float)y3
+-(void)CurveTo:(float)x1 :(float)y1 :(float)x2 :(float)y2 :(float)x3 :(float)y3
 {
 	Path_curveTo( m_handle, x1, y1, x2, y2, x3, y3 );
 }
@@ -302,7 +325,7 @@ extern uint annotStrikeoutColor;
 {
 	return Path_getNodeCount(m_handle);
 }
--(int)node:(int)index:(PDF_POINT *)pt
+-(int)node:(int)index :(PDF_POINT *)pt
 {
 	return Path_getNode(m_handle, index, pt);
 }
@@ -323,7 +346,7 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(id)init:(float)line_width:(int)color
+-(id)init:(float)line_width :(int)color
 {
     if( self = [super init] )
     {
@@ -331,15 +354,15 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(void)onDown:(float)x:(float)y
+-(void)onDown:(float)x :(float)y
 {
 	Ink_onDown(m_handle, x, y);
 }
--(void)onMove:(float)x:(float)y
+-(void)onMove:(float)x :(float)y
 {
 	Ink_onMove(m_handle, x, y);
 }
--(void)onUp:(float)x:(float)y
+-(void)onUp:(float)x :(float)y
 {
 	Ink_onUp(m_handle, x, y);
 }
@@ -347,7 +370,7 @@ extern uint annotStrikeoutColor;
 {
 	return Ink_getNodeCount(m_handle);
 }
--(int)node:(int)index:(PDF_POINT *)pt
+-(int)node:(int)index :(PDF_POINT *)pt
 {
 	return Ink_getNode(m_handle, index, pt);
 }
@@ -404,11 +427,11 @@ extern uint annotStrikeoutColor;
 {
 	PageContent_strokePath( m_handle, path.handle );
 }
--(void)fillPath:(PDFPath *)path:(bool) winding
+-(void)fillPath:(PDFPath *)path :(bool) winding
 {
 	PageContent_fillPath( m_handle, path.handle, winding );
 }
--(void)clipPath:(PDFPath *)path:(bool) winding
+-(void)clipPath:(PDFPath *)path :(bool) winding
 {
 	PageContent_clipPath( m_handle, path.handle, winding );
 }
@@ -460,11 +483,11 @@ extern uint annotStrikeoutColor;
 {
 	PageContent_textNextLine( m_handle );
 }
--(void)textMove:(float) x: (float) y
+-(void)textMove:(float) x :(float) y
 {
 	PageContent_textMove( m_handle, x, y );
 }
--(void)textSetFont:(PDF_PAGE_FONT) font: (float) size
+-(void)textSetFont:(PDF_PAGE_FONT) font :(float) size
 {
 	PageContent_textSetFont( m_handle, font, size );
 }
@@ -490,7 +513,7 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(id)init:(PDF_PAGE)page:(PDF_ANNOT)handle
+-(id)init:(PDF_PAGE)page :(PDF_ANNOT)handle
 {
     if( self = [super init] )
     {
@@ -553,6 +576,56 @@ extern uint annotStrikeoutColor;
 {
 	Page_setAnnotRect( m_page, m_handle, rect );
 }
+-(int)getMarkupRects:(PDF_RECT *)rects :(int)cnt
+{
+	return Page_getAnnotMarkupRects(m_page, m_handle, rects, cnt);
+}
+-(int)getIndex
+{
+	int cnt = Page_getAnnotCount(m_page);
+	int cur = 0;
+	while( cur < cnt )
+	{
+		if( m_handle == Page_getAnnot(m_page, cur) )
+			return cur;
+		cur++;
+	}
+	return -1;
+}
+-(PDFPath *)getInkPath
+{
+	PDF_PATH path = Page_getAnnotInkPath( m_page, m_handle );
+	if( !path ) return NULL;
+	return [[PDFPath alloc] init: path];
+}
+-(bool)setInkPath:(PDFPath *)path
+{
+	return Page_setAnnotInkPath( m_page, m_handle, [path handle] );
+}
+
+-(PDFPath *)getPolygonPath
+{
+	PDF_PATH path = Page_getAnnotPolygonPath( m_page, m_handle );
+	if( !path ) return NULL;
+	return [[PDFPath alloc] init: path];
+}
+-(bool)setPolygonPath:(PDFPath *)path
+{
+	return Page_setAnnotPolygonPath( m_page, m_handle, [path handle] );
+}
+
+-(PDFPath *)getPolylinePath
+{
+	PDF_PATH path = Page_getAnnotPolylinePath( m_page, m_handle );
+	if( !path ) return NULL;
+	return [[PDFPath alloc] init: path];
+}
+-(bool)setPolylinePath:(PDFPath *)path
+{
+	return Page_setAnnotPolylinePath( m_page, m_handle, [path handle] );
+}
+
+
 -(int)getFillColor
 {
 	return Page_getAnnotFillColor( m_page, m_handle );
@@ -597,6 +670,10 @@ extern uint annotStrikeoutColor;
     buf[len] = 0;
 	return [NSString stringWithUTF8String:buf];
 }
+-(NSString *)getJS
+{
+	return Page_getAnnotJS( m_page, m_handle );
+}
 -(NSString *)get3D
 {
 	char buf[1024];
@@ -637,7 +714,7 @@ extern uint annotStrikeoutColor;
 {
 	return Page_getAnnotMovieData( m_page, m_handle, [save_file UTF8String] );
 }
--(bool)getSoundData:(int *)paras: (NSString *)save_file
+-(bool)getSoundData:(int *)paras :(NSString *)save_file
 {
 	return Page_getAnnotSoundData( m_page, m_handle, paras, [save_file UTF8String] );
 }
@@ -659,6 +736,14 @@ extern uint annotStrikeoutColor;
 		return NULL;
 	return [NSString stringWithUTF8String:buf];
 }
+-(NSString *)getPopupLabel
+{
+	char buf[1024];
+	if( !Page_getAnnotPopupLabel( m_page, m_handle, buf, 1023 ) )
+		return NULL;
+	return [NSString stringWithUTF8String:buf];
+}
+
 -(bool)setPopupSubject:(NSString *)val
 {
 	return Page_setAnnotPopupSubject( m_page, m_handle, [val UTF8String] );
@@ -666,6 +751,10 @@ extern uint annotStrikeoutColor;
 -(bool)setPopupText:(NSString *)val
 {
 	return Page_setAnnotPopupText( m_page, m_handle, [val UTF8String] );
+}
+-(bool)setPopupLabel:(NSString *)val
+{
+	return Page_setAnnotPopupLabel( m_page, m_handle, [val UTF8String] );
 }
 -(int)getEditType
 {
@@ -686,10 +775,29 @@ extern uint annotStrikeoutColor;
 		return NULL;
 	return [NSString stringWithUTF8String:buf];
 }
+
+-(NSString *)getEditTextFormat
+{
+	char buf[1024];
+	if( !Page_getAnnotEditTextFormat( m_page, m_handle, buf, 1023 ) )
+		return NULL;
+	return [NSString stringWithUTF8String:buf];
+}
+
 -(bool)setEditText:(NSString *)val
 {
 	return Page_setAnnotEditText( m_page, m_handle, [val UTF8String] );
 }
+
+-(int)getEditTextColor
+{
+	return Page_getAnnotEditTextColor( m_page, m_handle );
+}
+-(bool)setEditTextColor:(int)color
+{
+	return Page_setAnnotEditTextColor( m_page, m_handle, color );
+}
+
 -(int)getComboItemCount
 {
 	return Page_getAnnotComboItemCount( m_page, m_handle );
@@ -703,11 +811,11 @@ extern uint annotStrikeoutColor;
 }
 -(int)getComboSel
 {
-	Page_getAnnotComboItemSel( m_page, m_handle );
+	return Page_getAnnotComboItemSel( m_page, m_handle );
 }
 -(bool)setComboSel:(int)index
 {
-	Page_setAnnotComboItem( m_page, m_handle, index );
+	return Page_setAnnotComboItem( m_page, m_handle, index );
 }
 -(int)getListItemCount
 {
@@ -720,11 +828,11 @@ extern uint annotStrikeoutColor;
 		return NULL;
 	return [NSString stringWithUTF8String:buf];
 }
--(int)getListSels:(int *)sels:(int)sels_max
+-(int)getListSels:(int *)sels :(int)sels_max
 {
 	return Page_getAnnotListSels( m_page, m_handle, sels, sels_max );
 }
--(bool)setComboSel:(const int *)sels:(int)sels_cnt
+-(bool)setComboSel:(const int *)sels :(int)sels_cnt
 {
 	return Page_setAnnotListSels( m_page, m_handle, sels, sels_cnt );
 }
@@ -742,7 +850,7 @@ extern uint annotStrikeoutColor;
 }
 -(bool)getReset
 {
-	Page_getAnnotReset( m_page, m_handle );
+	return Page_getAnnotReset( m_page, m_handle );
 }
 -(bool)setReset
 {
@@ -769,7 +877,7 @@ extern uint annotStrikeoutColor;
 	m_page = NULL;
 	return ret;
 }
--(bool)MoveToPage:(PDFPage *)page:(const PDF_RECT *)rect
+-(bool)MoveToPage:(PDFPage *)page :(const PDF_RECT *)rect
 {
 	return Page_moveAnnot(m_page, [page handle], m_handle, rect);
 }
@@ -797,7 +905,7 @@ extern uint annotStrikeoutColor;
 {
     Page_renderPrepare(m_page, [dib handle]);
 }
--(bool)render:(PDFDIB *)dib:(PDFMatrix *)mat:(int)quality
+-(bool)render:(PDFDIB *)dib :(PDFMatrix *)mat :(int)quality
 {
     return Page_render(m_page, [dib handle], [mat handle], true, quality);
 }
@@ -809,11 +917,11 @@ extern uint annotStrikeoutColor;
 {
     return Page_renderIsFinished(m_page);
 }
--(float)reflowPrepare:(float)width:(float)scale
+-(float)reflowPrepare:(float)width :(float)scale
 {
     return Page_reflowStart( m_page, width,  scale );
 }
--(bool)reflow:(PDFDIB *)dib:(float)orgx:(float)orgy
+-(bool)reflow:(PDFDIB *)dib :(float)orgx :(float)orgy
 {
     return Page_reflow( m_page, [dib handle], orgx, orgy );
 }
@@ -825,7 +933,7 @@ extern uint annotStrikeoutColor;
 {
     return Page_objsGetCharCount(m_page);
 }
--(NSString *)objsString:(int)from:(int)to
+-(NSString *)objsString:(int)from :(int)to
 {
     if( to <= from ) return NULL;
     char *buf = (char *)malloc(4 * (to - from) + 8);
@@ -834,19 +942,19 @@ extern uint annotStrikeoutColor;
     free(buf);
     return str;
 }
--(int)objsAlignWord:(int)index:(int)dir
+-(int)objsAlignWord:(int)index :(int)dir
 {
     return Page_objsAlignWord(m_page, index, dir);
 }
--(void)objsCharRect:(int)index:(PDF_RECT *)rect
+-(void)objsCharRect:(int)index :(PDF_RECT *)rect
 {
     Page_objsGetCharRect(m_page, index, rect);
 }
--(int)objsGetCharIndex:(float)x:(float)y
+-(int)objsGetCharIndex:(float)x :(float)y
 {
     return Page_objsGetCharIndex(m_page, x, y);
 }
--(PDFFinder *)find:(NSString *)key:(bool)match_case:(bool)whole_word
+-(PDFFinder *)find:(NSString *)key :(bool)match_case :(bool)whole_word
 {
 	PDF_FINDER hand = Page_findOpen( m_page, [key UTF8String], match_case, whole_word );
 	if( !hand ) return NULL;
@@ -869,18 +977,13 @@ extern uint annotStrikeoutColor;
 	return [[PDFAnnot alloc] init:m_page:hand];
 }
 
--(bool)copyAnnot:(PDFAnnot *)annot:(const PDF_RECT *)rect
+-(bool)copyAnnot:(PDFAnnot *)annot :(const PDF_RECT *)rect
 {
 	return Page_copyAnnot( m_page, [annot handle], rect );
 }
 
--(bool)addAnnotMarkup : (int)index1 : (int)index2 : (int)type
+-(bool)addAnnotMarkup : (int)index1 : (int)index2 : (int)type :(int) color
 {
-  
-    int color = 0xFFFFFF00;
-    if( type == 0 ) color = annotHighlightColor;
-    if( type == 1 ) color = annotUnderlineColor;
-    if( type == 2 ) color = annotStrikeoutColor;
     return Page_addAnnotMarkup2(m_page, index1, index2, color, type);
 }
 -(bool)addAnnotInk:(PDFInk *)ink
@@ -899,11 +1002,11 @@ extern uint annotStrikeoutColor;
 {
 	return Page_addAnnotLine2( m_page, pt1, pt2, style1, style2, width, color, icolor );
 }
--(bool)addAnnotRect:(const PDF_RECT *)rect:(float) width: (int) color: (int) icolor
+-(bool)addAnnotRect:(const PDF_RECT *)rect :(float) width :(int) color :(int) icolor
 {
 	return Page_addAnnotRect2( m_page, rect, width, color, icolor );
 }
--(bool)addAnnotEllipse:(const PDF_RECT *)rect:(float) width: (int) color: (int) icolor
+-(bool)addAnnotEllipse:(const PDF_RECT *)rect :(float) width :(int) color :(int) icolor
 {
 	return Page_addAnnotEllipse2( m_page, rect, width, color, icolor );
 }
@@ -911,11 +1014,19 @@ extern uint annotStrikeoutColor;
 {
 	return Page_addAnnotText2( m_page, pt->x, pt->y );
 }
--(bool)addAnnotAttachment:(NSString *)att:(int)icon:(const PDF_RECT *)rect
+-(bool)addAnnotAttachment:(NSString *)att :(int)icon :(const PDF_RECT *)rect
 {
 	return Page_addAnnotAttachment( m_page, [att UTF8String], icon, rect );
 }
--(bool)addAnnotStamp:(int)icon:(const PDF_RECT *)rect
+-(bool)addAnnotBitmap0:(PDFMatrix *)mat :(CGImageRef) bitmap :(bool) has_alpha :(const PDF_RECT *) rect
+{
+	return Page_addAnnotBitmap( m_page, [mat handle], bitmap, has_alpha, rect );
+}
+-(bool)addAnnotBitmap:(CGImageRef) bitmap :(bool) has_alpha :(const PDF_RECT *) rect
+{
+	return Page_addAnnotBitmap2( m_page, bitmap, has_alpha, rect );
+}
+-(bool)addAnnotStamp:(int)icon :(const PDF_RECT *)rect
 {
 	return Page_addAnnotStamp( m_page, rect, icon );
 }
@@ -931,7 +1042,7 @@ extern uint annotStrikeoutColor;
 {
 	return Page_addResGState( m_page, gstate.handle );
 }
--(bool)addContent:(PDFPageContent *)content:(bool)flush
+-(bool)addContent:(PDFPageContent *)content :(bool)flush
 {
 	return Page_addContent( m_page, content.handle, flush );
 }
@@ -952,7 +1063,7 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(id)init:(PDF_DOC)doc:(PDF_IMPORTCTX)handle
+-(id)init:(PDF_DOC)doc :(PDF_IMPORTCTX)handle
 {
     if( self = [super init] )
     {
@@ -961,9 +1072,15 @@ extern uint annotStrikeoutColor;
     }
     return self;
 }
--(bool)import:(int)src_no:(int)dst_no;
+-(bool)import:(int)src_no :(int)dst_no;
 {
 	return Document_importPage(m_doc, m_handle, src_no, dst_no );
+}
+-(void)importEnd
+{
+    Document_importEnd(m_doc, m_handle);
+    m_doc = NULL;
+	m_handle = NULL;
 }
 -(void)dealloc
 {
@@ -1043,15 +1160,25 @@ extern uint annotStrikeoutColor;
 {
     return Document_isEncrypted(m_doc);
 }
+-(NSString *)exportForm
+{
+	return Document_exportForm(m_doc);
+}
 -(bool)save
 {
     return Document_save(m_doc);
 }
--(bool)saveAs:(NSString *)dst
+-(bool)saveAs:(NSString *)dst :(bool)rem_sec
 {
     const char *fdst = [dst UTF8String];
-    return Document_saveAs(m_doc, fdst);
+    return Document_saveAs(m_doc, fdst, rem_sec);
 }
+
+-(bool)encryptAs:(NSString *)dst :(NSString *)upswd :(NSString *)opswd :(int)perm :(int)method :(unsigned char *)fid
+{
+    return Document_encryptAs(m_doc, dst, upswd, opswd, perm, method, fid);
+}
+
 -(NSString *)meta:(NSString *)tag
 {
     const char *stag = [tag UTF8String];
@@ -1059,6 +1186,11 @@ extern uint annotStrikeoutColor;
     Document_getMeta(m_doc, stag, smeta, 511);
     return [NSString stringWithUTF8String: smeta];
 }
+-(bool)PDFID:(unsigned char *)buf
+{
+	return Document_getID(m_doc, buf);
+}
+
 -(int)pageCount
 {
     return Document_getPageCount(m_doc);
@@ -1085,7 +1217,12 @@ extern uint annotStrikeoutColor;
 	return [[PDFOutline alloc] init:m_doc:hand];
 }
 
--(PDFDocFont *)newFontCID: (NSString *)name: (int) style
+-(bool)newRootOutline: (NSString *)label :(int) pageno :(float) top
+{
+    return Document_newRootOutline(m_doc, [label UTF8String], pageno, top);
+}
+
+-(PDFDocFont *)newFontCID: (NSString *)name :(int) style
 {
 	PDF_DOC_FONT hand = Document_newFontCID( m_doc, [name UTF8String], style );
 	if( !hand ) return NULL;
@@ -1099,7 +1236,7 @@ extern uint annotStrikeoutColor;
 	return [[PDFDocGState alloc] init:m_doc:hand];
 }
 
--(PDFPage *)newPage:(int) pageno: (float) w: (float) h
+-(PDFPage *)newPage:(int) pageno :(float) w :(float) h
 {
     PDF_PAGE hand = Document_newPage(m_doc, pageno, w, h);
     if( !hand ) return NULL;
@@ -1113,7 +1250,7 @@ extern uint annotStrikeoutColor;
     return [[PDFImportCtx alloc] init:m_doc:hand];
 }
 
--(bool)movePage:(int)pageno1:(int)pageno2
+-(bool)movePage:(int)pageno1 :(int)pageno2
 {
 	return Document_movePage( m_doc, pageno1, pageno2 );
 }

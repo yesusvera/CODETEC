@@ -234,7 +234,7 @@
 -(bool)SetSelMarkup:(int) type
 {
     if( m_index1 < 0 || m_index2 < 0 || !m_ok ) return false;
-    return [m_page addAnnotMarkup:m_index1 :m_index2 :type];
+    return nil;//[m_page addAnnotMarkup:m_index1 :m_index2 :type];
 }
 
 -(NSString *)GetSelString

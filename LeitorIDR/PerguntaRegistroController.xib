@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -14,63 +14,88 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0I-gd-6AN">
-                    <rect key="frame" x="35" y="550" width="224" height="45"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                    <state key="normal" title="Sim">
-                        <color key="titleColor" red="0.53762755100000004" green="0.51338362469999999" blue="0.30658025100000003" alpha="1" colorSpace="calibratedRGB"/>
+                <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundIbracon" translatesAutoresizingMaskIntoConstraints="NO" id="c1K-L0-fOC">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topoIbracon" translatesAutoresizingMaskIntoConstraints="NO" id="EbX-8M-REv">
+                    <rect key="frame" x="26" y="70" width="269" height="71"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="71" id="IDe-bu-czo"/>
+                        <constraint firstAttribute="width" constant="269" id="xhp-9B-wXu"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vh4-dS-4nF">
+                    <rect key="frame" x="19" y="158" width="283" height="51"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="51" id="p9Q-xw-iML"/>
+                        <constraint firstAttribute="width" constant="283" id="vKh-Bv-wAd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="31"/>
+                    <state key="normal" title="Associado?">
+                        <color key="titleColor" red="0.058823529411764705" green="0.24705882352941178" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="0.45974170918367352" green="0.45974170918367352" blue="0.45974170918367352" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0I-gd-6AN">
+                    <rect key="frame" x="177" y="365" width="65" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="BV0-3N-Y4e"/>
+                        <constraint firstAttribute="width" constant="65" id="ZQR-xt-nNi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <state key="normal" title="Sim" backgroundImage="buttonIbracon">
+                        <color key="titleColor" red="0.082352941176470587" green="0.35686274509803922" blue="0.12941176470588237" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="-25" y="272" width="224" height="45"/>
-                    </variation>
-                    <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="-25" y="272" width="224" height="45"/>
-                    </variation>
                     <connections>
                         <action selector="redirecionaAssociado:" destination="-1" eventType="touchUpInside" id="YhQ-yV-WK8"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9F-6w-EkT">
-                    <rect key="frame" x="485" y="550" width="249" height="45"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                    <state key="normal" title="Não">
-                        <color key="titleColor" red="0.4115513392857143" green="0.4115513392857143" blue="0.4115513392857143" alpha="1" colorSpace="calibratedRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9F-6w-EkT">
+                    <rect key="frame" x="79" y="365" width="65" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="RNB-F4-MrQ"/>
+                        <constraint firstAttribute="width" constant="65" id="T80-gi-mTc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <state key="normal" title="Não" backgroundImage="buttonIbracon">
+                        <color key="titleColor" red="0.082352941176470587" green="0.35686274509803922" blue="0.12941176470588237" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="97" y="272" width="249" height="45"/>
-                    </variation>
-                    <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="97" y="272" width="249" height="45"/>
-                    </variation>
                     <connections>
                         <action selector="redirecionaNaoAssociado:" destination="-1" eventType="touchUpInside" id="K6y-aa-nRQ"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vh4-dS-4nF">
-                    <rect key="frame" x="236" y="429" width="317" height="45"/>
-                    <fontDescription key="fontDescription" type="italicSystem" pointSize="32"/>
-                    <state key="normal" title="Associado Ibracon?">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" red="0.45974170918367352" green="0.45974170918367352" blue="0.45974170918367352" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="10" y="162" width="317" height="45"/>
-                    </variation>
-                    <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="10" y="162" width="317" height="45"/>
-                    </variation>
-                    <connections>
-                        <action selector="redirecionaNaoAssociado:" destination="-1" eventType="touchUpInside" id="6cl-oh-FkY"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="Vh4-dS-4nF" secondAttribute="centerX" constant="-0.5" id="6Qy-VS-bh2"/>
+                <constraint firstAttribute="trailing" secondItem="c1K-L0-fOC" secondAttribute="trailing" id="Axd-Xe-BKC"/>
+                <constraint firstItem="Vh4-dS-4nF" firstAttribute="top" secondItem="2" secondAttribute="top" constant="158" id="BhV-bp-mCn"/>
+                <constraint firstItem="z9F-6w-EkT" firstAttribute="centerX" secondItem="c1K-L0-fOC" secondAttribute="centerX" constant="-48.5" id="Jev-hX-VhW"/>
+                <constraint firstAttribute="centerX" secondItem="EbX-8M-REv" secondAttribute="centerX" constant="-0.5" id="LmA-73-Ls5"/>
+                <constraint firstAttribute="bottom" secondItem="I0I-gd-6AN" secondAttribute="bottom" constant="50" id="Paf-ie-KUN"/>
+                <constraint firstAttribute="bottom" secondItem="z9F-6w-EkT" secondAttribute="bottom" constant="50" id="S3b-FV-qpr"/>
+                <constraint firstItem="EbX-8M-REv" firstAttribute="top" secondItem="2" secondAttribute="top" constant="70" id="S9a-LO-1Bu"/>
+                <constraint firstItem="c1K-L0-fOC" firstAttribute="top" secondItem="2" secondAttribute="top" id="UhY-fh-Xl8"/>
+                <constraint firstItem="c1K-L0-fOC" firstAttribute="centerX" secondItem="I0I-gd-6AN" secondAttribute="centerX" constant="-49.5" id="dX5-D0-fHc"/>
+                <constraint firstAttribute="bottom" secondItem="c1K-L0-fOC" secondAttribute="bottom" id="giT-sI-1nj"/>
+                <constraint firstItem="c1K-L0-fOC" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="rTt-9B-LGE"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="185" y="265"/>
+            <point key="canvasLocation" x="470" y="489"/>
         </view>
     </objects>
+    <resources>
+        <image name="backgroundIbracon" width="1134" height="1257"/>
+        <image name="buttonIbracon" width="309" height="317"/>
+        <image name="topoIbracon" width="1007" height="276"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

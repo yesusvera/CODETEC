@@ -2,13 +2,14 @@
 //  ios.h
 //  RDPDFLib
 //
-//  Created by Steve Jobs on 12-6-22.
+//  Created by Radaee on 12-6-22.
 //  Copyright 2012 Radaee inc. All rights reserved.
 //
 #ifndef _PDF_IOS_H_
 #define _PDF_IOS_H_
 #import <CoreGraphics/CGImage.h>
 #import <CoreGraphics/CGBitmapContext.h>
+#import <UIKit/UIKit.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -93,6 +94,12 @@ bool Global_activeProfession( const char *name, const char *company, const char 
  */
 bool Global_activePremium( const char *name, const char *company, const char *mail, const char *serial );
 
+void Global_getVerString( char ret[8] );
+bool Global_activePremiumForVer( const char *company, const char *mail, const char *serial );
+bool Global_activeProfessionalForVer( const char *company, const char *mail, const char *serial );
+bool Global_activeStandardForVer( const char *company, const char *mail, const char *serial );
+
+
 /**
 
  *	@brief	Load font file.
@@ -125,6 +132,8 @@ void Global_unloadStdFont( int index );
 
  */
 void Global_setCMapsPath( const char *cmaps, const char *umaps );
+bool Global_setCMYKProfile(const char *path);
+
 /**
  *	@brief	create font list
  */
@@ -413,6 +422,7 @@ PDF_OUTLINE Document_getOutlineNext(PDF_DOC doc, PDF_OUTLINE outlinenode);
  *	@return	true or false
  */
 bool Document_addOutlineChild(PDF_DOC doc, PDF_OUTLINE outlinenode, const char *label, int pageno, float top);
+bool Document_newRootOutline( PDF_DOC doc, const char *label, int pageno, float top );
 /**
  *	@brief	insert outline after of this Outline.
  *          a premium license is needed for this method.
@@ -446,6 +456,7 @@ bool Document_removeOutline(PDF_DOC doc, PDF_OUTLINE outlinenode);
  *	@return	length of meta data.
  */
 int Document_getMeta( PDF_DOC doc, const char *tag, char *meta, int len );
+bool Document_getID(PDF_DOC doc, unsigned char *fid);
 /**
  *	@brief	get page width.
  *
@@ -489,7 +500,20 @@ bool Document_save( PDF_DOC doc );
  *
  *	@return	true or false.
  */
-bool Document_saveAs( PDF_DOC doc, const char *dst );
+bool Document_saveAs( PDF_DOC doc, const char *dst, bool rem_sec );
+/**
+*	@brief	encrypt PDF file as another file. this function need premium license.
+*
+*	@param 	doc 	Document object returned from Document_open
+*	@param 	dst 	full path to save.
+*	@param  upswd	user password.
+*	@param  opswd	owner password.
+*	@param  perm	permission to set, see PDF reference or Document_getPermission().
+*	@param  method	reserved.
+*	@param	fid		file ID to be set. must be 32 bytes long.
+*	@return	true or false.
+*/
+bool Document_encryptAs(PDF_DOC doc, NSString *dst, NSString *upswd, NSString *opswd, int perm, int method, unsigned char *fid);
 /**
  *	@brief	is document encrypted?
  *
@@ -505,6 +529,8 @@ const char *Document_getSignSubFilter( PDF_DOC doc );
 const int *Document_getSignByteRange( PDF_DOC doc );
 int Document_getSignByteRangeCount( PDF_DOC doc );
 int Document_checkSignByteRange( PDF_DOC doc );
+NSString *Document_exportForm( PDF_DOC doc );
+
 /**
  *	@brief	close document.
  *
@@ -989,6 +1015,13 @@ void Page_getAnnotRect( PDF_PAGE page, PDF_ANNOT annot, PDF_RECT *rect );
  *	@param 	rect 	rect of annotation area, in PDF coordinate.
  */
 void Page_setAnnotRect( PDF_PAGE page, PDF_ANNOT annot, const PDF_RECT *rect );
+PDF_PATH Page_getAnnotInkPath( PDF_PAGE page, PDF_ANNOT annot );
+bool Page_setAnnotInkPath( PDF_PAGE page, PDF_ANNOT annot, PDF_PATH path );
+PDF_PATH Page_getAnnotPolygonPath( PDF_PAGE page, PDF_ANNOT annot );
+bool Page_setAnnotPolygonPath( PDF_PAGE page, PDF_ANNOT annot, PDF_PATH path );
+PDF_PATH Page_getAnnotPolylinePath( PDF_PAGE page, PDF_ANNOT annot );
+bool Page_setAnnotPolylinePath( PDF_PAGE page, PDF_ANNOT annot, PDF_PATH path );
+
 /**
  *	@brief	get annotation fill color
  *
@@ -1174,6 +1207,7 @@ int Page_getAnnotDest( PDF_PAGE page, PDF_ANNOT annot );
  *	@return	length of uri, or 0.
  */
 int Page_getAnnotURI( PDF_PAGE page, PDF_ANNOT annot, char *uri, int len );
+NSString *Page_getAnnotJS(PDF_PAGE page, PDF_ANNOT annot);
 /**
  *	@brief	get annotation's 3D play action.
             to invoke this function, developers should call Page_objsStart or Page_render before.
@@ -1326,6 +1360,31 @@ bool Page_getAnnotPopupText( PDF_PAGE page, PDF_ANNOT annot, char *text, int len
  */
 bool Page_setAnnotPopupText( PDF_PAGE page, PDF_ANNOT annot, const char *text );
 /**
+ *	@brief	get text of popup label annotation.
+            to invoke this function, developers should call Page_objsStart or Page_render before.
+ *
+ *	@param 	page 	returned from Document_getPage
+ *	@param 	annot 	annotation object returned from Page_getAnnot or Page_getAnnotFromPoint
+ *	@param 	text 	output value: text string buffer.
+ *	@param 	len 	buffer length.
+ *
+ *	@return	true or false.
+ */
+bool Page_getAnnotPopupLabel( PDF_PAGE page, PDF_ANNOT annot, char *text, int len );
+/**
+ *	@brief	set text of popup label annotation.
+            to invoke this function, developers should call Page_objsStart or Page_render before.
+            this function valid in professional or premium license.
+            you should re-render page to display modified data.
+ *
+ *	@param 	page 	returned from Document_getPage
+ *	@param 	annot 	annotation object returned from Page_getAnnot or Page_getAnnotFromPoint
+ *	@param 	text 	text string
+ *
+ *	@return	true or false
+ */
+bool Page_setAnnotPopupLabel( PDF_PAGE page, PDF_ANNOT annot, const char *text );
+/**
  *	@brief	get type of edit-box, may either in free-text annotation and widget annotation.
             to invoke this function, developers should call Page_objsStart or Page_render before.
             this function valid in premium license.
@@ -1362,6 +1421,8 @@ bool Page_getAnnotEditTextRect( PDF_PAGE page, PDF_ANNOT annot, PDF_RECT *rect )
  *	@return	text size in PDF coordinate.
  */
 float Page_getAnnotEditTextSize( PDF_PAGE page, PDF_ANNOT annot );
+bool Page_getAnnotEditTextFormat( PDF_PAGE page, PDF_ANNOT annot, char *text, int len );
+
 /**
  *	@brief	get text of edit-box, may either for free-text annotation and widget annotation.
             to invoke this function, developers should call Page_objsStart or Page_render before.
@@ -1388,6 +1449,8 @@ bool Page_getAnnotEditText( PDF_PAGE page, PDF_ANNOT annot, char *text, int len 
  *	@return	true or false
  */
 bool Page_setAnnotEditText( PDF_PAGE page, PDF_ANNOT annot, const char *text );
+int Page_getAnnotEditTextColor(PDF_PAGE page, PDF_ANNOT annot);
+bool Page_setAnnotEditTextColor(PDF_PAGE page, PDF_ANNOT annot, int color);
 
 /**
  *	@brief	add an edit-box.
@@ -1883,6 +1946,7 @@ bool Page_addAnnotText2( PDF_PAGE page, float x, float y );
  *	@return	true or false
  */
 bool Page_addAnnotBitmap( PDF_PAGE page, PDF_MATRIX matrix, CGImageRef bitmap, bool has_alpha, const PDF_RECT *rect );
+bool Page_addAnnotBitmap2( PDF_PAGE page, CGImageRef bitmap, bool has_alpha, const PDF_RECT *rect );
 /**
  *	@brief	add a text-markup annotation to page.
  *          you should re-render page to display modified data.
@@ -1903,6 +1967,8 @@ bool Page_addAnnotBitmap( PDF_PAGE page, PDF_MATRIX matrix, CGImageRef bitmap, b
  *	@return	true or false
  */
 bool Page_addAnnotMarkup2( PDF_PAGE page, int index1, int index2, int color, int type );
+int Page_getAnnotMarkupRects(PDF_PAGE page, PDF_ANNOT annot, PDF_RECT *rects, int cnt);
+
 /**
  *	@brief	add bitmap annotation to page
             to invoke this function, developers should call Page_objsStart or Page_render before.
