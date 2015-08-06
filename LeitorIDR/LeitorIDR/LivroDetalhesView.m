@@ -159,6 +159,9 @@ NSUserDefaults *userDefaults;
 {
     [super viewDidLoad];
     
+    [_scroll setScrollEnabled:true];
+    [_scroll setContentSize:CGSizeMake(320, 450)];
+    
     progressBar.hidden      = YES;
     loadingIndicator.hidden = YES;
     abrirPdf.hidden         = YES;

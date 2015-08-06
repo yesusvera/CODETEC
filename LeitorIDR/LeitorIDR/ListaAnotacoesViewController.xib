@@ -22,13 +22,21 @@
                         <outlet property="delegate" destination="-1" id="JM7-Yt-7bb"/>
                     </connections>
                 </tableView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lista de Notas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0g-ye-w8X">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lista de Notas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0g-ye-w8X">
                     <rect key="frame" x="329" y="70" width="111" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="111" id="JjW-6n-Ew5"/>
+                        <constraint firstAttribute="height" constant="21" id="NvY-Qc-H0o"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="U0g-ye-w8X" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="B36-Im-HTj"/>
+                <constraint firstAttribute="centerX" secondItem="U0g-ye-w8X" secondAttribute="centerX" constant="-0.5" id="lQT-Vt-cyn"/>
+            </constraints>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -66,6 +66,8 @@
 {
     [super viewDidLoad];
     
+    [_scroll setScrollEnabled:true];
+    [_scroll setContentSize:CGSizeMake(320, 450)];
     
     self.title = @"Registro - Sou associado";
     

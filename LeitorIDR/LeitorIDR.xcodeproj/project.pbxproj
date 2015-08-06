@@ -565,6 +565,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				FBDF8A701877CC5B000EC732 /* model */,
 				FB8EE8EF1957AEE100FB91C9 /* perguntaListas */,
 				FB8EE8E7195766E900FB91C9 /* anotacoes */,
 				FBDF8A721877E353000EC732 /* connection */,
@@ -575,7 +576,6 @@
 				299D7B4518BC35E800724BED /* registro */,
 				299D7B4418BC35B100724BED /* views */,
 				299D7B4318BC35A300724BED /* estantes */,
-				FBDF8A701877CC5B000EC732 /* model */,
 			);
 			name = com.br.ibracon;
 			sourceTree = "<group>";
@@ -752,7 +752,7 @@
 				ORGANIZATIONNAME = "Yesus Castillo Vera";
 				TargetAttributes = {
 					FB5F0A6918615A800068D497 = {
-						DevelopmentTeam = WED6F4TVEP;
+						DevelopmentTeam = 5B483GQ2P2;
 					};
 					FB5F0A8D18615A800068D497 = {
 						TestTargetID = FB5F0A6918615A800068D497;

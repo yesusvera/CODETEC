@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicadorAtividade;
 @property (weak, nonatomic) IBOutlet UIButton *btnRegistrar;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tipoPessoa;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end

@@ -40,4 +40,5 @@
 -(IBAction)actionOpenPlainDocument:(NSString *)nomeArq;
 -(void) salvarIndiceXML:(NSString *) urlIndiceXML;
 @property (nonatomic, retain) EstanteResponse *estanteResponse;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @end
