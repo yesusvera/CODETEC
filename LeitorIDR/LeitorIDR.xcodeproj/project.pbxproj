@@ -347,15 +347,12 @@
 		299D7B4418BC35B100724BED /* views */ = {
 			isa = PBXGroup;
 			children = (
-				FBF1E1361869506E00671EE2 /* EstantesController.xib */,
-				FB5A361118657EA6006C7FF3 /* RegistroNaoAssociadoController.xib */,
-				FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */,
-				FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */,
-				FBDF8A7A1878C0FD000EC732 /* EstanteLivrosController.xib */,
-				FB3A5C5218BD639400A0FEA8 /* LivroDetalhesView.xib */,
+				FB8EE8E81957671200FB91C9 /* AnotacoesViewController.h */,
+				FB8EE8E91957671200FB91C9 /* AnotacoesViewController.m */,
+				FB8EE8F11957AF1B00FB91C9 /* ListaAnotacoesViewController.h */,
+				FB8EE8F21957AF1B00FB91C9 /* ListaAnotacoesViewController.m */,
 				29BABB281957594A00CFEDA4 /* DetalheIndiceViewController.h */,
 				29BABB291957594A00CFEDA4 /* DetalheIndiceViewController.m */,
-				29BABB2A1957594A00CFEDA4 /* DetalheIndiceViewController.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -447,12 +444,10 @@
 			children = (
 				FBD0EC3A1951513900905486 /* RDPDFViewController.h */,
 				FBD0EC3B1951513900905486 /* RDPDFViewController.m */,
-				FBD0EC3C1951513900905486 /* RDPDFViewController.xib */,
 				FBD0EC371951512600905486 /* TextAnnotViewController.h */,
 				FBD0EC381951512600905486 /* TextAnnotViewController.m */,
 				FBD0EC321951510F00905486 /* OutLineViewController.h */,
 				FBD0EC331951510F00905486 /* OutLineViewController.m */,
-				FBD0EC341951510F00905486 /* OutLineViewController.xib */,
 				FBD0EC2F195150F700905486 /* OUTLINE_ITEM.h */,
 				FBD0EC30195150F700905486 /* OUTLINE_ITEM.m */,
 				FB3A5C5018BD639400A0FEA8 /* LivroDetalhesView.h */,
@@ -474,6 +469,25 @@
 				29B679E018D91E4300787E05 /* GLB.m */,
 			);
 			name = util;
+			sourceTree = "<group>";
+		};
+		FB45A44A1B8E6DB100C47398 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				FBC491F4195633C500947243 /* PerguntaListas.xib */,
+				FB8EE8EA1957671200FB91C9 /* AnotacoesViewController.xib */,
+				FB8EE8F31957AF1B00FB91C9 /* ListaAnotacoesViewController.xib */,
+				FBD0EC3C1951513900905486 /* RDPDFViewController.xib */,
+				FBD0EC341951510F00905486 /* OutLineViewController.xib */,
+				FBF1E1361869506E00671EE2 /* EstantesController.xib */,
+				FB5A361118657EA6006C7FF3 /* RegistroNaoAssociadoController.xib */,
+				FB5A360C18657E29006C7FF3 /* RegistroAssociadoController.xib */,
+				FBC727AB18658EAD00F72A23 /* PerguntaRegistroController.xib */,
+				FBDF8A7A1878C0FD000EC732 /* EstanteLivrosController.xib */,
+				FB3A5C5218BD639400A0FEA8 /* LivroDetalhesView.xib */,
+				29BABB2A1957594A00CFEDA4 /* DetalheIndiceViewController.xib */,
+			);
+			name = xibs;
 			sourceTree = "<group>";
 		};
 		FB5F0A6118615A800068D497 = {
@@ -565,6 +579,7 @@
 		FB62EE1D18763755007661BF /* com.br.ibracon */ = {
 			isa = PBXGroup;
 			children = (
+				FB45A44A1B8E6DB100C47398 /* xibs */,
 				FBDF8A701877CC5B000EC732 /* model */,
 				FB8EE8EF1957AEE100FB91C9 /* perguntaListas */,
 				FB8EE8E7195766E900FB91C9 /* anotacoes */,
@@ -631,12 +646,6 @@
 		FB8EE8E7195766E900FB91C9 /* anotacoes */ = {
 			isa = PBXGroup;
 			children = (
-				FB8EE8E81957671200FB91C9 /* AnotacoesViewController.h */,
-				FB8EE8E91957671200FB91C9 /* AnotacoesViewController.m */,
-				FB8EE8EA1957671200FB91C9 /* AnotacoesViewController.xib */,
-				FB8EE8F11957AF1B00FB91C9 /* ListaAnotacoesViewController.h */,
-				FB8EE8F21957AF1B00FB91C9 /* ListaAnotacoesViewController.m */,
-				FB8EE8F31957AF1B00FB91C9 /* ListaAnotacoesViewController.xib */,
 			);
 			name = anotacoes;
 			sourceTree = "<group>";
@@ -646,7 +655,6 @@
 			children = (
 				FBC491F2195633C500947243 /* PerguntaListas.h */,
 				FBC491F3195633C500947243 /* PerguntaListas.m */,
-				FBC491F4195633C500947243 /* PerguntaListas.xib */,
 			);
 			name = perguntaListas;
 			sourceTree = "<group>";
