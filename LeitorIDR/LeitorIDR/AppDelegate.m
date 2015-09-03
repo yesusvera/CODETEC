@@ -39,6 +39,9 @@
         self.window.rootViewController = navController;
     }
     
+    UINavigationBar *navBar = self.window.rootViewController.navigationController.navigationBar;
+    [navBar setBackgroundImage:[UIImage imageNamed:@"AppIcon"] forBarMetrics:UIBarMetricsDefault];
+    
     [self.window makeKeyAndVisible];
     
     return YES;

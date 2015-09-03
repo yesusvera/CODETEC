@@ -27,22 +27,21 @@ EstanteLivrosController *estanteLivrosController;
 
     [super viewDidLoad];
 
-    self.title= @"Estantes";
-    
-    self.navigationController.navigationBarHidden = TRUE;
-    
-    ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
-
-    estanteLivrosController = [[EstanteLivrosController alloc]init];
-    estanteLivrosController.registrarDispositivoResponse = registrarDispositivoResponse;
-    estanteResponse = [conexaoBuscarEstante conectarObterEstante:registrarDispositivoResponse];
+    self.title= @"IBRACON - Estantes";
+//    
+//    ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
+//
+//    estanteLivrosController = [[EstanteLivrosController alloc]init];
+//    estanteLivrosController.registrarDispositivoResponse = registrarDispositivoResponse;
+//    estanteResponse = [conexaoBuscarEstante conectarObterEstante:registrarDispositivoResponse];
 }
 
 
 -(void)viewDidAppear:(BOOL)animated{
     
-    self.navigationController.navigationBarHidden = TRUE;
-    
+    if(_removeNavigationBar){
+        self.navigationController.navigationBarHidden = TRUE;
+    }
     ConexaoBuscarEstante *conexaoBuscarEstante = [[ConexaoBuscarEstante alloc]init];
     
     estanteLivrosController = [[EstanteLivrosController alloc]init];

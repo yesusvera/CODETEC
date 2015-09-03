@@ -18,4 +18,5 @@
 }
 
 @property (nonatomic, retain) RegistrarDispositivoResponse *registrarDispositivoResponse;
+@property  BOOL *removeNavigationBar;
 @end

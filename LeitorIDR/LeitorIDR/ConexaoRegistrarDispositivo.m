@@ -131,7 +131,7 @@
             EstantesController *estanteController = [[EstantesController alloc] init];
             registrarDispositivoResponse.dadosCliente = dadosCliente;
             estanteController.registrarDispositivoResponse = registrarDispositivoResponse;
-            
+            estanteController.removeNavigationBar = TRUE;
             [controlador.navigationController pushViewController:estanteController animated:YES];
             
         }
