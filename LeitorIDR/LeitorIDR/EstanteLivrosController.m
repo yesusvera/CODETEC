@@ -79,7 +79,7 @@ bool flagMinhaBiblioteca = false;
         if(listaLivros == nil || listaLivros.count ==0 ){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Não existem livros nesta estante, por favor verifique o usuário e senha e/ou a disponibilidade com o IBRACON." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-            
+
             return;
         }
     }else if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
@@ -91,7 +91,7 @@ bool flagMinhaBiblioteca = false;
         if(listaLivros == nil || listaLivros.count ==0 ){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Não existem livros nesta estante, você deve baixar algum livro primeiro." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-            
+
             return;
         }
     }

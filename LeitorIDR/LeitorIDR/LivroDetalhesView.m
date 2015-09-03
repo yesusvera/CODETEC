@@ -291,8 +291,23 @@ NSUserDefaults *userDefaults;
         
         //        [GLB showMessage:@"Download finalizado com sucesso!"];
     } failure:^(AFHTTPRequestOperation *op, NSError *error) {
-        [GLB showMessage:
-         [NSString stringWithFormat:@"Error no download: %@", [error localizedDescription]]];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download "
+//                                                        message:@"Erro no download o livro. Verifique sua conexão com a internet."
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil
+//                              ];
+//        [alert show];
+//        
+        progressBar.hidden = YES;
+        loadingIndicator.hidden = YES;
+        
+        [loadingIndicator stopAnimating];
+
+//        [GLB showMessage:
+//         [NSString stringWithFormat:@"Error no download: %@", [error localizedDescription]]];
+        
+        [GLB showMessage:@"Erro no download o livro. Verifique sua conexão com a internet."];
     }];
     
     [operation setDownloadProgressBlock:^(NSUInteger read, long long totalRead, long long totalExpected) {

@@ -290,7 +290,7 @@
     dadosDispositivo.macAdress    = self.lblMacAdress.text;
     dadosDispositivo.serial       = self.lblSerial.text;
     
-    self.btnRegistrar.enabled = false;
+    self.btnRegistrar.hidden = true;
 
     ConexaoRegistrarDispositivo *solicitarRegistroDispositivo =[[ConexaoRegistrarDispositivo alloc]init];
     [solicitarRegistroDispositivo registrarDispositivo: self.indicadorAtividade controller:self comDadosCliente:dadosCliente comDadosDispositivo:dadosDispositivo botaoRegistrar:self.btnRegistrar];

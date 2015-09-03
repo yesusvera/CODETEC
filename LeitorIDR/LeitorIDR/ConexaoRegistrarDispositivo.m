@@ -137,7 +137,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        btnRegistrar.enabled = true;
+        btnRegistrar.hidden = FALSE;
         
         NSLog(@"%s: AFHTTPRequestOperation error: %@", __FUNCTION__, error);
 
@@ -149,7 +149,20 @@
             registrarDispositivoResponse.dadosCliente = dadosCliente;
             estanteController.registrarDispositivoResponse = registrarDispositivoResponse;
             [controlador.navigationController pushViewController:estanteController animated:YES];
+        }else{ //PROBLEMAS COM A INTERNET
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Registro "
+                                                            message:@"Não é possível realizar o registro. Verifique sua conexão com a internet."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil
+                                  
+                                  ];
+            
+            [alert show];
         }
+        
+        [indicadorAtividade stopAnimating];
+        indicadorAtividade.hidden = YES;
     }];
     
     indicadorAtividade.hidden = NO;
