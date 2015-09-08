@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="black" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jVf-ES-crK">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jVf-ES-crK">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
@@ -24,6 +24,12 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jVf-ES-crK" secondAttribute="bottom" id="B06-os-zuZ"/>
+                <constraint firstAttribute="trailing" secondItem="jVf-ES-crK" secondAttribute="trailing" id="TFs-dJ-odD"/>
+                <constraint firstItem="jVf-ES-crK" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="eW3-aw-iG2"/>
+                <constraint firstItem="jVf-ES-crK" firstAttribute="top" secondItem="2" secondAttribute="top" id="rJA-WY-Mj5"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
         </view>
     </objects>

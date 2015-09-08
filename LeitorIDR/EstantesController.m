@@ -23,7 +23,8 @@ EstanteLivrosController *estanteLivrosController;
 
 - (void)viewDidLoad
 {
-    estantes = @[@"Visão Geral", @"Disponíveis", @"Direito de uso", @"Minha Biblioteca"];
+//    estantes = @[@"Visão Geral", @"Disponíveis", @"Direito de uso", @"Minha Biblioteca"];
+    estantes = @[@"Disponíveis", @"Direito de uso", @"Minha Biblioteca"];
 
     [super viewDidLoad];
 
@@ -91,8 +92,6 @@ EstanteLivrosController *estanteLivrosController;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
-
-
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

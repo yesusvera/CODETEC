@@ -135,6 +135,27 @@ bool flagMinhaBiblioteca = false;
     }
 }
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if([_nomeEstante isEqualToString:@"Minha Biblioteca"]){
+        [tableView beginUpdates];
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            // Do whatever data deletion you need to do...
+            // Delete the row from the data source
+            
+            [self.listaLivros removeObjectAtIndex:indexPath.row];
+            
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationTop];
+        }
+        [tableView endUpdates];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Somente os livros da estante Minha Biblioteca podem ser excluídos." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+
+    }
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"livro"];
     NSString *tituloLivro;

@@ -12,7 +12,6 @@
 - (IBAction)registrarDispositivo:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *txtRegistroNacional;
 @property (weak, nonatomic) IBOutlet UITextField *txtCPFCNPJ;
-@property (weak, nonatomic) IBOutlet UITextField *txtSenha;
 @property (weak, nonatomic) IBOutlet UILabel *lblDispositivo;
 @property (weak, nonatomic) IBOutlet UILabel *lblMacAdress;
 @property (weak, nonatomic) IBOutlet UILabel *lblIP;

@@ -239,7 +239,7 @@
     
     NSLog(@"documento: %@", dadosCliente.documento);
     
-    dadosCliente.senha            = self.txtSenha.text;
+//    dadosCliente.senha            = self.txtSenha.text;
     dadosCliente.palavraChave     = @"";
     
     
