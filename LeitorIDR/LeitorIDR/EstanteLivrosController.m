@@ -143,9 +143,24 @@ bool flagMinhaBiblioteca = false;
             // Do whatever data deletion you need to do...
             // Delete the row from the data source
             
-            [self.listaLivros removeObjectAtIndex:indexPath.row];
+            LivroResponse *livro = [listaLivros objectAtIndex:indexPath.row];
             
+            NSFileManager *manager = [NSFileManager defaultManager];
+            NSString *documentName = [livro.arquivomobile.lastPathComponent stringByRemovingPercentEncoding];
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            NSString *fullPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",documentName]];
+            [manager removeItemAtPath:fullPath error:nil];
+            
+             LivrosBaixadosDAO *livroBaixadosDAO = [[LivrosBaixadosDAO alloc] init];
+            [livroBaixadosDAO excluirLivro:livro];
+            
+            [self.listaLivros removeObjectAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationTop];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IBRACON" message:@"Conteúdo excluído com sucesso!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+
         }
         [tableView endUpdates];
     }else{

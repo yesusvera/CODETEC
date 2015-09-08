@@ -347,6 +347,8 @@
 		299D7B4418BC35B100724BED /* views */ = {
 			isa = PBXGroup;
 			children = (
+				FB3A5C5018BD639400A0FEA8 /* LivroDetalhesView.h */,
+				FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */,
 				FB8EE8E81957671200FB91C9 /* AnotacoesViewController.h */,
 				FB8EE8E91957671200FB91C9 /* AnotacoesViewController.m */,
 				FB8EE8F11957AF1B00FB91C9 /* ListaAnotacoesViewController.h */,
@@ -450,8 +452,6 @@
 				FBD0EC331951510F00905486 /* OutLineViewController.m */,
 				FBD0EC2F195150F700905486 /* OUTLINE_ITEM.h */,
 				FBD0EC30195150F700905486 /* OUTLINE_ITEM.m */,
-				FB3A5C5018BD639400A0FEA8 /* LivroDetalhesView.h */,
-				FB3A5C5118BD639400A0FEA8 /* LivroDetalhesView.m */,
 			);
 			name = livros;
 			sourceTree = "<group>";
