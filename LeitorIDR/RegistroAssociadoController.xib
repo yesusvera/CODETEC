@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistroAssociadoController">
@@ -44,7 +45,7 @@
                                 <constraint firstAttribute="width" constant="136" id="FNw-PM-8fm"/>
                                 <constraint firstAttribute="height" constant="21" id="JEV-Yv-FIH"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.058823529409999999" green="0.2470588235" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -54,7 +55,7 @@
                                 <constraint firstAttribute="height" constant="21" id="KZH-Ii-N7w"/>
                                 <constraint firstAttribute="width" constant="7" id="p11-s9-AjA"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="1" green="0.2218808998" blue="0.16915310489999999" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="highlightedColor" red="1" green="0.2218808998" blue="0.16915310489999999" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
@@ -64,7 +65,7 @@
                                 <constraint firstAttribute="height" constant="21" id="MxG-TP-WhA"/>
                                 <constraint firstAttribute="width" constant="94" id="g5C-aD-W8x"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                             <color key="textColor" red="0.058823529409999999" green="0.2470588235" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -74,7 +75,7 @@
                                 <constraint firstAttribute="width" constant="108" id="Jhh-cc-Jtm"/>
                                 <constraint firstAttribute="height" constant="21" id="rIk-ju-ueg"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                             <color key="textColor" red="0.058823529409999999" green="0.2470588235" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -84,7 +85,7 @@
                                 <constraint firstAttribute="width" constant="46" id="3q8-59-bv3"/>
                                 <constraint firstAttribute="height" constant="21" id="ZTi-gS-3aV"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                             <color key="textColor" red="0.058823529409999999" green="0.2470588235" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -94,7 +95,7 @@
                                 <constraint firstAttribute="width" constant="91" id="QBB-sL-2Ln"/>
                                 <constraint firstAttribute="height" constant="21" id="g2W-tY-DJf"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                             <color key="textColor" red="0.058823529409999999" green="0.2470588235" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -118,7 +119,7 @@
                                 <constraint firstAttribute="width" constant="162" id="DkR-22-mLI"/>
                                 <constraint firstAttribute="height" constant="21" id="hFL-oq-Km2"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypO-bL-EFp">
@@ -127,7 +128,7 @@
                                 <constraint firstAttribute="height" constant="21" id="Mle-tS-TUV"/>
                                 <constraint firstAttribute="width" constant="159" id="mSN-AD-8ub"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTw-tx-EPC">
@@ -136,7 +137,7 @@
                                 <constraint firstAttribute="height" constant="20" id="pbb-iJ-Jfu"/>
                                 <constraint firstAttribute="width" constant="176" id="xhG-Cm-7MO"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Campos obrigatórios" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpg-WY-wge">
@@ -145,7 +146,7 @@
                                 <constraint firstAttribute="width" constant="136" id="Le1-Zs-ccW"/>
                                 <constraint firstAttribute="height" constant="21" id="amD-z3-GW4"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="(*)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIh-K9-CfL">
@@ -154,7 +155,7 @@
                                 <constraint firstAttribute="width" constant="17" id="V82-D1-fdD"/>
                                 <constraint firstAttribute="height" constant="24" id="i2C-ZN-WXu"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="1" green="0.2218808998" blue="0.16915310489999999" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="highlightedColor" red="1" green="0.2218808998" blue="0.16915310489999999" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
@@ -164,7 +165,7 @@
                                 <constraint firstAttribute="width" constant="176" id="a9d-3G-MiB"/>
                                 <constraint firstAttribute="height" constant="21" id="s71-Tx-oAc"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="188" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="6XZ-0x-09b">
@@ -207,7 +208,7 @@
                                 <constraint firstAttribute="width" constant="7" id="879-Nk-ABo"/>
                                 <constraint firstAttribute="height" constant="21" id="mvZ-MS-bIi"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="1" green="0.2218808998" blue="0.16915310489999999" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="highlightedColor" red="1" green="0.2218808998" blue="0.16915310489999999" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
@@ -263,9 +264,4 @@
             <point key="canvasLocation" x="330" y="354"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
